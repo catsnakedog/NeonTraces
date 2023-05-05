@@ -17,11 +17,15 @@ public class MapMake : MonoBehaviour
     GameObject moveDots;
     GameObject enemys;
     GameObject eventDots;
+    LineRenderer lr;
+    [SerializeField] private Material lrDefault;
+
     DataManager Data;
     [SerializeField] private int stage;
     void Start()
     {
         Data = DataManager.data;
+        stage = Data.saveData.gameData.stage;
         map = GameObject.Find("Map");
         moveDots = map.transform.GetChild(1).gameObject;
         enemys = map.transform.GetChild(0).gameObject;
@@ -30,6 +34,7 @@ public class MapMake : MonoBehaviour
 
     public void MapSetting()
     {
+        RineRendererSetting();
         MoveDotSetting(stage);
         EnemySetting(stage);
         EventDotSetting(stage);
@@ -37,6 +42,8 @@ public class MapMake : MonoBehaviour
 
     public void MapDelete()
     {
+        lr.enabled = false;
+        Destroy(lr);
         DestroyAll(moveDotList);
         DestroyAll(enemyList);
         DestroyAll(eventDotList);
@@ -54,8 +61,12 @@ public class MapMake : MonoBehaviour
 
     void MoveDotSetting(int stage)
     {
+        lr.SetPosition(0, Data.saveData.mapData[stage].moveDots[0].v3);
+        lr.positionCount = Data.saveData.mapData[stage].moveDots.Count;
+        lr.enabled = true;
         for (int i = 0; i < Data.saveData.mapData[stage].moveDots.Count; i++)
         {
+            lr.SetPosition(i, Data.saveData.mapData[stage].moveDots[i].v3);
             moveDotList.Add(Instantiate(moveDot, Data.saveData.mapData[stage].moveDots[i].v3, Quaternion.identity));
             moveDotList[i].transform.SetParent(moveDots.transform, true);
         }
@@ -77,5 +88,17 @@ public class MapMake : MonoBehaviour
             eventDotList.Add(Instantiate(eventDot[Data.saveData.mapData[stage].eventDots[i].type], Data.saveData.mapData[0].eventDots[i].v3, Quaternion.identity));
             eventDotList[i].transform.SetParent(eventDots.transform, true);
         }
+    }
+
+    void RineRendererSetting()
+    {
+        gameObject.transform.GetChild(0).gameObject.AddComponent<LineRenderer>();
+        lr = gameObject.transform.GetChild(0).gameObject.GetComponent<LineRenderer>();
+        lr.enabled = false;
+        lr.startColor = moveDot.GetComponent<SpriteRenderer>().color;
+        lr.endColor = moveDot.GetComponent<SpriteRenderer>().color;
+        lr.material = lrDefault;
+        lr.startWidth = 0.05f;
+        lr.endWidth = 0.05f;
     }
 }

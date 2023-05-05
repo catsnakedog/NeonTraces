@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEditor;
+using JetBrains.Annotations;
 
 [System.Serializable]
 public class MoveDot
@@ -59,13 +60,30 @@ public class MapInfo
         this.eventDots = eventDots;
     }
 }
+[System.Serializable]
+public class GameData
+{
+    public int stage;
+    public GameObject player;
+
+    public GameData()
+    {
+        this.stage = 0;
+    }
+    public GameData(int stage)
+    {
+        this.stage = stage;
+    }
+}
 
 [System.Serializable]
 public class SaveDataClass
 {
     public List<MapInfo> mapData;
+    public GameData gameData;
     public SaveDataClass()
     {
         mapData = new List<MapInfo>();
+        gameData = new GameData();
     }
 }
