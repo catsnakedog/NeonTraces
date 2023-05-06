@@ -6,13 +6,13 @@ using UnityEngine;
 
 public class DataManager : MonoBehaviour
 {
-    JsonManager jsonManager;
-    public SaveDataClass saveData;
+    JsonManager jsonManager; // json에서 값을 읽어오거나 저장하는 JsonManager
+    public SaveDataClass saveData; // 데이터를 저장하는 형식인 SaveDataClass
     public static DataManager data;
 
     void Awake()
     {
-        if (data == null)
+        if (data == null) // DataManager의 유일성 보장
         {
             data = this;
             DontDestroyOnLoad(gameObject);
@@ -26,12 +26,12 @@ public class DataManager : MonoBehaviour
 
         Load();
     }
-    public void Save()
+    public void Save() // saveData에 기록된 데이터들을 json에 저장한다
     {
         jsonManager.SaveJson(saveData);
     }
 
-    public void Load()
+    public void Load() // json에 기록돼있는 데이터들을 saveData에 볼러온다
     {
         saveData = jsonManager.LoadSaveData();
     }

@@ -5,30 +5,30 @@ using UnityEngine;
 public class PlayerAction : MonoBehaviour
 {
     [SerializeField] public bool isAttack;
-    [SerializeField] public bool isDefence;
-    [SerializeField] public bool isAction;
-    [SerializeField] public bool isDelay;
-    [SerializeField] private float attackDelay;
-    [SerializeField] private float attackMotionTime;
-    [SerializeField] private float defenceMotionTime;
+    [SerializeField] public bool isDefence; // 플레이어가 공격 or 방어 중인지 확인하는 변수들
+    [SerializeField] public bool isAction; // EnemySetting과 상호작용할때 공격, 방어 중인지 판별하는 변수
+    [SerializeField] public bool isDelay; // 딜레이 확인용 변수
+    [SerializeField] private float attackDelay; // 헛공격시 딜레이
+    [SerializeField] private float attackMotionTime; // 어택 에니메이션 실행시간
+    [SerializeField] private float defenceMotionTime; // 방어 에니메이션 실행시간
 
     public Coroutine actionC;
 
-    public void Attack()
+    public void Attack() // 플레이어 공격
     {
         if (!isDelay) actionC = StartCoroutine("AttackAction");
     }
-    public void Defence()
+    public void Defence() // 플레이어 방어
     {
         if (!isDelay) actionC = StartCoroutine("DefenceAction");
     }
 
-    public void Death()
+    public void Death() // 플레이어가 죽을시 실행
     {
         GameOver();
     }
 
-    IEnumerator AttackAction()
+    IEnumerator AttackAction() // Attack 관련 세팅
     {
         isAttack = true;
         isAction = true;
@@ -39,7 +39,7 @@ public class PlayerAction : MonoBehaviour
         yield return new WaitForSeconds(attackDelay);
         isDelay = false;
     }
-    IEnumerator DefenceAction()
+    IEnumerator DefenceAction() // Defence 관련 세팅
     {
         isDefence = true;
         isAction = true;
@@ -51,7 +51,7 @@ public class PlayerAction : MonoBehaviour
         isDelay = false;
     }
 
-    void GameOver()
+    void GameOver() // 게임오버시 실행되는 함수, 관련된 내용은 여기 안에다가 작업하면 된다
     {
         Time.timeScale = 0f;
         Debug.Log("게임오버");

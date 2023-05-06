@@ -161,8 +161,15 @@
     ],
     "gameData": {
         "stage": 0,
+        "stageClearInfo": [
+            false,
+            false,
+            false,
+            false,
+            false
+        ],
         "player": {
-            "instanceID": 25584
+            "instanceID": 40402
         }
     }
 }

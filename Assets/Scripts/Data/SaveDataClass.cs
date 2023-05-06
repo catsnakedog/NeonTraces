@@ -64,15 +64,18 @@ public class MapInfo
 public class GameData
 {
     public int stage;
+    public List<bool> stageClearInfo;
     public GameObject player;
 
     public GameData()
     {
         this.stage = 0;
+        this.stageClearInfo = new List<bool> { };
     }
-    public GameData(int stage)
+    public GameData(int stage, List<bool> stageClearInfo)
     {
         this.stage = stage;
+        this.stageClearInfo = stageClearInfo;
     }
 }
 

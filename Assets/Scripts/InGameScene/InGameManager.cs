@@ -20,7 +20,7 @@ public class InGameManager : MonoBehaviour
         Invoke("SettingGame", 1f);
     }
 
-    void SettingGame()
+    void SettingGame() // 게임 시작 함수
     {
         mapMake.EnemySetting(stage);
         mapMake.EventDotSetting(stage);
