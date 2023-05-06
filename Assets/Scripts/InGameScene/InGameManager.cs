@@ -20,7 +20,7 @@ public class InGameManager : MonoBehaviour
         Invoke("SettingGame", 1f);
     }
 
-    void SettingGame() // 게임 시작 함수
+    void SettingGame() // 게임 시작 함수, 맵생성 플레이어 움직임 등등을 한다 / 아마도 맵생성과 움직임은 불리해서 실행할거같다 (수정 필요)
     {
         mapMake.EnemySetting(stage);
         mapMake.EventDotSetting(stage);

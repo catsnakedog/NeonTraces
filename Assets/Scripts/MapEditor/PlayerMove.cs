@@ -134,17 +134,17 @@ public class PlayerMove : MonoBehaviour
         playerAction = null;
     }
 
-    public void GameStop()
+    public void GameStop() // 게임을 멈춘다
     {
         Time.timeScale = 0;
     }
 
-    public void GameResume()
+    public void GameResume() // 게임을 다시 시작한다
     {
         Time.timeScale = 1;
     }
 
-    public void GameBack()
+    public void GameBack() // 플레이어의 위치를 뒤로 되돌린다
     {
         power = 10f;
         BackOrFront = true;
