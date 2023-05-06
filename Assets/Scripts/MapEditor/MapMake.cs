@@ -32,7 +32,7 @@ public class MapMake : MonoBehaviour
         eventDots = map.transform.GetChild(2).gameObject;
     }
 
-    public void MapSetting()
+    public void MapSetting() // 맵세팅 (맵 에디터 용)
     {
         RineRendererSetting();
         MoveDotSetting(stage);
@@ -40,7 +40,7 @@ public class MapMake : MonoBehaviour
         EventDotSetting(stage);
     }
 
-    public void MapDelete()
+    public void MapDelete() // 맵삭제 (맵 에디터 용)
     {
         lr.enabled = false;
         Destroy(lr);
@@ -50,7 +50,7 @@ public class MapMake : MonoBehaviour
     }
 
 
-    void DestroyAll(List<GameObject> target)
+    void DestroyAll(List<GameObject> target) // 리스트 안에 있는 모든 게임오브젝트를 파괴한다
     {
         for (int i = 0; i < target.Count; i++)
         {
@@ -59,7 +59,7 @@ public class MapMake : MonoBehaviour
         target.Clear();
     }
 
-    void MoveDotSetting(int stage)
+    void MoveDotSetting(int stage) // 시각적으로 어느 위치로 움직이는지 확인하기 위해 점들을 세팅해준다 (맵 에디터 용)
     {
         lr.SetPosition(0, Data.saveData.mapData[stage].moveDots[0].v3);
         lr.positionCount = Data.saveData.mapData[stage].moveDots.Count;
@@ -72,7 +72,7 @@ public class MapMake : MonoBehaviour
         }
     }
 
-    public void EnemySetting(int stage)
+    public void EnemySetting(int stage) // 적들을 세팅해준다
     {
         for (int i = 0; i < Data.saveData.mapData[stage].enemys.Count; i++)
         {
@@ -81,7 +81,7 @@ public class MapMake : MonoBehaviour
         }
     }
 
-    public void EventDotSetting(int stage)
+    public void EventDotSetting(int stage) // 이벤트포인트를 세팅해준다
     {
         for (int i = 0; i < Data.saveData.mapData[stage].eventDots.Count; i++)
         {
@@ -90,7 +90,7 @@ public class MapMake : MonoBehaviour
         }
     }
 
-    void RineRendererSetting()
+    void RineRendererSetting() // 시각적으로 어느 위치로 움직이는지 확인하기 위해 점들 사이를 직선으로 이어준다 (맵 에디터 용)
     {
         gameObject.transform.GetChild(0).gameObject.AddComponent<LineRenderer>();
         lr = gameObject.transform.GetChild(0).gameObject.GetComponent<LineRenderer>();
