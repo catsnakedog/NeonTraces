@@ -26,14 +26,11 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private bool isCountUp;
     [SerializeField] private bool BackOrFront;
 
-    void Awake()
+    void Start()
     {
         Data = DataManager.data;
         Data.saveData.gameData.player = player;
         stage = Data.saveData.gameData.stage;
-    }
-    void Start()
-    {
         crruentMoveDot = 0;
         player.transform.position = Data.saveData.mapData[stage].moveDots[crruentMoveDot].v3;
     }

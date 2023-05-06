@@ -72,7 +72,7 @@ public class MapMake : MonoBehaviour
         }
     }
 
-    void EnemySetting(int stage)
+    public void EnemySetting(int stage)
     {
         for (int i = 0; i < Data.saveData.mapData[stage].enemys.Count; i++)
         {
@@ -81,7 +81,7 @@ public class MapMake : MonoBehaviour
         }
     }
 
-    void EventDotSetting(int stage)
+    public void EventDotSetting(int stage)
     {
         for (int i = 0; i < Data.saveData.mapData[stage].eventDots.Count; i++)
         {

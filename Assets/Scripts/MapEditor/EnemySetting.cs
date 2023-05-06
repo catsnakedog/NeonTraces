@@ -96,6 +96,7 @@ public class EnemySetting : MonoBehaviour
 
     void patternClear()
     {
+        isActive = false;
         playerAction.isDelay = false;
         playerAction.isAction = false;
         playerAction.isDefence = false;
@@ -109,7 +110,6 @@ public class EnemySetting : MonoBehaviour
         {
             if (pattern[cnt] == 1)
             {
-                isActive = false;
                 Vector3 vDist = gameObject.transform.position - player.transform.position;
                 Vector3 vDir = vDist.normalized;
                 endPoint = gameObject.transform.position + vDir*power;
@@ -120,7 +120,6 @@ public class EnemySetting : MonoBehaviour
     }
     void Death()
     {
-        isActive = false;
         Debug.Log("Àû »ç¸Á");
     }
 
@@ -143,5 +142,10 @@ public class EnemySetting : MonoBehaviour
             enemyAction -= IsEndPoint;
             isActive = true;
         }
+    }
+
+    ~EnemySetting()
+    {
+        enemyAction = null;
     }
 }
