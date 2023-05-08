@@ -12,8 +12,8 @@ public class PlayerMove : MonoBehaviour
 
     Action playerAction = null;
     [SerializeField] private float speed;
-    [SerializeField] private float playerActionSpeed;
-    [SerializeField] private float power;
+    [SerializeField] public float playerActionSpeed;
+    [SerializeField] public float power;
     [SerializeField] private int stage;
     [SerializeField] private int crruentMoveDot;
     [SerializeField] private int MoveDotSize;
@@ -24,9 +24,9 @@ public class PlayerMove : MonoBehaviour
 
     [SerializeField] private string className;
     [SerializeField] private bool isCountUp;
-    [SerializeField] private bool BackOrFront;
+    [SerializeField] public bool BackOrFront;
 
-    void Start()
+    void Awake()
     {
         Data = DataManager.data;
         Data.saveData.gameData.player = player;
@@ -113,7 +113,7 @@ public class PlayerMove : MonoBehaviour
                 this.power = (b - a) / vDir.magnitude;
                 this.BackOrFront = BackOrFront;
                 crruentMoveDot--;
-                MoveAToB("Test", false);
+                MoveAToB("Rebound", false);
             }
         }
         else
@@ -153,9 +153,9 @@ public class PlayerMove : MonoBehaviour
         power = 10f;
         BackOrFront = true;
         playerActionSpeed = 10f;
-        Test();
+        Rebound();
     }
-    public void Test() // 어택시 밀림 판정 테스트
+    public void Rebound() // 어택시 밀림 판정 테스트
     {
         startPoint = Data.saveData.mapData[stage].moveDots[crruentMoveDot].v3;
         endPoint = Data.saveData.mapData[stage].moveDots[crruentMoveDot + 1].v3;
@@ -167,10 +167,5 @@ public class PlayerMove : MonoBehaviour
         playerActionSpeed = 1f;
         power = 1f;
         BackOrFront = true;
-    }
-
-    void EnemyIsActive()
-    {
-
     }
 }

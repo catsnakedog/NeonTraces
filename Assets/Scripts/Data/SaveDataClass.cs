@@ -47,12 +47,6 @@ public class MapInfo
     public List<MoveDot> moveDots;
     public List<Enemy> enemys;
     public List<EventDot> eventDots;
-    public MapInfo()
-    {
-        moveDots = new List<MoveDot>();
-        enemys = new List<Enemy>();
-        eventDots = new List<EventDot>();
-    }
     public MapInfo(List<MoveDot> moveDots, List<Enemy> enemys, List<EventDot> eventDots)
     {
         this.moveDots = moveDots;

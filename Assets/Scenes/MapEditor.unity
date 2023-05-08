@@ -1122,7 +1122,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Test
+  m_Text: Rebound
 --- !u!222 &772666265
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1599,7 +1599,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Test2
+  m_Text: ReboundPowerSet
 --- !u!222 &876869623
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2205,7 +2205,7 @@ GameObject:
   - component: {fileID: 1255250548}
   - component: {fileID: 1255250547}
   m_Layer: 5
-  m_Name: Test2B
+  m_Name: ReboundPowerSetB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4073,7 +4073,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1323966423}
         m_TargetAssemblyTypeName: OptimizeEnemy, Assembly-CSharp
-        m_MethodName: OptimizeStart
+        m_MethodName: StopOptimize
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4134,7 +4134,7 @@ GameObject:
   - component: {fileID: 2103286943}
   - component: {fileID: 2103286942}
   m_Layer: 5
-  m_Name: TestB
+  m_Name: ReboundB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4206,7 +4206,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1323966421}
         m_TargetAssemblyTypeName: PlayerMove, Assembly-CSharp
-        m_MethodName: Test
+        m_MethodName: Rebound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

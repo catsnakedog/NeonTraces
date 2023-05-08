@@ -7,7 +7,7 @@ using UnityEngine;
 public class OptimizeEnemy : MonoBehaviour
 {
     GameObject player;
-    GameObject camera;
+    new GameObject camera;
     DataManager Data;
 
     Action optimizeAction;
