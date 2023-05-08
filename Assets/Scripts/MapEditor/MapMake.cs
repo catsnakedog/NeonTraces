@@ -80,7 +80,7 @@ public class MapMake : MonoBehaviour
 
     public void EnemySetting(int stage) // 적들을 세팅해준다
     {
-
+        Data.saveData.gameData.enemyInfo.Clear();
         for (int i = 0; i < Data.saveData.mapData[stage].enemys.Count; i++)
         {
             enemyList.Add(Instantiate(enemy[Data.saveData.mapData[stage].enemys[i].type], Data.saveData.mapData[stage].enemys[i].v3, Quaternion.identity));
