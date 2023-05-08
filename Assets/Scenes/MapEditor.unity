@@ -1799,8 +1799,7 @@ MonoBehaviour:
   enemy:
   - {fileID: 2233360502546924863, guid: 5939afb8c83afe04e8ccf7f17506031f, type: 3}
   - {fileID: 2679943213632543797, guid: b183f0ec69dc8984ca47b0f9018be210, type: 3}
-  eventDot:
-  - {fileID: 675053823008500934, guid: db188901781e94545abd9da87ac25666, type: 3}
+  eventDot: {fileID: 675053823008500934, guid: db188901781e94545abd9da87ac25666, type: 3}
   stageInput: {fileID: 1739165525}
   lrDefault: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   stage: 0

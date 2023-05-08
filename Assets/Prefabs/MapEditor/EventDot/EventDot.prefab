@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 807130857522765069}
   - component: {fileID: 7668692919546657987}
   - component: {fileID: 7353500451631208074}
+  - component: {fileID: 4256152856999511739}
   m_Layer: 0
   m_Name: EventDot
   m_TagString: Dot
@@ -71,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 1, g: 0, b: 0.93984413, a: 1}
   m_FlipX: 0
@@ -93,7 +94,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -109,3 +110,40 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &4256152856999511739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675053823008500934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff99ba8d725612c4baf1502b77edda5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventTypeInfo:
+    type0:
+      nextMoveDot: 0
+    type1:
+      upSpeed: 0
+    type2:
+      cutSceneNumber: 0
+    type3:
+      speed: 0
+      startDot: 0
+      endDot: 0
+    type4:
+      soundName: 
+    type5:
+      cameraActionName: 
+    type6:
+      power: 0
+      speed: 0
+    type7:
+      timeScale: 0
+    type8:
+      animationName: 
+    type9:
+      stopTime: 0
+  type: 0

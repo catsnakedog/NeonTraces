@@ -9,7 +9,7 @@ public class MapMake : MonoBehaviour
 {
     [SerializeField] private GameObject moveDot;
     [SerializeField] private List<GameObject> enemy;
-    [SerializeField] private List<GameObject> eventDot;
+    [SerializeField] private GameObject eventDot;
 
     List<GameObject> moveDotList = new List<GameObject>();
     List<GameObject> enemyList = new List<GameObject>();
@@ -94,8 +94,10 @@ public class MapMake : MonoBehaviour
     {
         for (int i = 0; i < Data.saveData.mapData[stage].eventDots.Count; i++)
         {
-            eventDotList.Add(Instantiate(eventDot[Data.saveData.mapData[stage].eventDots[i].type], Data.saveData.mapData[stage].eventDots[i].v3, Quaternion.identity));
+            eventDotList.Add(Instantiate(eventDot, Data.saveData.mapData[stage].eventDots[i].v3, Quaternion.identity));
             eventDotList[i].transform.SetParent(eventDots.transform, true);
+            eventDotList[i].GetComponent<EventDotSetting>().type = Data.saveData.mapData[stage].eventDots[i].type;
+            eventDotList[i].GetComponent<EventDotSetting>().eventTypeInfo = Data.saveData.mapData[stage].eventDots[i].eventTypeInfo;
         }
     }
 
