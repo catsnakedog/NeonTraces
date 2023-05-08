@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MapMake : MonoBehaviour
 {
@@ -18,10 +20,13 @@ public class MapMake : MonoBehaviour
     GameObject enemys;
     GameObject eventDots;
     LineRenderer lr;
+    EnemyInfo enemyInfo;
+    [SerializeField] private InputField stageInput;
     [SerializeField] private Material lrDefault;
 
     DataManager Data;
     [SerializeField] private int stage;
+
     void Start()
     {
         Data = DataManager.data;
@@ -34,6 +39,7 @@ public class MapMake : MonoBehaviour
 
     public void MapSetting() // 맵세팅 (맵 에디터 용)
     {
+        stage = Data.saveData.gameData.stage;
         RineRendererSetting();
         MoveDotSetting(stage);
         EnemySetting(stage);
@@ -74,9 +80,12 @@ public class MapMake : MonoBehaviour
 
     public void EnemySetting(int stage) // 적들을 세팅해준다
     {
+
         for (int i = 0; i < Data.saveData.mapData[stage].enemys.Count; i++)
         {
-            enemyList.Add(Instantiate(enemy[Data.saveData.mapData[stage].enemys[i].type], Data.saveData.mapData[0].enemys[i].v3, Quaternion.identity));
+            enemyList.Add(Instantiate(enemy[Data.saveData.mapData[stage].enemys[i].type], Data.saveData.mapData[stage].enemys[i].v3, Quaternion.identity));
+            EnemyInfo temp = new EnemyInfo(enemyList[i], Data.saveData.mapData[stage].enemys[i].v3.x, i);
+            Data.saveData.gameData.enemyInfo.Add(temp);
             enemyList[i].transform.SetParent(enemys.transform, true);
         }
     }
@@ -85,7 +94,7 @@ public class MapMake : MonoBehaviour
     {
         for (int i = 0; i < Data.saveData.mapData[stage].eventDots.Count; i++)
         {
-            eventDotList.Add(Instantiate(eventDot[Data.saveData.mapData[stage].eventDots[i].type], Data.saveData.mapData[0].eventDots[i].v3, Quaternion.identity));
+            eventDotList.Add(Instantiate(eventDot[Data.saveData.mapData[stage].eventDots[i].type], Data.saveData.mapData[stage].eventDots[i].v3, Quaternion.identity));
             eventDotList[i].transform.SetParent(eventDots.transform, true);
         }
     }
@@ -100,5 +109,10 @@ public class MapMake : MonoBehaviour
         lr.material = lrDefault;
         lr.startWidth = 0.05f;
         lr.endWidth = 0.05f;
+    }
+
+    public void SetStage()
+    {
+        Data.saveData.gameData.stage = int.Parse(stageInput.text);
     }
 }

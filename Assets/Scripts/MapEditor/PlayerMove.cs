@@ -30,9 +30,6 @@ public class PlayerMove : MonoBehaviour
     {
         Data = DataManager.data;
         Data.saveData.gameData.player = player;
-        stage = Data.saveData.gameData.stage;
-        crruentMoveDot = 0;
-        player.transform.position = Data.saveData.mapData[stage].moveDots[crruentMoveDot].v3;
     }
 
     void Update()
@@ -66,7 +63,7 @@ public class PlayerMove : MonoBehaviour
     public void MoveStart() // 기본적인 움직임, moveDots를 따라서 이동한다, crreuntMoveDot만 정상적으로 입력돼있다면 도중에 취소했다가 다시 시작해도 상관없다
     {
         MoveDotSize = Data.saveData.mapData[stage].moveDots.Count;
-        if(crruentMoveDot == MoveDotSize-1)
+        if (crruentMoveDot == MoveDotSize-1)
         {
             Debug.Log("MoveEnd");
         }
@@ -128,10 +125,17 @@ public class PlayerMove : MonoBehaviour
     }
     public void GameReSet() // 세팅을 초기화한다
     {
+        stage = Data.saveData.gameData.stage;
         player.transform.position = Data.saveData.mapData[stage].moveDots[0].v3;
         crruentMoveDot = 0;
         Time.timeScale = 1;
         playerAction = null;
+    }
+
+    public void GameStart()
+    {
+        GameReSet();
+        MoveStart();
     }
 
     public void GameStop() // 게임을 멈춘다
@@ -163,5 +167,10 @@ public class PlayerMove : MonoBehaviour
         playerActionSpeed = 1f;
         power = 1f;
         BackOrFront = true;
+    }
+
+    void EnemyIsActive()
+    {
+
     }
 }

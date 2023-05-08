@@ -60,12 +60,29 @@ public class MapInfo
         this.eventDots = eventDots;
     }
 }
+
+[System.Serializable]
+public class EnemyInfo
+{
+    public GameObject enemy;
+    public float x;
+    public int index;
+
+    public EnemyInfo(GameObject enemy, float x,int index)
+    {
+        this.enemy = enemy;
+        this.x = x;
+        this.index = index;
+    }
+}
+
 [System.Serializable]
 public class GameData
 {
     public int stage;
     public List<bool> stageClearInfo;
     public GameObject player;
+    public List<EnemyInfo> enemyInfo;
 
     public GameData()
     {
