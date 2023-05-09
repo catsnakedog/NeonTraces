@@ -291,33 +291,33 @@
             false
         ],
         "player": {
-            "instanceID": 17392
+            "instanceID": 26978
         },
         "enemyInfo": [
             {
                 "enemy": {
-                    "instanceID": -11750
+                    "instanceID": -35026
                 },
                 "x": 4.0,
                 "index": 0
             },
             {
                 "enemy": {
-                    "instanceID": -11760
+                    "instanceID": -35036
                 },
                 "x": 11.0,
                 "index": 1
             },
             {
                 "enemy": {
-                    "instanceID": -11770
+                    "instanceID": -35046
                 },
                 "x": 15.0,
                 "index": 2
             },
             {
                 "enemy": {
-                    "instanceID": -11780
+                    "instanceID": -35056
                 },
                 "x": 20.0,
                 "index": 3

@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class ButtonController : MonoBehaviour
 {
-
     public GameObject menuPanel;
+    public GameObject startMenu;
+    public GameObject stageMenu;
+    
     private void Start()
     {
         menuPanel.SetActive(false); //게임 시작시 메뉴 패널 비활성화
@@ -34,6 +36,8 @@ public class ButtonController : MonoBehaviour
     public void StageMenu() //StartCanvas에서 StageCanvas로
     {
         Debug.Log("StageMenu");
+        startMenu.SetActive(false);
+        stageMenu.SetActive(true);
     }
 
 }

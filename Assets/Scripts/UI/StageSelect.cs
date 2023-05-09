@@ -5,31 +5,40 @@ using UnityEngine.UI;
 
 public class StageSelect : MonoBehaviour
 {
-    GameObject stage;
-    //GameObject cutScene;
- 
+    
     DataManager Data;
     GameData gamedata;
 
-    Image image;
-    public int stageNum; //스테이지 번호 0번부터
+    Button stageButton;
+    public static int stageNum; //스테이지 번호 0번부터
+    public GameObject cutSceneButton;
     
     // Start is called before the first frame update
     void Start()
     {
-        image = this.transform.GetComponent<Image>();
+        Data = DataManager.data; //static data
+        stageButton = this.transform.GetComponent<Button>();
         //cutScene = transform.FindChild("cutSceneButton");
-        
-        Data.Load();
-        gamedata = Data.saveData.gameData;
+
+        gamedata = Data.saveData.gameData; //해결 방안 모색 필요.....Null Reference
+        gamedata.stage = stageNum;
+
         if (gamedata.stageClearInfo[stageNum] == true) //클리어 완료 시
         {
-            //gameObject.SetActive(true); //컷씬 버튼 활성화
+            stageButton.interactable = true; //스테이지 활성화
+            cutSceneButton.SetActive(true); //컷씬 버튼 활성화
         }
-        else
+        else //스테이지 클리어 X
         {
-            image.color = Color.gray;
-            //gameObject.SetActive(false); //컷씬 버튼 비활성화
+            if (stageNum == 0) //첫번째 스테이지는 항상 활성화 
+            {
+                stageButton.interactable = true;
+            }
+            else //나머지는 클릭 불가
+            {
+                stageButton.interactable = false;
+            }
+            cutSceneButton.SetActive(false); //컷씬 버튼 비활성화
         }
     }
 
