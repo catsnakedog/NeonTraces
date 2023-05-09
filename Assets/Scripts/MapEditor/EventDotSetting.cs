@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,9 +8,13 @@ public class EventDotSetting : MonoBehaviour
     DataManager Data;
     PlayerMove playerMove;
     PlayerAction playerAction;
+    CutSceneManager cutSceneManager;
 
     GameObject player;
     public EventTypeInfo eventTypeInfo;
+
+    Coroutine eventCoroutine;
+    Action eventAction;
 
     public int type;
     /*
@@ -30,54 +35,95 @@ public class EventDotSetting : MonoBehaviour
         player = Data.saveData.gameData.player;
         playerMove = GameObject.Find("InGameManager").GetComponent<PlayerMove>();
         playerAction = GameObject.Find("InGameManager").GetComponent<PlayerAction>();
+        cutSceneManager = GameObject.Find("InGameManager").GetComponent<CutSceneManager>();
+    }
+
+    void Update()
+    {
+        eventAction?.Invoke();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("adasdasd");
+        StopAllCoroutines();
         if(collision.name == "Life")
         {
-            if (type == 0) Event0();
-            else if (type == 1) Event1();
-            else if (type == 2) Event2();
-            else if (type == 3) Event3();
-            else if (type == 4) Event4();
-            else if (type == 5) Event5();
-            else if (type == 6) Event6();
-            else if (type == 7) Event7();
-            else if (type == 8) Event8();
-            else if (type == 9) Event9();
+            eventCoroutine = StartCoroutine("Event"+type);
         }
     }
 
-    public void Event0()
+    IEnumerator Event0() // 플레이어 이동 (jump, down)
     {
+        yield return new WaitForSeconds(0f);
+        gameObject.SetActive(false);
     }
-    public void Event1()
+    IEnumerator Event1() // 속도 점진적 증가
     {
+        eventAction += UpSpeed;
+        yield return new WaitForSeconds(eventTypeInfo.type1.changeTime);
+        eventAction -= UpSpeed;
+        gameObject.SetActive(false);
     }
-    public void Event2()
+    IEnumerator Event2() // 컷씬
     {
+        playerMove.playerAction = null;
+        cutSceneManager.Invoke("CutScene"+eventTypeInfo.type2.cutSceneNumber, 0f);
+        yield return new WaitForSeconds(3f);
+        playerMove.MoveStart();
+        gameObject.SetActive(false);
     }
-    public void Event3()
+    IEnumerator Event3() // startDot 적이 움직이는 방향 반대쪽 가장 가까운 점, endDot 적이 어디까지 움직이는가(moveDot기준)
     {
+        EnemySetting enemy;
+        enemy = Data.saveData.gameData.enemyInfo[eventTypeInfo.type3.index].enemy.GetComponent<EnemySetting>();
+        enemy.power = 0;
+        enemy.speed = eventTypeInfo.type3.speed;
+        enemy.startDot = eventTypeInfo.type3.startDot;
+        enemy.endDot = eventTypeInfo.type3.endDot;
+        enemy.EnemyMoveStart();
+        yield return new WaitForSeconds(0f);
+        gameObject.SetActive(false);
     }
-    public void Event4()
+    IEnumerator Event4() // 사운드(미구현)
     {
+        yield return new WaitForSeconds(0f);
+        gameObject.SetActive(false);
     }
-    public void Event5()
+    IEnumerator Event5() // 카메라 액션(미구현)
     {
+        yield return new WaitForSeconds(0f);
+        gameObject.SetActive(false);
     }
-    public void Event6()
+    IEnumerator Event6() // 대쉬
     {
+        playerMove.playerActionSpeed = eventTypeInfo.type6.speed;
+        playerMove.power = eventTypeInfo.type6.power;
+        playerMove.BackOrFront = false;
+        playerMove.Rebound();
+        yield return new WaitForSeconds(0f);
+        gameObject.SetActive(false);
     }
-    public void Event7()
+    IEnumerator Event7() // 시간 조절
     {
+        Time.timeScale = eventTypeInfo.type7.timeScale;
+        yield return new WaitForSeconds(0f);
+        gameObject.SetActive(false);
     }
-    public void Event8()
+    IEnumerator Event8() // 에니메이션 변경 (미구현)
     {
+        yield return new WaitForSeconds(0f);
+        gameObject.SetActive(false);
     }
-    public void Event9()
+    IEnumerator Event9() // stopTIme동안 플레이어를 멈춘다(TimeScale != 0)
     {
+        playerMove.playerAction = null;
+        yield return new WaitForSeconds(eventTypeInfo.type9.stopTime);
+        playerMove.MoveStart();
+        gameObject.SetActive(false);
+    }
+
+    void UpSpeed() // Event1 관련 함수, speed를 점진적으로 증가시킴
+    {
+        playerMove.speed += (eventTypeInfo.type1.upSpeed * Time.deltaTime) / eventTypeInfo.type1.changeTime;
     }
 }

@@ -123,7 +123,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 1
+  isCountUp: 0
   type: 2
-  speed: 12
-  power: 2
-  pattern: 0100000000000000
+  index: 0
+  startDot: 0
+  currentDot: 0
+  endDot: 0
+  speed: 0
+  power: 0
+  DefaultSpeed: 20
+  DefaultPower: 2
+  className: 
+  pattern: 0100000001000000

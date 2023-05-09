@@ -75,10 +75,6 @@ public class EventTypeInfo
 public class EventType0
 {
     public int nextMoveDot;
-    public EventType0()
-    {
-        nextMoveDot = 0;
-    }
     public EventType0(int nextMoveDot)
     {
         this.nextMoveDot = nextMoveDot;
@@ -88,13 +84,16 @@ public class EventType0
 public class EventType1
 {
     public int upSpeed;
+    public float changeTime;
     public EventType1()
     {
         upSpeed = 0;
+        changeTime = 0;
     }
-    public EventType1(int upSpeed)
+    public EventType1(int upSpeed, float changeTime)
     {
         this.upSpeed = upSpeed;
+        this.changeTime = changeTime;
     }
 }
 [System.Serializable]
@@ -114,17 +113,20 @@ public class EventType2
 public class EventType3
 {
     public int speed;
+    public int index;
     public int startDot;
     public int endDot;
     public EventType3()
     {
         speed = 0;
+        index = 0;
         startDot = 0;
         endDot = 0;
     }
-    public EventType3(int speed, int startDot, int endDot)
+    public EventType3(int speed, int index, int startDot, int endDot)
     {
         this.speed = speed;
+        this.index = index;
         this.startDot = startDot;
         this.endDot = endDot;
     }
@@ -248,16 +250,19 @@ public class GameData
     public List<bool> stageClearInfo;
     public GameObject player;
     public List<EnemyInfo> enemyInfo;
+    public float camsize;
 
     public GameData()
     {
         this.stage = 0;
         this.stageClearInfo = new List<bool> { };
+        this.camsize = 0;
     }
-    public GameData(int stage, List<bool> stageClearInfo)
+    public GameData(int stage, List<bool> stageClearInfo, float camsize)
     {
         this.stage = stage;
         this.stageClearInfo = stageClearInfo;
+        this.camsize = camsize;
     }
 }
 

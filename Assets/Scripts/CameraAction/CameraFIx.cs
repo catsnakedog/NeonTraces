@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Camerafix : MonoBehaviour
 {
-    public static float camsize = 5;
+    public float camsize = 5;
     public GameObject A;
     Transform AT;
     public static float camspeed;

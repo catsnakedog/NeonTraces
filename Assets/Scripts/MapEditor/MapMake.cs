@@ -86,6 +86,7 @@ public class MapMake : MonoBehaviour
             enemyList.Add(Instantiate(enemy[Data.saveData.mapData[stage].enemys[i].type], Data.saveData.mapData[stage].enemys[i].v3, Quaternion.identity));
             EnemyInfo temp = new EnemyInfo(enemyList[i], Data.saveData.mapData[stage].enemys[i].v3.x, i);
             Data.saveData.gameData.enemyInfo.Add(temp);
+            enemyList[i].GetComponent<EnemySetting>().index = i;
             enemyList[i].transform.SetParent(enemys.transform, true);
         }
     }

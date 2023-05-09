@@ -7,9 +7,17 @@ using UnityEngine;
 public class EnemySetting : MonoBehaviour
 {
     [SerializeField] public bool isActive = true;
+    [SerializeField] public bool isCountUp;
     [SerializeField] public int type;
+    [SerializeField] public int index;
+    [SerializeField] public int startDot;
+    [SerializeField] public int currentDot;
+    [SerializeField] public int endDot;
     [SerializeField] public float speed;
-    [SerializeField] public float power;
+    [SerializeField] public float power; //0이면 포인트 끝까지 이동
+    [SerializeField] public float DefaultSpeed;
+    [SerializeField] public float DefaultPower;
+    [SerializeField] public string className;
     [SerializeField] public List<int> pattern; // 0 공격, 1 방어, 2...(특수액션)
 
     int cnt;
@@ -72,14 +80,10 @@ public class EnemySetting : MonoBehaviour
 
     void Attack() // enemy가 공격 상태일때
     {
-        Debug.Log("a");
         if(playerAction.isDefence)
         {
-            patternClear();
-            playerMove.power = 1;
-            playerMove.playerActionSpeed = 10;
-            playerMove.BackOrFront = true;
-            playerMove.Rebound();
+            PlayerRebound();
+            PatternClear();
         }
         else
         {
@@ -89,10 +93,10 @@ public class EnemySetting : MonoBehaviour
 
     void Defence() // enemy가 방어 상태일때
     {
-        Debug.Log("b");
         if (playerAction.isAttack)
         {
-            patternClear();
+            EnemyRebound();
+            PatternClear();
         }
         else
         {
@@ -100,7 +104,7 @@ public class EnemySetting : MonoBehaviour
         }
     }
 
-    void patternClear() // 성공적으로 판정에 성공 했을때 player 행동 쿨타임 초기화
+    void PatternClear() // 성공적으로 판정에 성공 했을때 player 행동 쿨타임 초기화
     {
         isActive = false;
         playerAction.isDelay = false;
@@ -108,29 +112,68 @@ public class EnemySetting : MonoBehaviour
         playerAction.isDefence = false;
         playerAction.isAttack = false;
         playerAction.StopCoroutine(playerAction.actionC);
-        if (cnt == pattern.Count - 1)
+        if (cnt == pattern.Count - 1) 
         {
             Death();
         }
         else
         {
-            if (pattern[cnt] == 1)
-            {
-                Vector3 vDist = gameObject.transform.position - player.transform.position;
-                Vector3 vDir = vDist.normalized;
-                endPoint = gameObject.transform.position + vDir*power;
-                MoveAtoB();
-            }
+            isActive = true;
             cnt++;
         }
     }
     void Death() // 패턴이 전부 소모시 사망
     {
-        Debug.Log("적 사망");
+        enemyAction = null;
     }
 
-    void MoveAtoB() // 적을 이동 시키기 위한 함수
+    public void EnemyMoveStart() // startDot -> 적이 움직이는 방향 반대방향에서 가장 가까운 점, endPoint -> 적이 어떤 점까지 움직이는지
     {
+        if(power == 0) // 적이 특정 지점까지 이동하는 이펙트, power 0으로 세팅해주면 된다
+        {
+            if (startDot == endDot)
+            {
+                Debug.Log("적이동 완료");
+            }
+            else if (startDot > endDot)
+            {
+                currentDot = startDot - 1;
+                endPoint = Data.saveData.mapData[Data.saveData.gameData.stage].moveDots[currentDot].v3;
+                MoveAtoB("EnemyMoveStart", false);
+            }
+            else
+            {
+                currentDot = startDot + 1;
+                endPoint = Data.saveData.mapData[Data.saveData.gameData.stage].moveDots[currentDot].v3;
+                MoveAtoB("EnemyMoveStart", true);
+            }
+        }
+        else // 적이 단순히 이동하는게 아니라 플레이어에게 공격당하고 밀릴때 판정
+        {
+            startPoint = Data.saveData.mapData[Data.saveData.gameData.stage].moveDots[currentDot].v3;
+            endPoint = Data.saveData.mapData[Data.saveData.gameData.stage].moveDots[currentDot+1].v3;
+            Vector3 vDist = endPoint - startPoint;
+            Vector3 vDir = vDist.normalized;
+            Vector3 tempEndV = endPoint;
+            endPoint = gameObject.transform.position + (vDir * power);
+            float a = (gameObject.transform.position - tempEndV).magnitude;
+            float b = (gameObject.transform.position - endPoint).magnitude;
+            if (b > a)
+            {
+                endPoint = Data.saveData.mapData[Data.saveData.gameData.stage].moveDots[playerMove.crruentMoveDot+1].v3;
+                MoveAtoB("", true);
+            }
+            else
+            {
+                MoveAtoB("", true);
+            }
+        }
+    }
+
+    void MoveAtoB(string className, bool isCountUp) // 적을 이동 시키기 위한 함수
+    {
+        this.className = className;
+        this.isCountUp = isCountUp;
         enemyAction += MoveBySpeed;
         enemyAction += IsEndPoint;
     }
@@ -146,8 +189,37 @@ public class EnemySetting : MonoBehaviour
         {
             enemyAction -= MoveBySpeed;
             enemyAction -= IsEndPoint;
-            isActive = true;
+            if(isCountUp)
+            {
+                startDot++;
+            }
+            else
+            {
+                startDot--;
+            }
+            if(className != "")
+            {
+                Invoke(className, 0f);
+            }
+            Data.saveData.gameData.enemyInfo[index].x = gameObject.transform.position.x;
         }
+    }
+
+    void PlayerRebound()
+    {
+        playerMove.power = 2f;
+        playerMove.playerActionSpeed = 20;
+        playerMove.BackOrFront = true;
+        playerMove.Rebound();
+    }
+
+    void EnemyRebound()
+    {
+        power = DefaultPower;
+        speed = DefaultSpeed;
+        startDot = playerMove.crruentMoveDot;
+        endDot = playerMove.crruentMoveDot+1;
+        EnemyMoveStart();
     }
 
     ~EnemySetting() // 소멸자

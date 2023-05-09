@@ -10,13 +10,13 @@ public class PlayerMove : MonoBehaviour
     DataManager Data;
     MapMake mapMake; // 테스트를 위해 임시로 추가 나중에 지울것
 
-    Action playerAction = null;
-    [SerializeField] private float speed;
+    public Action playerAction = null;
+    [SerializeField] public float speed;
     [SerializeField] public float playerActionSpeed;
     [SerializeField] public float power;
     [SerializeField] private int stage;
-    [SerializeField] private int crruentMoveDot;
-    [SerializeField] private int MoveDotSize;
+    [SerializeField] public int crruentMoveDot;
+    [SerializeField] private int moveDotSize;
     [SerializeField] private GameObject player;
 
     [SerializeField] private Vector3 startPoint;
@@ -62,8 +62,8 @@ public class PlayerMove : MonoBehaviour
 
     public void MoveStart() // 기본적인 움직임, moveDots를 따라서 이동한다, crreuntMoveDot만 정상적으로 입력돼있다면 도중에 취소했다가 다시 시작해도 상관없다
     {
-        MoveDotSize = Data.saveData.mapData[stage].moveDots.Count;
-        if (crruentMoveDot == MoveDotSize-1)
+        moveDotSize = Data.saveData.mapData[stage].moveDots.Count;
+        if (crruentMoveDot == moveDotSize-1)
         {
             Debug.Log("MoveEnd");
         }
@@ -86,39 +86,71 @@ public class PlayerMove : MonoBehaviour
     {
         Vector3 vDist = startPoint - endPoint;
         Vector3 vDir = vDist.normalized;
+        float a;
+        float b;
         if (BackOrFront)
         {
             endPoint = player.transform.position + (vDir * power);
+            a = (player.transform.position - startPoint).magnitude;
+            b = (player.transform.position - endPoint).magnitude;
         }
         else
         {
-            endPoint = player.transform.position + (vDir * power * -1);
+            a = (player.transform.position - endPoint).magnitude;
+            endPoint = player.transform.position - (vDir * power);
+            b = (player.transform.position - endPoint).magnitude;
         }
-        float a = (player.transform.position - startPoint).magnitude;
-        float b = (player.transform.position - endPoint).magnitude;
+        playerAction = null;
         if (a < b) // startPoint를 초과하는 경우
         {
-            if(crruentMoveDot == 0)
+            if (crruentMoveDot == moveDotSize-1)
             {
-                playerAction = null;
-                endPoint = startPoint;
+                if (BackOrFront)
+                {
+                    endPoint = Data.saveData.mapData[stage].moveDots[crruentMoveDot - 1].v3;
+                    crruentMoveDot--;
+                }
+                else
+                {
+                    endPoint = Data.saveData.mapData[stage].moveDots[crruentMoveDot].v3;
+                }
+                speed = playerActionSpeed;
+                MoveAToB("MoveStart", false);
+            }
+            else if(crruentMoveDot == 0)
+            {
+                if (BackOrFront)
+                {
+                    endPoint = startPoint;
+                }
+                else
+                {
+                    endPoint = Data.saveData.mapData[stage].moveDots[crruentMoveDot + 1].v3;
+                    crruentMoveDot++;
+                }
                 speed = playerActionSpeed;
                 MoveAToB("MoveStart", false);
             }
             else
             {
-                playerAction = null;
-                endPoint = startPoint;
+                if(BackOrFront)
+                {
+                    endPoint = startPoint;
+                    crruentMoveDot--;
+                }
+                else
+                {
+                    endPoint = Data.saveData.mapData[stage].moveDots[crruentMoveDot + 1].v3;
+                    crruentMoveDot++;
+                }
                 speed = playerActionSpeed;
                 this.power = (b - a) / vDir.magnitude;
                 this.BackOrFront = BackOrFront;
-                crruentMoveDot--;
                 MoveAToB("Rebound", false);
             }
         }
         else
         {
-            playerAction = null;
             speed = playerActionSpeed;
             MoveAToB("MoveStart", false);
         }
@@ -155,10 +187,24 @@ public class PlayerMove : MonoBehaviour
         playerActionSpeed = 10f;
         Rebound();
     }
+    public void GameFront() // 플레이어의 위치를 뒤로 되돌린다
+    {
+        power = 10f;
+        BackOrFront = false;
+        playerActionSpeed = 10f;
+        Rebound();
+    }
     public void Rebound() // 어택시 밀림 판정 테스트
     {
         startPoint = Data.saveData.mapData[stage].moveDots[crruentMoveDot].v3;
-        endPoint = Data.saveData.mapData[stage].moveDots[crruentMoveDot + 1].v3;
+        if (crruentMoveDot == moveDotSize-1)
+        {
+            endPoint = Data.saveData.mapData[stage].moveDots[crruentMoveDot].v3;
+        }
+        else
+        {
+            endPoint = Data.saveData.mapData[stage].moveDots[crruentMoveDot + 1].v3;
+        }
         PlayerMoveBackOrFront(power, BackOrFront);
     }
 
