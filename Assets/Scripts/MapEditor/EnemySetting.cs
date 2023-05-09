@@ -21,11 +21,13 @@ public class EnemySetting : MonoBehaviour
 
     Action enemyAction = null;
     PlayerAction playerAction;
+    PlayerMove playerMove;
     void Start()
     {
         Data = DataManager.data;
         player = Data.saveData.gameData.player;
         playerAction = GameObject.Find("InGameManager").GetComponent<PlayerAction>();
+        playerMove = GameObject.Find("InGameManager").GetComponent<PlayerMove>();
         cnt = 0;
     }
 
@@ -74,6 +76,10 @@ public class EnemySetting : MonoBehaviour
         if(playerAction.isDefence)
         {
             patternClear();
+            playerMove.power = 1;
+            playerMove.playerActionSpeed = 10;
+            playerMove.BackOrFront = true;
+            playerMove.Rebound();
         }
         else
         {

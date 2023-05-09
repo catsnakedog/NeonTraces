@@ -12,8 +12,8 @@ public class PlayerMove : MonoBehaviour
 
     Action playerAction = null;
     [SerializeField] private float speed;
-    [SerializeField] private float playerActionSpeed;
-    [SerializeField] private float power;
+    [SerializeField] public float playerActionSpeed;
+    [SerializeField] public float power;
     [SerializeField] private int stage;
     [SerializeField] private int crruentMoveDot;
     [SerializeField] private int MoveDotSize;
@@ -24,15 +24,12 @@ public class PlayerMove : MonoBehaviour
 
     [SerializeField] private string className;
     [SerializeField] private bool isCountUp;
-    [SerializeField] private bool BackOrFront;
+    [SerializeField] public bool BackOrFront;
 
-    void Start()
+    void Awake()
     {
         Data = DataManager.data;
         Data.saveData.gameData.player = player;
-        stage = Data.saveData.gameData.stage;
-        crruentMoveDot = 0;
-        player.transform.position = Data.saveData.mapData[stage].moveDots[crruentMoveDot].v3;
     }
 
     void Update()
@@ -66,7 +63,7 @@ public class PlayerMove : MonoBehaviour
     public void MoveStart() // 기본적인 움직임, moveDots를 따라서 이동한다, crreuntMoveDot만 정상적으로 입력돼있다면 도중에 취소했다가 다시 시작해도 상관없다
     {
         MoveDotSize = Data.saveData.mapData[stage].moveDots.Count;
-        if(crruentMoveDot == MoveDotSize-1)
+        if (crruentMoveDot == MoveDotSize-1)
         {
             Debug.Log("MoveEnd");
         }
@@ -116,7 +113,7 @@ public class PlayerMove : MonoBehaviour
                 this.power = (b - a) / vDir.magnitude;
                 this.BackOrFront = BackOrFront;
                 crruentMoveDot--;
-                MoveAToB("Test", false);
+                MoveAToB("Rebound", false);
             }
         }
         else
@@ -128,10 +125,17 @@ public class PlayerMove : MonoBehaviour
     }
     public void GameReSet() // 세팅을 초기화한다
     {
+        stage = Data.saveData.gameData.stage;
         player.transform.position = Data.saveData.mapData[stage].moveDots[0].v3;
         crruentMoveDot = 0;
         Time.timeScale = 1;
         playerAction = null;
+    }
+
+    public void GameStart()
+    {
+        GameReSet();
+        MoveStart();
     }
 
     public void GameStop() // 게임을 멈춘다
@@ -149,9 +153,9 @@ public class PlayerMove : MonoBehaviour
         power = 10f;
         BackOrFront = true;
         playerActionSpeed = 10f;
-        Test();
+        Rebound();
     }
-    public void Test() // 어택시 밀림 판정 테스트
+    public void Rebound() // 어택시 밀림 판정 테스트
     {
         startPoint = Data.saveData.mapData[stage].moveDots[crruentMoveDot].v3;
         endPoint = Data.saveData.mapData[stage].moveDots[crruentMoveDot + 1].v3;
