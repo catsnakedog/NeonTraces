@@ -74,10 +74,16 @@ public class EventTypeInfo
 [System.Serializable]
 public class EventType0
 {
+    public Vector3 pointDot1;
+    public Vector3 pointDot2;
     public int nextMoveDot;
-    public EventType0(int nextMoveDot)
+    public float time;
+    public EventType0(Vector3 pointDot1, Vector3 pointDot2,int nextMoveDot, float time)
     {
+        this.pointDot1 = pointDot1;
+        this.pointDot2 = pointDot2;
         this.nextMoveDot = nextMoveDot;
+        this.time = time;
     }
 }
 [System.Serializable]

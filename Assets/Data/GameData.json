@@ -73,6 +73,30 @@
                         "z": 0.0
                     },
                     "speed": 4.0
+                },
+                {
+                    "v3": {
+                        "x": 80.0,
+                        "y": 1.0,
+                        "z": 0.0
+                    },
+                    "speed": 4.0
+                },
+                {
+                    "v3": {
+                        "x": 83.0,
+                        "y": 1.0,
+                        "z": 0.0
+                    },
+                    "speed": 4.0
+                },
+                {
+                    "v3": {
+                        "x": 90.0,
+                        "y": 4.0,
+                        "z": 0.0
+                    },
+                    "speed": 4.0
                 }
             ],
             "enemys": [
@@ -127,7 +151,18 @@
                     "type": 1,
                     "eventTypeInfo": {
                         "type0": {
-                            "nextMoveDot": 0
+                            "pointDot1": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "pointDot2": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "nextMoveDot": 0,
+                            "time": 0.0
                         },
                         "type1": {
                             "upSpeed": 3,
@@ -172,7 +207,18 @@
                     "type": 2,
                     "eventTypeInfo": {
                         "type0": {
-                            "nextMoveDot": 0
+                            "pointDot1": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "pointDot2": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "nextMoveDot": 0,
+                            "time": 0.0
                         },
                         "type1": {
                             "upSpeed": 0,
@@ -217,7 +263,18 @@
                     "type": 1,
                     "eventTypeInfo": {
                         "type0": {
-                            "nextMoveDot": 0
+                            "pointDot1": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "pointDot2": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "nextMoveDot": 0,
+                            "time": 0.0
                         },
                         "type1": {
                             "upSpeed": -1,
@@ -262,7 +319,18 @@
                     "type": 3,
                     "eventTypeInfo": {
                         "type0": {
-                            "nextMoveDot": 0
+                            "pointDot1": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "pointDot2": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "nextMoveDot": 0,
+                            "time": 0.0
                         },
                         "type1": {
                             "upSpeed": 0,
@@ -307,7 +375,18 @@
                     "type": 6,
                     "eventTypeInfo": {
                         "type0": {
-                            "nextMoveDot": 0
+                            "pointDot1": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "pointDot2": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "nextMoveDot": 0,
+                            "time": 0.0
                         },
                         "type1": {
                             "upSpeed": 0,
@@ -352,7 +431,18 @@
                     "type": 7,
                     "eventTypeInfo": {
                         "type0": {
-                            "nextMoveDot": 0
+                            "pointDot1": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "pointDot2": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "nextMoveDot": 0,
+                            "time": 0.0
                         },
                         "type1": {
                             "upSpeed": 0,
@@ -397,7 +487,18 @@
                     "type": 7,
                     "eventTypeInfo": {
                         "type0": {
-                            "nextMoveDot": 0
+                            "pointDot1": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "pointDot2": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "nextMoveDot": 0,
+                            "time": 0.0
                         },
                         "type1": {
                             "upSpeed": 0,
@@ -442,7 +543,130 @@
                     "type": 9,
                     "eventTypeInfo": {
                         "type0": {
-                            "nextMoveDot": 0
+                            "pointDot1": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "pointDot2": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "nextMoveDot": 0,
+                            "time": 0.0
+                        },
+                        "type1": {
+                            "upSpeed": 0,
+                            "changeTime": 0.0
+                        },
+                        "type2": {
+                            "cutSceneNumber": 0
+                        },
+                        "type3": {
+                            "speed": 3,
+                            "index": 4,
+                            "startDot": 7,
+                            "endDot": 6
+                        },
+                        "type4": {
+                            "soundName": ""
+                        },
+                        "type5": {
+                            "cameraActionName": ""
+                        },
+                        "type6": {
+                            "power": 1,
+                            "speed": 20
+                        },
+                        "type7": {
+                            "timeScale": 1.0
+                        },
+                        "type8": {
+                            "animationName": ""
+                        },
+                        "type9": {
+                            "stopTime": 2.0
+                        }
+                    }
+                },
+                {
+                    "v3": {
+                        "x": 70.0,
+                        "y": 2.0,
+                        "z": 0.0
+                    },
+                    "type": 0,
+                    "eventTypeInfo": {
+                        "type0": {
+                            "pointDot1": {
+                                "x": 70.0,
+                                "y": 4.0,
+                                "z": 0.0
+                            },
+                            "pointDot2": {
+                                "x": 80.0,
+                                "y": 5.0,
+                                "z": 0.0
+                            },
+                            "nextMoveDot": 9,
+                            "time": 3.0
+                        },
+                        "type1": {
+                            "upSpeed": 0,
+                            "changeTime": 0.0
+                        },
+                        "type2": {
+                            "cutSceneNumber": 0
+                        },
+                        "type3": {
+                            "speed": 3,
+                            "index": 4,
+                            "startDot": 7,
+                            "endDot": 6
+                        },
+                        "type4": {
+                            "soundName": ""
+                        },
+                        "type5": {
+                            "cameraActionName": ""
+                        },
+                        "type6": {
+                            "power": 1,
+                            "speed": 20
+                        },
+                        "type7": {
+                            "timeScale": 1.0
+                        },
+                        "type8": {
+                            "animationName": ""
+                        },
+                        "type9": {
+                            "stopTime": 2.0
+                        }
+                    }
+                },
+                {
+                    "v3": {
+                        "x": 83.0,
+                        "y": 1.0,
+                        "z": 0.0
+                    },
+                    "type": 0,
+                    "eventTypeInfo": {
+                        "type0": {
+                            "pointDot1": {
+                                "x": 83.0,
+                                "y": 4.0,
+                                "z": 0.0
+                            },
+                            "pointDot2": {
+                                "x": 90.0,
+                                "y": 7.0,
+                                "z": 0.0
+                            },
+                            "nextMoveDot": 11,
+                            "time": 2.0
                         },
                         "type1": {
                             "upSpeed": 0,
@@ -538,40 +762,40 @@
             false
         ],
         "player": {
-            "instanceID": 25458
+            "instanceID": 17406
         },
         "enemyInfo": [
             {
                 "enemy": {
-                    "instanceID": -47352
+                    "instanceID": -3444
                 },
                 "x": 4.0,
                 "index": 0
             },
             {
                 "enemy": {
-                    "instanceID": -47362
+                    "instanceID": -3454
                 },
-                "x": 11.0,
+                "x": 13.0,
                 "index": 1
             },
             {
                 "enemy": {
-                    "instanceID": -47372
+                    "instanceID": -3464
                 },
                 "x": 16.0,
                 "index": 2
             },
             {
                 "enemy": {
-                    "instanceID": -47382
+                    "instanceID": -3474
                 },
                 "x": 20.0,
                 "index": 3
             },
             {
                 "enemy": {
-                    "instanceID": -47392
+                    "instanceID": -3484
                 },
                 "x": 48.0,
                 "index": 4

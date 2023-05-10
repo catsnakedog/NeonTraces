@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class EventDotSetting : MonoBehaviour
@@ -17,6 +18,7 @@ public class EventDotSetting : MonoBehaviour
     Action eventAction;
 
     public int type;
+    public float time = 0;
     /*
      * 1 jump down 이동 / 미구현
      * 2 속도 점진적 증가, 감소 / 미구현
@@ -54,7 +56,13 @@ public class EventDotSetting : MonoBehaviour
 
     IEnumerator Event0() // 플레이어 이동 (jump, down)
     {
-        yield return new WaitForSeconds(0f);
+        playerMove.playerAction = null;
+        time = 0;
+        eventAction += BezierSetting;
+        yield return new WaitForSeconds(eventTypeInfo.type0.time);
+        eventAction -= BezierSetting;
+        playerMove.crruentMoveDot = eventTypeInfo.type0.nextMoveDot;
+        playerMove.MoveStart();
         gameObject.SetActive(false);
     }
     IEnumerator Event1() // 속도 점진적 증가
@@ -125,5 +133,11 @@ public class EventDotSetting : MonoBehaviour
     void UpSpeed() // Event1 관련 함수, speed를 점진적으로 증가시킴
     {
         playerMove.speed += (eventTypeInfo.type1.upSpeed * Time.deltaTime) / eventTypeInfo.type1.changeTime;
+    }
+
+    void BezierSetting()
+    {
+        time += Time.deltaTime / eventTypeInfo.type0.time;
+        playerMove.BezierMove(gameObject.transform.position, eventTypeInfo.type0.pointDot1, eventTypeInfo.type0.pointDot2, Data.saveData.mapData[Data.saveData.gameData.stage].moveDots[eventTypeInfo.type0.nextMoveDot].v3, time);
     }
 }

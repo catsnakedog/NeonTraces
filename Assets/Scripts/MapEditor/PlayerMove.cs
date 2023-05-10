@@ -208,6 +208,18 @@ public class PlayerMove : MonoBehaviour
         PlayerMoveBackOrFront(power, BackOrFront);
     }
 
+    public void BezierMove(Vector3 v1, Vector3 v2, Vector3 v3, Vector3 v4, float time)
+    {
+        Vector3 A = Vector3.Lerp(v1, v2, time);
+        Vector3 B = Vector3.Lerp(v2, v3, time);
+        Vector3 C = Vector3.Lerp(v3, v4, time);
+        Vector3 D = Vector3.Lerp(A, B, time);
+        Vector3 E = Vector3.Lerp(B, C, time);
+        Vector3 F = Vector3.Lerp(D, E, time);
+
+        player.transform.position = F;
+    }
+
     public void Test2() // 파워 밀림 방향 세팅
     {
         playerActionSpeed = 1f;
