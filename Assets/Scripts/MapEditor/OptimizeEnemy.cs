@@ -22,7 +22,7 @@ public class OptimizeEnemy : MonoBehaviour
         optimizeAction?.Invoke();
     }
 
-    public void OptimizeStart()
+    public void OptimizeStart() // 적 최적화 시작
     {
         player = Data.saveData.gameData.player;
         camera = player.transform.GetChild(1).gameObject;
@@ -44,7 +44,7 @@ public class OptimizeEnemy : MonoBehaviour
         }
     }
 
-    public void StopOptimize()
+    public void StopOptimize() // 최적화 중지
     {
         optimizeAction -= SetActiveEnemy;
     }

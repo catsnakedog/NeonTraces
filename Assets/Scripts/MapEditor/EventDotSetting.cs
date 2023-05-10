@@ -20,14 +20,15 @@ public class EventDotSetting : MonoBehaviour
     public int type;
     public float time = 0;
     /*
-     * 1 jump down 이동 / 미구현
-     * 2 속도 점진적 증가, 감소 / 미구현
-     * 3 컷씬 / 미구현
-     * 4 적이동 / 미구현
+     * 1 jump down 이동
+     * 2 속도 점진적 증가, 감소
+     * 3 컷씬
+     * 4 적이동
      * 5 소리 / 미구현
      * 6 카메라 액션 / 미구현
-     * 7 대쉬 / 구현
-     * 8 시간 / 구현
+     * 7 대쉬
+     * 8 시간
+     * 9 플레이어 정지
      * 10 에니메이션 변경 / 미구현
      */
 
@@ -135,7 +136,7 @@ public class EventDotSetting : MonoBehaviour
         playerMove.speed += (eventTypeInfo.type1.upSpeed * Time.deltaTime) / eventTypeInfo.type1.changeTime;
     }
 
-    void BezierSetting()
+    void BezierSetting() // Event0 관련 함수, 점프, 다운을 곡선으로 구현함
     {
         time += Time.deltaTime / eventTypeInfo.type0.time;
         playerMove.BezierMove(gameObject.transform.position, eventTypeInfo.type0.pointDot1, eventTypeInfo.type0.pointDot2, Data.saveData.mapData[Data.saveData.gameData.stage].moveDots[eventTypeInfo.type0.nextMoveDot].v3, time);

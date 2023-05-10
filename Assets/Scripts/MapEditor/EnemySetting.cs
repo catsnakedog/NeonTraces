@@ -82,7 +82,7 @@ public class EnemySetting : MonoBehaviour
     {
         if(playerAction.isDefence)
         {
-            PlayerRebound();
+            PlayerRebound(); // player가 밀려난다
             PatternClear();
         }
         else
@@ -95,7 +95,7 @@ public class EnemySetting : MonoBehaviour
     {
         if (playerAction.isAttack)
         {
-            EnemyRebound();
+            EnemyRebound(); // enemy가 밀려난다
             PatternClear();
         }
         else
@@ -111,15 +111,15 @@ public class EnemySetting : MonoBehaviour
         playerAction.isAction = false;
         playerAction.isDefence = false;
         playerAction.isAttack = false;
-        playerAction.StopCoroutine(playerAction.actionC);
+        playerAction.StopCoroutine(playerAction.actionC); // player의 상태 + 쿨타임 초기화
         if (cnt == pattern.Count - 1) 
         {
-            Death();
+            Death(); // 패턴이 끝났으면 사망
         }
         else
         {
             isActive = true;
-            cnt++;
+            cnt++; // 패턴이 아직 남았으면 다음 패턴 실행
         }
     }
     void Death() // 패턴이 전부 소모시 사망
@@ -205,7 +205,7 @@ public class EnemySetting : MonoBehaviour
         }
     }
 
-    void PlayerRebound()
+    void PlayerRebound() // player에게 반동을 줌
     {
         playerMove.power = 2f;
         playerMove.playerActionSpeed = 20;
@@ -213,7 +213,7 @@ public class EnemySetting : MonoBehaviour
         playerMove.Rebound();
     }
 
-    void EnemyRebound()
+    void EnemyRebound() // enemy에게 반동을 줌
     {
         power = DefaultPower;
         speed = DefaultSpeed;

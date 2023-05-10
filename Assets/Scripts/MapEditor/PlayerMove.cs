@@ -30,6 +30,7 @@ public class PlayerMove : MonoBehaviour
     {
         Data = DataManager.data;
         Data.saveData.gameData.player = player;
+        mapMake = GameObject.Find("MapMaker").GetComponent<MapMake>();
     }
 
     void Update()
@@ -164,7 +165,7 @@ public class PlayerMove : MonoBehaviour
         playerAction = null;
     }
 
-    public void GameStart()
+    public void GameStart() // 게임 시작
     {
         GameReSet();
         MoveStart();
@@ -208,7 +209,7 @@ public class PlayerMove : MonoBehaviour
         PlayerMoveBackOrFront(power, BackOrFront);
     }
 
-    public void BezierMove(Vector3 v1, Vector3 v2, Vector3 v3, Vector3 v4, float time)
+    public void BezierMove(Vector3 v1, Vector3 v2, Vector3 v3, Vector3 v4, float time) // 곡선 이동
     {
         Vector3 A = Vector3.Lerp(v1, v2, time);
         Vector3 B = Vector3.Lerp(v2, v3, time);

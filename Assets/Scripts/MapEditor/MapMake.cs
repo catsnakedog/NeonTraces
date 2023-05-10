@@ -37,8 +37,8 @@ public class MapMake : MonoBehaviour
         Data = DataManager.data;
         stage = Data.saveData.gameData.stage;
         map = GameObject.Find("Map");
-        moveDots = map.transform.GetChild(1).gameObject;
-        enemys = map.transform.GetChild(0).gameObject;
+        moveDots = map.transform.GetChild(0).gameObject;
+        enemys = map.transform.GetChild(1).gameObject;
         eventDots = map.transform.GetChild(2).gameObject;
         bezierDots = map.transform.GetChild(3).gameObject;
     }
@@ -116,8 +116,8 @@ public class MapMake : MonoBehaviour
             eventDotList[i].transform.SetParent(eventDots.transform, true);
             eventDotList[i].GetComponent<EventDotSetting>().type = Data.saveData.mapData[stage].eventDots[i].type;
             eventDotList[i].GetComponent<EventDotSetting>().eventTypeInfo = Data.saveData.mapData[stage].eventDots[i].eventTypeInfo;
-            if(Data.saveData.mapData[stage].eventDots[i].type == 0)
-            {
+            if(Data.saveData.mapData[stage].eventDots[i].type == 0) // 곡선 이동 경로를 세팅한다 (맵 에디터 용)
+            { // 따로 인게임인지 맵 에디터인지 구별해서 실행 시켜야함 (제작 아직 안함)
                 lrBezierSetting(Data.saveData.mapData[stage].eventDots[i].v3, Data.saveData.mapData[stage].eventDots[i].eventTypeInfo.type0.pointDot1, Data.saveData.mapData[stage].eventDots[i].eventTypeInfo.type0.pointDot2, Data.saveData.mapData[Data.saveData.gameData.stage].moveDots[Data.saveData.mapData[stage].eventDots[i].eventTypeInfo.type0.nextMoveDot].v3);
             }
         }
@@ -137,7 +137,7 @@ public class MapMake : MonoBehaviour
         lrs[lrNumber].endWidth = 0.05f;
     }
 
-    public void lrBezierSetting(Vector3 v1, Vector3 v2, Vector3 v3, Vector3 v4)
+    public void lrBezierSetting(Vector3 v1, Vector3 v2, Vector3 v3, Vector3 v4) // 곡선 이동 경로를 표현함 (맵 에디터 용)
     {
         bezierDotList.Add(Instantiate(bezierDot, v2, Quaternion.identity));
         bezierDotList.Add(Instantiate(bezierDot, v3, Quaternion.identity));
@@ -164,7 +164,7 @@ public class MapMake : MonoBehaviour
         }
     }
 
-    public void SetStage()
+    public void SetStage() // 스테이지를 입력받아 변경시킴 (맵 에디터 용)
     {
         Data.saveData.gameData.stage = int.Parse(stageInput.text);
     }
