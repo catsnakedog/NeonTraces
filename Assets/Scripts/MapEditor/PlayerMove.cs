@@ -26,9 +26,10 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private bool isCountUp;
     [SerializeField] public bool BackOrFront;
 
-    void Awake()
+    void Start()
     {
         Data = DataManager.data;
+        player = GameObject.Find("Player");
         Data.saveData.gameData.player = player;
         mapMake = GameObject.Find("MapMaker").GetComponent<MapMake>();
     }
@@ -55,10 +56,6 @@ public class PlayerMove : MonoBehaviour
             }
             Invoke(className, 0f);
         }
-    }
-
-    void IsStartPoint() // 피격으로 인해 뒤로 밀려날시 startPoint를 넘어간다면 그 전의 이동라인을 따라 이동한다
-    {
     }
 
     public void MoveStart() // 기본적인 움직임, moveDots를 따라서 이동한다, crreuntMoveDot만 정상적으로 입력돼있다면 도중에 취소했다가 다시 시작해도 상관없다
@@ -171,30 +168,6 @@ public class PlayerMove : MonoBehaviour
         MoveStart();
     }
 
-    public void GameStop() // 게임을 멈춘다
-    {
-        Time.timeScale = 0;
-    }
-
-    public void GameResume() // 게임을 다시 시작한다
-    {
-        Time.timeScale = 1;
-    }
-
-    public void GameBack() // 플레이어의 위치를 뒤로 되돌린다
-    {
-        power = 10f;
-        BackOrFront = true;
-        playerActionSpeed = 10f;
-        Rebound();
-    }
-    public void GameFront() // 플레이어의 위치를 뒤로 되돌린다
-    {
-        power = 10f;
-        BackOrFront = false;
-        playerActionSpeed = 10f;
-        Rebound();
-    }
     public void Rebound() // 어택시 밀림 판정 테스트
     {
         startPoint = Data.saveData.mapData[stage].moveDots[crruentMoveDot].v3;
@@ -219,12 +192,5 @@ public class PlayerMove : MonoBehaviour
         Vector3 F = Vector3.Lerp(D, E, time);
 
         player.transform.position = F;
-    }
-
-    public void Test2() // 파워 밀림 방향 세팅
-    {
-        playerActionSpeed = 1f;
-        power = 1f;
-        BackOrFront = true;
     }
 }

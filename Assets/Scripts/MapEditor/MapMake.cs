@@ -12,6 +12,8 @@ public class MapMake : MonoBehaviour
     [SerializeField] private GameObject eventDot;
     [SerializeField] private GameObject bezierDot;
 
+    public bool isMapEditor;
+
     List<GameObject> moveDotList = new List<GameObject>();
     List<GameObject> enemyList = new List<GameObject>();
     List<GameObject> eventDotList = new List<GameObject>();
@@ -41,9 +43,10 @@ public class MapMake : MonoBehaviour
         enemys = map.transform.GetChild(1).gameObject;
         eventDots = map.transform.GetChild(2).gameObject;
         bezierDots = map.transform.GetChild(3).gameObject;
+        isMapEditor = true;
     }
 
-    public void MapSetting() // 맵세팅 (맵 에디터 용)
+    public void MapSetting() // 맵세팅
     {
         lrCount = 0;
         bezierCount = 0;
@@ -58,6 +61,12 @@ public class MapMake : MonoBehaviour
     public void MapDelete() // 맵삭제 (맵 에디터 용)
     {
         lrs.Clear();
+        DestroyAll();
+    }
+
+
+    void DestroyAll() // 맵요소 전부 파괴 (맵 에디터 용)
+    {
         Transform[] allChildren = gameObject.GetComponentsInChildren<Transform>();
         foreach (Transform child in allChildren)
         {
@@ -66,22 +75,42 @@ public class MapMake : MonoBehaviour
                 Destroy(child.gameObject);
             }
         }
-        DestroyAll(moveDotList);
-        DestroyAll(enemyList);
-        DestroyAll(eventDotList);
-        DestroyAll(bezierDotList);
-    }
-
-
-    void DestroyAll(List<GameObject> target) // 리스트 안에 있는 모든 게임오브젝트를 파괴한다
-    {
-        for (int i = 0; i < target.Count; i++)
+        allChildren = moveDots.GetComponentsInChildren<Transform>();
+        foreach (Transform child in allChildren)
         {
-            Destroy(target[i]);
+            if (child.name != moveDots.transform.name)
+            {
+                Destroy(child.gameObject);
+            }
         }
-        target.Clear();
+        allChildren = enemys.GetComponentsInChildren<Transform>();
+        foreach (Transform child in allChildren)
+        {
+            if (child.name != enemys.transform.name)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+        allChildren = eventDots.GetComponentsInChildren<Transform>();
+        foreach (Transform child in allChildren)
+        {
+            if (child.name != eventDots.transform.name)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+        for(int i=0; i<bezierDotList.Count; i++)
+        {
+            Destroy(bezierDotList[i].gameObject);
+        }
+        moveDotList.Clear();
+        enemyList.Clear();
+        eventDotList.Clear();
+        bezierDotList.Clear();
     }
 
+    // 맵 세팅 관련 함수들 / 맵 데이터를 읽어와서 오브젝트를 배치한다
+    #region MapSetting
     void MoveDotSetting(int stage) // 시각적으로 어느 위치로 움직이는지 확인하기 위해 점들을 세팅해준다 (맵 에디터 용)
     {
         lrs[0].SetPosition(0, Data.saveData.mapData[stage].moveDots[0].v3);
@@ -92,6 +121,7 @@ public class MapMake : MonoBehaviour
             lrs[0].SetPosition(i, Data.saveData.mapData[stage].moveDots[i].v3);
             moveDotList.Add(Instantiate(moveDot, Data.saveData.mapData[stage].moveDots[i].v3, Quaternion.identity));
             moveDotList[i].transform.SetParent(moveDots.transform, true);
+            moveDotList[i].name = "moveDot" + i.ToString();
         }
     }
 
@@ -105,6 +135,7 @@ public class MapMake : MonoBehaviour
             Data.saveData.gameData.enemyInfo.Add(temp);
             enemyList[i].GetComponent<EnemySetting>().index = i;
             enemyList[i].transform.SetParent(enemys.transform, true);
+            enemyList[i].name = "enemyDot" + i.ToString();
         }
     }
 
@@ -116,9 +147,13 @@ public class MapMake : MonoBehaviour
             eventDotList[i].transform.SetParent(eventDots.transform, true);
             eventDotList[i].GetComponent<EventDotSetting>().type = Data.saveData.mapData[stage].eventDots[i].type;
             eventDotList[i].GetComponent<EventDotSetting>().eventTypeInfo = Data.saveData.mapData[stage].eventDots[i].eventTypeInfo;
-            if(Data.saveData.mapData[stage].eventDots[i].type == 0) // 곡선 이동 경로를 세팅한다 (맵 에디터 용)
-            { // 따로 인게임인지 맵 에디터인지 구별해서 실행 시켜야함 (제작 아직 안함)
-                lrBezierSetting(Data.saveData.mapData[stage].eventDots[i].v3, Data.saveData.mapData[stage].eventDots[i].eventTypeInfo.type0.pointDot1, Data.saveData.mapData[stage].eventDots[i].eventTypeInfo.type0.pointDot2, Data.saveData.mapData[Data.saveData.gameData.stage].moveDots[Data.saveData.mapData[stage].eventDots[i].eventTypeInfo.type0.nextMoveDot].v3);
+            eventDotList[i].name = "eventDot" + i.ToString();
+            if (Data.saveData.mapData[stage].eventDots[i].type == 0)
+            { 
+                if(isMapEditor)
+                {
+                    lrBezierSetting(Data.saveData.mapData[stage].eventDots[i].v3, Data.saveData.mapData[stage].eventDots[i].eventTypeInfo.type0.pointDot1, Data.saveData.mapData[stage].eventDots[i].eventTypeInfo.type0.pointDot2, Data.saveData.mapData[Data.saveData.gameData.stage].moveDots[Data.saveData.mapData[stage].eventDots[i].eventTypeInfo.type0.nextMoveDot].v3);
+                }
             }
         }
     }
@@ -163,9 +198,39 @@ public class MapMake : MonoBehaviour
             tempF += 1;
         }
     }
-
+    #endregion
     public void SetStage() // 스테이지를 입력받아 변경시킴 (맵 에디터 용)
     {
         Data.saveData.gameData.stage = int.Parse(stageInput.text);
     }
+
+    public void SaveObject() // 오브젝트들을 읽어와서 전부 저장한다 (맵 에디터 용)
+    {
+        Data.saveData.mapData[stage].moveDots.Clear();
+        for(int i=0; i< moveDots.transform.childCount; i++)
+        {
+            GameObject saveDot = moveDots.transform.GetChild(i).gameObject;
+            MoveDot temp = new MoveDot(saveDot.transform.position, 3f);
+            Data.saveData.mapData[stage].moveDots.Add(temp);
+        }
+        Data.saveData.mapData[stage].enemys.Clear();
+        for (int i = 0; i < enemys.transform.childCount; i++)
+        {
+            GameObject saveEnemy = enemys.transform.GetChild(i).gameObject;
+            Enemy temp = new Enemy(saveEnemy.GetComponent<EnemySetting>().defaultV3, saveEnemy.GetComponent<EnemySetting>().type);
+            Data.saveData.mapData[stage].enemys.Add(temp);
+        }
+        Data.saveData.mapData[stage].eventDots.Clear();
+        for (int i = 0; i < eventDots.transform.childCount; i++)
+        {
+            GameObject saveEventDot = eventDots.transform.GetChild(i).gameObject;
+            EventDot temp = new EventDot(saveEventDot.transform.position, saveEventDot.GetComponent<EventDotSetting>().type, saveEventDot.GetComponent<EventDotSetting>().eventTypeInfo);
+            Data.saveData.mapData[stage].eventDots.Add(temp);
+        }
+        Data.Save();
+        Data.Load();
+        MapDelete();
+        Invoke("MapSetting", 2f);
+    }
+
 }

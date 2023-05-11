@@ -35,7 +35,7 @@ public class EventDotSetting : MonoBehaviour
     void Start()
     {
         Data = DataManager.data;
-        player = Data.saveData.gameData.player;
+        player = GameObject.Find("Player");
         playerMove = GameObject.Find("InGameManager").GetComponent<PlayerMove>();
         playerAction = GameObject.Find("InGameManager").GetComponent<PlayerAction>();
         cutSceneManager = GameObject.Find("InGameManager").GetComponent<CutSceneManager>();

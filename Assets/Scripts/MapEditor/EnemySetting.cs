@@ -20,6 +20,8 @@ public class EnemySetting : MonoBehaviour
     [SerializeField] public string className;
     [SerializeField] public List<int> pattern; // 0 공격, 1 방어, 2...(특수액션)
 
+    [SerializeField] public Vector3 defaultV3;
+
     int cnt;
     GameObject player;
     DataManager Data;
@@ -33,10 +35,11 @@ public class EnemySetting : MonoBehaviour
     void Start()
     {
         Data = DataManager.data;
-        player = Data.saveData.gameData.player;
+        player = GameObject.Find("Player");
         playerAction = GameObject.Find("InGameManager").GetComponent<PlayerAction>();
         playerMove = GameObject.Find("InGameManager").GetComponent<PlayerMove>();
         cnt = 0;
+        defaultV3 = gameObject.transform.position;
     }
 
     void Update()

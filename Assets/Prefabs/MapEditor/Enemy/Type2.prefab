@@ -124,7 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActive: 1
   isCountUp: 0
-  type: 2
+  type: 1
   index: 0
   startDot: 0
   currentDot: 0
