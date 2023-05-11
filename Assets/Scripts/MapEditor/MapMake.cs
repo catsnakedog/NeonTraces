@@ -168,8 +168,8 @@ public class MapMake : MonoBehaviour
         lrs[lrNumber].startColor = moveDot.GetComponent<SpriteRenderer>().color;
         lrs[lrNumber].endColor = moveDot.GetComponent<SpriteRenderer>().color;
         lrs[lrNumber].material = lrDefault;
-        lrs[lrNumber].startWidth = 0.05f;
-        lrs[lrNumber].endWidth = 0.05f;
+        lrs[lrNumber].startWidth = 0.1f;
+        lrs[lrNumber].endWidth = 0.1f;
     }
 
     public void lrBezierSetting(Vector3 v1, Vector3 v2, Vector3 v3, Vector3 v4) // 곡선 이동 경로를 표현함 (맵 에디터 용)
