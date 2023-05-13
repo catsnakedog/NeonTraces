@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Net;
 using UnityEngine;
 
@@ -23,7 +24,13 @@ public class EnemySetting : MonoBehaviour
     [SerializeField] public Vector3 defaultV3;
 
     int cnt;
+
+    float bloodAngleMax;
+    float bloodAngleMin;
+
     GameObject player;
+    GameObject blood;
+    GameObject map;
     DataManager Data;
 
     Vector3 startPoint;
@@ -36,8 +43,12 @@ public class EnemySetting : MonoBehaviour
     {
         Data = DataManager.data;
         player = GameObject.Find("Player");
+        map = Data.saveData.gameData.map.transform.GetChild(4).GetChild(0).gameObject;
         playerAction = GameObject.Find("InGameManager").GetComponent<PlayerAction>();
         playerMove = GameObject.Find("InGameManager").GetComponent<PlayerMove>();
+        blood = Data.saveData.gameData.blood;
+        bloodAngleMax = 15;
+        bloodAngleMin = -15;
         cnt = 0;
         defaultV3 = gameObject.transform.position;
     }
@@ -98,6 +109,7 @@ public class EnemySetting : MonoBehaviour
     {
         if (playerAction.isAttack)
         {
+            BloodSetting();
             EnemyRebound(); // enemy가 밀려난다
             PatternClear();
         }
@@ -223,6 +235,17 @@ public class EnemySetting : MonoBehaviour
         startDot = playerMove.crruentMoveDot;
         endDot = playerMove.crruentMoveDot+1;
         EnemyMoveStart();
+    }
+
+    void BloodSetting()
+    {
+        Vector3 dir = transform.position - player.transform.position;
+        Quaternion rot = Quaternion.LookRotation(dir.normalized);
+        float cor = UnityEngine.Random.Range(bloodAngleMin, bloodAngleMax);
+        Vector3 temp = new Vector3(transform.position.x+0.75f, transform.position.y, transform.position.z);
+        GameObject blood = Instantiate(this.blood, temp, rot);
+        blood.transform.eulerAngles = new Vector3(blood.transform.eulerAngles.x, 0f, blood.transform.eulerAngles.z + cor);
+        blood.transform.SetParent(map.transform, true);
     }
 
     ~EnemySetting() // 소멸자

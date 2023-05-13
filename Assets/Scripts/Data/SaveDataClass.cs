@@ -255,6 +255,8 @@ public class GameData
     public int stage;
     public List<bool> stageClearInfo;
     public GameObject player;
+    public GameObject blood;
+    public GameObject map;
     public List<EnemyInfo> enemyInfo;
     public float camsize;
 

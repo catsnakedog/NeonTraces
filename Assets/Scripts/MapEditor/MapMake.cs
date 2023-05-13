@@ -11,6 +11,7 @@ public class MapMake : MonoBehaviour
     [SerializeField] private List<GameObject> enemy;
     [SerializeField] private GameObject eventDot;
     [SerializeField] private GameObject bezierDot;
+    [SerializeField] private GameObject blood;
 
     public bool isMapEditor;
 
@@ -37,8 +38,10 @@ public class MapMake : MonoBehaviour
     void Start()
     {
         Data = DataManager.data;
+        Data.saveData.gameData.blood = blood;
         stage = Data.saveData.gameData.stage;
         map = GameObject.Find("Map");
+        Data.saveData.gameData.map = map;
         moveDots = map.transform.GetChild(0).gameObject;
         enemys = map.transform.GetChild(1).gameObject;
         eventDots = map.transform.GetChild(2).gameObject;
