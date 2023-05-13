@@ -122,6 +122,7 @@ public class MapMake : MonoBehaviour
             moveDotList.Add(Instantiate(moveDot, Data.saveData.mapData[stage].moveDots[i].v3, Quaternion.identity));
             moveDotList[i].transform.SetParent(moveDots.transform, true);
             moveDotList[i].name = "moveDot" + i.ToString();
+            moveDotList[i].GetComponent<MoveDotInfo>().speed = Data.saveData.mapData[stage].moveDots[i].speed;
         }
     }
 
@@ -210,14 +211,22 @@ public class MapMake : MonoBehaviour
         for(int i=0; i< moveDots.transform.childCount; i++)
         {
             GameObject saveDot = moveDots.transform.GetChild(i).gameObject;
-            MoveDot temp = new MoveDot(saveDot.transform.position, 3f);
+            MoveDot temp = new MoveDot(saveDot.transform.position, saveDot.GetComponent<MoveDotInfo>().speed);
             Data.saveData.mapData[stage].moveDots.Add(temp);
         }
         Data.saveData.mapData[stage].enemys.Clear();
         for (int i = 0; i < enemys.transform.childCount; i++)
         {
             GameObject saveEnemy = enemys.transform.GetChild(i).gameObject;
-            Enemy temp = new Enemy(saveEnemy.GetComponent<EnemySetting>().defaultV3, saveEnemy.GetComponent<EnemySetting>().type);
+            Enemy temp;
+            if (saveEnemy.GetComponent<EnemySetting>().defaultV3 != saveEnemy.transform.position)
+            {
+                temp = new Enemy(saveEnemy.transform.position, saveEnemy.GetComponent<EnemySetting>().type);
+            }
+            else
+            {
+                temp = new Enemy(saveEnemy.GetComponent<EnemySetting>().defaultV3, saveEnemy.GetComponent<EnemySetting>().type);
+            }
             Data.saveData.mapData[stage].enemys.Add(temp);
         }
         Data.saveData.mapData[stage].eventDots.Clear();

@@ -15,7 +15,7 @@ public class JsonManager
 
 #endif
 #if UNITY_ANDROID
-        savePath = Application.persistentDataPath;
+        savePath = Application.persistentDataPath + "/Data/GameData.json";
 #endif
         jsonText = JsonUtility.ToJson(saveData, true);
         FileStream fileStream = new FileStream(savePath, FileMode.Create);
@@ -33,7 +33,7 @@ public class JsonManager
 
 #endif
 #if UNITY_ANDROID
-        loadPath = Application.persistentDataPath;
+        loadPath = Application.persistentDataPath + "/Data/GameData.json";
 #endif
         if (File.Exists(loadPath))
         {

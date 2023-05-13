@@ -69,6 +69,14 @@ public class PlayerMove : MonoBehaviour
         {
             startPoint = Data.saveData.mapData[stage].moveDots[crruentMoveDot].v3;
             endPoint = Data.saveData.mapData[stage].moveDots[crruentMoveDot + 1].v3;
+            if(startPoint.x > endPoint.x)
+            {
+                player.GetComponent<SpriteRenderer>().flipX = true;
+            }
+            else
+            {
+                player  .GetComponent<SpriteRenderer>().flipX = false;
+            }
             speed = Data.saveData.mapData[stage].moveDots[crruentMoveDot].speed;
             MoveAToB("MoveStart", true);
         }
