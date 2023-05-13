@@ -24,6 +24,11 @@ public class ButtonController : MonoBehaviour
         menuPanel.SetActive(true);
         
     }
+    public IEnumerator SettingOpen()
+    {
+        yield return new WaitForSeconds(2);
+        menuPanel.SetActive(true);
+    }
     public void SettingOut() //세팅 메뉴 닫기
     {
         menuPanel.SetActive(false);
@@ -31,9 +36,11 @@ public class ButtonController : MonoBehaviour
 
     public void GameExit() //게임 종료
     {
-#if UNITY_EDITOR
+#if UNITY_EDITOR //유니티 에디터
         UnityEditor.EditorApplication.isPlaying = false;
-#else
+#elif UNITY_WEBPLAYER //웹
+         Application.OpenURL("http://google.com");
+#else // pc 및 모바일 앱
         Application.Quit();
 #endif
     }

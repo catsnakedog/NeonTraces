@@ -275,13 +275,32 @@ public class GameData
 }
 
 [System.Serializable]
+public class Ui
+{
+    public float bgm;
+    public float sfx;
+    public Ui()
+    {
+        this.bgm = -40;
+        this.sfx = -40;
+    }
+    public Ui(float bgm, float sfx)
+    {
+        this.bgm = bgm;
+        this.sfx = sfx;
+    }
+}
+
+    [System.Serializable]
 public class SaveDataClass
 {
     public List<MapInfo> mapData;
     public GameData gameData;
+    public Ui ui;
     public SaveDataClass()
     {
         mapData = new List<MapInfo>();
         gameData = new GameData();
+        ui = new Ui();
     }
 }

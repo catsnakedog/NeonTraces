@@ -1368,90 +1368,94 @@
             "eventDots": []
         }
     ],
-    "gameData": {
-        "stage": 0,
-        "stageClearInfo": [
-            false,
-            false,
-            false,
-            false,
-            false
-        ],
-        "player": {
-            "instanceID": 17338
+  "gameData": {
+    "stage": 0,
+    "stageClearInfo": [
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "player": {
+      "instanceID": 17338
+    },
+    "enemyInfo": [
+      {
+        "enemy": {
+          "instanceID": -40192
         },
-        "enemyInfo": [
-            {
-                "enemy": {
-                    "instanceID": -40192
-                },
-                "x": 4.0,
-                "index": 0
-            },
-            {
-                "enemy": {
-                    "instanceID": -40202
-                },
-                "x": 11.0,
-                "index": 1
-            },
-            {
-                "enemy": {
-                    "instanceID": -40212
-                },
-                "x": 16.0,
-                "index": 2
-            },
-            {
-                "enemy": {
-                    "instanceID": -40222
-                },
-                "x": 20.0,
-                "index": 3
-            },
-            {
-                "enemy": {
-                    "instanceID": -40232
-                },
-                "x": 48.0,
-                "index": 4
-            },
-            {
-                "enemy": {
-                    "instanceID": -40242
-                },
-                "x": 39.77000045776367,
-                "index": 5
-            },
-            {
-                "enemy": {
-                    "instanceID": -40252
-                },
-                "x": 75.31999969482422,
-                "index": 6
-            },
-            {
-                "enemy": {
-                    "instanceID": -40262
-                },
-                "x": 85.01799774169922,
-                "index": 7
-            },
-            {
-                "enemy": {
-                    "instanceID": -40272
-                },
-                "x": 87.83000183105469,
-                "index": 8
-            },
-            {
-                "enemy": {
-                    "instanceID": -40282
-                },
-                "x": 27.459999084472658,
-                "index": 9
-            }
-        ],
-        "camsize": 3.0
-    }
+        "x": 4.0,
+        "index": 0
+      },
+      {
+        "enemy": {
+          "instanceID": -40202
+        },
+        "x": 11.0,
+        "index": 1
+      },
+      {
+        "enemy": {
+          "instanceID": -40212
+        },
+        "x": 16.0,
+        "index": 2
+      },
+      {
+        "enemy": {
+          "instanceID": -40222
+        },
+        "x": 20.0,
+        "index": 3
+      },
+      {
+        "enemy": {
+          "instanceID": -40232
+        },
+        "x": 48.0,
+        "index": 4
+      },
+      {
+        "enemy": {
+          "instanceID": -40242
+        },
+        "x": 39.77000045776367,
+        "index": 5
+      },
+      {
+        "enemy": {
+          "instanceID": -40252
+        },
+        "x": 75.31999969482422,
+        "index": 6
+      },
+      {
+        "enemy": {
+          "instanceID": -40262
+        },
+        "x": 85.01799774169922,
+        "index": 7
+      },
+      {
+        "enemy": {
+          "instanceID": -40272
+        },
+        "x": 87.83000183105469,
+        "index": 8
+      },
+      {
+        "enemy": {
+          "instanceID": -40282
+        },
+        "x": 27.459999084472658,
+        "index": 9
+      }
+    ],
+    "camsize": 3.0
+  },
+  "Ui": {
+    "bgm": -40,
+    "sfx":  -40
+  }
 }
