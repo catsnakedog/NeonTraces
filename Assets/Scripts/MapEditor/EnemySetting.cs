@@ -51,8 +51,8 @@ public class EnemySetting : MonoBehaviour
         playerMove = GameObject.Find("InGameManager").GetComponent<PlayerMove>();
         blood = Data.saveData.gameData.blood;
         bloodBoom = Data.saveData.gameData.bloodBoom;
-        bloodAngleMax = 15;
-        bloodAngleMin = -15;
+        bloodAngleMax = 30;
+        bloodAngleMin = -30;
         cnt = 0;
         defaultV3 = gameObject.transform.position;
     }
