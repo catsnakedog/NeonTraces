@@ -131,6 +131,10 @@ public class EnemySetting : MonoBehaviour
         playerAction.isDefence = false;
         playerAction.isAttack = false;
         playerAction.StopCoroutine(playerAction.actionC); // player의 상태 + 쿨타임 초기화
+        if(playerAction.actionA != null)
+        {
+            playerAction.StopCoroutine(playerAction.actionA);
+        }
         if (cnt == pattern.Count - 1) 
         {
             Death(); // 패턴이 끝났으면 사망

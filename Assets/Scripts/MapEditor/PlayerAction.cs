@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerAction : MonoBehaviour
 {
+    DataManager Data;
+
     [SerializeField] public bool isAttack;
     [SerializeField] public bool isDefence; // 플레이어가 공격 or 방어 중인지 확인하는 변수들
     [SerializeField] public bool isAction; // EnemySetting과 상호작용할때 공격, 방어 중인지 판별하는 변수
@@ -13,6 +15,15 @@ public class PlayerAction : MonoBehaviour
     [SerializeField] private float defenceMotionTime; // 방어 에니메이션 실행시간
 
     public Coroutine actionC;
+    public Coroutine actionA;
+
+    AfterImage afterImage;
+
+    void Start()
+    {
+        Data = DataManager.data;
+        afterImage = transform.GetComponent<AfterImage>();
+    }
 
     public void Attack() // 플레이어 공격
     {
@@ -30,6 +41,7 @@ public class PlayerAction : MonoBehaviour
 
     IEnumerator AttackAction() // Attack 관련 세팅
     {
+        actionA = StartCoroutine(afterImage.AfterImageSetting(Data.saveData.gameData.player));
         isAttack = true;
         isAction = true;
         isDelay = true;
@@ -38,6 +50,7 @@ public class PlayerAction : MonoBehaviour
         isAttack = false;
         yield return new WaitForSeconds(attackDelay);
         isDelay = false;
+        StopCoroutine(actionA);
     }
     IEnumerator DefenceAction() // Defence 관련 세팅
     {
