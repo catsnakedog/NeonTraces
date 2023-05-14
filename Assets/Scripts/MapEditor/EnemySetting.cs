@@ -9,6 +9,7 @@ public class EnemySetting : MonoBehaviour
 {
     [SerializeField] public bool isActive = true;
     [SerializeField] public bool isCountUp;
+    [SerializeField] public bool isBlood;
     [SerializeField] public int type;
     [SerializeField] public int index;
     [SerializeField] public int startDot;
@@ -30,6 +31,8 @@ public class EnemySetting : MonoBehaviour
 
     GameObject player;
     GameObject blood;
+    GameObject bloodBoom;
+    GameObject bloodBoomObject;
     GameObject map;
     DataManager Data;
 
@@ -47,6 +50,7 @@ public class EnemySetting : MonoBehaviour
         playerAction = GameObject.Find("InGameManager").GetComponent<PlayerAction>();
         playerMove = GameObject.Find("InGameManager").GetComponent<PlayerMove>();
         blood = Data.saveData.gameData.blood;
+        bloodBoom = Data.saveData.gameData.bloodBoom;
         bloodAngleMax = 15;
         bloodAngleMin = -15;
         cnt = 0;
@@ -154,19 +158,19 @@ public class EnemySetting : MonoBehaviour
             {
                 currentDot = startDot - 1;
                 endPoint = Data.saveData.mapData[Data.saveData.gameData.stage].moveDots[currentDot].v3;
-                MoveAtoB("EnemyMoveStart", false);
+                MoveAtoB("EnemyMoveStart", false, false);
             }
             else
             {
                 currentDot = startDot + 1;
                 endPoint = Data.saveData.mapData[Data.saveData.gameData.stage].moveDots[currentDot].v3;
-                MoveAtoB("EnemyMoveStart", true);
+                MoveAtoB("EnemyMoveStart", true, false);
             }
         }
         else // 적이 단순히 이동하는게 아니라 플레이어에게 공격당하고 밀릴때 판정
         {
-            startPoint = Data.saveData.mapData[Data.saveData.gameData.stage].moveDots[currentDot].v3;
-            endPoint = Data.saveData.mapData[Data.saveData.gameData.stage].moveDots[currentDot+1].v3;
+            startPoint = Data.saveData.mapData[Data.saveData.gameData.stage].moveDots[startDot].v3;
+            endPoint = Data.saveData.mapData[Data.saveData.gameData.stage].moveDots[endDot].v3;
             Vector3 vDist = endPoint - startPoint;
             Vector3 vDir = vDist.normalized;
             Vector3 tempEndV = endPoint;
@@ -175,20 +179,26 @@ public class EnemySetting : MonoBehaviour
             float b = (gameObject.transform.position - endPoint).magnitude;
             if (b > a)
             {
-                endPoint = Data.saveData.mapData[Data.saveData.gameData.stage].moveDots[playerMove.crruentMoveDot+1].v3;
-                MoveAtoB("", true);
+                endPoint = Data.saveData.mapData[Data.saveData.gameData.stage].moveDots[endDot].v3;
+                MoveAtoB("", true, true);
             }
             else
             {
-                MoveAtoB("", true);
+                MoveAtoB("", true, true);
             }
         }
     }
 
-    void MoveAtoB(string className, bool isCountUp) // 적을 이동 시키기 위한 함수
+    void MoveAtoB(string className, bool isCountUp, bool isBlood) // 적을 이동 시키기 위한 함수
     {
         this.className = className;
         this.isCountUp = isCountUp;
+        this.isBlood = isBlood;
+        if(isBlood)
+        {
+            bloodBoomObject = Instantiate(bloodBoom, transform.position, Quaternion.identity);
+            bloodBoomObject.transform.SetParent(gameObject.transform);
+        }
         enemyAction += MoveBySpeed;
         enemyAction += IsEndPoint;
     }
@@ -211,6 +221,10 @@ public class EnemySetting : MonoBehaviour
             else
             {
                 startDot--;
+            }
+            if(isBlood)
+            {
+                bloodBoomDestroy();
             }
             if(className != "")
             {
@@ -246,6 +260,12 @@ public class EnemySetting : MonoBehaviour
         GameObject blood = Instantiate(this.blood, temp, rot);
         blood.transform.eulerAngles = new Vector3(blood.transform.eulerAngles.x, 0f, blood.transform.eulerAngles.z + cor);
         blood.transform.SetParent(map.transform, true);
+    }
+
+    IEnumerator bloodBoomDestroy()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Destroy(bloodBoomObject);
     }
 
     ~EnemySetting() // 소멸자

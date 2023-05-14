@@ -290,6 +290,7 @@ MonoBehaviour:
   - {fileID: 2679943213632543797, guid: b183f0ec69dc8984ca47b0f9018be210, type: 3}
   eventDot: {fileID: 675053823008500934, guid: db188901781e94545abd9da87ac25666, type: 3}
   bezierDot: {fileID: 6135298945372196014, guid: 338ceb2ee04c1d4459a6abc6dbafa1f2, type: 3}
+  blood: {fileID: 0}
   isMapEditor: 0
   lrs: []
   lrCount: 0
@@ -922,8 +923,13 @@ MonoBehaviour:
       stage: 0
       stageClearInfo: 
       player: {fileID: 0}
+      blood: {fileID: 0}
+      map: {fileID: 0}
       enemyInfo: []
       camsize: 0
+    ui:
+      bgm: -40
+      sfx: -40
 --- !u!4 &1017384436
 Transform:
   m_ObjectHideFlags: 0
