@@ -52,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -124,13 +124,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventTypeInfo:
     type0:
+      pointDot1: {x: 0, y: 0, z: 0}
+      pointDot2: {x: 0, y: 0, z: 0}
       nextMoveDot: 0
+      time: 0
     type1:
       upSpeed: 0
+      changeTime: 0
     type2:
       cutSceneNumber: 0
     type3:
       speed: 0
+      index: 0
       startDot: 0
       endDot: 0
     type4:
@@ -147,3 +152,4 @@ MonoBehaviour:
     type9:
       stopTime: 0
   type: 0
+  time: 0

@@ -30,6 +30,7 @@ public class AfterImage : MonoBehaviour
     IEnumerator ImageSet(GameObject target, GameObject parent)
     {
         target.GetComponent<SpriteRenderer>().color = afterImageColor;
+        target.transform.localScale = parent.transform.localScale;
         yield return new WaitForSeconds(0.3f);
         Destroy(target);
     }
