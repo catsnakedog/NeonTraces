@@ -3,20 +3,27 @@ using System.Collections.Generic;
 using System.Drawing;
 using UnityEngine;
 
-public class Camerafix : MonoBehaviour
+public class CameraFix : MonoBehaviour
 {
+    DataManager Data;
     public float camsize = 5;
-    public GameObject A;
-    Transform AT;
-    public static float camspeed;
+    public GameObject mainCamera;
+    public Camera mainCameraC;
+    public GameObject target;
+    public float camSpeed;
     void Start()
     {
-        AT = A.transform;
+        Data = DataManager.data;
+        camSpeed = 1f;
+        mainCamera = GameObject.Find("MainCamera");
+        target = GameObject.Find("Player");
+        mainCameraC = mainCamera.GetComponent<Camera>();
     }
     void LateUpdate()
     {
-        transform.position = new Vector3(AT.position.x, AT.position.y, transform.position.z);
-        Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, camsize, camspeed);
+        camsize = Data.saveData.gameData.camsize;
+        mainCamera.transform.position = new Vector3(target.transform.position.x, target.transform.position.y, mainCamera.transform.position.z);
+        mainCameraC.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, camsize, camSpeed);
     }
 }
 // 전역변수 camsize 이용해서 매 업데이트 마다 해당 사이즈로 변경

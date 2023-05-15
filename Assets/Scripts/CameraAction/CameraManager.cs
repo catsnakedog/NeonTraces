@@ -6,7 +6,6 @@ public class CameraManager : MonoBehaviour
 {
     Shake shake;
     DataManager Data;
-
     void Start()
     {
         Data = DataManager.data;
