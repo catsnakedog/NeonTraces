@@ -16,14 +16,9 @@ public class Shake : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        shakeCamera = GameObject.Find("MainCamera").transform;
         originPos = shakeCamera.localPosition;
         originRot = shakeCamera.localRotation;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public IEnumerator Shakecamera(float duration = 0.05f, float magnitudePos = 0.03f, float magnitudeRot = 0.1f)
@@ -45,7 +40,6 @@ public class Shake : MonoBehaviour
 
         shakeCamera.localPosition = originPos;
         shakeCamera.localRotation = originRot;
-
     }
 }
 // https://www.youtube.com/watch?v=99bgQ5WG6ok 참고자료,사용법

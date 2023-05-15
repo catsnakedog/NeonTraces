@@ -5,13 +5,17 @@ using UnityEngine;
 public class CameraManager : MonoBehaviour
 {
     Shake shake;
+    CameraFix cameraFix;
     DataManager Data;
     void Start()
     {
         Data = DataManager.data;
+        cameraFix = gameObject.GetComponent<CameraFix>();
+        shake = gameObject.GetComponent<Shake>();
     }
     public void CameraAction(string actionName)
     {
+        Debug.Log(actionName);
         StartCoroutine(actionName);
     }
 

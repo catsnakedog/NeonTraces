@@ -10,6 +10,7 @@ public class EventDotSetting : MonoBehaviour
     PlayerMove playerMove;
     PlayerAction playerAction;
     CutSceneManager cutSceneManager;
+    CameraManager cameraManager;
 
     GameObject player;
     public EventTypeInfo eventTypeInfo;
@@ -39,6 +40,7 @@ public class EventDotSetting : MonoBehaviour
         playerMove = GameObject.Find("InGameManager").GetComponent<PlayerMove>();
         playerAction = GameObject.Find("InGameManager").GetComponent<PlayerAction>();
         cutSceneManager = GameObject.Find("InGameManager").GetComponent<CutSceneManager>();
+        cameraManager = GameObject.Find("CameraManager").GetComponent<CameraManager>();
     }
 
     void Update()
@@ -101,6 +103,7 @@ public class EventDotSetting : MonoBehaviour
     IEnumerator Event5() // 카메라 액션(미구현)
     {
         yield return new WaitForSeconds(0f);
+        cameraManager.CameraAction(eventTypeInfo.type5.cameraActionName);
         gameObject.SetActive(false);
     }
     IEnumerator Event6() // 대쉬

@@ -14,7 +14,7 @@ public class CameraFix : MonoBehaviour
     void Start()
     {
         Data = DataManager.data;
-        camSpeed = 1f;
+        camSpeed = 0.5f;
         mainCamera = GameObject.Find("MainCamera");
         target = GameObject.Find("Player");
         mainCameraC = mainCamera.GetComponent<Camera>();

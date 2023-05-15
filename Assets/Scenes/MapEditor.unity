@@ -707,6 +707,8 @@ GameObject:
   m_Component:
   - component: {fileID: 371371802}
   - component: {fileID: 371371803}
+  - component: {fileID: 371371804}
+  - component: {fileID: 371371805}
   m_Layer: 0
   m_Name: CameraManager
   m_TagString: Untagged
@@ -741,8 +743,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camsize: 5
-  A: {fileID: 0}
-  camspeed: 0
+  mainCamera: {fileID: 0}
+  mainCameraC: {fileID: 0}
+  target: {fileID: 0}
+  camSpeed: 0
+--- !u!114 &371371804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371371801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01cf5dbc7377c5e41936abe9c31e83f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &371371805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371371801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f55aaf381c14b446a77117b0cae8896, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeCamera: {fileID: 0}
+  shakeRotate: 0
 --- !u!1 &385013310
 GameObject:
   m_ObjectHideFlags: 0
@@ -2801,7 +2831,7 @@ GameObject:
   - component: {fileID: 1373593684}
   - component: {fileID: 1373593687}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: MainCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
