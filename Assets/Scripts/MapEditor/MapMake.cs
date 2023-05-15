@@ -26,6 +26,7 @@ public class MapMake : MonoBehaviour
     GameObject enemys;
     GameObject eventDots;
     GameObject bezierDots;
+    [SerializeField] private List<GameObject> mapBGs = new List<GameObject>();
     public List<LineRenderer> lrs = new List<LineRenderer>();
     public int lrCount = 0;
     public int bezierCount = 0;
@@ -36,6 +37,9 @@ public class MapMake : MonoBehaviour
     DataManager Data;
     [SerializeField] private int stage;
 
+    bool isMapMake = false;
+    bool isMapClear = true;
+
     void Start()
     {
         Data = DataManager.data;
@@ -44,29 +48,63 @@ public class MapMake : MonoBehaviour
         stage = Data.saveData.gameData.stage;
         map = GameObject.Find("Map");
         Data.saveData.gameData.map = map;
-        moveDots = map.transform.GetChild(0).gameObject;
-        enemys = map.transform.GetChild(1).gameObject;
-        eventDots = map.transform.GetChild(2).gameObject;
-        bezierDots = map.transform.GetChild(3).gameObject;
+        GameObject mapBG = Instantiate(mapBGs[stage], new Vector3(0f, 0f, 0f), Quaternion.identity);
+        mapBG.transform.SetParent(map.transform);
+        MapGameObjectMake();
         isMapEditor = true;
+    }
+
+    public void MapGameObjectMake()
+    {
+        GameObject moveDots = new GameObject();
+        moveDots.transform.SetParent(map.transform);
+        moveDots.name = "moveDots";
+        GameObject enemys = new GameObject();
+        enemys.transform.SetParent(map.transform);
+        enemys.name = "enemys";
+        GameObject eventDots = new GameObject();
+        eventDots.transform.SetParent(map.transform);
+        eventDots.name = "eventDots";
+        GameObject bezierDots = new GameObject();
+        bezierDots.name = "bezierDots";
+
+        this.moveDots = moveDots;
+        this.enemys = enemys;
+        this.eventDots = eventDots;
+        this.bezierDots = bezierDots;
     }
 
     public void MapSetting() // 맵세팅
     {
-        lrCount = 0;
-        bezierCount = 0;
-        stage = Data.saveData.gameData.stage;
-        LineRendererSetting(0);
-        lrCount++;
-        MoveDotSetting(stage);
-        EnemySetting(stage);
-        EventDotSetting(stage);
+        if(isMapClear)
+        {
+            lrCount = 0;
+            bezierCount = 0;
+            stage = Data.saveData.gameData.stage;
+            LineRendererSetting(0);
+            lrCount++;
+            MoveDotSetting(stage);
+            EnemySetting(stage);
+            EventDotSetting(stage);
+            isMapMake = true;
+            isMapClear = false;
+        }
+        else
+        {
+            Debug.Log("실수로 두번 클릭한 당신.. 이번만 살려드리는겁니다..");
+        }
     }
 
     public void MapDelete() // 맵삭제 (맵 에디터 용)
     {
-        lrs.Clear();
-        DestroyAll();
+        if(isMapMake)
+        {
+            DestroyAll();
+        }
+        else
+        {
+            Debug.Log("실수로 두번 클릭한 당신.. 이번만 살려드리는겁니다..");
+        }
     }
 
 
@@ -80,38 +118,19 @@ public class MapMake : MonoBehaviour
                 Destroy(child.gameObject);
             }
         }
-        allChildren = moveDots.GetComponentsInChildren<Transform>();
-        foreach (Transform child in allChildren)
-        {
-            if (child.name != moveDots.transform.name)
-            {
-                Destroy(child.gameObject);
-            }
-        }
-        allChildren = enemys.GetComponentsInChildren<Transform>();
-        foreach (Transform child in allChildren)
-        {
-            if (child.name != enemys.transform.name)
-            {
-                Destroy(child.gameObject);
-            }
-        }
-        allChildren = eventDots.GetComponentsInChildren<Transform>();
-        foreach (Transform child in allChildren)
-        {
-            if (child.name != eventDots.transform.name)
-            {
-                Destroy(child.gameObject);
-            }
-        }
-        for(int i=0; i<bezierDotList.Count; i++)
-        {
-            Destroy(bezierDotList[i].gameObject);
-        }
+        Destroy(moveDots.gameObject);
+        Destroy(enemys.gameObject);
+        Destroy(eventDots.gameObject);
+        Destroy(bezierDots.gameObject);
+        lrs.Clear();
         moveDotList.Clear();
         enemyList.Clear();
         eventDotList.Clear();
         bezierDotList.Clear();
+
+        MapGameObjectMake();
+        isMapMake = false;
+        isMapClear = true;
     }
 
     // 맵 세팅 관련 함수들 / 맵 데이터를 읽어와서 오브젝트를 배치한다

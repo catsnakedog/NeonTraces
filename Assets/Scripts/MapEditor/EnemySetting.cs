@@ -46,7 +46,7 @@ public class EnemySetting : MonoBehaviour
     {
         Data = DataManager.data;
         player = GameObject.Find("Player");
-        map = Data.saveData.gameData.map.transform.GetChild(4).GetChild(0).gameObject;
+        map = Data.saveData.gameData.map.transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
         playerAction = GameObject.Find("InGameManager").GetComponent<PlayerAction>();
         playerMove = GameObject.Find("InGameManager").GetComponent<PlayerMove>();
         blood = Data.saveData.gameData.blood;
@@ -202,6 +202,10 @@ public class EnemySetting : MonoBehaviour
         {
             bloodBoomObject = Instantiate(bloodBoom, transform.position, Quaternion.identity);
             bloodBoomObject.transform.SetParent(gameObject.transform);
+            if(player.transform.position.x > gameObject.transform.position.x)
+            {
+                bloodBoomObject.transform.localScale = new Vector3(-1f, 1f, 1f);
+            }
         }
         enemyAction += MoveBySpeed;
         enemyAction += IsEndPoint;
@@ -264,6 +268,10 @@ public class EnemySetting : MonoBehaviour
         GameObject blood = Instantiate(this.blood, temp, rot);
         blood.transform.eulerAngles = new Vector3(blood.transform.eulerAngles.x, 0f, blood.transform.eulerAngles.z + cor);
         blood.transform.SetParent(map.transform, true);
+        if (player.transform.position.x > gameObject.transform.position.x)
+        {
+            blood.transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
     }
 
     IEnumerator bloodBoomDestroy()

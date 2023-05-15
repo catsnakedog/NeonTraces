@@ -10,6 +10,7 @@ public class PlayerMove : MonoBehaviour
     DataManager Data;
     MapMake mapMake; // 테스트를 위해 임시로 추가 나중에 지울것
     PlayerAnimaiton playerAnimation;
+    PlayerAction playerActionS;
 
     public Action playerAction = null;
     [SerializeField] public float speed;
@@ -35,6 +36,7 @@ public class PlayerMove : MonoBehaviour
         mapMake = GameObject.Find("MapMaker").GetComponent<MapMake>();
         playerAnimation = gameObject.GetComponent<PlayerAnimaiton>();
         playerAnimation.AniSet();
+        playerActionS = gameObject.GetComponent<PlayerAction>();
     }
 
     void Update()
@@ -70,7 +72,10 @@ public class PlayerMove : MonoBehaviour
         }
         else
         {
-            playerAnimation.SetAnimation("Run");
+            if(!playerActionS.isDelay)
+            {
+                playerAnimation.SetAnimation("Run");
+            }
             startPoint = Data.saveData.mapData[stage].moveDots[crruentMoveDot].v3;
             endPoint = Data.saveData.mapData[stage].moveDots[crruentMoveDot + 1].v3;
             if(startPoint.x > endPoint.x)

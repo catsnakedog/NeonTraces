@@ -14,16 +14,16 @@ public class AfterImage : MonoBehaviour
     {
         Data = DataManager.data;
         afterImageColor = Color.blue;
-        afterImageColor.a = 0.3f;
+        afterImageColor.a = 0.5f;
     }
     public IEnumerator AfterImageSetting(GameObject target)
     {
         GameObject temp = defaultObject;
-        temp.GetComponent<SpriteRenderer>().sprite = target.GetComponent<SpriteRenderer>().sprite;
         while (true)
         {
+            temp.GetComponent<SpriteRenderer>().sprite = target.GetComponent<SpriteRenderer>().sprite;
             StartCoroutine(ImageSet(Instantiate(temp, target.transform.position, target.transform.localRotation), target));
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.1f);
         }
     }
 
@@ -31,7 +31,7 @@ public class AfterImage : MonoBehaviour
     {
         target.GetComponent<SpriteRenderer>().color = afterImageColor;
         target.transform.localScale = parent.transform.localScale;
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.4f);
         Destroy(target);
     }
 }
