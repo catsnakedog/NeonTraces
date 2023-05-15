@@ -25,24 +25,16 @@ public class Sound_Manager : MonoBehaviour
 
     enum BGM
     {
-        엠피리언_전투BGM_2,
-        월령국_전투BGM_최종,
-        제한구역_변주,
-        제한구역,
+   
         Start_BGM,
-        MaxCount
+        MaxCount// 삭제 금지
     }
 
     enum SFX
     {
-        Back_button,
-        Back_to_home,
-        Button,
-        Clear,
-        Game_over,
-        Quest_entry,
-        Reinforce,
-        MaxCount
+        Test_ClickSFX,
+       
+        MaxCount //삭제금지
     }
 
     void Awake() // 사운드 싱글톤

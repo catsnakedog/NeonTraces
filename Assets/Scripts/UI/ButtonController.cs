@@ -10,25 +10,27 @@ public class ButtonController : MonoBehaviour
     public GameObject stageMenu;
     public string SceneToLoadGame; //인게임 씬
     public string SceneToLoadCutScene; //컷 씬
-
+    Sound_Manager sm; //테스트
+    
     private void Start()
     {
+        sm = Sound_Manager.sound;
         startMenu.SetActive(true);  //게임 시작시 시작 메뉴 활성화
         stageMenu.SetActive(false); //게임 시작시 스테이지 메뉴 비활성화
         menuPanel.SetActive(false); //게임 시작시 메뉴 패널 비활성화
+
     }
 
-
+    public void SettingOpen()
+    {
+        sm.Play("Test_ClickSFX");
+        Invoke("SettingIn", 0.5f);
+    }
     public void SettingIn() //세팅 메뉴 열기
     {
         menuPanel.SetActive(true);
-        
     }
-    public IEnumerator SettingOpen()
-    {
-        yield return new WaitForSeconds(2);
-        menuPanel.SetActive(true);
-    }
+
     public void SettingOut() //세팅 메뉴 닫기
     {
         menuPanel.SetActive(false);
