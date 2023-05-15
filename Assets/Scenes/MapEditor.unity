@@ -542,7 +542,7 @@ MonoBehaviour:
   mainCameraC: {fileID: 0}
   target: {fileID: 0}
   camSpeed: 0
-  isShake: 1
+  isShake: 0
 --- !u!114 &371371804
 MonoBehaviour:
   m_ObjectHideFlags: 0

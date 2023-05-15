@@ -23,7 +23,7 @@ public class CameraManager : MonoBehaviour
     }
     IEnumerator ShakeAction()
     {
-        isShake = true;
+        cameraFix.isShake = true;
         yield return null;
     }
     IEnumerator ZoomInAction()
