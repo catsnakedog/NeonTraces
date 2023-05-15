@@ -15,7 +15,8 @@ public class PlayerAnimaiton : MonoBehaviour
 
     public void AniSet()
     {
-        playerAni = Data.saveData.gameData.player.GetComponent<Animator>();
+        
+        playerAni = GameObject.Find("Player").GetComponent<Animator>();
     }
 
     public void SetAnimation(string AniName)
