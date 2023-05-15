@@ -12,8 +12,9 @@ public class CameraFix : MonoBehaviour
     public Camera mainCameraC;
     public GameObject target;
     public float camSpeed;
-    public bool isShake;
+    public bool isShake = false;
     private bool secondframe = false;
+    private int framecount = 0;
     void Start()
     {
         Data = DataManager.data;
@@ -21,6 +22,8 @@ public class CameraFix : MonoBehaviour
         mainCamera = GameObject.Find("MainCamera");
         target = GameObject.Find("Player");
         mainCameraC = mainCamera.GetComponent<Camera>();
+        isShake = true;
+        
     }
     void LateUpdate()
     {
@@ -29,11 +32,9 @@ public class CameraFix : MonoBehaviour
         if (isShake == true)
         {
             Vector3 startPosition = mainCamera.transform.position;
-            
-            float eTime = 0f;
-            if (eTime < 3f)
+            if (framecount < 120)
             {
-                eTime += Time.deltaTime;
+                framecount+=1;
                 if (secondframe == false)
                 {
                     mainCamera.transform.position = new Vector3(target.transform.position.x, target.transform.position.y, mainCamera.transform.position.z);
@@ -41,15 +42,16 @@ public class CameraFix : MonoBehaviour
                 }
                 else
                 {
-                    mainCamera.transform.position = startPosition + Random.insideUnitSphere * 0.5f;
+                    mainCamera.transform.position = startPosition + Random.insideUnitSphere * 0.8f;
+                    mainCamera.transform.position = new Vector3(mainCamera.transform.position.x,
+                        mainCamera.transform.position.y, -10f);
                     secondframe = false;
                 }
-                
-                
             }
             else
             {
                 isShake = false;
+                framecount = 0;
             }
         }
         else
