@@ -58,7 +58,7 @@ public class Sound_Manager : MonoBehaviour
         SoundPooling(); // 사운드 파일들을 풀링 해온다
         SetAudioSource(); // 오디오 소스 세팅
         Play("Start_BGM"); // 테스트용 BGM
-        Play("Clear"); // 테스트용 SFX
+        //Play("Clear"); // 테스트용 SFX
     }
 
     // Update is called once per frame
@@ -70,8 +70,8 @@ public class Sound_Manager : MonoBehaviour
     {
         if (Bgm == null || Sfx == null) 
         {
-            GameObject Canvas = GameObject.Find("StartCanvas");
-            GameObject Setting = null;
+            //GameObject Canvas = GameObject.Find("SettingCanvas");
+            /*GameObject Setting = null;
             for (int i = 0; i < Canvas.transform.childCount; i++) // StartCanvas의 자식의 SettingPanel 탐색
             {
                 if (Canvas.transform.GetChild(i).name == "SettingPanel")
@@ -80,6 +80,8 @@ public class Sound_Manager : MonoBehaviour
                     break;
                 }
             }
+            */
+            GameObject Setting = GameObject.Find("SettingPanel");
             if (Setting == null)
             {
                 Debug.Log("Setting패널이 존재하지 않음");
@@ -116,13 +118,19 @@ public class Sound_Manager : MonoBehaviour
     {
         master.SetFloat("BGM", Data.saveData.ui.bgm);
         master.SetFloat("SFX", Data.saveData.ui.sfx);
-        Bgm.value = Data.saveData.ui.bgm;
-        Sfx.value = Data.saveData.ui.sfx;
+        if (Bgm != null && Sfx != null)
+        {
+            Bgm.value = Data.saveData.ui.bgm;
+            Sfx.value = Data.saveData.ui.sfx;
+        }
     }
     public void Save_Value()
     {
-        Data.saveData.ui.bgm = Bgm.value;
-        Data.saveData.ui.sfx = Sfx.value;
+        if (Bgm != null && Sfx != null)
+        {
+            Data.saveData.ui.bgm = Bgm.value;
+            Data.saveData.ui.sfx = Sfx.value;
+        }
     }
 
     void SoundPooling() // enum에서 사운드 이름을 읽어와서 해당하는 사운드 파일을 로드 시킨다
