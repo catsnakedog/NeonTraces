@@ -16,6 +16,13 @@ public class AfterImage : MonoBehaviour
         afterImageColor = Color.blue;
         afterImageColor.a = 0.5f;
     }
+    IEnumerator ImageSet(GameObject target, GameObject parent)
+    {
+        target.GetComponent<SpriteRenderer>().color = afterImageColor;
+        target.transform.localScale = parent.transform.localScale;
+        yield return new WaitForSeconds(0.4f);
+        Destroy(target);
+    }
     public IEnumerator AfterImageSetting(GameObject target)
     {
         GameObject temp = defaultObject;
@@ -25,13 +32,5 @@ public class AfterImage : MonoBehaviour
             StartCoroutine(ImageSet(Instantiate(temp, target.transform.position, target.transform.localRotation), target));
             yield return new WaitForSeconds(0.1f);
         }
-    }
-
-    IEnumerator ImageSet(GameObject target, GameObject parent)
-    {
-        target.GetComponent<SpriteRenderer>().color = afterImageColor;
-        target.transform.localScale = parent.transform.localScale;
-        yield return new WaitForSeconds(0.4f);
-        Destroy(target);
     }
 }
