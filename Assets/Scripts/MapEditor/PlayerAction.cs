@@ -28,6 +28,26 @@ public class PlayerAction : MonoBehaviour
 
     void Start()
     {
+        isAttack = false;
+        isDefence = false;
+        isAction = false;
+        isDelay = false;
+        isLongClick = false;
+        timeCount = 0;
+    }
+
+    public void ActionReset()
+    {
+        isAttack = false;
+        isDefence = false;
+        isAction = false;
+        isDelay = false;
+        isLongClick = false;
+        timeCount = 0;
+    }
+
+    public void StartSetting()
+    {
         Data = DataManager.data;
         afterImage = transform.GetComponent<AfterImage>();
     }

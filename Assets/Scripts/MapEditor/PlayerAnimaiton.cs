@@ -10,12 +10,11 @@ public class PlayerAnimaiton : MonoBehaviour
 
     void Start()
     {
-        Data = DataManager.data;
     }
 
     public void AniSet()
     {
-        
+        Data = DataManager.data;
         playerAni = GameObject.Find("Player").GetComponent<Animator>();
     }
 

@@ -40,7 +40,7 @@ public class MapMake : MonoBehaviour
     bool isMapMake = false;
     bool isMapClear = true;
 
-    void Start()
+    public void StartSetting()
     {
         Data = DataManager.data;
         Data.saveData.gameData.blood = blood;

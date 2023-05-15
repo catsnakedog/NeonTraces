@@ -242,6 +242,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1323966422}
+        m_TargetAssemblyTypeName: PlayerAction, Assembly-CSharp
+        m_MethodName: PlayerActionReset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &91353845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1310,7 +1322,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.4126623, y: -0.01840049}
+  m_Offset: {x: 1.8851848, y: 0.009395003}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1321,7 +1333,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5568795, y: 2.1285696}
+  m_Size: {x: 0.72365236, y: 3.129206}
   m_EdgeRadius: 0
 --- !u!1 &1154128131
 GameObject:
@@ -1678,6 +1690,7 @@ GameObject:
   - component: {fileID: 1323966424}
   - component: {fileID: 1323966425}
   - component: {fileID: 1323966426}
+  - component: {fileID: 1323966427}
   m_Layer: 0
   m_Name: InGameManager
   m_TagString: Untagged
@@ -1795,6 +1808,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62cebc34151470e4e95a0a4acc357bc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1323966427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323966419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd1e383f017dc4349b25d0be4d433964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1361453827
 GameObject:
   m_ObjectHideFlags: 0
@@ -1839,7 +1864,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.35574478, y: -0.0030668378}
+  m_Offset: {x: 0.33489805, y: -0.010015488}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1850,7 +1875,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7669257, y: 2.1592374}
+  m_Size: {x: 0.9753915, y: 3.2015667}
   m_EdgeRadius: 0
 --- !u!1 &1373593683
 GameObject:
@@ -2161,7 +2186,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 678b1783c1db4aa44a53149201a3fab9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b0948836ac5d9284fbbfb4883dabab2b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

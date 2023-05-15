@@ -30,12 +30,13 @@ public class PlayerMove : MonoBehaviour
 
     void Start()
     {
+    }
+
+    public void StartSetting()
+    {
         Data = DataManager.data;
-        player = GameObject.Find("Player");
-        Data.saveData.gameData.player = player;
         mapMake = GameObject.Find("MapMaker").GetComponent<MapMake>();
         playerAnimation = gameObject.GetComponent<PlayerAnimaiton>();
-        playerAnimation.AniSet();
         playerActionS = gameObject.GetComponent<PlayerAction>();
     }
 
