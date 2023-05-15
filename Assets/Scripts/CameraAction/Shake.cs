@@ -21,7 +21,7 @@ public class Shake : MonoBehaviour
         originRot = shakeCamera.localRotation;
     }
 
-    public IEnumerator Shakecamera(float duration = 0.05f, float magnitudePos = 0.03f, float magnitudeRot = 0.1f)
+    public IEnumerator Shakecamera(float duration = 1.11f, float magnitudePos = 0.03f, float magnitudeRot = 0.1f)
     {
         float passTime = 0.0f;
         while (passTime < duration)
@@ -30,7 +30,7 @@ public class Shake : MonoBehaviour
             shakeCamera.localPosition = shakePos * magnitudePos;
             if (shakeRotate)
             {
-                Vector3 shakeRot = new Vector3(0, 0, Mathf.PerlinNoise(Time.time * magnitudeRot, 0.0f));
+                Vector3 shakeRot = new Vector3(0, 0, -10+Mathf.PerlinNoise(Time.time * magnitudeRot, 0.0f));
                 shakeCamera.localRotation = Quaternion.Euler(shakeRot);
             }
 
@@ -42,4 +42,4 @@ public class Shake : MonoBehaviour
         shakeCamera.localRotation = originRot;
     }
 }
-// https://www.youtube.com/watch?v=99bgQ5WG6ok Âü°íÀÚ·á,»ç¿ë¹ý
+// https://www.youtube.com/watch?v=99bgQ5WG6ok ì°¸ê³ ìžë£Œ,ì‚¬ìš©ë²•

@@ -747,6 +747,7 @@ MonoBehaviour:
   mainCameraC: {fileID: 0}
   target: {fileID: 0}
   camSpeed: 0
+  isShake: 1
 --- !u!114 &371371804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -759,6 +760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01cf5dbc7377c5e41936abe9c31e83f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShake: 0
 --- !u!114 &371371805
 MonoBehaviour:
   m_ObjectHideFlags: 0

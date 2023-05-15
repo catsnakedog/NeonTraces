@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
 using System.Drawing;
 using UnityEngine;
 
@@ -11,6 +12,8 @@ public class CameraFix : MonoBehaviour
     public Camera mainCameraC;
     public GameObject target;
     public float camSpeed;
+    public bool isShake;
+    private bool secondframe = false;
     void Start()
     {
         Data = DataManager.data;
@@ -22,8 +25,37 @@ public class CameraFix : MonoBehaviour
     void LateUpdate()
     {
         camsize = Data.saveData.gameData.camsize;
-        mainCamera.transform.position = new Vector3(target.transform.position.x, target.transform.position.y, mainCamera.transform.position.z);
         mainCameraC.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, camsize, camSpeed);
+        if (isShake == true)
+        {
+            Vector3 startPosition = mainCamera.transform.position;
+            
+            float eTime = 0f;
+            if (eTime < 3f)
+            {
+                eTime += Time.deltaTime;
+                if (secondframe == false)
+                {
+                    mainCamera.transform.position = new Vector3(target.transform.position.x, target.transform.position.y, mainCamera.transform.position.z);
+                    secondframe = true;
+                }
+                else
+                {
+                    mainCamera.transform.position = startPosition + Random.insideUnitSphere * 0.5f;
+                    secondframe = false;
+                }
+                
+                
+            }
+            else
+            {
+                isShake = false;
+            }
+        }
+        else
+        {
+            mainCamera.transform.position = new Vector3(target.transform.position.x, target.transform.position.y, mainCamera.transform.position.z);
+        }
     }
 }
 // 전역변수 camsize 이용해서 매 업데이트 마다 해당 사이즈로 변경
