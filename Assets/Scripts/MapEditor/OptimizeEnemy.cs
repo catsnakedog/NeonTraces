@@ -25,7 +25,7 @@ public class OptimizeEnemy : MonoBehaviour
     public void OptimizeStart() // 적 최적화 시작
     {
         player = Data.saveData.gameData.player;
-        camera = player.transform.GetChild(1).gameObject;
+        camera = GameObject.Find("MainCamera");
         optimizeAction += SetActiveEnemy;
     }
 
@@ -33,7 +33,7 @@ public class OptimizeEnemy : MonoBehaviour
     {
         for (int i = 0; i < Data.saveData.gameData.enemyInfo.Count; i++)
         {
-            if ((Data.saveData.gameData.enemyInfo[i].x > (camera.transform.position.x - 11f)) && (Data.saveData.gameData.enemyInfo[i].x < (camera.transform.position.x + 11f)))
+            if ((Data.saveData.gameData.enemyInfo[i].x > (camera.transform.position.x - Data.saveData.gameData.camsize*2.2f)) && (Data.saveData.gameData.enemyInfo[i].x < (camera.transform.position.x + Data.saveData.gameData.camsize * 2.2f)))
             {
                 Data.saveData.gameData.enemyInfo[i].enemy.SetActive(true);
             }
