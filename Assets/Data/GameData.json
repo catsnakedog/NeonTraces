@@ -158,24 +158,24 @@
                 },
                 {
                     "v3": {
-                        "x": 11.0,
-                        "y": 0.0,
+                        "x": 13.640000343322754,
+                        "y": 0.10000000149011612,
                         "z": 0.0
                     },
                     "type": 1
                 },
                 {
                     "v3": {
-                        "x": 16.0,
-                        "y": 0.0,
+                        "x": 25.110000610351564,
+                        "y": 0.3400000035762787,
                         "z": 0.0
                     },
                     "type": 0
                 },
                 {
                     "v3": {
-                        "x": 20.0,
-                        "y": 0.800000011920929,
+                        "x": 58.47999954223633,
+                        "y": 15.100000381469727,
                         "z": 0.0
                     },
                     "type": 3
@@ -222,8 +222,8 @@
                 },
                 {
                     "v3": {
-                        "x": 27.290000915527345,
-                        "y": 0.6100000143051148,
+                        "x": 63.79999923706055,
+                        "y": 2.0399999618530275,
                         "z": 0.0
                     },
                     "type": 2
@@ -1408,62 +1408,6 @@
                 },
                 {
                     "v3": {
-                        "x": 2.2200000286102297,
-                        "y": -0.009999999776482582,
-                        "z": 0.0
-                    },
-                    "type": 5,
-                    "eventTypeInfo": {
-                        "type0": {
-                            "pointDot1": {
-                                "x": 83.0,
-                                "y": 4.0,
-                                "z": 0.0
-                            },
-                            "pointDot2": {
-                                "x": 90.0,
-                                "y": 7.0,
-                                "z": 0.0
-                            },
-                            "nextMoveDot": 11,
-                            "time": 2.0
-                        },
-                        "type1": {
-                            "upSpeed": 2,
-                            "changeTime": 2.0
-                        },
-                        "type2": {
-                            "cutSceneNumber": 0
-                        },
-                        "type3": {
-                            "speed": 3,
-                            "index": 4,
-                            "startDot": 7,
-                            "endDot": 6
-                        },
-                        "type4": {
-                            "soundName": ""
-                        },
-                        "type5": {
-                            "cameraActionName": "ShakeAction"
-                        },
-                        "type6": {
-                            "power": 2,
-                            "speed": 30
-                        },
-                        "type7": {
-                            "timeScale": 1.0
-                        },
-                        "type8": {
-                            "animationName": ""
-                        },
-                        "type9": {
-                            "stopTime": 2.0
-                        }
-                    }
-                },
-                {
-                    "v3": {
                         "x": 24.81999969482422,
                         "y": 0.009999999776482582,
                         "z": 0.0
@@ -1602,86 +1546,86 @@
             false
         ],
         "player": {
-            "instanceID": 19784
+            "instanceID": 19792
         },
         "blood": {
-            "instanceID": 19900
+            "instanceID": 19912
         },
         "bloodBoom": {
-            "instanceID": 19902
+            "instanceID": 19914
         },
         "map": {
-            "instanceID": 19736
+            "instanceID": 19744
         },
         "enemyInfo": [
             {
                 "enemy": {
-                    "instanceID": -60052
+                    "instanceID": -71972
                 },
                 "x": 4.0,
                 "index": 0
             },
             {
                 "enemy": {
-                    "instanceID": -60064
+                    "instanceID": -71984
                 },
-                "x": 11.0,
+                "x": 13.640000343322754,
                 "index": 1
             },
             {
                 "enemy": {
-                    "instanceID": -60076
+                    "instanceID": -71996
                 },
-                "x": 16.0,
+                "x": 25.110000610351564,
                 "index": 2
             },
             {
                 "enemy": {
-                    "instanceID": -60088
+                    "instanceID": -72008
                 },
-                "x": 20.0,
+                "x": 60.060001373291019,
                 "index": 3
             },
             {
                 "enemy": {
-                    "instanceID": -60100
+                    "instanceID": -72020
                 },
                 "x": 48.0,
                 "index": 4
             },
             {
                 "enemy": {
-                    "instanceID": -60112
+                    "instanceID": -72032
                 },
                 "x": 39.77000045776367,
                 "index": 5
             },
             {
                 "enemy": {
-                    "instanceID": -60124
+                    "instanceID": -72044
                 },
                 "x": 75.31999969482422,
                 "index": 6
             },
             {
                 "enemy": {
-                    "instanceID": -60136
+                    "instanceID": -72056
                 },
                 "x": 85.01799774169922,
                 "index": 7
             },
             {
                 "enemy": {
-                    "instanceID": -60148
+                    "instanceID": -72068
                 },
                 "x": 87.83000183105469,
                 "index": 8
             },
             {
                 "enemy": {
-                    "instanceID": -60160
+                    "instanceID": -72080
                 },
-                "x": 27.459999084472658,
+                "x": 66.12999725341797,
                 "index": 9
             }
         ],

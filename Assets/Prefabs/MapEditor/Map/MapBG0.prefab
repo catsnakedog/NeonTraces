@@ -720,8 +720,8 @@ MonoBehaviour:
   m_ShapeLightFalloffSize: 0.5
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath:
-  - {x: -2.467804, y: -4.0353327, z: 0}
-  - {x: 2.727089, y: -3.9213562, z: 0}
+  - {x: -4.1243963, y: 0.6516113, z: 0}
+  - {x: 4.908942, y: -2.3051686, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &6757586655182590672

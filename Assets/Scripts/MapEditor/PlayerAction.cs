@@ -25,6 +25,7 @@ public class PlayerAction : MonoBehaviour
     AfterImage afterImage;
 
     Action playerAction;
+    public PlayerAnimaiton animaiton;
 
     void Start()
     {
@@ -50,6 +51,7 @@ public class PlayerAction : MonoBehaviour
     {
         Data = DataManager.data;
         afterImage = transform.GetComponent<AfterImage>();
+        animaiton = transform.GetComponent<PlayerAnimaiton>();
     }
 
     void Update()
@@ -59,6 +61,7 @@ public class PlayerAction : MonoBehaviour
 
     public void Attack() // 플레이어 공격
     {
+
         if (!isDelay) actionC = StartCoroutine("AttackAction");
     }
     public void Defence() // 플레이어 방어
@@ -77,6 +80,7 @@ public class PlayerAction : MonoBehaviour
 
     IEnumerator AttackAction() // Attack 관련 세팅
     {
+        animaiton.SetAnimation("Attack");
         actionA = StartCoroutine(afterImage.AfterImageSetting(Data.saveData.gameData.player));
         isAttack = true;
         isAction = true;
@@ -87,6 +91,7 @@ public class PlayerAction : MonoBehaviour
         yield return new WaitForSeconds(attackDelay);
         isDelay = false;
         StopCoroutine(actionA);
+        animaiton.SetAnimation("Run");
     }
     IEnumerator DefenceAction() // Defence 관련 세팅
     {

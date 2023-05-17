@@ -32,4 +32,9 @@ public class PlayerAnimaiton : MonoBehaviour
     {
         playerAni.SetTrigger("Run");
     }
+
+    void Attack()
+    {
+        playerAni.SetTrigger("Attack");
+    }
 }
