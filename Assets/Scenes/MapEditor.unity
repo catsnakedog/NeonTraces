@@ -555,6 +555,7 @@ MonoBehaviour:
   target: {fileID: 0}
   camSpeed: 0
   isShake: 0
+  ShakePower: 1
 --- !u!114 &371371804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1760,6 +1761,7 @@ MonoBehaviour:
   defenceMotionTime: 0.5
   longClickTime: 0.3
   timeCount: 0
+  animaiton: {fileID: 0}
 --- !u!114 &1323966423
 MonoBehaviour:
   m_ObjectHideFlags: 0
