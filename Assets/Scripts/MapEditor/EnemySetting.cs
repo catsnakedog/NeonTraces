@@ -90,6 +90,14 @@ public class EnemySetting : MonoBehaviour
         {
             Defence();
         }
+        else if (pattern[cnt] == 2)
+        {
+            StrongAttack();
+        }
+        else if (pattern[cnt] == 3)
+        {
+            StrongDefence();
+        }
         else
         {
             Debug.Log("버그야 버그");
@@ -99,6 +107,18 @@ public class EnemySetting : MonoBehaviour
     void Attack() // enemy가 공격 상태일때
     {
         if(playerAction.isDefence)
+        {
+            PatternClear();
+        }
+        else
+        {
+            playerAction.Death();
+        }
+    }
+
+    void StrongAttack()
+    {
+        if (playerAction.isDefence)
         {
             PlayerRebound(); // player가 밀려난다
             PatternClear();
@@ -110,6 +130,19 @@ public class EnemySetting : MonoBehaviour
     }
 
     void Defence() // enemy가 방어 상태일때
+    {
+        if (playerAction.isAttack)
+        {
+            BloodSetting();
+            PatternClear();
+        }
+        else
+        {
+            playerAction.Death();
+        }
+    }
+
+    void StrongDefence()
     {
         if (playerAction.isAttack)
         {

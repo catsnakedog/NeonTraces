@@ -22,8 +22,6 @@ public class CameraFix : MonoBehaviour
         mainCamera = GameObject.Find("MainCamera");
         target = GameObject.Find("Player");
         mainCameraC = mainCamera.GetComponent<Camera>();
-        isShake = true;
-        
     }
     void LateUpdate()
     {
