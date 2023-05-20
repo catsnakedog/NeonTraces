@@ -51,4 +51,13 @@ public class PlayerAnimaiton : MonoBehaviour
             playerAni.SetTrigger("Attack");
         }
     }
+
+    void Defence()
+    {
+        if (crruentAni != "Defence")
+        {
+            crruentAni = "Defence";
+            playerAni.SetTrigger("Defence");
+        }
+    }
 }

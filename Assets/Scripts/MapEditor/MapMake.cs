@@ -48,8 +48,6 @@ public class MapMake : MonoBehaviour
         stage = Data.saveData.gameData.stage;
         map = GameObject.Find("Map");
         Data.saveData.gameData.map = map;
-        GameObject mapBG = Instantiate(mapBGs[stage], new Vector3(0f, 0f, 0f), Quaternion.identity);
-        mapBG.transform.SetParent(map.transform);
         MapGameObjectMake();
         isMapEditor = true;
     }
@@ -86,6 +84,8 @@ public class MapMake : MonoBehaviour
             MoveDotSetting(stage);
             EnemySetting(stage);
             EventDotSetting(stage);
+            GameObject mapBG = Instantiate(mapBGs[stage], new Vector3(0f, 0f, 0f), Quaternion.identity);
+            mapBG.transform.SetParent(map.transform);
             isMapMake = true;
             isMapClear = false;
         }
@@ -99,6 +99,7 @@ public class MapMake : MonoBehaviour
     {
         if(isMapMake)
         {
+            Destroy(map.transform.GetChild(3).gameObject);
             DestroyAll();
         }
         else

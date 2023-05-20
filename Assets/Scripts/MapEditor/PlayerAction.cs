@@ -95,6 +95,7 @@ public class PlayerAction : MonoBehaviour
     }
     IEnumerator DefenceAction() // Defence 包访 技泼
     {
+        animaiton.SetAnimation("Defence");
         isDefence = true;
         isAction = true;
         isDelay = true;
@@ -103,6 +104,7 @@ public class PlayerAction : MonoBehaviour
         isDefence = false;
         yield return new WaitForSeconds(attackDelay);
         isDelay = false;
+        animaiton.SetAnimation("Run");
     }
     IEnumerator LongAttackAction() // Defence 包访 技泼
     {

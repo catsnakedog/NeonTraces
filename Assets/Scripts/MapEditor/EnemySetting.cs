@@ -46,7 +46,7 @@ public class EnemySetting : MonoBehaviour
     {
         Data = DataManager.data;
         player = GameObject.Find("Player");
-        map = Data.saveData.gameData.map.transform.GetChild(0).GetChild(0).GetChild(0).gameObject;
+        map = Data.saveData.gameData.map.transform.GetChild(3).GetChild(0).GetChild(0).gameObject;
         playerAction = GameObject.Find("InGameManager").GetComponent<PlayerAction>();
         playerMove = GameObject.Find("InGameManager").GetComponent<PlayerMove>();
         blood = Data.saveData.gameData.blood;

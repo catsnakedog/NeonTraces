@@ -69,6 +69,7 @@ public class PlayerMove : MonoBehaviour
         moveDotSize = Data.saveData.mapData[stage].moveDots.Count;
         if (crruentMoveDot == moveDotSize-1)
         {
+            playerAnimation.SetAnimation("Idle");
             Debug.Log("MoveEnd");
         }
         else
@@ -175,6 +176,7 @@ public class PlayerMove : MonoBehaviour
     {
         stage = Data.saveData.gameData.stage;
         player.transform.position = Data.saveData.mapData[stage].moveDots[0].v3;
+        playerAnimation.SetAnimation("Idle");
         crruentMoveDot = 0;
         Time.timeScale = 1;
         playerActionS.ActionReset();

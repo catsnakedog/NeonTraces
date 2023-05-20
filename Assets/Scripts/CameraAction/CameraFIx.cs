@@ -24,18 +24,18 @@ public class CameraFix : MonoBehaviour
         target = GameObject.Find("Player");
         mainCameraC = mainCamera.GetComponent<Camera>();
     }
-    void FixedUpdate()
+    void Update()
     {
         camsize = Data.saveData.gameData.camsize;
         mainCameraC.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, camsize, camSpeed);
         if (isShake == true)
         {
             Vector3 startPosition = mainCamera.transform.position;
-            if (framecount < 25)
+            if (framecount < 120)
             {
                 framecount+=1;
                 ShakePower -= 0.04f;
-                if (secondframe == false)
+                if (secondframe == false)   
                 {
                     mainCamera.transform.position = new Vector3(target.transform.position.x, target.transform.position.y, mainCamera.transform.position.z);
                     secondframe = true;
