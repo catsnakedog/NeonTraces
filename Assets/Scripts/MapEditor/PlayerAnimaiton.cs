@@ -8,6 +8,8 @@ public class PlayerAnimaiton : MonoBehaviour
     DataManager Data;
     Animator playerAni;
 
+    string crruentAni;
+
     void Start()
     {
     }
@@ -25,16 +27,28 @@ public class PlayerAnimaiton : MonoBehaviour
 
     void Idle()
     {
-        playerAni.SetTrigger("Idle");
+        if (crruentAni != "Idle")
+        {
+            crruentAni = "Idle";
+            playerAni.SetTrigger("Idle");
+        }
     }
 
     void Run()
     {
-        playerAni.SetTrigger("Run");
+        if(crruentAni != "Run")
+        {
+            crruentAni = "Run";
+            playerAni.SetTrigger("Run");
+        }
     }
 
     void Attack()
     {
-        playerAni.SetTrigger("Attack");
+        if (crruentAni != "Attack")
+        {
+            crruentAni = "Attack";
+            playerAni.SetTrigger("Attack");
+        }
     }
 }

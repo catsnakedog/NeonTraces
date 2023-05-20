@@ -25,6 +25,9 @@ public class StartSettingManager : MonoBehaviour
         playerAnimaiton = gameObject.GetComponent<PlayerAnimaiton>();
         mapMake = GameObject.Find("MapMaker").GetComponent<MapMake>();
 
+        Data.saveData.gameData.camsize = 7;
+        Data.saveData.gameData.stage = 0; // 임시로 추가
+
         player = GameObject.Find("Player");
         Data.saveData.gameData.player = player;
 

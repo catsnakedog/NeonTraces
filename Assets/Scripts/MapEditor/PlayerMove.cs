@@ -177,6 +177,7 @@ public class PlayerMove : MonoBehaviour
         player.transform.position = Data.saveData.mapData[stage].moveDots[0].v3;
         crruentMoveDot = 0;
         Time.timeScale = 1;
+        playerActionS.ActionReset();
         playerAction = null;
     }
 
