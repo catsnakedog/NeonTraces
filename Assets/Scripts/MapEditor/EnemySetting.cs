@@ -164,7 +164,7 @@ public class EnemySetting : MonoBehaviour
         playerAction.isDefence = false;
         playerAction.isAttack = false;
         playerAction.StopCoroutine(playerAction.actionC); // player의 상태 + 쿨타임 초기화
-        playerAction.animaiton.SetAnimation("Run");
+        //playerAction.animaiton.SetAnimation("Run");
         if (playerAction.actionA != null)
         {
             playerAction.StopCoroutine(playerAction.actionA);
