@@ -24,8 +24,7 @@ public class InGameManager : MonoBehaviour
     void SettingGame() // 게임 시작 함수, 맵생성 플레이어 움직임 등등을 한다 / 아마도 맵생성과 움직임은 불리해서 실행할거같다 (수정 필요)
     {
         mapMake.isMapEditor = false;
-        mapMake.EnemySetting(stage);
-        mapMake.EventDotSetting(stage);
+        mapMake.MapSetting();
         optimizeEnemy.OptimizeStart();
         playerMove.Invoke("MoveStart", 1f);
     }

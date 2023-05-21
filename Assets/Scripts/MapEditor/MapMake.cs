@@ -40,6 +40,11 @@ public class MapMake : MonoBehaviour
     bool isMapMake = false;
     bool isMapClear = true;
 
+    void Start()
+    {
+        isMapEditor = true;    
+    }
+
     public void StartSetting()
     {
         Data = DataManager.data;
@@ -81,7 +86,10 @@ public class MapMake : MonoBehaviour
             stage = Data.saveData.gameData.stage;
             LineRendererSetting(0);
             lrCount++;
-            MoveDotSetting(stage);
+            if(isMapEditor)
+            {
+                MoveDotSetting(stage);
+            }    
             EnemySetting(stage);
             EventDotSetting(stage);
             GameObject mapBG = Instantiate(mapBGs[stage], new Vector3(0f, 0f, 0f), Quaternion.identity);
