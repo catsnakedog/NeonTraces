@@ -70,7 +70,7 @@ public class PlayerAction : MonoBehaviour
     }
     public void LongAttack()
     {
-        if (!isDelay) actionC = StartCoroutine("LongAttackAction");
+        actionC = StartCoroutine("LongAttackAction");
     }
 
     public void Death() // 플레이어가 죽을시 실행
@@ -108,16 +108,16 @@ public class PlayerAction : MonoBehaviour
     }
     IEnumerator LongAttackAction() // Defence 관련 세팅
     {
+        animaiton.SetAnimation("Attack");
         isLongClick = false;
         isAttack = true;
-        isAction = true;
-        isDelay = true;
         yield return new WaitForSeconds(attackMotionTime);
         isAction = false;
         isAttack = false;
         yield return new WaitForSeconds(attackDelay);
         isDelay = false;
         StopCoroutine(actionA);
+        animaiton.SetAnimation("Run");
     }
 
     public void ButtonDown()
@@ -133,13 +133,13 @@ public class PlayerAction : MonoBehaviour
     public void ButtonUp()
     {
         playerAction = null;
-        if(!isDelay)
+        if (isLongClick)
         {
-            if (isLongClick)
-            {
-                LongAttack();
-            }
-            else
+            LongAttack();
+        }
+        if (!isDelay)
+        {
+            if(!isLongClick)
             {
                 Attack();
             }
@@ -155,10 +155,12 @@ public class PlayerAction : MonoBehaviour
     {
         if(timeCount >= longClickTime)
         {
+            isDelay = true;
+            isAction = true;
             playerAction = null;
             isLongClick = true;
             actionA = StartCoroutine(afterImage.AfterImageSetting(Data.saveData.gameData.player));
-            Debug.Log("롱클릭 공격 에니메이션 실행"); // 에니메이션 추가되면 여기다가 추가
+            animaiton.SetAnimation("Drag");
         }
     }
 
