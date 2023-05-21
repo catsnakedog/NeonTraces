@@ -11,14 +11,19 @@ public class ButtonController : MonoBehaviour
     public string SceneToLoadGame; //인게임 씬
     public string SceneToLoadCutScene; //컷 씬
     Sound_Manager sm; //테스트
-    
+
+    public GameObject loading;
+    private CanvasGroup canvasGroup;
+    public float fadeTime;
+
     private void Start()
     {
         sm = Sound_Manager.sound;
+        loading.SetActive(true);    //로딩 화면 활성화
         startMenu.SetActive(true);  //게임 시작시 시작 메뉴 활성화
         stageMenu.SetActive(false); //게임 시작시 스테이지 메뉴 비활성화
         menuPanel.SetActive(false); //게임 시작시 메뉴 패널 비활성화
-
+        canvasGroup = loading.GetComponent<CanvasGroup>();
     }
 
     public void SettingOpen()
@@ -68,6 +73,28 @@ public class ButtonController : MonoBehaviour
     public void LoadCutScene() //컷씬으로
     {
         SceneManager.LoadScene(SceneToLoadCutScene);
+    }
+    public void canvasSkip()
+    {
+        
+        StartCoroutine("FadeOut");
+        if (canvasGroup.alpha < 0.1f)
+        {
+            StopCoroutine("FadeOut");
+            loading.SetActive(false);
+        }
+    }
+    public IEnumerator FadeOut()
+    {
+        //yield return new WaitForSeconds(3.0f);
+        float accumTime = 0f;
+        while (accumTime < fadeTime)
+        {
+            canvasGroup.alpha = Mathf.Lerp(canvasGroup.alpha, 0f, accumTime / fadeTime);
+            yield return 0;
+            accumTime += Time.deltaTime;
+        }
+        canvasGroup.alpha = 0f;
     }
 }
 

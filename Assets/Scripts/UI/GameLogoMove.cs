@@ -6,22 +6,47 @@ using UnityEngine.UI;
 
 public class GameLogoMove : MonoBehaviour
 {
-   
-    RectTransform rectTransform;
+    [SerializeField] float moveSpeed = 5f;
+    [SerializeField] float scaleSpeed = 1f;
+    private GameObject target;
+    private RectTransform targetRT;
+    private RectTransform RT;
+    private float time;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        rectTransform = GetComponent<RectTransform>();
-       
+        target = GameObject.Find("Target");
+        targetRT = target.GetComponent<RectTransform>();
+        RT = GetComponent<RectTransform>();
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        rectTransform.sizeDelta = new Vector2(300, 100);
-        //rectTransform.transform.position = new Vector3(-990, 480, 0); //(gameObject.transform.position, new Vector3(-910,490,0), 0.1f);
-        //rectTransform.localPosition = new Vector3(-990, 480, 0);
-        
-        rectTransform.position = Vector3.MoveTowards(rectTransform.position, new Vector3(-25f, 10f, 0f), 0.5f);
+        if (GetComponent<Image>().color.a == 1)
+        {
+            time += Time.deltaTime; //이동한 시간
+            MovePath();
+            if (0.1f * scaleSpeed * time < RT.localScale.x) //목표 크기와 동일할 때 까지 크기 감소)
+            {
+                Scale();
+            }
+        }
     }
+
+
+    public void MovePath()
+    {
+        RT.localPosition = Vector3.MoveTowards
+            (RT.localPosition, targetRT.localPosition, 100f * moveSpeed * Time.deltaTime); //목표 위치까지 해당 speed로 이동
+    }
+    public void Scale()
+    {
+        RT.localScale = new Vector3(RT.localScale.x - 0.1f * scaleSpeed * Time.deltaTime,
+                                        RT.localScale.y - 0.1f * scaleSpeed * Time.deltaTime,
+                                        RT.localScale.z - 0.1f * scaleSpeed * Time.deltaTime);
+    }
+
 }
