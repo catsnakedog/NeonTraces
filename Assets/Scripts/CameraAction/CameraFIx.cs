@@ -7,7 +7,7 @@ using UnityEngine;
 public class CameraFix : MonoBehaviour
 {
     DataManager Data;
-    public float camsize = 5;
+    public float camsize = 10;
     public GameObject mainCamera;
     public Camera mainCameraC;
     public GameObject target;
@@ -16,6 +16,9 @@ public class CameraFix : MonoBehaviour
     private bool secondframe = false;
     private int framecount = 0;
     public float ShakePower = 1f;
+
+    public float xCorrection;
+    public float yCorrection;
     void Start()
     {
         Data = DataManager.data;
@@ -57,7 +60,7 @@ public class CameraFix : MonoBehaviour
         }
         else
         {
-            mainCamera.transform.position = new Vector3(target.transform.position.x, target.transform.position.y, mainCamera.transform.position.z);
+            mainCamera.transform.position = new Vector3(target.transform.position.x+xCorrection, target.transform.position.y+yCorrection, mainCamera.transform.position.z);
         }
     }
 }

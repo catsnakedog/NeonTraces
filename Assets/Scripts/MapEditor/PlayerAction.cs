@@ -21,6 +21,7 @@ public class PlayerAction : MonoBehaviour
 
     public Coroutine actionC;
     public Coroutine actionA;
+    public Coroutine aniC;
 
     AfterImage afterImage;
 
@@ -80,7 +81,11 @@ public class PlayerAction : MonoBehaviour
 
     IEnumerator AttackAction() // Attack 包访 技泼
     {
-        animaiton.SetAnimation("Attack");
+        if(aniC != null)
+        {
+            StopCoroutine(aniC);
+        }
+        aniC = StartCoroutine(CallAni("Attack", attackMotionTime));
         actionA = StartCoroutine(afterImage.AfterImageSetting(Data.saveData.gameData.player));
         isAttack = true;
         isAction = true;
@@ -91,11 +96,14 @@ public class PlayerAction : MonoBehaviour
         yield return new WaitForSeconds(attackDelay);
         isDelay = false;
         StopCoroutine(actionA);
-        animaiton.SetAnimation("Run");
     }
     IEnumerator DefenceAction() // Defence 包访 技泼
     {
-        animaiton.SetAnimation("Defence");
+        if (aniC != null)
+        {
+            StopCoroutine(aniC);
+        }
+        aniC = StartCoroutine(CallAni("Defence", defenceMotionTime));
         isDefence = true;
         isAction = true;
         isDelay = true;
@@ -104,11 +112,14 @@ public class PlayerAction : MonoBehaviour
         isDefence = false;
         yield return new WaitForSeconds(attackDelay);
         isDelay = false;
-        animaiton.SetAnimation("Run");
     }
     IEnumerator LongAttackAction() // Defence 包访 技泼
     {
-        animaiton.SetAnimation("Attack");
+        if (aniC != null)
+        {
+            StopCoroutine(aniC);
+        }
+        aniC = StartCoroutine(CallAni("Attack", attackMotionTime));
         isLongClick = false;
         isAttack = true;
         yield return new WaitForSeconds(attackMotionTime);
@@ -117,7 +128,6 @@ public class PlayerAction : MonoBehaviour
         yield return new WaitForSeconds(attackDelay);
         isDelay = false;
         StopCoroutine(actionA);
-        animaiton.SetAnimation("Run");
     }
 
     public void ButtonDown()
@@ -192,9 +202,10 @@ public class PlayerAction : MonoBehaviour
         playerAction = null;
     }
 
-    IEnumerator AniSetting(string Name, float time)
+    IEnumerator CallAni(string Name, float time)
     {
-        animaiton.SetAnimation("Name");
+        animaiton.SetAnimation(Name);
         yield return new WaitForSeconds(time);
+        animaiton.SetAnimation("Run");
     }
 }

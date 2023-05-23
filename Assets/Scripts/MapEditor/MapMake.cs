@@ -4,6 +4,7 @@ using TMPro;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class MapMake : MonoBehaviour
 {
@@ -92,7 +93,7 @@ public class MapMake : MonoBehaviour
             }    
             EnemySetting(stage);
             EventDotSetting(stage);
-            GameObject mapBG = Instantiate(mapBGs[stage], new Vector3(0f, 0f, 0f), Quaternion.identity);
+            GameObject mapBG = Instantiate(mapBGs[stage], new Vector3(14f, 5f, 0f), Quaternion.identity);
             mapBG.transform.SetParent(map.transform);
             isMapMake = true;
             isMapClear = false;
@@ -274,5 +275,4 @@ public class MapMake : MonoBehaviour
         MapDelete();
         Invoke("MapSetting", 2f);
     }
-
 }
