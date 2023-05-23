@@ -40,7 +40,7 @@ public class PlayerMove : MonoBehaviour
         playerActionS = gameObject.GetComponent<PlayerAction>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         playerAction?.Invoke();
     }

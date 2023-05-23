@@ -158,6 +158,7 @@ public class EnemySetting : MonoBehaviour
 
     void PatternClear() // 성공적으로 판정에 성공 했을때 player 행동 쿨타임 초기화
     {
+
         isActive = false;
         playerAction.isDelay = false;
         playerAction.isAction = false;

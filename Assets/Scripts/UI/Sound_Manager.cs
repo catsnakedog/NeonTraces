@@ -25,7 +25,7 @@ public class Sound_Manager : MonoBehaviour
 
     enum BGM
     {
-   
+        BGM_01,
         Start_BGM,
         MaxCount// 삭제 금지
     }

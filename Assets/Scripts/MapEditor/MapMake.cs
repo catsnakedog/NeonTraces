@@ -36,6 +36,8 @@ public class MapMake : MonoBehaviour
     [SerializeField] private Material lrDefault;
 
     DataManager Data;
+
+    BGManager bgManager;
     [SerializeField] private int stage;
 
     bool isMapMake = false;
@@ -53,6 +55,7 @@ public class MapMake : MonoBehaviour
         Data.saveData.gameData.bloodBoom = bloodBoom;
         stage = Data.saveData.gameData.stage;
         map = GameObject.Find("Map");
+        bgManager = GameObject.Find("InGameManager").GetComponent<BGManager>();
         Data.saveData.gameData.map = map;
         MapGameObjectMake();
         isMapEditor = true;
@@ -95,6 +98,7 @@ public class MapMake : MonoBehaviour
             EventDotSetting(stage);
             GameObject mapBG = Instantiate(mapBGs[stage], new Vector3(14f, 5f, 0f), Quaternion.identity);
             mapBG.transform.SetParent(map.transform);
+            bgManager.BGSetting();
             isMapMake = true;
             isMapClear = false;
         }

@@ -12,6 +12,7 @@ public class StartSettingManager : MonoBehaviour
     PlayerAction playerAction;
     PlayerAnimaiton playerAnimaiton;
     PlayerMove playerMove;
+    BGManager bgManager;
 
     GameObject player;
     void Start()
@@ -23,6 +24,7 @@ public class StartSettingManager : MonoBehaviour
         cutSceneManager = gameObject.GetComponent<CutSceneManager>();
         afterImage = gameObject.GetComponent<AfterImage>();
         playerAnimaiton = gameObject.GetComponent<PlayerAnimaiton>();
+        bgManager = gameObject.GetComponent<BGManager>();
         mapMake = GameObject.Find("MapMaker").GetComponent<MapMake>();
 
         Data.saveData.gameData.camsize = 10;
@@ -35,5 +37,6 @@ public class StartSettingManager : MonoBehaviour
         playerMove.StartSetting();
         playerAnimaiton.AniSet();
         playerAction.StartSetting();
+        bgManager.StartSetting();
     }
 }
