@@ -185,6 +185,12 @@ public class EnemySetting : MonoBehaviour
     }
     void Death() // 패턴이 전부 소모시 사망
     {
+        bloodBoomObject = Instantiate(bloodBoom, transform.position, Quaternion.identity);
+        bloodBoomObject.transform.SetParent(gameObject.transform);
+        if (player.transform.position.x > gameObject.transform.position.x)
+        {
+            bloodBoomObject.transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
         enemyAction = null;
     }
 
