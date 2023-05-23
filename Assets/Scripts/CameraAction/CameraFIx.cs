@@ -34,10 +34,10 @@ public class CameraFix : MonoBehaviour
         if (isShake == true)
         {
             Vector3 startPosition = mainCamera.transform.position;
-            if (framecount < 30)
+            if (framecount < 10)
             {
                 framecount+=1;
-                ShakePower -= 0.04f;
+                ShakePower -= 0.01f;
                 if (secondframe == false)   
                 {
                     mainCamera.transform.position = new Vector3(target.transform.position.x+xCorrection, target.transform.position.y+yCorrection, mainCamera.transform.position.z);

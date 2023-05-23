@@ -13,8 +13,8 @@ public class AfterImage : MonoBehaviour
     void Start()
     {
         Data = DataManager.data;
-        afterImageColor = Color.blue;
-        afterImageColor.a = 0.5f;
+        afterImageColor = Color.green;
+        afterImageColor.a = 0.7f;
     }
     IEnumerator ImageSet(GameObject target, GameObject parent)
     {

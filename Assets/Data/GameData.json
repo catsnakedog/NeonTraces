@@ -856,6 +856,30 @@
                         "z": 0.0
                     },
                     "speed": 15.0
+                },
+                {
+                    "v3": {
+                        "x": 115.30000305175781,
+                        "y": 1.0,
+                        "z": 0.0
+                    },
+                    "speed": 15.0
+                },
+                {
+                    "v3": {
+                        "x": 128.39999389648438,
+                        "y": 1.0,
+                        "z": 0.0
+                    },
+                    "speed": 15.0
+                },
+                {
+                    "v3": {
+                        "x": 202.88999938964845,
+                        "y": 1.0,
+                        "z": 0.0
+                    },
+                    "speed": 15.0
                 }
             ],
             "enemys": [
@@ -1004,6 +1028,62 @@
                             "stopTime": 0.0
                         }
                     }
+                },
+                {
+                    "v3": {
+                        "x": 97.61000061035156,
+                        "y": 8.130000114440918,
+                        "z": 0.0
+                    },
+                    "type": 0,
+                    "eventTypeInfo": {
+                        "type0": {
+                            "pointDot1": {
+                                "x": 97.0,
+                                "y": 12.0,
+                                "z": 0.0
+                            },
+                            "pointDot2": {
+                                "x": 115.0,
+                                "y": 5.0,
+                                "z": 0.0
+                            },
+                            "nextMoveDot": 5,
+                            "time": 1.0
+                        },
+                        "type1": {
+                            "upSpeed": 0,
+                            "changeTime": 0.0
+                        },
+                        "type2": {
+                            "cutSceneNumber": 0
+                        },
+                        "type3": {
+                            "speed": 0,
+                            "index": 0,
+                            "startDot": 0,
+                            "endDot": 0
+                        },
+                        "type4": {
+                            "soundName": ""
+                        },
+                        "type5": {
+                            "cameraActionName": ""
+                        },
+                        "type6": {
+                            "power": 0,
+                            "speed": 0
+                        },
+                        "type7": {
+                            "timeScale": 0.0
+                        },
+                        "type8": {
+                            "animationName": ""
+                        },
+                        "type9": {
+                            "stopTime": 0.0
+                        }
+                    }
                 }
             ]
         }
@@ -1032,34 +1112,34 @@
         "enemyInfo": [
             {
                 "enemy": {
-                    "instanceID": -7990
+                    "instanceID": -172680
                 },
                 "x": 13.529999732971192,
                 "index": 0
             },
             {
                 "enemy": {
-                    "instanceID": -8002
+                    "instanceID": -172692
                 },
                 "x": 27.420000076293947,
                 "index": 1
             },
             {
                 "enemy": {
-                    "instanceID": -8014
+                    "instanceID": -172704
                 },
                 "x": 37.7400016784668,
                 "index": 2
             },
             {
                 "enemy": {
-                    "instanceID": -8026
+                    "instanceID": -172716
                 },
                 "x": 54.93000030517578,
                 "index": 3
             }
         ],
-        "camsize": 9.0
+        "camsize": 10.0
     },
     "ui": {
         "bgm": -40.0,

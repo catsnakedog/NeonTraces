@@ -69,4 +69,13 @@ public class PlayerAnimaiton : MonoBehaviour
             playerAni.SetTrigger("Drag");
         }
     }
+
+    void DragAttack()
+    {
+        if (crruentAni != "DragAttack")
+        {
+            crruentAni = "DragAttack";
+            playerAni.SetTrigger("DragAttack");
+        }
+    }
 }

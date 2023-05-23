@@ -10,26 +10,27 @@ public class BGManager : MonoBehaviour
 
     GameObject player;
     GameObject camera;
-    GameObject BGObject;
+    public GameObject BGObject;
 
     SpriteRenderer spriteRenderer;
 
-    Action actionM;
+    public Action actionM;
 
     [SerializeField] private List<GameObject> BGs = new List<GameObject>();
 
     int stage;
 
-    public float Xmax = 0;
-    public float Xmin = 10000;
-    public float Ymax = 0;
-    public float Ymin = 10000;
+    float camsize = 0;
+    float Xmax = 0;
+    float Xmin = 10000;
+    float Ymax = 0;
+    float Ymin = 10000;
 
-    public float BGMoveX = 0;
-    public float BGMoveY = 0;
+    float BGMoveX = 0;
+    float BGMoveY = 0;
 
-    public float DefaultX = 0;
-    public float DefaultY = 0;
+    float DefaultX = 0;
+    float DefaultY = 0;
 
     [SerializeField] private float pixelPerUnit = 7;
     void Start()
@@ -45,6 +46,7 @@ public class BGManager : MonoBehaviour
     public void StartSetting()
     {
         camera = GameObject.Find("MainCamera");
+        camsize = Data.saveData.gameData.camsize;
     }
 
     public void BGSetting()
@@ -72,10 +74,10 @@ public class BGManager : MonoBehaviour
         }
 
         spriteRenderer = BGs[stage].GetComponent<SpriteRenderer>();
-        BGMoveX = (spriteRenderer.sprite.rect.size.x / 4f - (Data.saveData.gameData.camsize * 4f * pixelPerUnit) / 7f) / (Xmax - Xmin);
-        BGMoveY = (spriteRenderer.sprite.rect.size.y / 4f - (Data.saveData.gameData.camsize * 2f * pixelPerUnit) / 7f) / (Ymax - Ymin);
-        DefaultX = camera.transform.position.x + (spriteRenderer.sprite.rect.size.x / 8f) - ((Data.saveData.gameData.camsize * 2f * pixelPerUnit) / 7f);
-        DefaultY = camera.transform.position.y + (spriteRenderer.sprite.rect.size.y / 8f) - ((Data.saveData.gameData.camsize * pixelPerUnit) / 7f);
+        BGMoveX = (spriteRenderer.sprite.rect.size.x / 4f - (camsize * 4f * pixelPerUnit) / 7f) / (Xmax - Xmin);
+        BGMoveY = (spriteRenderer.sprite.rect.size.y / 4f - (camsize * 2f * pixelPerUnit) / 7f) / (Ymax - Ymin);
+        DefaultX = camera.transform.position.x + (spriteRenderer.sprite.rect.size.x / 8f) - ((camsize * 2f * pixelPerUnit) / 7f);
+        DefaultY = camera.transform.position.y + (spriteRenderer.sprite.rect.size.y / 8f) - ((camsize * pixelPerUnit) / 7f);
         BGObject = Instantiate(BGs[stage], new Vector3(DefaultX, DefaultY, 0f), Quaternion.identity);
 
         actionM += BGMoveSetting;
@@ -83,7 +85,7 @@ public class BGManager : MonoBehaviour
 
     void BGMoveSetting()
     {
-        Vector3 cameraV3 = new Vector3(camera.transform.position.x + (spriteRenderer.sprite.rect.size.x / 8f) - ((Data.saveData.gameData.camsize * 2f * pixelPerUnit) / 7f) - ((player.transform.position.x - Xmin) * BGMoveX), camera.transform.position.y + (spriteRenderer.sprite.rect.size.y / 8f) - ((Data.saveData.gameData.camsize * pixelPerUnit) / 7f) - ((player.transform.position.y - Ymin) * BGMoveY), 0f);
+        Vector3 cameraV3 = new Vector3(camera.transform.position.x + (spriteRenderer.sprite.rect.size.x / 8f) - ((camsize * 2f * pixelPerUnit) / 7f) - ((player.transform.position.x - Xmin) * BGMoveX), camera.transform.position.y + (spriteRenderer.sprite.rect.size.y / 8f) - ((camsize * pixelPerUnit) / 7f) - ((player.transform.position.y - Ymin) * BGMoveY), 0f);
         BGObject.transform.position = cameraV3;
     }
 }

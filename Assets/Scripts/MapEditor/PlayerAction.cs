@@ -119,7 +119,7 @@ public class PlayerAction : MonoBehaviour
         {
             StopCoroutine(aniC);
         }
-        aniC = StartCoroutine(CallAni("Attack", attackMotionTime));
+        aniC = StartCoroutine(CallAni("DragAttack", attackMotionTime));
         isLongClick = false;
         isAttack = true;
         yield return new WaitForSeconds(attackMotionTime);

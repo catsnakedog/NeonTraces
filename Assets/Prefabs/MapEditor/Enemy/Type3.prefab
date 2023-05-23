@@ -133,8 +133,8 @@ MonoBehaviour:
   endDot: 0
   speed: 0
   power: 0
-  DefaultSpeed: 20
-  DefaultPower: 4
+  DefaultSpeed: 30
+  DefaultPower: 6
   className: 
   pattern: 0300000000000000
   defaultV3: {x: 0, y: 0, z: 0}

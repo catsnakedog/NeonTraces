@@ -42,6 +42,8 @@ public class EnemySetting : MonoBehaviour
     Action enemyAction = null;
     PlayerAction playerAction;
     PlayerMove playerMove;
+    CameraManager cameraManager;
+
     void Start()
     {
         Data = DataManager.data;
@@ -49,6 +51,7 @@ public class EnemySetting : MonoBehaviour
         map = Data.saveData.gameData.map.transform.GetChild(3).GetChild(0).GetChild(0).gameObject;
         playerAction = GameObject.Find("InGameManager").GetComponent<PlayerAction>();
         playerMove = GameObject.Find("InGameManager").GetComponent<PlayerMove>();
+        cameraManager = GameObject.Find("CameraManager").GetComponent<CameraManager>();
         blood = Data.saveData.gameData.blood;
         bloodBoom = Data.saveData.gameData.bloodBoom;
         bloodAngleMax = 30;
@@ -158,7 +161,7 @@ public class EnemySetting : MonoBehaviour
 
     void PatternClear() // 성공적으로 판정에 성공 했을때 player 행동 쿨타임 초기화
     {
-
+        StartCoroutine(HitEffect());
         isActive = false;
         playerAction.isDelay = false;
         playerAction.isAction = false;
@@ -279,8 +282,8 @@ public class EnemySetting : MonoBehaviour
 
     void PlayerRebound() // player에게 반동을 줌
     {
-        playerMove.power = 2f;
-        playerMove.playerActionSpeed = 20;
+        playerMove.power = DefaultPower;
+        playerMove.playerActionSpeed = DefaultSpeed;
         playerMove.BackOrFront = true;
         playerMove.Rebound();
     }
@@ -313,6 +316,14 @@ public class EnemySetting : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         Destroy(bloodBoomObject);
+    }
+
+    IEnumerator HitEffect()
+    {
+        cameraManager.CameraAction("ShakeAction");
+        cameraManager.CameraAction("ZoomInAction");
+        yield return new WaitForSeconds(0.1f);
+        cameraManager.CameraAction("ZoomOutAction");
     }
 
     ~EnemySetting() // 소멸자
