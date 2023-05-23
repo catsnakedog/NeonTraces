@@ -191,4 +191,10 @@ public class PlayerAction : MonoBehaviour
         }
         playerAction = null;
     }
+
+    IEnumerator AniSetting(string Name, float time)
+    {
+        animaiton.SetAnimation("Name");
+        yield return new WaitForSeconds(time);
+    }
 }
