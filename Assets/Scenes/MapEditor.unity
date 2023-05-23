@@ -1761,9 +1761,9 @@ MonoBehaviour:
   isDelay: 0
   isLongClick: 0
   attackDelay: 0.1
-  attackMotionTime: 0.5
-  defenceMotionTime: 0.5
-  longClickTime: 0.3
+  attackMotionTime: 0.62
+  defenceMotionTime: 0.63
+  longClickTime: 0.5
   timeCount: 0
   animaiton: {fileID: 0}
 --- !u!114 &1323966423

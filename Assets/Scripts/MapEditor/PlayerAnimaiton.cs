@@ -43,12 +43,21 @@ public class PlayerAnimaiton : MonoBehaviour
         }
     }
 
-    void Attack()
+    void AttackLeft()
     {
-        if (crruentAni != "Attack")
+        if (crruentAni != "AttackLeft")
         {
-            crruentAni = "Attack";
-            playerAni.SetTrigger("Attack");
+            crruentAni = "AttackLeft";
+            playerAni.SetTrigger("AttackLeft");
+        }
+    }
+
+    void AttackRight()
+    {
+        if (crruentAni != "AttackRight")
+        {
+            crruentAni = "AttackRight";
+            playerAni.SetTrigger("AttackRight");
         }
     }
 

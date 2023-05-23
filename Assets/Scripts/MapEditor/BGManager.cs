@@ -45,6 +45,7 @@ public class BGManager : MonoBehaviour
 
     public void StartSetting()
     {
+        Data = DataManager.data;
         camera = GameObject.Find("MainCamera");
         camsize = Data.saveData.gameData.camsize;
     }

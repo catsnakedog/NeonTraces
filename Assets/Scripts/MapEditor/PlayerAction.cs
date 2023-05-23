@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerAction : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class PlayerAction : MonoBehaviour
     [SerializeField] public bool isAction; // EnemySetting과 상호작용할때 공격, 방어 중인지 판별하는 변수
     [SerializeField] public bool isDelay; // 딜레이 확인용 변수
     [SerializeField] public bool isLongClick;
+    [SerializeField] public bool isNextAttack;
     [SerializeField] private float attackDelay; // 헛공격시 딜레이
     [SerializeField] private float attackMotionTime; // 어택 에니메이션 실행시간
     [SerializeField] private float defenceMotionTime; // 방어 에니메이션 실행시간
@@ -22,6 +24,7 @@ public class PlayerAction : MonoBehaviour
     public Coroutine actionC;
     public Coroutine actionA;
     public Coroutine aniC;
+    public Coroutine nextA;
 
     AfterImage afterImage;
 
@@ -45,6 +48,7 @@ public class PlayerAction : MonoBehaviour
         isAction = false;
         isDelay = false;
         isLongClick = false;
+        isNextAttack = false;
         timeCount = 0;
     }
 
@@ -85,7 +89,20 @@ public class PlayerAction : MonoBehaviour
         {
             StopCoroutine(aniC);
         }
-        aniC = StartCoroutine(CallAni("Attack", attackMotionTime));
+        if(nextA != null)
+        {
+            StopCoroutine(nextA);
+        }
+        if(isNextAttack)
+        {
+            aniC = StartCoroutine(CallAni("AttackRight", attackMotionTime));
+            isNextAttack=false;
+        }
+        else
+        {
+            aniC = StartCoroutine(CallAni("AttackLeft", attackMotionTime));
+            nextA = StartCoroutine(NextAttack(2f));
+        }
         actionA = StartCoroutine(afterImage.AfterImageSetting(Data.saveData.gameData.player));
         isAttack = true;
         isAction = true;
@@ -207,5 +224,12 @@ public class PlayerAction : MonoBehaviour
         animaiton.SetAnimation(Name);
         yield return new WaitForSeconds(time);
         animaiton.SetAnimation("Run");
+    }
+
+    IEnumerator NextAttack(float time)
+    {
+        isNextAttack = true;
+        yield return new WaitForSeconds(time);
+        isNextAttack = false;
     }
 }

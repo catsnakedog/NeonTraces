@@ -18,7 +18,6 @@ public class CameraManager : MonoBehaviour
     }
     public void CameraAction(string actionName)
     {
-        Debug.Log(actionName);
         StartCoroutine(actionName);
     }
     IEnumerator ShakeAction()
