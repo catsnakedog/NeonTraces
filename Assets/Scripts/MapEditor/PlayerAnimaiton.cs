@@ -8,7 +8,7 @@ public class PlayerAnimaiton : MonoBehaviour
     DataManager Data;
     Animator playerAni;
 
-    string crruentAni;
+    string crruentAni = "";
 
     void Start()
     {

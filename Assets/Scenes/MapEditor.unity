@@ -1760,6 +1760,7 @@ MonoBehaviour:
   isAction: 0
   isDelay: 0
   isLongClick: 0
+  isNextAttack: 0
   attackDelay: 0.1
   attackMotionTime: 0.62
   defenceMotionTime: 0.63
