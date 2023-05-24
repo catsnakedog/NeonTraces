@@ -28,12 +28,12 @@ public class CameraManager : MonoBehaviour
     }
     IEnumerator ZoomInAction()
     {
-        Data.saveData.gameData.camsize += 0.5f;
+        Data.saveData.gameData.camsize += 0.3f;
         yield return null;
     }
     IEnumerator ZoomOutAction()
     {
-        Data.saveData.gameData.camsize -= 0.5f;
+        Data.saveData.gameData.camsize -= 0.3f;
         yield return null;
     }
 }

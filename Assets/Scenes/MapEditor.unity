@@ -555,7 +555,7 @@ MonoBehaviour:
   target: {fileID: 0}
   camSpeed: 0
   isShake: 0
-  ShakePower: 1
+  ShakePower: 0.5
   xCorrection: 14
   yCorrection: 5
 --- !u!114 &371371804
@@ -1846,6 +1846,8 @@ MonoBehaviour:
   - {fileID: 1261606407379327772, guid: 4673ce5138c74ab49a81947fbce0fd10, type: 3}
   - {fileID: 1261606407379327772, guid: 4673ce5138c74ab49a81947fbce0fd10, type: 3}
   - {fileID: 1261606407379327772, guid: 4673ce5138c74ab49a81947fbce0fd10, type: 3}
+  xCorrection: 80
+  yCorrection: 0
   pixelPerUnit: 7
 --- !u!1 &1361453827
 GameObject:
