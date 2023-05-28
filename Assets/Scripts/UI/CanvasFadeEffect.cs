@@ -10,6 +10,11 @@ public class CanvasFadeEffect : MonoBehaviour
 
     private RectTransform targetRT;
     private RectTransform LogoRT;
+    private void Awake()
+    {
+        gameObject.SetActive(true);
+        
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -19,17 +24,20 @@ public class CanvasFadeEffect : MonoBehaviour
         LogoRT = GameObject.Find("GameLogo").GetComponent<RectTransform>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
         if (LogoRT.localPosition == targetRT.localPosition) //로고 제자리 시
         {
-            StartCoroutine("FadeOut");
-            if (canvasGroup.alpha < 0.1f)
-            {
-                StopCoroutine("FadeOut");
-                gameObject.SetActive(false);
-            }
+            FadeoutSkip();
+        }
+    }
+
+    public void FadeoutSkip()
+    {
+        StartCoroutine("FadeOut");
+        if (canvasGroup.alpha < 0.2f)
+        {
+            StopCoroutine("FadeOut");
         }
     }
     public IEnumerator FadeOut()
@@ -43,5 +51,6 @@ public class CanvasFadeEffect : MonoBehaviour
             accumTime += Time.deltaTime ;
         }
         canvasGroup.alpha = 0f;
+        gameObject.SetActive(false);
     }
 }

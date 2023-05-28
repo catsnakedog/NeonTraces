@@ -282,8 +282,8 @@ public class Ui
     public float sfx;
     public Ui()
     {
-        this.bgm = -40;
-        this.sfx = -40;
+        this.bgm = 0.5f; //-40
+        this.sfx = 0.5f;
     }
     public Ui(float bgm, float sfx)
     {
