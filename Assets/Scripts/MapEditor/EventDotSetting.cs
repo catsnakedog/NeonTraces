@@ -11,6 +11,7 @@ public class EventDotSetting : MonoBehaviour
     PlayerAction playerAction;
     CutSceneManager cutSceneManager;
     CameraManager cameraManager;
+    CameraFix cameraFix;
 
     GameObject player;
     public EventTypeInfo eventTypeInfo;
@@ -20,6 +21,8 @@ public class EventDotSetting : MonoBehaviour
 
     public int type;
     public float time = 0;
+
+    public float ShakePower;
     /*
      * 1 jump down 이동
      * 2 속도 점진적 증가, 감소
@@ -33,6 +36,7 @@ public class EventDotSetting : MonoBehaviour
      * 10 에니메이션 변경 / 미구현
      */
 
+    
     void Start()
     {
         Data = DataManager.data;
@@ -134,6 +138,13 @@ public class EventDotSetting : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    IEnumerator Event10()
+    {
+        yield return new WaitForSeconds(0f);
+        cameraManager.CameraAction("ShakeAction");
+        ShakePower = eventTypeInfo.type10.shakeP;
+        gameObject.SetActive(false);
+    }
     void UpSpeed() // Event1 관련 함수, speed를 점진적으로 증가시킴
     {
         playerMove.speed += (eventTypeInfo.type1.upSpeed * Time.deltaTime) / eventTypeInfo.type1.changeTime;

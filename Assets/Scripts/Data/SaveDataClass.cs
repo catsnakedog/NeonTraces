@@ -55,7 +55,8 @@ public class EventTypeInfo
     public EventType7 type7;
     public EventType8 type8;
     public EventType9 type9;
-    public EventTypeInfo(EventType0 type0, EventType1 type1, EventType2 type2, EventType3 type3, EventType4 type4, EventType5 type5, EventType6 type6, EventType7 type7, EventType8 type8, EventType9 type9)
+    public EventType10 type10;
+    public EventTypeInfo(EventType0 type0, EventType1 type1, EventType2 type2, EventType3 type3, EventType4 type4, EventType5 type5, EventType6 type6, EventType7 type7, EventType8 type8, EventType9 type9,EventType10 type10)
     {
         this.type0 = type0;
         this.type1 = type1;
@@ -67,6 +68,7 @@ public class EventTypeInfo
         this.type7 = type7;
         this.type8 = type8;
         this.type9 = type9;
+        this.type10 = type10;
     }
 }
 
@@ -216,6 +218,20 @@ public class EventType9
     public EventType9(float stopTime)
     {
         this.stopTime = stopTime;
+    }
+}
+
+public class EventType10
+{
+    public float shakeP;
+    public EventType10()
+    {
+        shakeP = 0;
+    }
+
+    public EventType10(float shakeP)
+    {
+        this.shakeP = shakeP;
     }
 }
 #endregion

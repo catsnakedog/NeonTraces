@@ -16,7 +16,7 @@ public class CameraFix : MonoBehaviour
     public bool isShake = false;
     private bool secondframe = false;
     private int framecount = 0;
-    public float ShakePower = 1f;
+    public static float ShakePower = 1f;
 
     public float xCorrection;
     public float yCorrection;
@@ -25,7 +25,6 @@ public class CameraFix : MonoBehaviour
     {
         Data = DataManager.data;
         camSpeed = 0.5f;
-        ShakePower = 1f;
         mainCamera = GameObject.Find("MainCamera");
         target = GameObject.Find("Player");
         BGManager = GameObject.Find("InGameManager").GetComponent<BGManager>();
@@ -46,7 +45,6 @@ public class CameraFix : MonoBehaviour
         {
             framecount = 30;
             isShake = false;
-            ShakePower = 1f;
         }
 
         if (framecount > 0)
