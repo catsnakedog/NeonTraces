@@ -20,6 +20,7 @@ public class GameLogoMove : MonoBehaviour
         target = GameObject.Find("Target");
         targetRT = target.GetComponent<RectTransform>();
         RT = GetComponent<RectTransform>();
+        
     }
 
     // Update is called once per frame

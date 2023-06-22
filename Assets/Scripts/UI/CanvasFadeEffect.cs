@@ -10,6 +10,9 @@ public class CanvasFadeEffect : MonoBehaviour
 
     private RectTransform targetRT;
     private RectTransform LogoRT;
+
+    SoundManager soundmanager;
+
     private void Awake()
     {
         gameObject.SetActive(true);
@@ -22,6 +25,9 @@ public class CanvasFadeEffect : MonoBehaviour
 
         targetRT = GameObject.Find("Target").GetComponent<RectTransform>();
         LogoRT = GameObject.Find("GameLogo").GetComponent<RectTransform>();
+       
+        soundmanager = SoundManager.sound;
+        soundmanager.Play("NeonLogo");
     }
 
     private void FixedUpdate()
@@ -52,5 +58,6 @@ public class CanvasFadeEffect : MonoBehaviour
         }
         canvasGroup.alpha = 0f;
         gameObject.SetActive(false);
+        soundmanager.Stop("NeonLogo");
     }
 }

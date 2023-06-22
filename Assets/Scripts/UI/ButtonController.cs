@@ -19,11 +19,11 @@ public class ButtonController : MonoBehaviour
 
     DataManager Data;
 
+    GameObject tmp;
+
     private void Awake()
     {
         CanvasEffect = FindObjectOfType<CanvasFadeEffect>();
-        startMenu.SetActive(true);  //게임 시작시 시작 메뉴 활성화
-        stageMenu.SetActive(false); //게임 시작시 스테이지 메뉴 비활성화
         canvasGroup = loading.GetComponent<CanvasGroup>();
     }
 
@@ -39,17 +39,8 @@ public class ButtonController : MonoBehaviour
     #region SettingButton
     public void SettingOpen()
     {
-        if (GameObject.Find("SettingButton").transform.localScale.x == 1.2f) //두번째 클릭이면
-        {
-            soundmanager.Play("Test_ClickSFX");
-            Invoke("SettingIn", 0.5f);
-            GameObject.Find("SettingButton").transform.localScale = new Vector2(1f, 1f);
-        }
-        else //첫번째 클릭이면 확대, 선택된 효과
-        {
-            GameObject.Find("SettingButton").transform.localScale = new Vector2(1.2f, 1.2f);
-            //+선택된 효과
-        }
+        soundmanager.Play("Setting");
+        Invoke("SettingIn", 0.5f);
     }
     public void SettingIn() //세팅 메뉴 열기
     {
@@ -58,25 +49,30 @@ public class ButtonController : MonoBehaviour
     #endregion
 
     #region ExitButton
-    public void GameExit() //게임 종료
+    public void ClickExitBtn() //게임 종료
     {
-
         if (GameObject.Find("ExitButton").transform.localScale.x == 1.2f) //두번째 클릭이면
         {
+            soundmanager.Play("Door_exit");
+            GameObject.Find("ExitButton").transform.localScale = new Vector2(1f, 1f);
+            Invoke("GameExit", 0.7f);
+        }
+        else //첫번째 클릭이면 확대, 선택된 효과
+        {
+            soundmanager.Play("Select");
+            GameObject.Find("ExitButton").transform.localScale = new Vector2(1.2f, 1.2f);
+            //+선택된 효과
+        }
+    }
+    public void GameExit()
+    {
 #if UNITY_EDITOR //유니티 에디터
-            UnityEditor.EditorApplication.isPlaying = false;
+        UnityEditor.EditorApplication.isPlaying = false;
 #elif UNITY_WEBPLAYER //웹
          Application.OpenURL("http://google.com");
 #else // pc 및 모바일 앱
         Application.Quit();
 #endif
-            GameObject.Find("ExitButton").transform.localScale = new Vector2(1f, 1f);
-        }
-        else //첫번째 클릭이면 확대, 선택된 효과
-        {
-            GameObject.Find("ExitButton").transform.localScale = new Vector2(1.2f, 1.2f);
-            //+선택된 효과
-        }
     }
     #endregion
 
@@ -85,11 +81,13 @@ public class ButtonController : MonoBehaviour
     {
         if (GameObject.Find("StartButton").transform.localScale.x == 1.2f) //두번째 클릭이면
         {
-            Invoke("StageMenu", 0.5f);
+            soundmanager.Play("Door_play");
             GameObject.Find("StartButton").transform.localScale = new Vector2(1f, 1f);
+            Invoke("StageMenu", 0.8f);
         }
         else //첫번째 클릭이면 확대, 선택된 효과
         {
+            soundmanager.Play("Select");
             GameObject.Find("StartButton").transform.localScale = new Vector2(1.2f, 1.2f);
             //+선택된 효과
         }
@@ -102,44 +100,57 @@ public class ButtonController : MonoBehaviour
     }
     #endregion
     #region BackButton
-    public void BackToStartMenu()
+    public void ClickBackBtn()
     {
         if (GameObject.Find("BackButton").transform.localScale.x == 1.2f) //두번째 클릭이면
         {
+            soundmanager.Play("Execute");
             GameObject.Find("BackButton").transform.localScale = new Vector2(1f, 1f);
-            stageMenu.SetActive(false);
-            startMenu.SetActive(true);
+            Invoke("BackToStartMenu", 1f);
         }
         else //첫번째 클릭이면 확대, 선택된 효과
         {
+            soundmanager.Play("Select");
             GameObject.Find("BackButton").transform.localScale = new Vector2(1.2f, 1.2f);
             //+선택된 효과
         }
     }
+    public void BackToStartMenu()
+    {
+        stageMenu.SetActive(false);
+        startMenu.SetActive(true);
+    }
     #endregion
 
-
-    public void LoadGame() //인게임으로
+    #region StageButton
+    public void ClickStageBtn() //인게임으로
     {
         int num = Data.saveData.gameData.stage;
         string btn = "Stage" + (num+1).ToString();
         
         if (GameObject.Find(btn).transform.localScale.x == 1.2f) //두번째 클릭이면
         {
+            soundmanager.Play("Execute");
             GameObject.Find(btn).transform.localScale = new Vector2(1f, 1f);
-            SceneManager.LoadScene(SceneToLoadGame);
+            Invoke("LoadGame", 1f);
         }
         else //첫번째 클릭이면 확대, 선택된 효과
         {
+            soundmanager.Play("Select");
             GameObject.Find(btn).transform.localScale = new Vector2(1.2f, 1.2f);
             //+선택된 효과
         }
+    }
+    public void LoadGame()
+    {
+        SceneManager.LoadScene(SceneToLoadGame);
     }
 
     public void LoadCutScene() //컷씬으로
     {
         SceneManager.LoadScene(SceneToLoadCutScene);
     }
+    #endregion
     public void canvasSkip()
     {
         CanvasEffect.FadeoutSkip();
