@@ -192,6 +192,8 @@ public class SoundManager : MonoBehaviour
         }
         else
         {
+            BGMSource.clip = null;
+            SFXSource.clip = null;
             Debug.Log("해당 사운드는 존재하지 않습니다");
         }
     }
