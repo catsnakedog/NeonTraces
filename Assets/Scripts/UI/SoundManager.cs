@@ -28,6 +28,7 @@ public class SoundManager : MonoBehaviour
 
     public GameObject optionCanvas; //버튼에서 사용
 
+    // 6월22일 수정
     enum BGM
     {
         BGM_01,
@@ -38,6 +39,54 @@ public class SoundManager : MonoBehaviour
     enum SFX
     {
         Test_ClickSFX,
+        // UI - 6개
+        Door_exit,
+        Door_play,
+        Execute,
+        NeonLogo,
+        Select,
+        Setting,
+
+        // 컷씬/드론 - 5개
+        Drone_applaud,
+        Drone_explode,
+        Drone_joke,
+        Drone_joke2,
+        Drone_scan,
+        // 컷씬/차량 - 4개
+        Car_break,
+        Car_break_crash,
+        Car_crash,
+        Car_passby,
+        // 컷씬 - 1개
+        Talk,
+
+        // 전투/메인 - 12개
+        Main_attack1,
+        Main_attack2,
+        Main_attack3,
+        Main_drag,
+        Main_footstep,
+        Main_hit,
+        Main_jump,
+        Main_landing,
+        Main_parry,
+        Main_parry_hammer1,
+        Main_parry_hammer2,
+        Main_parry_hammer3,
+        // 전투 - 11개
+        A1_attack,
+        B2_shield,
+        C1_attack1,
+        C1_attack2,
+        C1_move,
+        C1_ready,
+        C2_attack,
+        C2_bolt,
+        C2_case,
+        Main_parry1,
+        Main_parry3,
+
         MaxCount //삭제 금지
     }
     #region Singleton
@@ -61,7 +110,7 @@ public class SoundManager : MonoBehaviour
     {
         SoundPooling(); // 사운드 파일들을 풀링 해온다
         SetAudioSource(); // 오디오 소스 세팅
-        Play("Test_BGM"); // 시작 브금
+        //Play("Test_BGM"); // 시작 브금
     }
 
 
@@ -143,13 +192,26 @@ public class SoundManager : MonoBehaviour
         }
         else
         {
+            BGMSource.clip = null;
+            SFXSource.clip = null;
             Debug.Log("해당 사운드는 존재하지 않습니다");
         }
     }
-    /*
-    public void SettingOut() //세팅 메뉴 닫기
+    public void Stop(string soundName) // 전달받은 soundName을 찾아서 정지시킨다.
     {
-        optionCanvas.SetActive(false);
+        if (BGMNames.Contains(soundName))
+        {
+            BGMSource.clip = BGMs[(int)((BGM)Enum.Parse(typeof(BGM), soundName))];
+            BGMSource.Stop();
+        }
+        else if (SFXNames.Contains(soundName))
+        {
+            SFXSource.Stop();
+        }
+        else
+        {
+            Debug.Log("해당 사운드는 존재하지 않습니다");
+        }
     }
-    */
+
 }
