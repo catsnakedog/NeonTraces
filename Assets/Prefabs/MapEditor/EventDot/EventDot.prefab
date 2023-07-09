@@ -150,6 +150,7 @@ MonoBehaviour:
     type8:
       animationName: 
     type9:
-      stopTime: 0
-  type: 0
+      stopTime: 1
+  type: 9
   time: 0
+  ShakePower: 0

@@ -79,7 +79,15 @@ public class BGManager : MonoBehaviour
 
         spriteRenderer = BGs[stage].GetComponent<SpriteRenderer>();
         BGMoveX = ((spriteRenderer.sprite.rect.size.x + xCorrection) / 7f - (camsize * 4f * pixelPerUnit) / 7f) / (Xmax - Xmin);
-        BGMoveY = ((spriteRenderer.sprite.rect.size.y + yCorrection) / 7f - (camsize * 2f * pixelPerUnit) / 7f) / (Ymax - Ymin);
+        if((Ymax - Ymin) == 0)
+        {
+            BGMoveY = 0;
+        }
+        else
+        {
+            BGMoveY = ((spriteRenderer.sprite.rect.size.y + yCorrection) / 7f - (camsize * 2f * pixelPerUnit) / 7f) / (Ymax - Ymin);
+        }
+
         DefaultX = camera.transform.position.x + ((spriteRenderer.sprite.rect.size.x + xCorrection) / 14f) - ((camsize * 2f * pixelPerUnit) / 7f);
         DefaultY = camera.transform.position.y + ((spriteRenderer.sprite.rect.size.y + yCorrection) / 14f) - ((camsize * pixelPerUnit) / 7f);
         BGObject = Instantiate(BGs[stage], new Vector3(DefaultX, DefaultY, 0f), Quaternion.identity);
