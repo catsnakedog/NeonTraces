@@ -1475,6 +1475,7 @@ MonoBehaviour:
   - {fileID: 6712658111376015217, guid: 7dc4cc9d88661e3428e7e6040a5801c8, type: 3}
   - {fileID: 4593091517580729162, guid: aad1cd3e6aa83e84993688c81227334b, type: 3}
   - {fileID: 6712658111376015217, guid: 7dc4cc9d88661e3428e7e6040a5801c8, type: 3}
+  - {fileID: 6712658111376015217, guid: 7dc4cc9d88661e3428e7e6040a5801c8, type: 3}
   lrs: []
   lrCount: 0
   bezierCount: 0
