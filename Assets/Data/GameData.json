@@ -587,107 +587,60 @@
                 {
                     "v3": {
                         "x": 0.0,
-                        "y": -50.0,
+                        "y": 0.0,
                         "z": 0.0
                     },
                     "speed": 15.0
                 },
                 {
                     "v3": {
-                        "x": 3.3299999237060549,
-                        "y": -50.0,
+                        "x": 35.0,
+                        "y": 0.0,
                         "z": 0.0
                     },
                     "speed": 15.0
                 },
                 {
                     "v3": {
-                        "x": 13.5,
-                        "y": -80.0,
-                        "z": 0.0
-                    },
-                    "speed": 15.0
-                },
-                {
-                    "v3": {
-                        "x": 520.0,
-                        "y": -80.0,
-                        "z": 0.0
-                    },
-                    "speed": 15.0
-                },
-                {
-                    "v3": {
-                        "x": 600.0,
-                        "y": -50.0,
-                        "z": 0.0
-                    },
-                    "speed": 25.0
-                },
-                {
-                    "v3": {
-                        "x": 1340.0,
-                        "y": -50.0,
-                        "z": 0.0
-                    },
-                    "speed": 15.0
-                },
-                {
-                    "v3": {
-                        "x": 1355.0,
-                        "y": -50.0,
-                        "z": 0.0
-                    },
-                    "speed": 15.0
-                },
-                {
-                    "v3": {
-                        "x": 1380.0,
-                        "y": -30.0,
-                        "z": 0.0
-                    },
-                    "speed": 15.0
-                },
-                {
-                    "v3": {
-                        "x": 1548.0,
-                        "y": -30.0,
-                        "z": 0.0
-                    },
-                    "speed": 15.0
-                },
-                {
-                    "v3": {
-                        "x": 1670.0,
-                        "y": -30.0,
+                        "x": 50.0,
+                        "y": -5.0,
                         "z": 0.0
                     },
                     "speed": 15.0
                 }
             ],
-            "enemys": [],
+            "enemys": [
+                {
+                    "v3": {
+                        "x": 24.683719635009767,
+                        "y": 0.5961782932281494,
+                        "z": 0.0
+                    },
+                    "type": 0
+                }
+            ],
             "eventDots": [
                 {
                     "v3": {
-                        "x": 3.3299999237060549,
-                        "y": -50.0,
+                        "x": 35.0,
+                        "y": 0.0,
                         "z": 0.0
                     },
                     "type": 0,
                     "eventTypeInfo": {
                         "type0": {
                             "pointDot1": {
-                                "x": 7.0,
-                                "y": -30.0,
+                                "x": 40.0,
+                                "y": 5.0,
                                 "z": 0.0
                             },
                             "pointDot2": {
-                                "x": 10.0,
-                                "y": -45.0,
+                                "x": 48.0,
+                                "y": 3.0,
                                 "z": 0.0
                             },
                             "nextMoveDot": 2,
-                            "time": 1.399999976158142
+                            "time": 0.5
                         },
                         "type1": {
                             "upSpeed": 0,
@@ -722,124 +675,12 @@
                             "stopTime": 1.0
                         }
                     }
-                },
-                {
-                    "v3": {
-                        "x": 15.0,
-                        "y": -80.0,
-                        "z": 0.0
-                    },
-                    "type": 9,
-                    "eventTypeInfo": {
-                        "type0": {
-                            "pointDot1": {
-                                "x": 0.0,
-                                "y": 0.0,
-                                "z": 0.0
-                            },
-                            "pointDot2": {
-                                "x": 0.0,
-                                "y": 0.0,
-                                "z": 0.0
-                            },
-                            "nextMoveDot": 0,
-                            "time": 0.0
-                        },
-                        "type1": {
-                            "upSpeed": 0,
-                            "changeTime": 0.0
-                        },
-                        "type2": {
-                            "cutSceneNumber": 0
-                        },
-                        "type3": {
-                            "speed": 0,
-                            "index": 0,
-                            "startDot": 0,
-                            "endDot": 0
-                        },
-                        "type4": {
-                            "soundName": ""
-                        },
-                        "type5": {
-                            "cameraActionName": ""
-                        },
-                        "type6": {
-                            "power": 0,
-                            "speed": 0
-                        },
-                        "type7": {
-                            "timeScale": 0.0
-                        },
-                        "type8": {
-                            "animationName": ""
-                        },
-                        "type9": {
-                            "stopTime": 1.2999999523162842
-                        }
-                    }
-                },
-                {
-                    "v3": {
-                        "x": 601.0,
-                        "y": -50.0,
-                        "z": 0.0
-                    },
-                    "type": 9,
-                    "eventTypeInfo": {
-                        "type0": {
-                            "pointDot1": {
-                                "x": 0.0,
-                                "y": 0.0,
-                                "z": 0.0
-                            },
-                            "pointDot2": {
-                                "x": 0.0,
-                                "y": 0.0,
-                                "z": 0.0
-                            },
-                            "nextMoveDot": 0,
-                            "time": 0.0
-                        },
-                        "type1": {
-                            "upSpeed": 0,
-                            "changeTime": 0.0
-                        },
-                        "type2": {
-                            "cutSceneNumber": 0
-                        },
-                        "type3": {
-                            "speed": 0,
-                            "index": 0,
-                            "startDot": 0,
-                            "endDot": 0
-                        },
-                        "type4": {
-                            "soundName": ""
-                        },
-                        "type5": {
-                            "cameraActionName": ""
-                        },
-                        "type6": {
-                            "power": 0,
-                            "speed": 0
-                        },
-                        "type7": {
-                            "timeScale": 0.0
-                        },
-                        "type8": {
-                            "animationName": ""
-                        },
-                        "type9": {
-                            "stopTime": 1.25
-                        }
-                    }
                 }
             ]
         }
     ],
     "gameData": {
-        "stage": 2,
+        "stage": 3,
         "stageClearInfo": [
             false,
             false,
@@ -848,16 +689,16 @@
             false
         ],
         "player": {
-            "instanceID": 29396
+            "instanceID": 20376
         },
         "blood": {
-            "instanceID": 20984
+            "instanceID": 20506
         },
         "bloodBoom": {
-            "instanceID": 20986
+            "instanceID": 20508
         },
         "map": {
-            "instanceID": 29340
+            "instanceID": 20320
         },
         "enemyInfo": [],
         "camsize": 10.0
