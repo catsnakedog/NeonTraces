@@ -21,11 +21,13 @@ public class MoveDot
 public class Enemy
 {
     public Vector3 v3;
+    public Vector3 moveV3;
     public int type;
-    public Enemy(Vector3 v3, int type)
+    public Enemy(Vector3 v3, int type, Vector3 moveV3)
     {
         this.v3 = v3;
         this.type = type;
+        this.moveV3 = moveV3;
     }
 }
 

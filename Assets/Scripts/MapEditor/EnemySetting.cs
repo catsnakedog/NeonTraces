@@ -15,13 +15,13 @@ public class EnemySetting : MonoBehaviour
     [SerializeField] public int startDot;
     [SerializeField] public int currentDot;
     [SerializeField] public int endDot;
-    [SerializeField] public float speed;
     [SerializeField] public float power; //0이면 포인트 끝까지 이동
     [SerializeField] public float DefaultSpeed;
     [SerializeField] public float DefaultPower;
     [SerializeField] public string className;
     [SerializeField] public List<int> pattern; // 0 공격, 1 방어, 2...(특수액션)
-    [SerializeField] public int dotPosition; // 현재 위치
+    [SerializeField] public float xPoint;
+    [SerializeField] public float speed;
 
     [SerializeField] public Vector3 defaultV3;
 
@@ -29,6 +29,9 @@ public class EnemySetting : MonoBehaviour
 
     float bloodAngleMax;
     float bloodAngleMin;
+
+    int moveStartDot;
+    int moveEndDot;
 
     GameObject player;
     GameObject blood;
@@ -59,8 +62,6 @@ public class EnemySetting : MonoBehaviour
         bloodAngleMin = -30;
         cnt = 0;
         defaultV3 = gameObject.transform.position;
-
-        //EnemyPosition();
     }
 
     void Update()
@@ -335,23 +336,121 @@ public class EnemySetting : MonoBehaviour
         cameraManager.CameraAction("ZoomOutAction");
     }
 
-    void EnemyPosition()
+    public void EnemyPosition()
     {
         List<MoveDot> moveDots = DataManager.data.saveData.mapData[DataManager.data.saveData.gameData.stage].moveDots;
 
         int num = 0;
+        int dotPosition1 = 0;
+        int dotPosition2 = 0;
+        speed = DefaultSpeed;
+
         foreach (MoveDot dot in moveDots)
         {
             if(transform.GetChild(0).position.x <= dot.v3.x)
             {
-                dotPosition = num - 1;
+                dotPosition1 = num - 1;
                 break;
             }
             num++;
         }
 
-        for (int i = num; i<moveDots.Count; i++)
+        num = 0;
+        foreach (MoveDot dot in moveDots)
         {
+            if (transform.position.x <= dot.v3.x)
+            {
+                dotPosition2 = num;
+                break;
+            }
+            num++;
+        }
+
+        float distance = 0;
+
+        for(int i = (dotPosition1 + 1); i < (dotPosition2 - 1); i++)
+        {
+            distance += Vector3.Distance(moveDots[i].v3, moveDots[i + 1].v3);
+        }
+        distance += Vector3.Distance(moveDots[dotPosition2 - 1].v3, transform.position);
+        distance += Vector3.Distance(moveDots[dotPosition1 + 1].v3, transform.GetChild(0).position);
+
+        float time = (distance / speed);
+
+        distance = 0;
+        float playerTime = 0;
+
+        moveEndDot = dotPosition1;
+        moveStartDot = dotPosition2;
+
+        startDot = moveStartDot;
+        endDot = moveEndDot;
+
+        Debug.Log("moveEndDot" + moveEndDot);
+        Debug.Log("moveStartDot" + moveStartDot);
+
+        for (int i = dotPosition1; i >= 0; i--)
+        {
+            if(i == dotPosition1)
+            {
+                distance += Vector3.Distance(moveDots[i].v3, transform.GetChild(0).position);
+                playerTime += distance / moveDots[i].speed;
+
+                Debug.Log("playerTIme" + playerTime);
+                Debug.Log("time" + time);
+
+                if (playerTime > time)
+                {
+                    playerTime -= distance / moveDots[i].speed;
+                    playerTime = time - playerTime;
+
+                    distance = playerTime * moveDots[i].speed;
+
+                    xPoint = moveDots[i].v3.x + ((moveDots[i + 1].v3.x - moveDots[i].v3.x) * (1f - (distance / Vector3.Distance(moveDots[i].v3, moveDots[i + 1].v3))));
+                    enemyAction += IsPlayerCome;
+                    break;
+                }
+                else if (playerTime == time)
+                {
+                    xPoint = moveDots[i].v3.x;
+                    enemyAction += IsPlayerCome;
+                    break;
+                }
+            }
+            else
+            {
+                distance += Vector3.Distance(moveDots[i].v3, moveDots[i + 1].v3);
+                playerTime += distance / moveDots[i].speed;
+
+                if(playerTime > time)
+                {
+                    playerTime -= distance / moveDots[i].speed;
+                    playerTime = time - playerTime;
+
+                    distance = playerTime * moveDots[i].speed;
+
+                    xPoint = moveDots[i].v3.x + ((moveDots[i + 1].v3.x - moveDots[i].v3.x) * (1f - (Vector3.Distance(moveDots[i].v3, moveDots[i + 1].v3) / distance)));
+                    enemyAction += IsPlayerCome;
+                    break;
+                }
+                else if(playerTime == time)
+                {
+                    xPoint = moveDots[i].v3.x;
+                    enemyAction += IsPlayerCome;
+                    break;
+                }
+            }
+        }
+
+        
+    }
+
+    void IsPlayerCome()
+    {
+        if(DataManager.data.saveData.gameData.player.transform.position.x >= xPoint)
+        {
+            EnemyMoveStart();
+            enemyAction -= IsPlayerCome;
         }
     }
 }
