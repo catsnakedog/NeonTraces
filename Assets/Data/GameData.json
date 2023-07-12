@@ -658,8 +658,40 @@
                 },
                 {
                     "v3": {
-                        "x": 399.79998779296877,
+                        "x": 355.0,
                         "y": -50.0,
+                        "z": 0.0
+                    },
+                    "speed": 25.0
+                },
+                {
+                    "v3": {
+                        "x": 380.0,
+                        "y": -40.0,
+                        "z": 0.0
+                    },
+                    "speed": 25.0
+                },
+                {
+                    "v3": {
+                        "x": 455.0,
+                        "y": -40.0,
+                        "z": 0.0
+                    },
+                    "speed": 25.0
+                },
+                {
+                    "v3": {
+                        "x": 477.5,
+                        "y": -37.0,
+                        "z": 0.0
+                    },
+                    "speed": 25.0
+                },
+                {
+                    "v3": {
+                        "x": 570.0999755859375,
+                        "y": -37.0,
                         "z": 0.0
                     },
                     "speed": 25.0
@@ -855,7 +887,119 @@
                                 "z": 0.0
                             },
                             "nextMoveDot": 8,
-                            "time": 0.6499999761581421
+                            "time": 0.6000000238418579
+                        },
+                        "type1": {
+                            "upSpeed": 0,
+                            "changeTime": 0.0
+                        },
+                        "type2": {
+                            "cutSceneNumber": 0
+                        },
+                        "type3": {
+                            "speed": 0,
+                            "index": 0,
+                            "startDot": 0,
+                            "endDot": 0
+                        },
+                        "type4": {
+                            "soundName": ""
+                        },
+                        "type5": {
+                            "cameraActionName": ""
+                        },
+                        "type6": {
+                            "power": 0,
+                            "speed": 0
+                        },
+                        "type7": {
+                            "timeScale": 0.0
+                        },
+                        "type8": {
+                            "animationName": ""
+                        },
+                        "type9": {
+                            "stopTime": 1.0
+                        }
+                    }
+                },
+                {
+                    "v3": {
+                        "x": 355.0,
+                        "y": -50.0,
+                        "z": 0.0
+                    },
+                    "type": 0,
+                    "eventTypeInfo": {
+                        "type0": {
+                            "pointDot1": {
+                                "x": 367.0,
+                                "y": -37.0,
+                                "z": 0.0
+                            },
+                            "pointDot2": {
+                                "x": 375.0,
+                                "y": -36.0,
+                                "z": 0.0
+                            },
+                            "nextMoveDot": 10,
+                            "time": 0.800000011920929
+                        },
+                        "type1": {
+                            "upSpeed": 0,
+                            "changeTime": 0.0
+                        },
+                        "type2": {
+                            "cutSceneNumber": 0
+                        },
+                        "type3": {
+                            "speed": 0,
+                            "index": 0,
+                            "startDot": 0,
+                            "endDot": 0
+                        },
+                        "type4": {
+                            "soundName": ""
+                        },
+                        "type5": {
+                            "cameraActionName": ""
+                        },
+                        "type6": {
+                            "power": 0,
+                            "speed": 0
+                        },
+                        "type7": {
+                            "timeScale": 0.0
+                        },
+                        "type8": {
+                            "animationName": ""
+                        },
+                        "type9": {
+                            "stopTime": 1.0
+                        }
+                    }
+                },
+                {
+                    "v3": {
+                        "x": 455.0,
+                        "y": -40.0,
+                        "z": 0.0
+                    },
+                    "type": 0,
+                    "eventTypeInfo": {
+                        "type0": {
+                            "pointDot1": {
+                                "x": 460.0,
+                                "y": -35.0,
+                                "z": 0.0
+                            },
+                            "pointDot2": {
+                                "x": 470.0,
+                                "y": -33.0,
+                                "z": 0.0
+                            },
+                            "nextMoveDot": 12,
+                            "time": 0.6000000238418579
                         },
                         "type1": {
                             "upSpeed": 0,
