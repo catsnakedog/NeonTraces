@@ -59,6 +59,8 @@ public class EnemySetting : MonoBehaviour
         bloodAngleMin = -30;
         cnt = 0;
         defaultV3 = gameObject.transform.position;
+
+        //EnemyPosition();
     }
 
     void Update()
@@ -333,13 +335,23 @@ public class EnemySetting : MonoBehaviour
         cameraManager.CameraAction("ZoomOutAction");
     }
 
-    void EnemyMove()
+    void EnemyPosition()
     {
-            
-    }
+        List<MoveDot> moveDots = DataManager.data.saveData.mapData[DataManager.data.saveData.gameData.stage].moveDots;
 
-    ~EnemySetting() // ¼Ò¸êÀÚ
-    {
-        enemyAction = null;
+        int num = 0;
+        foreach (MoveDot dot in moveDots)
+        {
+            if(transform.GetChild(0).position.x <= dot.v3.x)
+            {
+                dotPosition = num - 1;
+                break;
+            }
+            num++;
+        }
+
+        for (int i = num; i<moveDots.Count; i++)
+        {
+        }
     }
 }
