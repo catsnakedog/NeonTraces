@@ -136,7 +136,7 @@ MonoBehaviour:
   DefaultSpeed: 30
   DefaultPower: 6
   className: 
-  pattern: 0200000000000000
+  pattern: 0200000002000000
   defaultV3: {x: 0, y: 0, z: 0}
 --- !u!95 &8076249757790574897
 Animator:

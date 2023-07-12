@@ -4,6 +4,332 @@
             "moveDots": [
                 {
                     "v3": {
+                        "x": 0.0,
+                        "y": -50.0,
+                        "z": 0.0
+                    },
+                    "speed": 15.0
+                },
+                {
+                    "v3": {
+                        "x": 3.3299999237060549,
+                        "y": -50.0,
+                        "z": 0.0
+                    },
+                    "speed": 15.0
+                },
+                {
+                    "v3": {
+                        "x": 13.5,
+                        "y": -80.0,
+                        "z": 0.0
+                    },
+                    "speed": 15.0
+                },
+                {
+                    "v3": {
+                        "x": 520.0,
+                        "y": -80.0,
+                        "z": 0.0
+                    },
+                    "speed": 15.0
+                },
+                {
+                    "v3": {
+                        "x": 600.0,
+                        "y": -50.0,
+                        "z": 0.0
+                    },
+                    "speed": 25.0
+                },
+                {
+                    "v3": {
+                        "x": 1340.0,
+                        "y": -50.0,
+                        "z": 0.0
+                    },
+                    "speed": 15.0
+                },
+                {
+                    "v3": {
+                        "x": 1355.0,
+                        "y": -50.0,
+                        "z": 0.0
+                    },
+                    "speed": 15.0
+                },
+                {
+                    "v3": {
+                        "x": 1380.0,
+                        "y": -30.0,
+                        "z": 0.0
+                    },
+                    "speed": 15.0
+                },
+                {
+                    "v3": {
+                        "x": 1548.0,
+                        "y": -30.0,
+                        "z": 0.0
+                    },
+                    "speed": 15.0
+                },
+                {
+                    "v3": {
+                        "x": 1670.0,
+                        "y": -30.0,
+                        "z": 0.0
+                    },
+                    "speed": 15.0
+                }
+            ],
+            "enemys": [],
+            "eventDots": [
+                {
+                    "v3": {
+                        "x": 3.3299999237060549,
+                        "y": -50.0,
+                        "z": 0.0
+                    },
+                    "type": 0,
+                    "eventTypeInfo": {
+                        "type0": {
+                            "pointDot1": {
+                                "x": 7.0,
+                                "y": -30.0,
+                                "z": 0.0
+                            },
+                            "pointDot2": {
+                                "x": 10.0,
+                                "y": -45.0,
+                                "z": 0.0
+                            },
+                            "nextMoveDot": 2,
+                            "time": 1.399999976158142
+                        },
+                        "type1": {
+                            "upSpeed": 0,
+                            "changeTime": 0.0
+                        },
+                        "type2": {
+                            "cutSceneNumber": 0
+                        },
+                        "type3": {
+                            "speed": 0,
+                            "index": 0,
+                            "startDot": 0,
+                            "endDot": 0
+                        },
+                        "type4": {
+                            "soundName": ""
+                        },
+                        "type5": {
+                            "cameraActionName": ""
+                        },
+                        "type6": {
+                            "power": 0,
+                            "speed": 0
+                        },
+                        "type7": {
+                            "timeScale": 0.0
+                        },
+                        "type8": {
+                            "animationName": ""
+                        },
+                        "type9": {
+                            "stopTime": 1.0
+                        }
+                    }
+                },
+                {
+                    "v3": {
+                        "x": 15.0,
+                        "y": -80.0,
+                        "z": 0.0
+                    },
+                    "type": 9,
+                    "eventTypeInfo": {
+                        "type0": {
+                            "pointDot1": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "pointDot2": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "nextMoveDot": 0,
+                            "time": 0.0
+                        },
+                        "type1": {
+                            "upSpeed": 0,
+                            "changeTime": 0.0
+                        },
+                        "type2": {
+                            "cutSceneNumber": 0
+                        },
+                        "type3": {
+                            "speed": 0,
+                            "index": 0,
+                            "startDot": 0,
+                            "endDot": 0
+                        },
+                        "type4": {
+                            "soundName": ""
+                        },
+                        "type5": {
+                            "cameraActionName": ""
+                        },
+                        "type6": {
+                            "power": 0,
+                            "speed": 0
+                        },
+                        "type7": {
+                            "timeScale": 0.0
+                        },
+                        "type8": {
+                            "animationName": ""
+                        },
+                        "type9": {
+                            "stopTime": 1.2999999523162842
+                        }
+                    }
+                },
+                {
+                    "v3": {
+                        "x": 601.0,
+                        "y": -50.0,
+                        "z": 0.0
+                    },
+                    "type": 9,
+                    "eventTypeInfo": {
+                        "type0": {
+                            "pointDot1": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "pointDot2": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "nextMoveDot": 0,
+                            "time": 0.0
+                        },
+                        "type1": {
+                            "upSpeed": 0,
+                            "changeTime": 0.0
+                        },
+                        "type2": {
+                            "cutSceneNumber": 0
+                        },
+                        "type3": {
+                            "speed": 0,
+                            "index": 0,
+                            "startDot": 0,
+                            "endDot": 0
+                        },
+                        "type4": {
+                            "soundName": ""
+                        },
+                        "type5": {
+                            "cameraActionName": ""
+                        },
+                        "type6": {
+                            "power": 0,
+                            "speed": 0
+                        },
+                        "type7": {
+                            "timeScale": 0.0
+                        },
+                        "type8": {
+                            "animationName": ""
+                        },
+                        "type9": {
+                            "stopTime": 1.25
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "moveDots": [
+                {
+                    "v3": {
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.0
+                    },
+                    "speed": 3.0
+                },
+                {
+                    "v3": {
+                        "x": 1.0,
+                        "y": 0.0,
+                        "z": 0.0
+                    },
+                    "speed": 3.0
+                },
+                {
+                    "v3": {
+                        "x": 4.0,
+                        "y": 0.0,
+                        "z": 0.0
+                    },
+                    "speed": 8.0
+                },
+                {
+                    "v3": {
+                        "x": 8.0,
+                        "y": 0.0,
+                        "z": 0.0
+                    },
+                    "speed": 8.0
+                },
+                {
+                    "v3": {
+                        "x": 39.29999923706055,
+                        "y": 10.199999809265137,
+                        "z": 0.0
+                    },
+                    "speed": 8.0
+                },
+                {
+                    "v3": {
+                        "x": 38.79999923706055,
+                        "y": 20.799999237060548,
+                        "z": 0.0
+                    },
+                    "speed": 8.0
+                },
+                {
+                    "v3": {
+                        "x": 2.799999952316284,
+                        "y": 21.100000381469728,
+                        "z": 0.0
+                    },
+                    "speed": 8.0
+                }
+            ],
+            "enemys": [
+                {
+                    "v3": {
+                        "x": 3.0,
+                        "y": 0.0,
+                        "z": 0.0
+                    },
+                    "type": 0
+                }
+            ],
+            "eventDots": []
+        },
+        {
+            "moveDots": [
+                {
+                    "v3": {
                         "x": 3.0,
                         "y": 1.0,
                         "z": 0.0
@@ -255,77 +581,6 @@
                     }
                 }
             ]
-        },
-        {
-            "moveDots": [
-                {
-                    "v3": {
-                        "x": 0.0,
-                        "y": 0.0,
-                        "z": 0.0
-                    },
-                    "speed": 3.0
-                },
-                {
-                    "v3": {
-                        "x": 1.0,
-                        "y": 0.0,
-                        "z": 0.0
-                    },
-                    "speed": 3.0
-                },
-                {
-                    "v3": {
-                        "x": 4.0,
-                        "y": 0.0,
-                        "z": 0.0
-                    },
-                    "speed": 8.0
-                },
-                {
-                    "v3": {
-                        "x": 8.0,
-                        "y": 0.0,
-                        "z": 0.0
-                    },
-                    "speed": 8.0
-                },
-                {
-                    "v3": {
-                        "x": 39.29999923706055,
-                        "y": 10.199999809265137,
-                        "z": 0.0
-                    },
-                    "speed": 8.0
-                },
-                {
-                    "v3": {
-                        "x": 38.79999923706055,
-                        "y": 20.799999237060548,
-                        "z": 0.0
-                    },
-                    "speed": 8.0
-                },
-                {
-                    "v3": {
-                        "x": 2.799999952316284,
-                        "y": 21.100000381469728,
-                        "z": 0.0
-                    },
-                    "speed": 8.0
-                }
-            ],
-            "enemys": [
-                {
-                    "v3": {
-                        "x": 3.0,
-                        "y": 0.0,
-                        "z": 0.0
-                    },
-                    "type": 0
-                }
-            ],
-            "eventDots": []
         },
         {
             "moveDots": [
@@ -584,7 +839,7 @@
         }
     ],
     "gameData": {
-        "stage": 0,
+        "stage": 2,
         "stageClearInfo": [
             false,
             false,
@@ -593,75 +848,18 @@
             false
         ],
         "player": {
-            "instanceID": 46222
+            "instanceID": 29396
         },
         "blood": {
-            "instanceID": 21064
+            "instanceID": 20984
         },
         "bloodBoom": {
-            "instanceID": 21066
+            "instanceID": 20986
         },
         "map": {
-            "instanceID": 46166
+            "instanceID": 29340
         },
-        "enemyInfo": [
-            {
-                "enemy": {
-                    "instanceID": -69398
-                },
-                "x": 20.0,
-                "index": 0
-            },
-            {
-                "enemy": {
-                    "instanceID": -69410
-                },
-                "x": 119.30000305175781,
-                "index": 1
-            },
-            {
-                "enemy": {
-                    "instanceID": -69422
-                },
-                "x": 135.8000030517578,
-                "index": 2
-            },
-            {
-                "enemy": {
-                    "instanceID": -69434
-                },
-                "x": 157.39999389648438,
-                "index": 3
-            },
-            {
-                "enemy": {
-                    "instanceID": -69446
-                },
-                "x": 171.3699951171875,
-                "index": 4
-            },
-            {
-                "enemy": {
-                    "instanceID": -69458
-                },
-                "x": 174.94000244140626,
-                "index": 5
-            },
-            {
-                "enemy": {
-                    "instanceID": -69470
-                },
-                "x": 178.30999755859376,
-                "index": 6
-            },
-            {
-                "enemy": {
-                    "instanceID": -69482
-                },
-                "x": 181.3000030517578,
-                "index": 7
-            }
-        ],
+        "enemyInfo": [],
         "camsize": 10.0
     },
     "ui": {

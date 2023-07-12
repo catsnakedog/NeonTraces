@@ -21,6 +21,7 @@ public class EnemySetting : MonoBehaviour
     [SerializeField] public float DefaultPower;
     [SerializeField] public string className;
     [SerializeField] public List<int> pattern; // 0 공격, 1 방어, 2...(특수액션)
+    [SerializeField] public int dotPosition; // 현재 위치
 
     [SerializeField] public Vector3 defaultV3;
 
@@ -330,6 +331,11 @@ public class EnemySetting : MonoBehaviour
         cameraManager.CameraAction("ZoomInAction");
         yield return new WaitForSeconds(0.05f);
         cameraManager.CameraAction("ZoomOutAction");
+    }
+
+    void EnemyMove()
+    {
+            
     }
 
     ~EnemySetting() // 소멸자
