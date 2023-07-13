@@ -172,9 +172,11 @@ public class MapMake : MonoBehaviour
         for (int i = 0; i < Data.saveData.mapData[stage].enemys.Count; i++)
         {
             enemyList.Add(Instantiate(enemy[Data.saveData.mapData[stage].enemys[i].type], Data.saveData.mapData[stage].enemys[i].v3, Quaternion.identity));
+            enemyList[i].transform.GetChild(0).position = Data.saveData.mapData[stage].enemys[i].moveV3;
             EnemyInfo temp = new EnemyInfo(enemyList[i], Data.saveData.mapData[stage].enemys[i].v3.x, i);
             Data.saveData.gameData.enemyInfo.Add(temp);
             enemyList[i].GetComponent<EnemySetting>().index = i;
+            enemyList[i].GetComponent<EnemySetting>().EnemyPosition();
             enemyList[i].transform.SetParent(enemys.transform, true);
             enemyList[i].name = "enemyDot" + i.ToString();
         }
@@ -261,11 +263,11 @@ public class MapMake : MonoBehaviour
             Enemy temp;
             if (saveEnemy.GetComponent<EnemySetting>().defaultV3 != saveEnemy.transform.position)
             {
-                temp = new Enemy(saveEnemy.transform.position, saveEnemy.GetComponent<EnemySetting>().type);
+                temp = new Enemy(saveEnemy.transform.position, saveEnemy.GetComponent<EnemySetting>().type, saveEnemy.transform.GetChild(0).position);
             }
             else
             {
-                temp = new Enemy(saveEnemy.GetComponent<EnemySetting>().defaultV3, saveEnemy.GetComponent<EnemySetting>().type);
+                temp = new Enemy(saveEnemy.GetComponent<EnemySetting>().defaultV3, saveEnemy.GetComponent<EnemySetting>().type, saveEnemy.transform.GetChild(0).position);
             }
             Data.saveData.mapData[stage].enemys.Add(temp);
         }
