@@ -401,13 +401,13 @@
             "enemys": [
                 {
                     "v3": {
-                        "x": 68.2699966430664,
-                        "y": 1.2899999618530274,
+                        "x": 84.1500015258789,
+                        "y": 8.319999694824219,
                         "z": 0.0
                     },
                     "moveV3": {
-                        "x": 38.29999542236328,
-                        "y": 1.0299999713897706,
+                        "x": 46.67000198364258,
+                        "y": 1.2199997901916505,
                         "z": 0.0
                     },
                     "type": 0
@@ -1073,7 +1073,7 @@
         }
     ],
     "gameData": {
-        "stage": 3,
+        "stage": 2,
         "stageClearInfo": [
             false,
             false,
@@ -1082,18 +1082,26 @@
             false
         ],
         "player": {
-            "instanceID": 21890
+            "instanceID": 20404
         },
         "blood": {
-            "instanceID": 21096
+            "instanceID": 20534
         },
         "bloodBoom": {
-            "instanceID": 21098
+            "instanceID": 20536
         },
         "map": {
-            "instanceID": 21834
+            "instanceID": 20348
         },
-        "enemyInfo": [],
+        "enemyInfo": [
+            {
+                "enemy": {
+                    "instanceID": -3138
+                },
+                "x": 68.2699966430664,
+                "index": 0
+            }
+        ],
         "camsize": 10.0
     },
     "ui": {
