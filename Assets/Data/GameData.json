@@ -572,7 +572,7 @@
                 },
                 {
                     "v3": {
-                        "x": 149.8000030517578,
+                        "x": 150.0,
                         "y": -50.0,
                         "z": 0.0
                     },
@@ -620,7 +620,7 @@
                 },
                 {
                     "v3": {
-                        "x": 455.0,
+                        "x": 453.0,
                         "y": -40.0,
                         "z": 0.0
                     },
@@ -628,7 +628,7 @@
                 },
                 {
                     "v3": {
-                        "x": 483.0,
+                        "x": 482.0,
                         "y": -35.0,
                         "z": 0.0
                     },
@@ -652,7 +652,7 @@
                 },
                 {
                     "v3": {
-                        "x": 700.0,
+                        "x": 655.0,
                         "y": -28.0,
                         "z": 0.0
                     },
@@ -660,19 +660,43 @@
                 },
                 {
                     "v3": {
-                        "x": 1130.0,
-                        "y": -28.0,
+                        "x": 670.0900268554688,
+                        "y": -15.0,
                         "z": 0.0
                     },
-                    "speed": 25.0
+                    "speed": 15.0
                 },
                 {
                     "v3": {
-                        "x": 1200.0999755859375,
-                        "y": -28.0,
+                        "x": 885.0,
+                        "y": -15.0,
                         "z": 0.0
                     },
-                    "speed": 25.0
+                    "speed": 15.0
+                },
+                {
+                    "v3": {
+                        "x": 890.0,
+                        "y": -12.0,
+                        "z": 0.0
+                    },
+                    "speed": 15.0
+                },
+                {
+                    "v3": {
+                        "x": 915.0,
+                        "y": -12.0,
+                        "z": 0.0
+                    },
+                    "speed": 15.0
+                },
+                {
+                    "v3": {
+                        "x": 920.0,
+                        "y": -9.0,
+                        "z": 0.0
+                    },
+                    "speed": 15.0
                 }
             ],
             "enemys": [],
@@ -791,7 +815,7 @@
                 },
                 {
                     "v3": {
-                        "x": 149.8000030517578,
+                        "x": 150.0,
                         "y": -50.0,
                         "z": 0.0
                     },
@@ -799,7 +823,7 @@
                     "eventTypeInfo": {
                         "type0": {
                             "pointDot1": {
-                                "x": 151.0,
+                                "x": 153.0,
                                 "y": -41.0,
                                 "z": 0.0
                             },
@@ -959,7 +983,7 @@
                 },
                 {
                     "v3": {
-                        "x": 455.0,
+                        "x": 453.0,
                         "y": -40.0,
                         "z": 0.0
                     },
@@ -1068,12 +1092,180 @@
                             "stopTime": 1.0
                         }
                     }
+                },
+                {
+                    "v3": {
+                        "x": 655.0,
+                        "y": -28.0,
+                        "z": 0.0
+                    },
+                    "type": 0,
+                    "eventTypeInfo": {
+                        "type0": {
+                            "pointDot1": {
+                                "x": 660.0,
+                                "y": -11.5,
+                                "z": 0.0
+                            },
+                            "pointDot2": {
+                                "x": 667.0,
+                                "y": -7.0,
+                                "z": 0.0
+                            },
+                            "nextMoveDot": 16,
+                            "time": 0.8999999761581421
+                        },
+                        "type1": {
+                            "upSpeed": 0,
+                            "changeTime": 0.0
+                        },
+                        "type2": {
+                            "cutSceneNumber": 0
+                        },
+                        "type3": {
+                            "speed": 0,
+                            "index": 0,
+                            "startDot": 0,
+                            "endDot": 0
+                        },
+                        "type4": {
+                            "soundName": ""
+                        },
+                        "type5": {
+                            "cameraActionName": ""
+                        },
+                        "type6": {
+                            "power": 0,
+                            "speed": 0
+                        },
+                        "type7": {
+                            "timeScale": 0.0
+                        },
+                        "type8": {
+                            "animationName": ""
+                        },
+                        "type9": {
+                            "stopTime": 1.0
+                        }
+                    }
+                },
+                {
+                    "v3": {
+                        "x": 885.0,
+                        "y": -15.0,
+                        "z": 0.0
+                    },
+                    "type": 0,
+                    "eventTypeInfo": {
+                        "type0": {
+                            "pointDot1": {
+                                "x": 886.0,
+                                "y": -12.0,
+                                "z": 0.0
+                            },
+                            "pointDot2": {
+                                "x": 888.0,
+                                "y": -10.0,
+                                "z": 0.0
+                            },
+                            "nextMoveDot": 18,
+                            "time": 0.4000000059604645
+                        },
+                        "type1": {
+                            "upSpeed": 0,
+                            "changeTime": 0.0
+                        },
+                        "type2": {
+                            "cutSceneNumber": 0
+                        },
+                        "type3": {
+                            "speed": 0,
+                            "index": 0,
+                            "startDot": 0,
+                            "endDot": 0
+                        },
+                        "type4": {
+                            "soundName": ""
+                        },
+                        "type5": {
+                            "cameraActionName": ""
+                        },
+                        "type6": {
+                            "power": 0,
+                            "speed": 0
+                        },
+                        "type7": {
+                            "timeScale": 0.0
+                        },
+                        "type8": {
+                            "animationName": ""
+                        },
+                        "type9": {
+                            "stopTime": 1.0
+                        }
+                    }
+                },
+                {
+                    "v3": {
+                        "x": 915.0,
+                        "y": -12.0,
+                        "z": 0.0
+                    },
+                    "type": 0,
+                    "eventTypeInfo": {
+                        "type0": {
+                            "pointDot1": {
+                                "x": 916.0,
+                                "y": -9.0,
+                                "z": 0.0
+                            },
+                            "pointDot2": {
+                                "x": 918.0,
+                                "y": -7.0,
+                                "z": 0.0
+                            },
+                            "nextMoveDot": 20,
+                            "time": 0.4000000059604645
+                        },
+                        "type1": {
+                            "upSpeed": 0,
+                            "changeTime": 0.0
+                        },
+                        "type2": {
+                            "cutSceneNumber": 0
+                        },
+                        "type3": {
+                            "speed": 0,
+                            "index": 0,
+                            "startDot": 0,
+                            "endDot": 0
+                        },
+                        "type4": {
+                            "soundName": ""
+                        },
+                        "type5": {
+                            "cameraActionName": ""
+                        },
+                        "type6": {
+                            "power": 0,
+                            "speed": 0
+                        },
+                        "type7": {
+                            "timeScale": 0.0
+                        },
+                        "type8": {
+                            "animationName": ""
+                        },
+                        "type9": {
+                            "stopTime": 1.0
+                        }
+                    }
                 }
             ]
         }
     ],
     "gameData": {
-        "stage": 2,
+        "stage": 3,
         "stageClearInfo": [
             false,
             false,
@@ -1082,26 +1274,18 @@
             false
         ],
         "player": {
-            "instanceID": 20404
+            "instanceID": 20610
         },
         "blood": {
-            "instanceID": 20534
+            "instanceID": 20740
         },
         "bloodBoom": {
-            "instanceID": 20536
+            "instanceID": 20742
         },
         "map": {
-            "instanceID": 20348
+            "instanceID": 20554
         },
-        "enemyInfo": [
-            {
-                "enemy": {
-                    "instanceID": -3138
-                },
-                "x": 68.2699966430664,
-                "index": 0
-            }
-        ],
+        "enemyInfo": [],
         "camsize": 10.0
     },
     "ui": {
