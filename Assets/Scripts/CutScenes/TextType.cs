@@ -8,6 +8,7 @@ public class TextType : MonoBehaviour
 {
     string originText;
     public Text myText;
+    public float speed = 0.05f; //타이핑 속도 조절
     
     void Start()
     {
@@ -22,7 +23,7 @@ public class TextType : MonoBehaviour
         for (int index = 0; index <= typingLength; index++)
         {
             myText.text = originText.Typing(index);
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(speed);
         }
     }
 }
