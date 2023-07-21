@@ -372,8 +372,17 @@ public class EnemySetting : MonoBehaviour
         {
             distance += Vector3.Distance(moveDots[i].v3, moveDots[i + 1].v3);
         }
-        distance += Vector3.Distance(moveDots[dotPosition2 - 1].v3, transform.position);
-        distance += Vector3.Distance(moveDots[dotPosition1 + 1].v3, transform.GetChild(0).position);
+
+        if(dotPosition1 + 1 == dotPosition2)
+        {
+            distance += Vector3.Distance(transform.GetChild(0).position, transform.position);
+        }
+        else
+        {
+            distance += Vector3.Distance(moveDots[dotPosition2 - 1].v3, transform.position);
+            distance += Vector3.Distance(moveDots[dotPosition1 + 1].v3, transform.GetChild(0).position);
+
+        }
 
         float time = (distance / speed);
 
@@ -386,60 +395,45 @@ public class EnemySetting : MonoBehaviour
         startDot = moveStartDot;
         endDot = moveEndDot;
 
-        Debug.Log("moveEndDot" + moveEndDot);
-        Debug.Log("moveStartDot" + moveStartDot);
-
         for (int i = dotPosition1; i >= 0; i--)
         {
             if(i == dotPosition1)
             {
                 distance += Vector3.Distance(moveDots[i].v3, transform.GetChild(0).position);
                 playerTime += distance / moveDots[i].speed;
-
-                Debug.Log("playerTIme" + playerTime);
-                Debug.Log("time" + time);
-
-                if (playerTime > time)
-                {
-                    playerTime -= distance / moveDots[i].speed;
-                    playerTime = time - playerTime;
-
-                    distance = playerTime * moveDots[i].speed;
-
-                    xPoint = moveDots[i].v3.x + ((moveDots[i + 1].v3.x - moveDots[i].v3.x) * (1f - (distance / Vector3.Distance(moveDots[i].v3, moveDots[i + 1].v3))));
-                    enemyAction += IsPlayerCome;
-                    break;
-                }
-                else if (playerTime == time)
-                {
-                    xPoint = moveDots[i].v3.x;
-                    enemyAction += IsPlayerCome;
-                    break;
-                }
             }
             else
             {
                 distance += Vector3.Distance(moveDots[i].v3, moveDots[i + 1].v3);
                 playerTime += distance / moveDots[i].speed;
-
-                if(playerTime > time)
-                {
-                    playerTime -= distance / moveDots[i].speed;
-                    playerTime = time - playerTime;
-
-                    distance = playerTime * moveDots[i].speed;
-
-                    xPoint = moveDots[i].v3.x + ((moveDots[i + 1].v3.x - moveDots[i].v3.x) * (1f - (Vector3.Distance(moveDots[i].v3, moveDots[i + 1].v3) / distance)));
-                    enemyAction += IsPlayerCome;
-                    break;
-                }
-                else if(playerTime == time)
-                {
-                    xPoint = moveDots[i].v3.x;
-                    enemyAction += IsPlayerCome;
-                    break;
-                }
             }
+
+            if (playerTime > time)
+            {
+                playerTime -= distance / moveDots[i].speed;
+                playerTime = time - playerTime;
+
+                distance = playerTime * moveDots[i].speed;
+
+                if(i == dotPosition1)
+                {
+                    xPoint = moveDots[i].v3.x + ((transform.GetChild(0).position.x - moveDots[i].v3.x) * (1f - (distance / Vector3.Distance(moveDots[i].v3, transform.GetChild(0).position))));
+                }
+                else
+                {
+                    xPoint = moveDots[i].v3.x + ((moveDots[i + 1].v3.x - moveDots[i].v3.x) * (1f - (distance / Vector3.Distance(moveDots[i].v3, moveDots[i + 1].v3))));
+                }
+
+                enemyAction += IsPlayerCome;
+                break;
+            }
+            else if (playerTime == time)
+            {
+                xPoint = moveDots[i].v3.x;
+                enemyAction += IsPlayerCome;
+                break;
+            }
+
         }
 
         

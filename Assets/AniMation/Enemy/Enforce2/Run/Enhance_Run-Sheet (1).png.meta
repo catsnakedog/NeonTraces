@@ -1,28 +1,25 @@
 fileFormatVersion: 2
-guid: 302f843b30936664793d5e533abea378
+guid: 24c5dc650195b5c4a9ebad5677ed48a3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2193481866989941830
-    second: Normal2_1_0
+      213: 3411952765224288561
+    second: Enhance_Run-Sheet (1)_0
   - first:
-      213: -1469759949081059155
-    second: Normal2_1_1
+      213: 8055457772274283163
+    second: Enhance_Run-Sheet (1)_1
   - first:
-      213: 9212786938478532435
-    second: Normal2_1_2
+      213: 4072158213438856225
+    second: Enhance_Run-Sheet (1)_2
   - first:
-      213: 4121535024210945788
-    second: Normal2_1_3
+      213: -5839066635302585424
+    second: Enhance_Run-Sheet (1)_3
   - first:
-      213: -5492267699108464294
-    second: Normal2_1_4
+      213: 6377653276091851293
+    second: Enhance_Run-Sheet (1)_4
   - first:
-      213: -6353651480856152992
-    second: Normal2_1_5
-  - first:
-      213: -7019537147034576730
-    second: Normal2_1_6
+      213: 1821498007636699636
+    second: Enhance_Run-Sheet (1)_5
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -125,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Normal2_1_0
+      name: Enhance_Run-Sheet (1)_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 36
-        height: 36
+        width: 40
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,20 +136,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: abbcdc01ddf2f81e0800000000000000
-      internalID: -2193481866989941830
+      spriteID: 1310b9176f0b95f20800000000000000
+      internalID: 3411952765224288561
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Normal2_1_1
+      name: Enhance_Run-Sheet (1)_1
       rect:
         serializedVersion: 2
-        x: 36
+        x: 40
         y: 0
-        width: 36
-        height: 36
+        width: 40
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,20 +157,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: da06de90d1d5a9be0800000000000000
-      internalID: -1469759949081059155
+      spriteID: b92719b0a2cbacf60800000000000000
+      internalID: 8055457772274283163
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Normal2_1_2
+      name: Enhance_Run-Sheet (1)_2
       rect:
         serializedVersion: 2
-        x: 72
+        x: 80
         y: 0
-        width: 36
-        height: 36
+        width: 40
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,20 +178,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3571f5bb8e46adf70800000000000000
-      internalID: 9212786938478532435
+      spriteID: 12c5635e156338830800000000000000
+      internalID: 4072158213438856225
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Normal2_1_3
+      name: Enhance_Run-Sheet (1)_3
       rect:
         serializedVersion: 2
-        x: 108
+        x: 120
         y: 0
-        width: 36
-        height: 36
+        width: 40
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,20 +199,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf6ac678442a23930800000000000000
-      internalID: 4121535024210945788
+      spriteID: 0bb34f6f4d777fea0800000000000000
+      internalID: -5839066635302585424
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Normal2_1_4
+      name: Enhance_Run-Sheet (1)_4
       rect:
         serializedVersion: 2
-        x: 144
+        x: 160
         y: 0
-        width: 36
-        height: 36
+        width: 40
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,20 +220,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a59b94f70ab87c3b0800000000000000
-      internalID: -5492267699108464294
+      spriteID: d12af064dd9f18850800000000000000
+      internalID: 6377653276091851293
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Normal2_1_5
+      name: Enhance_Run-Sheet (1)_5
       rect:
         serializedVersion: 2
-        x: 180
+        x: 200
         y: 0
-        width: 36
-        height: 36
+        width: 40
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,29 +241,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0643fe824ab43d7a0800000000000000
-      internalID: -6353651480856152992
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Normal2_1_6
-      rect:
-        serializedVersion: 2
-        x: 216
-        y: 0
-        width: 36
-        height: 36
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6a85857e728959e90800000000000000
-      internalID: -7019537147034576730
+      spriteID: 4f9644889c2474910800000000000000
+      internalID: 1821498007636699636
       vertices: []
       indices: 
       edges: []

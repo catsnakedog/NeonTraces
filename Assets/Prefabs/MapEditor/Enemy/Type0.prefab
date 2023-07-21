@@ -132,13 +132,13 @@ MonoBehaviour:
   startDot: 0
   currentDot: 0
   endDot: 0
-  speed: 0
   power: 0
-  DefaultSpeed: 20
+  DefaultSpeed: 15
   DefaultPower: 2
   className: 
   pattern: 00000000
-  dotPosition: 0
+  xPoint: 0
+  speed: 0
   defaultV3: {x: 0, y: 0, z: 0}
 --- !u!95 &-2534482108470668156
 Animator:
