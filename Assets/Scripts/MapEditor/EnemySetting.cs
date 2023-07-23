@@ -47,6 +47,7 @@ public class EnemySetting : MonoBehaviour
     PlayerAction playerAction;
     PlayerMove playerMove;
     CameraManager cameraManager;
+    Animator enemyAnimator;
 
     void Start()
     {
@@ -56,6 +57,7 @@ public class EnemySetting : MonoBehaviour
         playerAction = GameObject.Find("InGameManager").GetComponent<PlayerAction>();
         playerMove = GameObject.Find("InGameManager").GetComponent<PlayerMove>();
         cameraManager = GameObject.Find("CameraManager").GetComponent<CameraManager>();
+        enemyAnimator = GetComponent<Animator>();
         blood = Data.saveData.gameData.blood;
         bloodBoom = Data.saveData.gameData.bloodBoom;
         bloodAngleMax = 30;
@@ -189,6 +191,7 @@ public class EnemySetting : MonoBehaviour
     }
     void Death() // 패턴이 전부 소모시 사망
     {
+        enemyAnimator.SetTrigger("IsDie");
         bloodBoomObject = Instantiate(bloodBoom, transform.position, Quaternion.identity);
         bloodBoomObject.transform.SetParent(gameObject.transform);
         if (player.transform.position.x > gameObject.transform.position.x)
@@ -204,16 +207,19 @@ public class EnemySetting : MonoBehaviour
         {
             if (startDot == endDot)
             {
+                enemyAnimator.SetBool("IsRun", false);
                 Debug.Log("적이동 완료");
             }
             else if (startDot > endDot)
             {
+                enemyAnimator.SetBool("IsRun", true);
                 currentDot = startDot - 1;
                 endPoint = Data.saveData.mapData[Data.saveData.gameData.stage].moveDots[currentDot].v3;
                 MoveAtoB("EnemyMoveStart", false, false);
             }
             else
             {
+                enemyAnimator.SetBool("IsRun", true);
                 currentDot = startDot + 1;
                 endPoint = Data.saveData.mapData[Data.saveData.gameData.stage].moveDots[currentDot].v3;
                 MoveAtoB("EnemyMoveStart", true, false);
