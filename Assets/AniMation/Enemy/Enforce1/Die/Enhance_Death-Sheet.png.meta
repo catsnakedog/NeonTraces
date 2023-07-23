@@ -1,22 +1,25 @@
 fileFormatVersion: 2
-guid: e321ea2a93f1a8c48b5d99dc77a621b5
+guid: ef6ebfa78199b78448106381494a001d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4953208283996061471
-    second: Normal2_Run-Sheet_0
+      213: 5416736438403810320
+    second: Enhance_Death-Sheet_0
   - first:
-      213: 592703139319204513
-    second: Normal2_Run-Sheet_1
+      213: -4815190173486358923
+    second: Enhance_Death-Sheet_1
   - first:
-      213: -2927158184716914609
-    second: Normal2_Run-Sheet_2
+      213: -3160973079297481001
+    second: Enhance_Death-Sheet_2
   - first:
-      213: -5388442128288764815
-    second: Normal2_Run-Sheet_3
+      213: -4719423689309776692
+    second: Enhance_Death-Sheet_3
   - first:
-      213: 2298261912182514575
-    second: Normal2_Run-Sheet_4
+      213: -6968153018049430059
+    second: Enhance_Death-Sheet_4
+  - first:
+      213: -5127755267007664160
+    second: Enhance_Death-Sheet_5
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -119,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Normal2_Run-Sheet_0
+      name: Enhance_Death-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 36
-        height: 36
+        width: 65
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,20 +136,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e084e51f4ba24bb0800000000000000
-      internalID: -4953208283996061471
+      spriteID: 01449f4771d1c2b40800000000000000
+      internalID: 5416736438403810320
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Normal2_Run-Sheet_1
+      name: Enhance_Death-Sheet_1
       rect:
         serializedVersion: 2
-        x: 36
+        x: 65
         y: 0
-        width: 36
-        height: 36
+        width: 65
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,20 +157,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1aa416c6d54b93800800000000000000
-      internalID: 592703139319204513
+      spriteID: 57ed4679c020d2db0800000000000000
+      internalID: -4815190173486358923
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Normal2_Run-Sheet_2
+      name: Enhance_Death-Sheet_2
       rect:
         serializedVersion: 2
-        x: 72
+        x: 130
         y: 0
-        width: 36
-        height: 36
+        width: 65
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,20 +178,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f403296c325a067d0800000000000000
-      internalID: -2927158184716914609
+      spriteID: 7d6a6ef5bb7f124d0800000000000000
+      internalID: -3160973079297481001
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Normal2_Run-Sheet_3
+      name: Enhance_Death-Sheet_3
       rect:
         serializedVersion: 2
-        x: 108
+        x: 195
         y: 0
-        width: 36
-        height: 36
+        width: 65
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,20 +199,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17c299afe686835b0800000000000000
-      internalID: -5388442128288764815
+      spriteID: cc4902eb82d318eb0800000000000000
+      internalID: -4719423689309776692
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Normal2_Run-Sheet_4
+      name: Enhance_Death-Sheet_4
       rect:
         serializedVersion: 2
-        x: 144
+        x: 260
         y: 0
-        width: 36
-        height: 36
+        width: 65
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -217,8 +220,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f83e27c480115ef10800000000000000
-      internalID: 2298261912182514575
+      spriteID: 5ddf89abfb52c4f90800000000000000
+      internalID: -6968153018049430059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enhance_Death-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 0
+        width: 65
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0efaedea0cd86d8b0800000000000000
+      internalID: -5127755267007664160
       vertices: []
       indices: 
       edges: []
