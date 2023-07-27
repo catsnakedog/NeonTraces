@@ -654,8 +654,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de6b2b1dd34a77c4f8e521fe0e80e50a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tx: {fileID: 0}
-  m_text: Test Text
 --- !u!1 &2061167900
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,7 +849,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5531442569981195547, guid: c1c41add964ade947b3015c39e37c72a, type: 3}
       propertyPath: m_Text
-      value: "\uD14C\uC2A4\uD2B8 \uD14D\uC2A4\uD2B8"
+      value: 12310kagsfas
       objectReference: {fileID: 0}
     - target: {fileID: 9022425019812769048, guid: c1c41add964ade947b3015c39e37c72a, type: 3}
       propertyPath: m_Name

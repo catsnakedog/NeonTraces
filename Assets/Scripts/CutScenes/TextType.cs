@@ -8,14 +8,20 @@ public class TextType : MonoBehaviour
 {
     string originText;
     public Text myText;
-    public float speed = 0.05f; //타이핑 속도 조절
-    
-    void Start()
+    private int cnt = 0;
+    void OnEnable()
     {
-        originText = myText.text;
-        myText.text = "";
-        StartCoroutine(TypingRoutine());
+        cnt++;
+        if (cnt == 2)
+        {
+            originText = myText.text;
+            myText.text = "";
+            StartCoroutine(TypingRoutine());
+        }
+        
+        Debug.Log("onenable");
     }
+
 
     IEnumerator TypingRoutine()
     {
@@ -23,7 +29,7 @@ public class TextType : MonoBehaviour
         for (int index = 0; index <= typingLength; index++)
         {
             myText.text = originText.Typing(index);
-            yield return new WaitForSeconds(speed);
+            yield return new WaitForSeconds(0.05f);
         }
     }
 }
