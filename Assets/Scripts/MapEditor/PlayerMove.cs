@@ -175,6 +175,10 @@ public class PlayerMove : MonoBehaviour
     }
     public void GameReSet() // 세팅을 초기화한다
     {
+        foreach (GameObject a in Data.saveData.gameData.enemyPoint)
+        {
+            a.SetActive(true);
+        }
         SoundManager.sound.Play("");
         stage = Data.saveData.gameData.stage;
         player.transform.position = Data.saveData.mapData[stage].moveDots[0].v3;
@@ -188,6 +192,11 @@ public class PlayerMove : MonoBehaviour
     public void GameStart() // 게임 시작
     {
         stage = Data.saveData.gameData.stage;
+
+        foreach(GameObject a in Data.saveData.gameData.enemyPoint)
+        {
+            a.SetActive(false);
+        }
         player.transform.position = Data.saveData.mapData[stage].moveDots[0].v3;
         crruentMoveDot = 0;
         Time.timeScale = 1;

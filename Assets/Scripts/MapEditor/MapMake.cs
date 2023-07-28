@@ -168,6 +168,7 @@ public class MapMake : MonoBehaviour
 
     public void EnemySetting(int stage) // 적들을 세팅해준다
     {
+        Data.saveData.gameData.enemyPoint.Clear();
         Data.saveData.gameData.enemyInfo.Clear();
         for (int i = 0; i < Data.saveData.mapData[stage].enemys.Count; i++)
         {
@@ -179,6 +180,7 @@ public class MapMake : MonoBehaviour
             enemyList[i].GetComponent<EnemySetting>().EnemyPosition();
             enemyList[i].transform.SetParent(enemys.transform, true);
             enemyList[i].name = "enemyDot" + i.ToString();
+            Data.saveData.gameData.enemyPoint.Add(enemyList[i].transform.GetChild(0).gameObject);
         }
     }
 
