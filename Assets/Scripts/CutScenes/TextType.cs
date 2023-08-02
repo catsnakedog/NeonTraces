@@ -9,6 +9,7 @@ public class TextType : MonoBehaviour
     string originText;
     public Text myText;
     private int cnt = 0;
+    public float speed = 0.05f;
     void OnEnable()
     {
         cnt++;
@@ -29,7 +30,7 @@ public class TextType : MonoBehaviour
         for (int index = 0; index <= typingLength; index++)
         {
             myText.text = originText.Typing(index);
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(speed);
         }
     }
 }

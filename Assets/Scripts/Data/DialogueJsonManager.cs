@@ -1,49 +1,55 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
+using System.IO;
+using System.Text;
 
 
-[Serializable]
-public class Dialogue
+public class DialogueJsonManager
 {
-    public int scene { get;}
-    public List<Line> lines { get;}
-    
-}
-
-public class Line
-{
-    public float speed { get;}
-    public string name { get;}
-    public string line { get;}
-
-    public Line()
+    public void SaveJson(SaveDialogueClass saveDialogue) // 데이터를 저장하는 함수
     {
-        this.speed = 0.05f; //속도 초기화
-    }
-}
+        string jsonText;
+        string savePath = Application.dataPath + "/Data/DialogueData.json";
 
-/*
-public class Root
-{
-    public List<Dialogue> dialogue { get; }
-}
-*/
+#if UNITY_EDITOR_WIN
 
-
-
-public class DialogueJsonManager : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+#endif
+#if UNITY_ANDROID
+        savePath = Application.persistentDataPath + "/Data/DialogueData.json";
+#endif
+        jsonText = JsonUtility.ToJson(saveDialogue, true);
+        FileStream fileStream = new FileStream(savePath, FileMode.Create);
+        byte[] bytes = Encoding.UTF8.GetBytes(jsonText);
+        fileStream.Write(bytes, 0, bytes.Length);
+        fileStream.Close();
     }
 
-    // Update is called once per frame
-    void Update()
+    public SaveDialogueClass LoadsaveDialogue()
     {
-        
+        SaveDialogueClass loadDialogue;
+        string loadPath = Application.dataPath + "/Data/DialogueData.json";
+
+#if UNITY_EDITOR_WIN
+
+#endif
+#if UNITY_ANDROID
+        loadPath = Application.persistentDataPath + "/Data/DialogueData.json";
+#endif
+        if (File.Exists(loadPath))
+        {
+            FileStream stream = new FileStream(loadPath, FileMode.Open);
+            byte[] bytes = new byte[stream.Length];
+            stream.Read(bytes, 0, bytes.Length);
+            stream.Close();
+            string jsonData = Encoding.UTF8.GetString(bytes);
+            loadDialogue = JsonUtility.FromJson<SaveDialogueClass>(jsonData);
+        }
+        else
+        {
+            loadDialogue = new SaveDialogueClass();
+        }
+
+        return loadDialogue;
     }
 }
