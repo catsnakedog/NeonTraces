@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class PlayerAction : MonoBehaviour
@@ -21,10 +21,15 @@ public class PlayerAction : MonoBehaviour
     [SerializeField] private float longClickTime;
     [SerializeField] private float timeCount;
 
+    [SerializeField] List<Sprite> effectSprites;
+    [SerializeField] List<GameObject> effects;
+    [SerializeField] GameObject defaultEffect;
+
     public Coroutine actionC;
     public Coroutine actionA;
     public Coroutine aniC;
     public Coroutine nextA;
+    Coroutine effectC;
 
     AfterImage afterImage;
 
@@ -39,6 +44,42 @@ public class PlayerAction : MonoBehaviour
         isDelay = false;
         isLongClick = false;
         timeCount = 0;
+        EffectSetting();
+    }
+
+    public void EffectSetting()
+    {
+        GameObject temp;
+        foreach(Sprite sprite in effectSprites)
+        {
+            temp = Instantiate(defaultEffect, Vector3.zero, Quaternion.identity);
+            temp.GetComponent<SpriteRenderer>().sprite = sprite;
+            temp.transform.SetParent(GameObject.Find("Player").transform.GetChild(3), false);
+            effects.Add(temp);
+            temp.SetActive(false);
+        }
+    }
+
+    IEnumerator ShowEffect(int start, int end)
+    {
+        for (int i = start; i < end + 1; i++)
+        {
+            effects[i].SetActive(false);
+        }
+
+        for (int i = start; i < end + 1; i++)
+        {
+            effects[i].transform.position = DataManager.data.saveData.gameData.player.transform.position;
+            StartCoroutine(Effect(effects[i]));
+            yield return new WaitForSeconds(0.07f);
+        }
+    }
+
+    IEnumerator Effect(GameObject temp)
+    {
+        temp.SetActive(true);
+        yield return new WaitForSeconds(0.07f);
+        temp.SetActive(false);
     }
 
     public void ActionReset()
@@ -66,7 +107,6 @@ public class PlayerAction : MonoBehaviour
 
     public void Attack() // 플레이어 공격
     {
-
         if (!isDelay) actionC = StartCoroutine("AttackAction");
     }
     public void Defence() // 플레이어 방어
@@ -93,6 +133,10 @@ public class PlayerAction : MonoBehaviour
         {
             StopCoroutine(nextA);
         }
+        if (effectC != null)
+        {
+            StopCoroutine(effectC);
+        }
         if(isNextAttack)
         {
             aniC = StartCoroutine(CallAni("AttackRight", attackMotionTime));
@@ -103,6 +147,7 @@ public class PlayerAction : MonoBehaviour
             aniC = StartCoroutine(CallAni("AttackLeft", attackMotionTime));
             nextA = StartCoroutine(NextAttack(2f));
         }
+        effectC = StartCoroutine(ShowEffect(0, 5));
         actionA = StartCoroutine(afterImage.AfterImageSetting(Data.saveData.gameData.player));
         isAttack = true;
         isAction = true;
@@ -231,5 +276,10 @@ public class PlayerAction : MonoBehaviour
         isNextAttack = true;
         yield return new WaitForSeconds(time);
         isNextAttack = false;
+    }
+
+    void Effect()
+    {
+
     }
 }

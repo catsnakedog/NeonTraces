@@ -25,6 +25,9 @@ public class EnemySetting : MonoBehaviour
 
     [SerializeField] public Vector3 defaultV3;
 
+    [SerializeField] public float backPower;
+    [SerializeField] public float backSpeed;
+
     int cnt;
 
     float bloodAngleMax;
@@ -298,16 +301,16 @@ public class EnemySetting : MonoBehaviour
 
     void PlayerRebound() // player에게 반동을 줌
     {
-        playerMove.power = DefaultPower;
-        playerMove.playerActionSpeed = DefaultSpeed;
+        playerMove.power =backPower;
+        playerMove.playerActionSpeed = backSpeed;
         playerMove.BackOrFront = true;
         playerMove.Rebound();
     }
 
     void EnemyRebound() // enemy에게 반동을 줌
     {
-        power = DefaultPower;
-        speed = DefaultSpeed;
+        power = backPower;
+        speed = backSpeed;
         startDot = playerMove.crruentMoveDot;
         endDot = playerMove.crruentMoveDot+1;
         EnemyMoveStart();
