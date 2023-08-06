@@ -1504,8 +1504,8 @@ MonoBehaviour:
   bloodBoom: {fileID: 2641618844068464857, guid: 9629206da8c3b60428020dfbc44c85fd, type: 3}
   isMapEditor: 0
   mapBGs:
-  - {fileID: 6712658111376015217, guid: 7dc4cc9d88661e3428e7e6040a5801c8, type: 3}
-  - {fileID: 4593091517580729162, guid: aad1cd3e6aa83e84993688c81227334b, type: 3}
+  - {fileID: 3892048699333052961, guid: 05326f4d29f7bc6408228d5e8236ad94, type: 3}
+  - {fileID: 3892048699333052961, guid: 05326f4d29f7bc6408228d5e8236ad94, type: 3}
   - {fileID: 6712658111376015217, guid: 7dc4cc9d88661e3428e7e6040a5801c8, type: 3}
   - {fileID: 6712658111376015217, guid: 7dc4cc9d88661e3428e7e6040a5801c8, type: 3}
   lrs: []
@@ -2052,6 +2052,7 @@ MonoBehaviour:
   - {fileID: 1203853421040445508, guid: fac304b84a0ce014c8ccf77deabdd12c, type: 3}
   - {fileID: 475446483450909958, guid: fac304b84a0ce014c8ccf77deabdd12c, type: 3}
   - {fileID: 4936254337817316112, guid: fac304b84a0ce014c8ccf77deabdd12c, type: 3}
+  effects: []
   defaultEffect: {fileID: 7621128632356430909, guid: ed79419cf4d4f674c840e621878db497, type: 3}
   animaiton: {fileID: 0}
 --- !u!114 &1323966423
