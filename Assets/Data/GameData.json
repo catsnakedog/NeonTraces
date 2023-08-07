@@ -625,7 +625,34 @@
                     "speed": 15.0
                 }
             ],
-            "enemys": [],
+            "enemys": [
+                {
+                    "v3": {
+                        "x": 63.099998474121097,
+                        "y": 0.0,
+                        "z": 0.0
+                    },
+                    "moveV3": {
+                        "x": 35.81999969482422,
+                        "y": 0.0,
+                        "z": 0.0
+                    },
+                    "type": 3
+                },
+                {
+                    "v3": {
+                        "x": 196.10000610351563,
+                        "y": 10.0,
+                        "z": 0.0
+                    },
+                    "moveV3": {
+                        "x": 159.90000915527345,
+                        "y": 10.0,
+                        "z": 0.0
+                    },
+                    "type": 2
+                }
+            ],
             "eventDots": []
         },
         {
@@ -2266,21 +2293,43 @@
             false
         ],
         "player": {
-            "instanceID": 22482
+            "instanceID": 20406
         },
         "blood": {
-            "instanceID": 21100
+            "instanceID": 20536
         },
         "bloodBoom": {
-            "instanceID": 21102
+            "instanceID": 20538
         },
         "map": {
-            "instanceID": 22426
+            "instanceID": 20350
         },
-        "enemyInfo": [],
+        "enemyInfo": [
+            {
+                "enemy": {
+                    "instanceID": -47634
+                },
+                "x": 57.09000015258789,
+                "index": 0
+            },
+            {
+                "enemy": {
+                    "instanceID": -47652
+                },
+                "x": 196.10000610351563,
+                "index": 1
+            }
+        ],
         "camsize": 10.0,
         "isGameStart": false,
-        "enemyPoint": []
+        "enemyPoint": [
+            {
+                "instanceID": -47646
+            },
+            {
+                "instanceID": -47664
+            }
+        ]
     },
     "ui": {
         "bgm": 0.5,

@@ -140,6 +140,8 @@ MonoBehaviour:
   xPoint: 0
   speed: 0
   defaultV3: {x: 0, y: 0, z: 0}
+  backPower: 15
+  backSpeed: 30
 --- !u!95 &6885770771901341120
 Animator:
   serializedVersion: 5
