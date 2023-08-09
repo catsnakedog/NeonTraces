@@ -219,6 +219,8 @@ GameObject:
   - component: {fileID: 12012595}
   - component: {fileID: 12012600}
   - component: {fileID: 12012599}
+  - component: {fileID: 12012603}
+  - component: {fileID: 12012602}
   m_Layer: 0
   m_Name: DialogueCanvas1
   m_TagString: Untagged
@@ -352,6 +354,34 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 1
+--- !u!114 &12012602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12012594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fc3e36fff3abd24a9df5e8cf3c2a431, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventPart: 21
+  talkDatas: []
+--- !u!114 &12012603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 12012594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 628745e47f6393f4390e7538e43ee252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  csvFile: {fileID: 4900000, guid: e25afe9d2abe69e42beb34bbf6d2861f, type: 3}
+  DebugTalkDataList: []
 --- !u!1 &56118204
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,7 +638,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9022425019812769048, guid: c1c41add964ade947b3015c39e37c72a, type: 3}
       propertyPath: m_Name
-      value: TexBox_Speaker
+      value: TextBox_Speaker
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1c41add964ade947b3015c39e37c72a, type: 3}
@@ -1174,11 +1204,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5531442569981195547, guid: c1c41add964ade947b3015c39e37c72a, type: 3}
       propertyPath: m_Text
-      value: ddddddd
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 9022425019812769048, guid: c1c41add964ade947b3015c39e37c72a, type: 3}
       propertyPath: m_Name
-      value: TexBox_Player
+      value: TextBox_Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022425019812769048, guid: c1c41add964ade947b3015c39e37c72a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1c41add964ade947b3015c39e37c72a, type: 3}
@@ -1440,7 +1474,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9022425019812769048, guid: c1c41add964ade947b3015c39e37c72a, type: 3}
       propertyPath: m_Name
-      value: TexBox_Drone
+      value: TextBox_Drone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1c41add964ade947b3015c39e37c72a, type: 3}
@@ -2967,7 +3001,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1143643377}
   m_Layer: 0
-  m_Name: ---scene1---
+  m_Name: -----scene1-----
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3447,7 +3481,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1253523544}
   m_Layer: 0
-  m_Name: ---scene2---
+  m_Name: -----scene2-----
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3890,7 +3924,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9022425019812769048, guid: c1c41add964ade947b3015c39e37c72a, type: 3}
       propertyPath: m_Name
-      value: TexBox_Player
+      value: TextBox_Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1c41add964ade947b3015c39e37c72a, type: 3}
@@ -4737,7 +4771,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9022425019812769048, guid: c1c41add964ade947b3015c39e37c72a, type: 3}
       propertyPath: m_Name
-      value: TexBox_Drone
+      value: TextBox_Drone
+      objectReference: {fileID: 0}
+    - target: {fileID: 9022425019812769048, guid: c1c41add964ade947b3015c39e37c72a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1c41add964ade947b3015c39e37c72a, type: 3}
