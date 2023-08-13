@@ -9,36 +9,111 @@ public class ShowDialogue : MonoBehaviour
     // scene 내 빈 오브젝트에 스크립트
 
     public PlayableDirector playableDirector;
-    public Text Text;
-    
+    [Tooltip("0번은 주인공, 1번은 드론, 2번은 스피커, 3번은 AI\nText오브젝트")]
+    public Text[] text;
+    int talkDatasIndex = 0;
+    int count = 0; // 배열 인덱스 숫자
+    TalkData[] talkDatas;
+
+    private void Awake()
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(false);
+        }
+    }
+
     public void ReceiveSignal()
     {
         Debug.Log("대화 시작");
         playableDirector.Pause();
+
+        talkDatas = transform.GetComponent<Dialogue>().GetObjectDialogue();
+        if (talkDatas != null) DebugDialogue(talkDatas); // 대사가 null이 아니면 대사 출력
         //Debug.Log(Text.transform.parent.parent.name);
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (Input.GetMouseButtonDown(0)) // 특정 시간 되면 일시정지 후 대화 시작
         {
+            Debug.Log("클릭");
+            InitDialogue(); //인덱스 초기화 및 유효성 검사
 
-            Text.transform.parent.parent.gameObject.SetActive(true); //해당 TextBox 활성화
-            //Text.text = "시작";
+            if (talkDatasIndex >= talkDatas.Length) // 대화가 끝났다면
+            {
+                gameObject.SetActive(false); // 대화창이 나오는 Canvas 비활성화
+                playableDirector.Resume(); //해당 대화가 종료되면 타임라인 재시작
+            }
 
-            TalkData[] talkDatas = transform.GetComponent<Dialogue>().GetObjectDialogue();
-            // 대사가 null이 아니면 대사 출력
-            if (talkDatas != null) DebugDialogue(talkDatas); ;
+            //대화 중이라면 대사 띄우기
+            else if (talkDatas[talkDatasIndex].name == "주인공") //주인공의 대사라면
+            {
+                Talk("주인공");
+            }
+            else if (talkDatas[talkDatasIndex].name == "드론") //드론의 대사라면
+            {
+                Talk("드론");
+            }
+            else if (talkDatas[talkDatasIndex].name == "스피커") //스피커의 대사라면
+            {
+                Talk("스피커");
+            }
+            else if (talkDatas[talkDatasIndex].name == "AI") //스피커의 대사라면
+            {
+                Talk("AI");
+            }
 
-
+            else //모두 아니라면
+            {
+                return;
+            }
         }
-        if (Input.GetKeyDown(KeyCode.P)) // 대화 종료 후 이어서 하기
-        {
-            playableDirector.Resume();
-        }
+
     }
 
+    void InitDialogue() //인덱스 초기화 및 유효성 검사
+    {
+        if (talkDatasIndex < talkDatas.Length && count >= talkDatas[talkDatasIndex].contexts.Length) // 대화 중이며 && 다른 캐릭터의 대사로 넘어간 것이라면
+        {
+            talkDatasIndex++;
+            count = 0;
+            for (int i = 0; i < text.Length; i++)
+            {
+                text[i].transform.parent.parent.gameObject.SetActive(false);
+            }
+        }
+
+    }
+
+    void Talk(string name)
+    {
+        int index = 0;
+        switch(name)
+        {
+            case "주인공":
+                index = 0;
+                break;
+            case "드론":
+                index = 1;
+                break;
+            case "스피커":
+                index = 2;
+                break;
+            case "AI":
+                index = 3;
+                break;
+        }
+
+        Debug.Log(name);
+        Debug.Log(name + " count: " + count);
+        Debug.Log(name + " talkDatasIndex: " + talkDatasIndex);
+
+        text[index].transform.parent.parent.gameObject.SetActive(true);
+        text[index].text = talkDatas[talkDatasIndex].contexts[count].Replace("\\n", "\n");
+        count++;
+    }
 
     // 대화 정보 출력하는 함수
     void DebugDialogue(TalkData[] talkDatas)

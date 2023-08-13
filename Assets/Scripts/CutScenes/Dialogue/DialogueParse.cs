@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,20 +9,8 @@ public class DialogueParse : MonoBehaviour
         SetDebugTalkData(); //인스펙터 창에서 대화데이터 보이도록하기
     }
 
-    public static TalkData[] GetDialogue(string eventPart)
-    {
-        // 키에 매칭되는 값이 있으면 true 없으면 false
-        if (DialogueDictionary.ContainsKey(eventPart))
-            return DialogueDictionary[eventPart];
-        else
-        {
-            // 경고 출력하고 null 반환
-            Debug.LogWarning("찾을 수 없는 이벤트 이름 : " + eventPart);
-            return null;
-        }
-    }
 
-    private static Dictionary<string, TalkData[]> DialogueDictionary =
+    private static Dictionary<string, TalkData[]> DialogueDictionary = // Key: string, Value: TalkData[]
                  new Dictionary<string, TalkData[]>();
     [SerializeField] private TextAsset csvFile = null;
 
@@ -32,19 +19,19 @@ public class DialogueParse : MonoBehaviour
         // 아래 한 줄 빼기
         string csvText = csvFile.text.Substring(0, csvFile.text.Length - 1);
         // 줄바꿈(한 줄)을 기준으로 csv 파일을 쪼개서 string배열에 줄 순서대로 담음
-        string[] rows = csvText.Split(new char[] { '\n' });
+        string[] rows = csvText.Split(new char[] { '\n' }); //row[0]: 컷씬번호+파트, row[1]: 이름, row[2]: 대사 row[3]: 속도 row[4]: 폰트 크기
 
 
         // 엑셀 파일 1번째 줄은 편의를 위한 분류이므로 i = 1부터 시작
         for (int i = 1; i < rows.Length; i++)
         {
             // A, B, C, D, E열을 쪼개서 배열에 담음
-            string[] rowValues = rows[i].Split(new char[] { ',' }); // rowValues : ["컷씬번호+파트", "이름", "대사", "속도", "폰트 크기"]
+            string[] rowValues = rows[i].Split(new char[] { ',' }); // rowValues : ["컷씬번호+파트", "이름", "대사", "속도"]
 
             // 유효한 이벤트 이름이 나올때까지 반복
-            if (rowValues[0].Trim() == "" || rowValues[0].Trim() == "end") continue;
+            if (rowValues[0].Trim() == "" || rowValues[0].Trim() == "end") continue; //첫번째 row가 빈칸이나 end 일때 무시
 
-            List<TalkData> talkDataList = new List<TalkData>();
+            List<TalkData> talkDataList = new List<TalkData>(); //딕셔너리 벨류에 넣을 TalkData의 List ********
             string eventPart = rowValues[0];
 
             while (rowValues[0].Trim() != "end") // talkDataList 하나를 만드는 반복문
@@ -60,18 +47,33 @@ public class DialogueParse : MonoBehaviour
                 do // talkData 하나를 만드는 반복문
                 {
                     contextList.Add(rowValues[2].ToString()); //대사 --> contextList로
-                    if (++i < rows.Length)
-                        rowValues = rows[i].Split(new char[] { ',' });
+                    if (++i < rows.Length) rowValues = rows[i].Split(new char[] { ',' });
                     else break;
-                } while (rowValues[1] == "" && rowValues[0] != "end");
+                } while (rowValues[1] == "" && rowValues[0] != "end"); //동일한 캐릭터가 대사 && end가 아닐때
 
-                talkData.contexts = contextList.ToArray();
+                talkData.contexts = contextList.ToArray(); // contextList에 있는 대사들을 배열로 변경한 뒤, talkData의 context로
                 talkDataList.Add(talkData);
             }
 
             DialogueDictionary.Add(eventPart, talkDataList.ToArray());
         }
     }
+
+        public static TalkData[] GetDialogue(string eventPart)
+    {
+        // 키에 매칭되는 값이 있으면 true 없으면 false
+        if (DialogueDictionary.ContainsKey(eventPart))
+        {
+            return DialogueDictionary[eventPart];
+        }
+        else
+        {
+            // 경고 출력하고 null 반환
+            Debug.LogWarning("찾을 수 없는 이벤트 이름 : " + eventPart);
+            return null;
+        }
+    }
+
 
     [System.Serializable]
     public class DebugTalkData
