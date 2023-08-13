@@ -5,6 +5,7 @@ public class DialogueParse : MonoBehaviour
 {
     private void Awake()
     {
+
         SetTalkDictionary();
         SetDebugTalkData(); //인스펙터 창에서 대화데이터 보이도록하기
     }
