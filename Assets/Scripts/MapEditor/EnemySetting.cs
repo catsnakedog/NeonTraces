@@ -15,11 +15,11 @@ public class EnemySetting : MonoBehaviour
     [SerializeField] public int startDot;
     [SerializeField] public int currentDot;
     [SerializeField] public int endDot;
-    [SerializeField] public float power; //0ÀÌ¸é Æ÷ÀÎÆ® ³¡±îÁö ÀÌµ¿
+    [SerializeField] public float power; //0ì´ë©´ í¬ì¸íŠ¸ ëê¹Œì§€ ì´ë™
     [SerializeField] public float DefaultSpeed;
     [SerializeField] public float DefaultPower;
     [SerializeField] public string className;
-    [SerializeField] public List<int> pattern; // 0 °ø°İ, 1 ¹æ¾î, 2...(Æ¯¼ö¾×¼Ç)
+    [SerializeField] public List<int> pattern; // 0 ê³µê²©, 1 ë°©ì–´, 2...(íŠ¹ìˆ˜ì•¡ì…˜)
     [SerializeField] public float xPoint;
     [SerializeField] public float speed;
 
@@ -74,15 +74,15 @@ public class EnemySetting : MonoBehaviour
         enemyAction?.Invoke();   
     }
 
-    private void OnTriggerStay2D(Collider2D collision) // player¿Í Ãæµ¹½Ã ÆÇÁ¤
+    private void OnTriggerStay2D(Collider2D collision) // playerì™€ ì¶©ëŒì‹œ íŒì •
     {
         if(isActive)
         {
-            if (collision.name == "Life") // ÇÃ·¹ÀÌ¾î º»Ã¼¿Í Ãæµ¹½Ã »ç¸Á
+            if (collision.name == "Life") // í”Œë ˆì´ì–´ ë³¸ì²´ì™€ ì¶©ëŒì‹œ ì‚¬ë§
             {
                 playerAction.Death();
             }
-            if (collision.name == "Action") // °ø°İ, ¹æ¾î ¹üÀ§¿Í Ãæµ¹½Ã ÆÇÁ¤¿¡ µé¾î°¨
+            if (collision.name == "Action") // ê³µê²©, ë°©ì–´ ë²”ìœ„ì™€ ì¶©ëŒì‹œ íŒì •ì— ë“¤ì–´ê°
             {
                 if (playerAction.isAction)
                 {
@@ -92,7 +92,7 @@ public class EnemySetting : MonoBehaviour
         }
     }
 
-    void EnemyPattern() // °ø°İ, ¹æ¾î ¼º°ø ÆÇÁ¤ È®ÀÎ
+    void EnemyPattern() // ê³µê²©, ë°©ì–´ ì„±ê³µ íŒì • í™•ì¸
     {
         if (pattern[cnt] == 0)
         {
@@ -112,11 +112,11 @@ public class EnemySetting : MonoBehaviour
         }
         else
         {
-            Debug.Log("¹ö±×¾ß ¹ö±×");
+            Debug.Log("ë²„ê·¸ì•¼ ë²„ê·¸");
         }
     }
 
-    void Attack() // enemy°¡ °ø°İ »óÅÂÀÏ¶§
+    void Attack() // enemyê°€ ê³µê²© ìƒíƒœì¼ë•Œ
     {
         if(playerAction.isDefence)
         {
@@ -132,7 +132,7 @@ public class EnemySetting : MonoBehaviour
     {
         if (playerAction.isDefence)
         {
-            PlayerRebound(); // player°¡ ¹Ğ·Á³­´Ù
+            PlayerRebound(); // playerê°€ ë°€ë ¤ë‚œë‹¤
             PatternClear();
         }
         else
@@ -141,7 +141,7 @@ public class EnemySetting : MonoBehaviour
         }
     }
 
-    void Defence() // enemy°¡ ¹æ¾î »óÅÂÀÏ¶§
+    void Defence() // enemyê°€ ë°©ì–´ ìƒíƒœì¼ë•Œ
     {
         if (playerAction.isAttack)
         {
@@ -159,7 +159,7 @@ public class EnemySetting : MonoBehaviour
         if (playerAction.isAttack)
         {
             BloodSetting();
-            EnemyRebound(); // enemy°¡ ¹Ğ·Á³­´Ù
+            EnemyRebound(); // enemyê°€ ë°€ë ¤ë‚œë‹¤
             PatternClear();
         }
         else
@@ -168,7 +168,7 @@ public class EnemySetting : MonoBehaviour
         }
     }
 
-    void PatternClear() // ¼º°øÀûÀ¸·Î ÆÇÁ¤¿¡ ¼º°ø ÇßÀ»¶§ player Çàµ¿ ÄğÅ¸ÀÓ ÃÊ±âÈ­
+    void PatternClear() // ì„±ê³µì ìœ¼ë¡œ íŒì •ì— ì„±ê³µ í–ˆì„ë•Œ player í–‰ë™ ì¿¨íƒ€ì„ ì´ˆê¸°í™”
     {
         StartCoroutine(HitEffect());
         isActive = false;
@@ -176,7 +176,7 @@ public class EnemySetting : MonoBehaviour
         playerAction.isAction = false;
         playerAction.isDefence = false;
         playerAction.isAttack = false;
-        playerAction.StopCoroutine(playerAction.actionC); // playerÀÇ »óÅÂ + ÄğÅ¸ÀÓ ÃÊ±âÈ­
+        playerAction.StopCoroutine(playerAction.actionC); // playerì˜ ìƒíƒœ + ì¿¨íƒ€ì„ ì´ˆê¸°í™”
         //playerAction.animaiton.SetAnimation("Run");
         if (playerAction.actionA != null)
         {
@@ -184,15 +184,15 @@ public class EnemySetting : MonoBehaviour
         }
         if (cnt == pattern.Count - 1) 
         {
-            Death(); // ÆĞÅÏÀÌ ³¡³µÀ¸¸é »ç¸Á
+            Death(); // íŒ¨í„´ì´ ëë‚¬ìœ¼ë©´ ì‚¬ë§
         }
         else
         {
             isActive = true;
-            cnt++; // ÆĞÅÏÀÌ ¾ÆÁ÷ ³²¾ÒÀ¸¸é ´ÙÀ½ ÆĞÅÏ ½ÇÇà
+            cnt++; // íŒ¨í„´ì´ ì•„ì§ ë‚¨ì•˜ìœ¼ë©´ ë‹¤ìŒ íŒ¨í„´ ì‹¤í–‰
         }
     }
-    void Death() // ÆĞÅÏÀÌ ÀüºÎ ¼Ò¸ğ½Ã »ç¸Á
+    void Death() // íŒ¨í„´ì´ ì „ë¶€ ì†Œëª¨ì‹œ ì‚¬ë§
     {
         enemyAnimator.SetTrigger("IsDie");
         bloodBoomObject = Instantiate(bloodBoom, transform.position, Quaternion.identity);
@@ -204,14 +204,14 @@ public class EnemySetting : MonoBehaviour
         enemyAction = null;
     }
 
-    public void EnemyMoveStart() // startDot -> ÀûÀÌ ¿òÁ÷ÀÌ´Â ¹æÇâ ¹İ´ë¹æÇâ¿¡¼­ °¡Àå °¡±î¿î Á¡, endPoint -> ÀûÀÌ ¾î¶² Á¡±îÁö ¿òÁ÷ÀÌ´ÂÁö
+    public void EnemyMoveStart() // startDot -> ì ì´ ì›€ì§ì´ëŠ” ë°©í–¥ ë°˜ëŒ€ë°©í–¥ì—ì„œ ê°€ì¥ ê°€ê¹Œìš´ ì , endPoint -> ì ì´ ì–´ë–¤ ì ê¹Œì§€ ì›€ì§ì´ëŠ”ì§€
     {
-        if(power == 0) // ÀûÀÌ Æ¯Á¤ ÁöÁ¡±îÁö ÀÌµ¿ÇÏ´Â ÀÌÆåÆ®, power 0À¸·Î ¼¼ÆÃÇØÁÖ¸é µÈ´Ù
+        if(power == 0) // ì ì´ íŠ¹ì • ì§€ì ê¹Œì§€ ì´ë™í•˜ëŠ” ì´í™íŠ¸, power 0ìœ¼ë¡œ ì„¸íŒ…í•´ì£¼ë©´ ëœë‹¤
         {
             if (startDot == endDot)
             {
                 enemyAnimator.SetBool("IsRun", false);
-                Debug.Log("ÀûÀÌµ¿ ¿Ï·á");
+                Debug.Log("ì ì´ë™ ì™„ë£Œ");
             }
             else if (startDot > endDot)
             {
@@ -228,7 +228,7 @@ public class EnemySetting : MonoBehaviour
                 MoveAtoB("EnemyMoveStart", true, false);
             }
         }
-        else // ÀûÀÌ ´Ü¼øÈ÷ ÀÌµ¿ÇÏ´Â°Ô ¾Æ´Ï¶ó ÇÃ·¹ÀÌ¾î¿¡°Ô °ø°İ´çÇÏ°í ¹Ğ¸±¶§ ÆÇÁ¤
+        else // ì ì´ ë‹¨ìˆœíˆ ì´ë™í•˜ëŠ”ê²Œ ì•„ë‹ˆë¼ í”Œë ˆì´ì–´ì—ê²Œ ê³µê²©ë‹¹í•˜ê³  ë°€ë¦´ë•Œ íŒì •
         {
             startPoint = Data.saveData.mapData[Data.saveData.gameData.stage].moveDots[startDot].v3;
             endPoint = Data.saveData.mapData[Data.saveData.gameData.stage].moveDots[endDot].v3;
@@ -250,7 +250,7 @@ public class EnemySetting : MonoBehaviour
         }
     }
 
-    void MoveAtoB(string className, bool isCountUp, bool isBlood) // ÀûÀ» ÀÌµ¿ ½ÃÅ°±â À§ÇÑ ÇÔ¼ö
+    void MoveAtoB(string className, bool isCountUp, bool isBlood) // ì ì„ ì´ë™ ì‹œí‚¤ê¸° ìœ„í•œ í•¨ìˆ˜
     {
         this.className = className;
         this.isCountUp = isCountUp;
@@ -268,12 +268,12 @@ public class EnemySetting : MonoBehaviour
         enemyAction += IsEndPoint;
     }
 
-    void MoveBySpeed() // enemy¸¦ endPoint·Î ÀÌµ¿½ÃÅ´
+    void MoveBySpeed() // enemyë¥¼ endPointë¡œ ì´ë™ì‹œí‚´
     {
         gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, endPoint, Time.deltaTime * speed);
     }
 
-    void IsEndPoint() // endPoint¿¡ µµ´ŞÇÏ¿´´Â°¡¸¦ ÆÇº°
+    void IsEndPoint() // endPointì— ë„ë‹¬í•˜ì˜€ëŠ”ê°€ë¥¼ íŒë³„
     {
         if (gameObject.transform.position == endPoint)
         {
@@ -299,15 +299,16 @@ public class EnemySetting : MonoBehaviour
         }
     }
 
-    void PlayerRebound() // player¿¡°Ô ¹İµ¿À» ÁÜ
+    void PlayerRebound() // playerì—ê²Œ ë°˜ë™ì„ ì¤Œ
     {
+        return;
         playerMove.power =backPower;
         playerMove.playerActionSpeed = backSpeed;
         playerMove.BackOrFront = true;
         playerMove.Rebound();
     }
 
-    void EnemyRebound() // enemy¿¡°Ô ¹İµ¿À» ÁÜ
+    void EnemyRebound() // enemyì—ê²Œ ë°˜ë™ì„ ì¤Œ
     {
         power = backPower;
         speed = backSpeed;

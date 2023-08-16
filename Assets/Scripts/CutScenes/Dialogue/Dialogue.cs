@@ -1,23 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
-[System.Serializable] // ±¸Á¶Ã¼°¡ ÀÎ½ºÆåÅÍ Ã¢¿¡ º¸ÀÌ°Ô ÇÏ±â À§ÇÑ ÀÛ¾÷
-public struct TalkData
+[System.Serializable] // êµ¬ì¡°ì²´ê°€ ì¸ìŠ¤í™í„° ì°½ì— ë³´ì´ê²Œ í•˜ê¸° ìœ„í•œ ì‘ì—…
+public struct TalkData //ìºë¦­í„° í•œëª…ì˜ ëŒ€ì‚¬
 {
-    public string name; // ´ë»ç Ä¡´Â Ä³¸¯ÅÍ ÀÌ¸§
-    public string[] contexts; // ´ë»ç ³»¿ë
-    public string speed; // ´ë»ç Å¸ÀÌÇÎ ¼Óµµ
-    //public int fontSize; // ÆùÆ® Å©±â
+    public string name; // ëŒ€ì‚¬ ì¹˜ëŠ” ìºë¦­í„° ì´ë¦„
+    public string[] contexts; // ëŒ€ì‚¬ ë‚´ìš©
+    public string speed; // ëŒ€ì‚¬ íƒ€ì´í•‘ ì†ë„
+    //public int fontSize; // í°íŠ¸ í¬ê¸°
 }
 
 public class Dialogue : MonoBehaviour
 {
-    // ´ëÈ­ ÀÌº¥Æ® ÀÌ¸§
-    [SerializeField] string eventPart = null; // ÄÆ¾À¹øÈ£ + ÆÄÆ® ¹øÈ£ (ex) 01: ÄÆ¾À0 ÆÄÆ®1
+    // ëŒ€í™” ì´ë²¤íŠ¸ ì´ë¦„
+    [Tooltip("ì»·ì”¬ë²ˆí˜¸+ëŒ€í™”ë²ˆí˜¸\n(ex) ì»·ì”¬0ì˜ ì²«ë²ˆì§¸ ëŒ€í™”: 01")]
+    [SerializeField] string eventPart = null; // ì»·ì”¬ë²ˆí˜¸ + íŒŒíŠ¸ ë²ˆí˜¸ (ex) 01: ì»·ì”¬0 íŒŒíŠ¸1
 
-    // À§¿¡¼­ ¼±¾ğÇÑ TalkData ¹è¿­ 
-    [SerializeField] TalkData[] talkDatas = null; // index 0¹ø: ÁÖÀÎ°ø / 1¹ø: µå·Ğ / 2¹ø: ½ºÇÇÄ¿ / ...
+    // ìœ„ì—ì„œ ì„ ì–¸í•œ TalkData ë°°ì—´ 
+    [SerializeField] TalkData[] talkDatas; // index 0ë²ˆ: ì£¼ì¸ê³µ / 1ë²ˆ: ë“œë¡  / 2ë²ˆ: ìŠ¤í”¼ì»¤ / ...
 
     public TalkData[] GetObjectDialogue()
     {

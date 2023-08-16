@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1057036887
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a034405660ef5964db979d20a9559e0d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -140,6 +140,8 @@ MonoBehaviour:
   xPoint: 0
   speed: 0
   defaultV3: {x: 0, y: 0, z: 0}
+  backPower: 0
+  backSpeed: 0
 --- !u!95 &-7875608395167340952
 Animator:
   serializedVersion: 5
@@ -228,8 +230,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1057036887
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: a034405660ef5964db979d20a9559e0d, type: 3}
   m_Color: {r: 0.062035322, g: 1, b: 0, a: 1}
