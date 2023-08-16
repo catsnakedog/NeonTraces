@@ -7,7 +7,8 @@ public struct TalkData //캐릭터 한명의 대사
     public string name; // 대사 치는 캐릭터 이름
     public string[] contexts; // 대사 내용
     public string speed; // 대사 타이핑 속도
-    //public int fontSize; // 폰트 크기
+    public string fontSize; // 폰트 크기
+    public string fontStyle; //폰트 스타일
 }
 
 public class Dialogue : MonoBehaviour
