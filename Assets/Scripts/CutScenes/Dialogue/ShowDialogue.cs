@@ -11,9 +11,15 @@ public class ShowDialogue : MonoBehaviour
     public PlayableDirector playableDirector;
     [Tooltip("0번은 주인공, 1번은 드론, 2번은 스피커, 3번은 AI\nText오브젝트")]
     public Text[] text;
+    
     int talkDatasIndex = 0;
     int count = 0; // 배열 인덱스 숫자
     TalkData[] talkDatas;
+
+    private int index = 0;
+    private float typingSpeed;
+    private string textString;
+    private bool CoroutineEnd = true;
 
     private void Awake()
     {
@@ -36,7 +42,7 @@ public class ShowDialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // 특정 시간 되면 일시정지 후 대화 시작
+        if (Input.GetMouseButtonDown(0) && CoroutineEnd) // 특정 시간 되면 일시정지 후 대화 시작
         {
             Debug.Log("클릭");
             InitDialogue(); //인덱스 초기화 및 유효성 검사
@@ -89,7 +95,7 @@ public class ShowDialogue : MonoBehaviour
 
     void Talk(string name)
     {
-        int index = 0;
+        
         switch(name)
         {
             case "주인공":
@@ -110,9 +116,62 @@ public class ShowDialogue : MonoBehaviour
         Debug.Log(name + " count: " + count);
         Debug.Log(name + " talkDatasIndex: " + talkDatasIndex);
 
+
         text[index].transform.parent.parent.gameObject.SetActive(true);
-        text[index].text = talkDatas[talkDatasIndex].contexts[count].Replace("\\n", "\n");
+        //text[index].text = talkDatas[talkDatasIndex].contexts[count].Replace("\\n", "\n");
+
+        typingSpeed = float.Parse(talkDatas[talkDatasIndex].speed);
+        textString = talkDatas[talkDatasIndex].contexts[count].Replace("\\n", "\n");
+        
+
+        StartCoroutine(StartTyping());
+        
         count++;
+    }
+
+    IEnumerator StartTyping()
+    {
+
+        yield return StartCoroutine("Typing");
+    }
+
+    IEnumerator Typing()
+    {
+        CoroutineEnd = false;
+        text[index].text = null;
+
+        //폰트 사이즈
+        if (talkDatas[talkDatasIndex].fontSize == "")
+            text[index].fontSize = 60;
+        else
+            text[index].fontSize = int.Parse(talkDatas[talkDatasIndex].fontSize);
+
+        //폰트 스타일
+        if (talkDatas[talkDatasIndex].fontStyle == "")
+            text[index].fontStyle = FontStyle.Normal;
+        else if (talkDatas[talkDatasIndex].fontStyle == "b")
+            text[index].fontStyle = FontStyle.Bold;
+        else if (talkDatas[talkDatasIndex].fontStyle == "i")
+            text[index].fontStyle = FontStyle.Italic;
+        //타이핑
+
+        for (int i = 0; i < textString.Length; i++)
+        {
+            text[index].text += textString[i];
+            //속도
+            yield return new WaitForSeconds(typingSpeed);
+        }
+        CoroutineEnd = true;
+        //int i = 0;
+        //do
+        //{
+        //    text[index].text += textString[i];
+        //    //속도
+        //    yield return new WaitForSeconds(typingSpeed);
+        //    i++;
+        //} while (i < textString.Length);
+
+
     }
 
     // 대화 정보 출력하는 함수

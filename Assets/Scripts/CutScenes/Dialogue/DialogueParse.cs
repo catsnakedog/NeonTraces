@@ -27,11 +27,11 @@ public class DialogueParse : MonoBehaviour
         for (int i = 1; i < rows.Length; i++)
         {
             // A, B, C, D, E열을 쪼개서 배열에 담음
-            string[] rowValues = rows[i].Split(new char[] { ',' }); // rowValues : ["컷씬번호+파트", "이름", "대사", "속도"]
+            string[] rowValues = rows[i].Split(new char[] { ',' }); // rowValues : ["컷씬번호+파트", "이름", "대사", "속도", "폰트크기", "폰트스타일"]
 
             // 유효한 이벤트 이름이 나올때까지 반복
             if (rowValues[0].Trim() == "" || rowValues[0].Trim() == "end") continue; //첫번째 row가 빈칸이나 end 일때 무시
-
+           
             List<TalkData> talkDataList = new List<TalkData>(); //딕셔너리 벨류에 넣을 TalkData의 List ********
             string eventPart = rowValues[0];
 
@@ -43,16 +43,20 @@ public class DialogueParse : MonoBehaviour
                 TalkData talkData;
                 talkData.name = rowValues[1]; // 캐릭터 이름이 있는 B열
                 talkData.speed = rowValues[3]; // 대사 속도가 있는 D열
+                talkData.fontSize = rowValues[4]; //폰트크기 E열
+                talkData.fontStyle = rowValues[5]; //폰트 스타일 F열
                 
 
                 do // talkData 하나를 만드는 반복문
                 {
                     contextList.Add(rowValues[2].ToString()); //대사 --> contextList로
+
                     if (++i < rows.Length) rowValues = rows[i].Split(new char[] { ',' });
                     else break;
                 } while (rowValues[1] == "" && rowValues[0] != "end"); //동일한 캐릭터가 대사 && end가 아닐때
 
                 talkData.contexts = contextList.ToArray(); // contextList에 있는 대사들을 배열로 변경한 뒤, talkData의 context로
+                
                 talkDataList.Add(talkData);
             }
 
