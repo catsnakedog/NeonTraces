@@ -9236,6 +9236,7 @@ MonoBehaviour:
     m_MixOutCurve:
       serializedVersion: 2
       m_Curve: []
+<<<<<<< HEAD
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -9287,6 +9288,8 @@ MonoBehaviour:
         weightedMode: 0
         inWeight: 0
         outWeight: 0
+=======
+>>>>>>> 0ff8436946815acae59ce1245cbe3cc560f69c68
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
