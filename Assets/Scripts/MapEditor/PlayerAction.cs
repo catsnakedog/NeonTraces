@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class PlayerAction : MonoBehaviour
@@ -10,21 +10,26 @@ public class PlayerAction : MonoBehaviour
     DataManager Data;
 
     [SerializeField] public bool isAttack;
-    [SerializeField] public bool isDefence; // ÇÃ·¹ÀÌ¾î°¡ °ø°İ or ¹æ¾î ÁßÀÎÁö È®ÀÎÇÏ´Â º¯¼öµé
-    [SerializeField] public bool isAction; // EnemySetting°ú »óÈ£ÀÛ¿ëÇÒ¶§ °ø°İ, ¹æ¾î ÁßÀÎÁö ÆÇº°ÇÏ´Â º¯¼ö
-    [SerializeField] public bool isDelay; // µô·¹ÀÌ È®ÀÎ¿ë º¯¼ö
+    [SerializeField] public bool isDefence; // í”Œë ˆì´ì–´ê°€ ê³µê²© or ë°©ì–´ ì¤‘ì¸ì§€ í™•ì¸í•˜ëŠ” ë³€ìˆ˜ë“¤
+    [SerializeField] public bool isAction; // EnemySettingê³¼ ìƒí˜¸ì‘ìš©í• ë•Œ ê³µê²©, ë°©ì–´ ì¤‘ì¸ì§€ íŒë³„í•˜ëŠ” ë³€ìˆ˜
+    [SerializeField] public bool isDelay; // ë”œë ˆì´ í™•ì¸ìš© ë³€ìˆ˜
     [SerializeField] public bool isLongClick;
     [SerializeField] public bool isNextAttack;
-    [SerializeField] private float attackDelay; // Çê°ø°İ½Ã µô·¹ÀÌ
-    [SerializeField] private float attackMotionTime; // ¾îÅÃ ¿¡´Ï¸ŞÀÌ¼Ç ½ÇÇà½Ã°£
-    [SerializeField] private float defenceMotionTime; // ¹æ¾î ¿¡´Ï¸ŞÀÌ¼Ç ½ÇÇà½Ã°£
+    [SerializeField] private float attackDelay; // í—›ê³µê²©ì‹œ ë”œë ˆì´
+    [SerializeField] private float attackMotionTime; // ì–´íƒ ì—ë‹ˆë©”ì´ì…˜ ì‹¤í–‰ì‹œê°„
+    [SerializeField] private float defenceMotionTime; // ë°©ì–´ ì—ë‹ˆë©”ì´ì…˜ ì‹¤í–‰ì‹œê°„
     [SerializeField] private float longClickTime;
     [SerializeField] private float timeCount;
+
+    [SerializeField] List<Sprite> effectSprites;
+    [SerializeField] List<GameObject> effects;
+    [SerializeField] GameObject defaultEffect;
 
     public Coroutine actionC;
     public Coroutine actionA;
     public Coroutine aniC;
     public Coroutine nextA;
+    Coroutine effectC;
 
     AfterImage afterImage;
 
@@ -39,6 +44,51 @@ public class PlayerAction : MonoBehaviour
         isDelay = false;
         isLongClick = false;
         timeCount = 0;
+        EffectSetting();
+    }
+
+    public void EffectSetting()
+    {
+        GameObject temp;
+        foreach(Sprite sprite in effectSprites)
+        {
+            temp = Instantiate(defaultEffect, Vector3.zero, Quaternion.identity);
+            temp.GetComponent<SpriteRenderer>().sprite = sprite;
+            temp.transform.SetParent(GameObject.Find("Player").transform.GetChild(3), false);
+            effects.Add(temp);
+            temp.SetActive(false);
+        }
+    }
+
+    public IEnumerator ShowEffect(int start, int end, Vector3 pos)
+    {
+        for (int i = start; i < end + 1; i++)
+        {
+            effects[i].transform.position = DataManager.data.saveData.gameData.player.transform.position;
+            if (effects[i].activeSelf)
+            {
+                GameObject tempObj = Instantiate(effects[i], transform.position, Quaternion.identity);
+                tempObj.SetActive(false);
+                StartCoroutine(Effect(tempObj, true, pos));
+            }
+            else
+            {
+                StartCoroutine(Effect(effects[i], false, pos));
+            }
+            yield return new WaitForSeconds(0.07f);
+        }
+    }
+
+    IEnumerator Effect(GameObject temp, bool isIstance, Vector3 pos)
+    {
+        temp.transform.position += pos;
+        temp.SetActive(true);
+        yield return new WaitForSeconds(0.07f);
+        temp.SetActive(false);
+        if(isIstance)
+        {
+            Destroy(temp);
+        }
     }
 
     public void ActionReset()
@@ -64,12 +114,11 @@ public class PlayerAction : MonoBehaviour
         playerAction?.Invoke();
     }
 
-    public void Attack() // ÇÃ·¹ÀÌ¾î °ø°İ
+    public void Attack() // í”Œë ˆì´ì–´ ê³µê²©
     {
-
         if (!isDelay) actionC = StartCoroutine("AttackAction");
     }
-    public void Defence() // ÇÃ·¹ÀÌ¾î ¹æ¾î
+    public void Defence() // í”Œë ˆì´ì–´ ë°©ì–´
     {
         if (!isDelay) actionC = StartCoroutine("DefenceAction");
     }
@@ -78,12 +127,12 @@ public class PlayerAction : MonoBehaviour
         actionC = StartCoroutine("LongAttackAction");
     }
 
-    public void Death() // ÇÃ·¹ÀÌ¾î°¡ Á×À»½Ã ½ÇÇà
+    public void Death() // í”Œë ˆì´ì–´ê°€ ì£½ì„ì‹œ ì‹¤í–‰
     {
         GameOver();
     }
 
-    IEnumerator AttackAction() // Attack °ü·Ã ¼¼ÆÃ
+    IEnumerator AttackAction() // Attack ê´€ë ¨ ì„¸íŒ…
     {
         if(aniC != null)
         {
@@ -103,6 +152,7 @@ public class PlayerAction : MonoBehaviour
             aniC = StartCoroutine(CallAni("AttackLeft", attackMotionTime));
             nextA = StartCoroutine(NextAttack(2f));
         }
+        effectC = StartCoroutine(ShowEffect(0, 5, new Vector3(1.5f, 0, 0)));
         actionA = StartCoroutine(afterImage.AfterImageSetting(Data.saveData.gameData.player));
         isAttack = true;
         isAction = true;
@@ -114,12 +164,13 @@ public class PlayerAction : MonoBehaviour
         isDelay = false;
         StopCoroutine(actionA);
     }
-    IEnumerator DefenceAction() // Defence °ü·Ã ¼¼ÆÃ
+    IEnumerator DefenceAction() // Defence ê´€ë ¨ ì„¸íŒ…
     {
         if (aniC != null)
         {
             StopCoroutine(aniC);
         }
+        effectC = StartCoroutine(ShowEffect(12, 15, new Vector3(1.5f, 0, 0)));
         aniC = StartCoroutine(CallAni("Defence", defenceMotionTime));
         isDefence = true;
         isAction = true;
@@ -130,12 +181,13 @@ public class PlayerAction : MonoBehaviour
         yield return new WaitForSeconds(attackDelay);
         isDelay = false;
     }
-    IEnumerator LongAttackAction() // Defence °ü·Ã ¼¼ÆÃ
+    IEnumerator LongAttackAction() // Defence ê´€ë ¨ ì„¸íŒ…
     {
         if (aniC != null)
         {
             StopCoroutine(aniC);
         }
+        effectC = StartCoroutine(ShowEffect(16, 22, new Vector3(0, 1, 0)));
         aniC = StartCoroutine(CallAni("DragAttack", attackMotionTime));
         isLongClick = false;
         isAttack = true;
@@ -191,7 +243,7 @@ public class PlayerAction : MonoBehaviour
         }
     }
 
-    void GameOver() // °ÔÀÓ¿À¹ö½Ã ½ÇÇàµÇ´Â ÇÔ¼ö, °ü·ÃµÈ ³»¿ëÀº ¿©±â ¾È¿¡´Ù°¡ ÀÛ¾÷ÇÏ¸é µÈ´Ù
+    void GameOver() // ê²Œì„ì˜¤ë²„ì‹œ ì‹¤í–‰ë˜ëŠ” í•¨ìˆ˜, ê´€ë ¨ëœ ë‚´ìš©ì€ ì—¬ê¸° ì•ˆì—ë‹¤ê°€ ì‘ì—…í•˜ë©´ ëœë‹¤
     {
         if (actionC != null)
         {
@@ -203,7 +255,7 @@ public class PlayerAction : MonoBehaviour
         }
         playerAction = null;
         Time.timeScale = 0f;
-        Debug.Log("°ÔÀÓ¿À¹ö");
+        Debug.Log("ê²Œì„ì˜¤ë²„");
     }
 
     public void PlayerActionReset()
@@ -231,5 +283,10 @@ public class PlayerAction : MonoBehaviour
         isNextAttack = true;
         yield return new WaitForSeconds(time);
         isNextAttack = false;
+    }
+
+    void Effect()
+    {
+
     }
 }
