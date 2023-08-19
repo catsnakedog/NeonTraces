@@ -8,28 +8,34 @@ public enum FadeState { FadeIn = 0, FadeOut, FadeInOut, FadeLoop }
 public class FadeEffect : MonoBehaviour
 {
     [Range(0f, 3f)]
-    public int FadeType; //FadeState °áÁ¤- 0: FadeIn, 1: FadeOut, 2: FadeInOut, 3: FadeLoop
+    public int FadeType; //FadeState ê²°ì •- 0: FadeIn, 1: FadeOut, 2: FadeInOut, 3: FadeLoop
     [SerializeField]
     [Range(0.01f, 10f)]
-    private float fadeTime; //fadeSpeed °ªÀÌ 10ÀÌ¸é 1ÃÊ (°ªÀÌ Å¬¼ö·Ï ºü¸§)
+    private float fadeTime; //fadeTime ê°’ì´ 10ì´ë©´ 1ì´ˆ (ê°’ì´ í´ìˆ˜ë¡ ë¹ ë¦„)
     [SerializeField]
-    private float delayTime; //¾ÕÀÇ È¿°ú ´ë±â ½Ã°£
+    private float delayTime; //ì•ì˜ íš¨ê³¼ ëŒ€ê¸° ì‹œê°„
     [SerializeField]
-    private AnimationCurve fadeCurve; //ÆäÀÌµå È¿°ú°¡ Àû¿ëµÇ´Â ¾ËÆÄ °ªÀ» °î¼±ÀÇ °ªÀ¸·Î ¼³Á¤
+    private AnimationCurve fadeCurve; //í˜ì´ë“œ íš¨ê³¼ê°€ ì ìš©ë˜ëŠ” ì•ŒíŒŒ ê°’ì„ ê³¡ì„ ì˜ ê°’ìœ¼ë¡œ ì„¤ì •
 
     private Image image;
-    private FadeState fadeState; //ÆäÀÌµå È¿°ú »óÅÂ
+    private FadeState fadeState; //í˜ì´ë“œ íš¨ê³¼ ìƒíƒœ
 
-
+ 
+    
     FadeState num;
-
-    private void Awake()
+    private void OnEnable() //í™œì„±/ë¹„í™œì„±í™” ì¡°ì ˆìœ„í•´ì„œ OnEnableì‚¬ìš©
     {
         image = GetComponent<Image>();
         num = (FadeState)FadeType;
         StartCoroutine(WaitTime());
-        
     }
+
+    //private void Awake()
+    //{
+    //    image = GetComponent<Image>();
+    //    num = (FadeState)FadeType;
+    //    StartCoroutine(WaitTime());
+    //}
 
     private IEnumerator WaitTime()
     {
@@ -43,20 +49,20 @@ public class FadeEffect : MonoBehaviour
 
         switch (fadeState)
         {
-            case FadeState.FadeIn:              //Fade In. ¹è°æÀÇ ¾ËÆÄ°ªÀÌ 0¿¡¼­ 1À¸·Î (³ªÅ¸³ª°Ô)
+            case FadeState.FadeIn:              //Fade In. ë°°ê²½ì˜ ì•ŒíŒŒê°’ì´ 0ì—ì„œ 1ìœ¼ë¡œ (ë‚˜íƒ€ë‚˜ê²Œ)
                 StartCoroutine(Fade(0, 1));
                 break;
             case FadeState.FadeOut:
-                StartCoroutine(Fade(1, 0));     //Fade Out. ¹è°æÀÇ ¾ËÆÄ°ªÀÌ 1¿¡¼­ 0·Î (»ç¶óÁö°Ô)
+                StartCoroutine(Fade(1, 0));     //Fade Out. ë°°ê²½ì˜ ì•ŒíŒŒê°’ì´ 1ì—ì„œ 0ë¡œ (ì‚¬ë¼ì§€ê²Œ)
                 break;
-            case FadeState.FadeInOut:           //Fade È¿°ú¸¦ In -> Out 1È¸ ¹İº¹ÇÑ´Ù.
-            case FadeState.FadeLoop:            //Fade È¿°ú¸¦ In -> Out ¹«ÇÑ ¹İº¹ÇÑ´Ù.
+            case FadeState.FadeInOut:           //Fade íš¨ê³¼ë¥¼ In -> Out 1íšŒ ë°˜ë³µí•œë‹¤.
+            case FadeState.FadeLoop:            //Fade íš¨ê³¼ë¥¼ In -> Out ë¬´í•œ ë°˜ë³µí•œë‹¤.
                 StartCoroutine(FadeInOut());
                 break;
         }
     }
     /*
-    public void OnFade(FadeState state, float delaytime) //¾Õ¼± GameObjectÀÇ alpha °ª¿¡ µû¶ó fadeÈ¿°ú ½ÃÀÛ
+    public void OnFade(FadeState state, float delaytime) //ì•ì„  GameObjectì˜ alpha ê°’ì— ë”°ë¼ fadeíš¨ê³¼ ì‹œì‘
     {
         delayObject = trigger;
         afterAlpha = alpha;
@@ -68,7 +74,7 @@ public class FadeEffect : MonoBehaviour
 
         delayTime = delaytime;
         timer += Time.deltaTime;
-        if (timer > delayTime) //ÇöÀç ½Ã°£ÀÌ delayTimeº¸´Ù Áö³µÀ» °æ¿ì
+        if (timer > delayTime) //í˜„ì¬ ì‹œê°„ì´ delayTimeë³´ë‹¤ ì§€ë‚¬ì„ ê²½ìš°
         {
         }
     }
@@ -78,11 +84,11 @@ public class FadeEffect : MonoBehaviour
     {
         while(true)
         {
-            //ÄÚ·çÆ¾ ³»ºÎ¿¡¼­ ÄÚ·çÆ¾ ÇÔ¼ö È£Ãâ ½Ã ÇØ´ç ÄÚ·çÆ¾ ÇÔ¼ö°¡ Á¾·áµÇ¾î¾ß ´ÙÀ½ ¹®Àå ½ÇÇà
+            //ì½”ë£¨í‹´ ë‚´ë¶€ì—ì„œ ì½”ë£¨í‹´ í•¨ìˆ˜ í˜¸ì¶œ ì‹œ í•´ë‹¹ ì½”ë£¨í‹´ í•¨ìˆ˜ê°€ ì¢…ë£Œë˜ì–´ì•¼ ë‹¤ìŒ ë¬¸ì¥ ì‹¤í–‰
             yield return StartCoroutine(Fade(0.1f, 1));    //Fade In
             yield return StartCoroutine(Fade(1, 0));    //Fade Out
 
-            //1È¸¸¸ Àç»ıÇÏ´Â »óÅÂÀÏ ¶§ break
+            //1íšŒë§Œ ì¬ìƒí•˜ëŠ” ìƒíƒœì¼ ë•Œ break
             if(fadeState == FadeState.FadeInOut)
             {
                 break;
@@ -97,12 +103,12 @@ public class FadeEffect : MonoBehaviour
 
         while(percent < 1)
         {
-            // fadeTime À¸·Î ³ª´©¾î¼­ fadeTime ½Ã°£ µ¿¾È
-            // percent °ªÀÌ 0¿¡¼­ 1·Î Áõ°¡
+            // fadeTime ìœ¼ë¡œ ë‚˜ëˆ„ì–´ì„œ fadeTime ì‹œê°„ ë™ì•ˆ
+            // percent ê°’ì´ 0ì—ì„œ 1ë¡œ ì¦ê°€
             currentTime += Time.deltaTime;
             percent = currentTime / fadeTime;
 
-            //¾ËÆÄ°ªÀ» startºÎÅÍ end±îÁö fadeTime ½Ã°£ µ¿¾È º¯È­
+            //ì•ŒíŒŒê°’ì„ startë¶€í„° endê¹Œì§€ fadeTime ì‹œê°„ ë™ì•ˆ ë³€í™”
             Color color = image.color;
             color.a = Mathf.Lerp(start, end, fadeCurve.Evaluate(percent));
             image.color = color;

@@ -6,31 +6,33 @@ using UnityEngine.UI;
 
 public class GameLogoMove : MonoBehaviour
 {
-    [SerializeField] float moveSpeed = 5f;
-    [SerializeField] float scaleSpeed = 1f;
-    private GameObject target;
+    //ë¡œê³  ì´ë™ ì‹œê°„
+    [SerializeField] float moveAndScaleTime = 2f;
+
     private RectTransform targetRT;
     private RectTransform RT;
-    private float time;
 
+    float distance;
+    Vector3 scaleVector;
 
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.Find("Target");
-        targetRT = target.GetComponent<RectTransform>();
+        targetRT = GameObject.Find("Target").GetComponent<RectTransform>();
         RT = GetComponent<RectTransform>();
-        
+
+        distance = Vector3.Distance(RT.localPosition, targetRT.localPosition);
+        scaleVector = RT.localScale - targetRT.localScale;
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-        if (GetComponent<Image>().color.a == 1)
+        if (GetComponent<Image>().color.a == 1) //ë¡œê³  ì¼œì§€ë©´ ì´ë™
         {
-            time += Time.deltaTime; //ÀÌµ¿ÇÑ ½Ã°£
             MovePath();
-            if (0.1f * scaleSpeed * time < RT.localScale.x) //¸ñÇ¥ Å©±â¿Í µ¿ÀÏÇÒ ¶§ ±îÁö Å©±â °¨¼Ò)
+
+            if (Vector3.Magnitude(RT.localScale - targetRT.localScale) > 0.01f) //ëª©í‘œ í¬ê¸°ì™€ ë™ì¼í•  ë•Œ ê¹Œì§€ í¬ê¸° ê°ì†Œ)
             {
                 Scale();
             }
@@ -41,13 +43,14 @@ public class GameLogoMove : MonoBehaviour
     public void MovePath()
     {
         RT.localPosition = Vector3.MoveTowards
-            (RT.localPosition, targetRT.localPosition, 100f * moveSpeed * Time.deltaTime); //¸ñÇ¥ À§Ä¡±îÁö ÇØ´ç speed·Î ÀÌµ¿
+            (RT.localPosition, targetRT.localPosition, distance / moveAndScaleTime * 0.01f); //ëª©í‘œ ìœ„ì¹˜ê¹Œì§€ í•´ë‹¹ ì†ë„ ë¡œ ì´ë™
+
     }
     public void Scale()
     {
-        RT.localScale = new Vector3(RT.localScale.x - 0.1f * scaleSpeed * Time.deltaTime,
-                                        RT.localScale.y - 0.1f * scaleSpeed * Time.deltaTime,
-                                        RT.localScale.z - 0.1f * scaleSpeed * Time.deltaTime);
+        RT.localScale = new Vector3(RT.localScale.x - scaleVector.x / moveAndScaleTime * 0.01f,
+                                        RT.localScale.y - scaleVector.y / moveAndScaleTime * 0.01f,
+                                        RT.localScale.z - scaleVector.y / moveAndScaleTime * 0.01f);
     }
 
 }
