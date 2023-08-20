@@ -7,6 +7,7 @@ using DG.Tweening;
 public class ButtonEvent : MonoBehaviour
 {
     //버튼에 적용하는 selectBox에 대한 스크립트
+    //selctBox는 반드시 버튼의 첫번째 Child
 
     public bool bButtonClicked = false; //각 버튼별 클릭여부
 
@@ -14,6 +15,7 @@ public class ButtonEvent : MonoBehaviour
     {
         if(transform.GetChild(0).GetComponent<FadeEffect>() != null)
             transform.GetChild(0).GetComponent<FadeEffect>().enabled = false;
+        transform.GetChild(0).GetComponent<Image>().color = Color.white;
     }
 
     private void OnDisable()
@@ -27,7 +29,7 @@ public class ButtonEvent : MonoBehaviour
     public void PointerEnter()
     {
         Debug.Log("enter");
-        transform.GetChild(0).gameObject.SetActive(true); //selectBox 표시
+        gameObject.transform.GetChild(0).gameObject.SetActive(true); //selectBox 표시
         //transform.GetChild(0).localScale = new Vector2(1.2f, 1.2f); // 모바일 빌드 후 확인 필요
     }
     public void PointerExit()

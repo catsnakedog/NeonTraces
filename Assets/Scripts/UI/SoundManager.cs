@@ -216,5 +216,9 @@ public class SoundManager : MonoBehaviour
             Debug.Log("해당 사운드는 존재하지 않습니다");
         }
     }
-
+    public void Stop()
+    {
+        BGMSource.Stop();
+        SFXSource.Stop();
+    }
 }

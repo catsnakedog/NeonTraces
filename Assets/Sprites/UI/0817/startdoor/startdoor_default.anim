@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: exitdoor_stop
+  m_Name: startdoor_default
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,7 +20,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -7217506096713013017, guid: 8731f61899ee45b4e9e7dcd7c9a7edc1, type: 3}
+      value: {fileID: -7255901414684536820, guid: dd4f2b365d21b09408df6b3f442cef26, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -40,7 +40,7 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -7217506096713013017, guid: 8731f61899ee45b4e9e7dcd7c9a7edc1, type: 3}
+    - {fileID: -7255901414684536820, guid: dd4f2b365d21b09408df6b3f442cef26, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

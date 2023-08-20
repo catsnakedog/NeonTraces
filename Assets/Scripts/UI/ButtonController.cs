@@ -10,7 +10,7 @@ public class ButtonController : MonoBehaviour
     public GameObject startMenu;
     public GameObject stageMenu;
     public string SceneToLoadGame; //인게임 씬
-    public string SceneToLoadCutScene; //컷 씬
+    public string[] SceneToLoadCutScene; //컷 씬
     
     SoundManager soundmanager; //테스트
     CanvasFadeEffect CanvasEffect; //로딩 스킵
@@ -157,7 +157,7 @@ public class ButtonController : MonoBehaviour
     public void ClickStageBtn() //인게임으로
     {
         int num = Data.saveData.gameData.stage;
-        string btn = "Stage" + (num+1).ToString();
+        string btn = "Stage" + num.ToString(); // 스테이지 선택 버튼 이름
 
         tmp = GameObject.Find(btn);
         if (tmp.transform.GetChild(0).gameObject.activeSelf && tmp.GetComponent<ButtonEvent>().bButtonClicked) //두번째 클릭이면
@@ -176,14 +176,16 @@ public class ButtonController : MonoBehaviour
             tmp.GetComponent<ButtonEvent>().bButtonClicked = true;//
         }
     }
-    public void LoadGame()
+    public void LoadGame() //인게임으로 이동, BGM 종료
     {
+        soundmanager.Stop();
         SceneManager.LoadScene(SceneToLoadGame);
     }
 
-    public void LoadCutScene() //컷씬으로
+    public void LoadCutScene(int num) //컷씬으로 이동, BGM 종료
     {
-        SceneManager.LoadScene(SceneToLoadCutScene);
+        soundmanager.Stop();
+        SceneManager.LoadScene(SceneToLoadCutScene[num]);
     }
     #endregion
     public void canvasSkip()

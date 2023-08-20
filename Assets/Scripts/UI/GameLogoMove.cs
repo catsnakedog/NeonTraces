@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class GameLogoMove : MonoBehaviour
 {
     //로고 이동 시간
-    [SerializeField] float moveAndScaleTime = 2f;
+    [SerializeField] float moveAndScaleTime = 2.0f;
 
     private RectTransform targetRT;
     private RectTransform RT;
@@ -26,7 +26,7 @@ public class GameLogoMove : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    public void Update()
     {
         if (GetComponent<Image>().color.a == 1) //로고 켜지면 이동
         {
