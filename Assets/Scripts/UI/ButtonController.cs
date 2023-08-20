@@ -68,7 +68,7 @@ public class ButtonController : MonoBehaviour
         tmp = GameObject.Find("ExitButton");
         if (tmp.transform.GetChild(0).gameObject.activeSelf && tmp.GetComponent<ButtonEvent>().bButtonClicked) //두번째 클릭이면
         {
-            
+            tmp.GetComponent<Animator>().SetBool("ButtonClickSecond", true);
             soundmanager.Play("Door_exit");
             //tmp.transform.localScale = new Vector2(1f, 1f);
             tmp.GetComponent<ButtonEvent>().SelectBoxBlink(true);
@@ -85,6 +85,7 @@ public class ButtonController : MonoBehaviour
     }
     public void GameExit()
     {
+        tmp.GetComponent<Animator>().SetBool("ButtonClickSecond", false);
 #if UNITY_EDITOR //유니티 에디터
         UnityEditor.EditorApplication.isPlaying = false;
 #elif UNITY_WEBPLAYER //웹
@@ -102,6 +103,7 @@ public class ButtonController : MonoBehaviour
         Debug.Log("Two");
         if (tmp.transform.GetChild(0).gameObject.activeSelf && tmp.GetComponent<ButtonEvent>().bButtonClicked) //두번째 클릭이면
         {
+            tmp.GetComponent<Animator>().SetBool("ButtonClickSecond", true);
             soundmanager.Play("Door_play");
             //tmp.transform.localScale = new Vector2(1f, 1f);
             tmp.GetComponent<ButtonEvent>().SelectBoxBlink(true);
@@ -121,7 +123,8 @@ public class ButtonController : MonoBehaviour
         Debug.Log("StageMenu");
         startMenu.SetActive(false);
         stageMenu.SetActive(true);
-        }
+        tmp.GetComponent<Animator>().SetBool("ButtonClickSecond", false);
+    }
     #endregion
 
     #region BackButton

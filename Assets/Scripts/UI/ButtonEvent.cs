@@ -9,6 +9,7 @@ public class ButtonEvent : MonoBehaviour
     //버튼에 적용하는 selectBox에 대한 스크립트
 
     public bool bButtonClicked = false; //각 버튼별 클릭여부
+
     private void OnEnable()
     {
         if(transform.GetChild(0).GetComponent<FadeEffect>() != null)
