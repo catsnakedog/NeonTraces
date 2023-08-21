@@ -82,15 +82,7 @@ public class PlayerMove : MonoBehaviour
         {
             if(!playerActionS.isDelay)
             {
-                if(playerAnimation.crruentAni == "Jump")
-                {
-                    playerActionS.aniC = StartCoroutine(playerActionS.CallAni("Landing", 0.5f));
-                }
-                else
-                {
-                    playerAnimation.SetAnimation("Run");
-
-                }
+                playerAnimation.SetAnimation("Run");
             }
             startPoint = Data.saveData.mapData[stage].moveDots[crruentMoveDot].v3;
             endPoint = Data.saveData.mapData[stage].moveDots[crruentMoveDot + 1].v3;

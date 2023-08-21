@@ -72,6 +72,13 @@ public class EventDotSetting : MonoBehaviour
         yield return new WaitForSeconds(eventTypeInfo.type0.time);
         eventAction -= BezierSetting;
         playerMove.crruentMoveDot = eventTypeInfo.type0.nextMoveDot;
+        if(eventTypeInfo.type0.isStop)
+        {
+            playerAnimaiton.SetAnimation("Landing");
+            yield return new WaitForSeconds(0.5f);
+            playerAnimaiton.SetAnimation("Idle");
+            yield return new WaitForSeconds(eventTypeInfo.type0.stopTime);
+        }
         playerMove.MoveStart();
         gameObject.SetActive(false);
     }

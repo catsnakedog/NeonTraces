@@ -444,7 +444,9 @@
                                 "z": 0.0
                             },
                             "nextMoveDot": 2,
-                            "time": 1.399999976158142
+                            "time": 1.399999976158142,
+                            "isStop": true,
+                            "stopTime": 1.2999999523162842
                         },
                         "type1": {
                             "upSpeed": 0,
@@ -482,62 +484,6 @@
                 },
                 {
                     "v3": {
-                        "x": 15.0,
-                        "y": -30.0,
-                        "z": 0.0
-                    },
-                    "type": 9,
-                    "eventTypeInfo": {
-                        "type0": {
-                            "pointDot1": {
-                                "x": 0.0,
-                                "y": 0.0,
-                                "z": 0.0
-                            },
-                            "pointDot2": {
-                                "x": 0.0,
-                                "y": 0.0,
-                                "z": 0.0
-                            },
-                            "nextMoveDot": 0,
-                            "time": 0.0
-                        },
-                        "type1": {
-                            "upSpeed": 0,
-                            "changeTime": 0.0
-                        },
-                        "type2": {
-                            "cutSceneNumber": 0
-                        },
-                        "type3": {
-                            "speed": 0,
-                            "index": 0,
-                            "startDot": 0,
-                            "endDot": 0
-                        },
-                        "type4": {
-                            "soundName": ""
-                        },
-                        "type5": {
-                            "cameraActionName": ""
-                        },
-                        "type6": {
-                            "power": 0,
-                            "speed": 0
-                        },
-                        "type7": {
-                            "timeScale": 0.0
-                        },
-                        "type8": {
-                            "animationName": ""
-                        },
-                        "type9": {
-                            "stopTime": 1.2999999523162842
-                        }
-                    }
-                },
-                {
-                    "v3": {
                         "x": 601.0,
                         "y": 0.0,
                         "z": 0.0
@@ -556,7 +502,9 @@
                                 "z": 0.0
                             },
                             "nextMoveDot": 0,
-                            "time": 0.0
+                            "time": 0.0,
+                            "isStop": false,
+                            "stopTime": 0.0
                         },
                         "type1": {
                             "upSpeed": 0,
@@ -822,7 +770,9 @@
                                 "z": 0.0
                             },
                             "nextMoveDot": 3,
-                            "time": 1.0
+                            "time": 1.0,
+                            "isStop": false,
+                            "stopTime": 0.0
                         },
                         "type1": {
                             "upSpeed": 0,
@@ -878,7 +828,9 @@
                                 "z": 0.0
                             },
                             "nextMoveDot": 5,
-                            "time": 1.0
+                            "time": 1.0,
+                            "isStop": false,
+                            "stopTime": 0.0
                         },
                         "type1": {
                             "upSpeed": 0,
@@ -1261,7 +1213,9 @@
                                 "z": 0.0
                             },
                             "nextMoveDot": 2,
-                            "time": 0.8999999761581421
+                            "time": 0.8999999761581421,
+                            "isStop": false,
+                            "stopTime": 0.0
                         },
                         "type1": {
                             "upSpeed": 0,
@@ -1317,7 +1271,9 @@
                                 "z": 0.0
                             },
                             "nextMoveDot": 4,
-                            "time": 0.8999999761581421
+                            "time": 0.8999999761581421,
+                            "isStop": false,
+                            "stopTime": 0.0
                         },
                         "type1": {
                             "upSpeed": 0,
@@ -1373,7 +1329,9 @@
                                 "z": 0.0
                             },
                             "nextMoveDot": 6,
-                            "time": 0.8999999761581421
+                            "time": 0.8999999761581421,
+                            "isStop": false,
+                            "stopTime": 0.0
                         },
                         "type1": {
                             "upSpeed": 0,
@@ -1429,7 +1387,9 @@
                                 "z": 0.0
                             },
                             "nextMoveDot": 8,
-                            "time": 0.6000000238418579
+                            "time": 0.6000000238418579,
+                            "isStop": false,
+                            "stopTime": 0.0
                         },
                         "type1": {
                             "upSpeed": 0,
@@ -1485,7 +1445,9 @@
                                 "z": 0.0
                             },
                             "nextMoveDot": 10,
-                            "time": 0.8999999761581421
+                            "time": 0.8999999761581421,
+                            "isStop": false,
+                            "stopTime": 0.0
                         },
                         "type1": {
                             "upSpeed": 0,
@@ -1541,7 +1503,9 @@
                                 "z": 0.0
                             },
                             "nextMoveDot": 12,
-                            "time": 0.8999999761581421
+                            "time": 0.8999999761581421,
+                            "isStop": false,
+                            "stopTime": 0.0
                         },
                         "type1": {
                             "upSpeed": 0,
@@ -1597,7 +1561,9 @@
                                 "z": 0.0
                             },
                             "nextMoveDot": 14,
-                            "time": 0.8999999761581421
+                            "time": 0.8999999761581421,
+                            "isStop": false,
+                            "stopTime": 0.0
                         },
                         "type1": {
                             "upSpeed": 0,
@@ -1653,7 +1619,9 @@
                                 "z": 0.0
                             },
                             "nextMoveDot": 16,
-                            "time": 0.8999999761581421
+                            "time": 0.8999999761581421,
+                            "isStop": false,
+                            "stopTime": 0.0
                         },
                         "type1": {
                             "upSpeed": 0,
@@ -1709,7 +1677,9 @@
                                 "z": 0.0
                             },
                             "nextMoveDot": 18,
-                            "time": 0.4000000059604645
+                            "time": 0.4000000059604645,
+                            "isStop": false,
+                            "stopTime": 0.0
                         },
                         "type1": {
                             "upSpeed": 0,
@@ -1765,7 +1735,9 @@
                                 "z": 0.0
                             },
                             "nextMoveDot": 20,
-                            "time": 0.4000000059604645
+                            "time": 0.4000000059604645,
+                            "isStop": false,
+                            "stopTime": 0.0
                         },
                         "type1": {
                             "upSpeed": 0,
@@ -1821,7 +1793,9 @@
                                 "z": 0.0
                             },
                             "nextMoveDot": 22,
-                            "time": 0.4000000059604645
+                            "time": 0.4000000059604645,
+                            "isStop": false,
+                            "stopTime": 0.0
                         },
                         "type1": {
                             "upSpeed": 0,
@@ -1877,7 +1851,9 @@
                                 "z": 0.0
                             },
                             "nextMoveDot": 24,
-                            "time": 0.4000000059604645
+                            "time": 0.4000000059604645,
+                            "isStop": false,
+                            "stopTime": 0.0
                         },
                         "type1": {
                             "upSpeed": 0,
@@ -1933,7 +1909,9 @@
                                 "z": 0.0
                             },
                             "nextMoveDot": 27,
-                            "time": 0.8999999761581421
+                            "time": 0.8999999761581421,
+                            "isStop": false,
+                            "stopTime": 0.0
                         },
                         "type1": {
                             "upSpeed": 0,
@@ -1989,7 +1967,9 @@
                                 "z": 0.0
                             },
                             "nextMoveDot": 29,
-                            "time": 0.8999999761581421
+                            "time": 0.8999999761581421,
+                            "isStop": false,
+                            "stopTime": 0.0
                         },
                         "type1": {
                             "upSpeed": 0,
@@ -2045,7 +2025,9 @@
                                 "z": 0.0
                             },
                             "nextMoveDot": 31,
-                            "time": 0.8999999761581421
+                            "time": 0.8999999761581421,
+                            "isStop": false,
+                            "stopTime": 0.0
                         },
                         "type1": {
                             "upSpeed": 0,
@@ -2101,7 +2083,9 @@
                                 "z": 0.0
                             },
                             "nextMoveDot": 33,
-                            "time": 0.8999999761581421
+                            "time": 0.8999999761581421,
+                            "isStop": false,
+                            "stopTime": 0.0
                         },
                         "type1": {
                             "upSpeed": 0,
@@ -2157,7 +2141,9 @@
                                 "z": 0.0
                             },
                             "nextMoveDot": 35,
-                            "time": 1.0
+                            "time": 1.0,
+                            "isStop": false,
+                            "stopTime": 0.0
                         },
                         "type1": {
                             "upSpeed": 0,
@@ -2213,7 +2199,9 @@
                                 "z": 0.0
                             },
                             "nextMoveDot": 38,
-                            "time": 1.0
+                            "time": 1.0,
+                            "isStop": false,
+                            "stopTime": 0.0
                         },
                         "type1": {
                             "upSpeed": 0,
@@ -2269,7 +2257,9 @@
                                 "z": 0.0
                             },
                             "nextMoveDot": 39,
-                            "time": 1.0
+                            "time": 1.0,
+                            "isStop": false,
+                            "stopTime": 0.0
                         },
                         "type1": {
                             "upSpeed": 0,
@@ -2318,331 +2308,281 @@
             false
         ],
         "player": {
-            "instanceID": 20412
+            "instanceID": 32880
         },
         "blood": {
-            "instanceID": 20542
+            "instanceID": 20618
         },
         "bloodBoom": {
-            "instanceID": 20544
+            "instanceID": 20620
         },
         "map": {
-            "instanceID": 20356
+            "instanceID": 32824
         },
         "enemyInfo": [
             {
                 "enemy": {
-                    "instanceID": -6714
+                    "instanceID": -158946
                 },
                 "x": 58.0,
                 "index": 0
             },
             {
                 "enemy": {
-                    "instanceID": -6732
+                    "instanceID": -158964
                 },
                 "x": 84.7300033569336,
                 "index": 1
             },
             {
                 "enemy": {
-                    "instanceID": -6750
+                    "instanceID": -158982
                 },
                 "x": 112.75,
                 "index": 2
             },
             {
                 "enemy": {
-                    "instanceID": -6768
+                    "instanceID": -159000
                 },
                 "x": 230.10000610351563,
                 "index": 3
             },
             {
                 "enemy": {
-                    "instanceID": -6786
+                    "instanceID": -159018
                 },
                 "x": 277.0,
                 "index": 4
             },
             {
                 "enemy": {
-                    "instanceID": -6804
+                    "instanceID": -159036
                 },
                 "x": 351.4000244140625,
                 "index": 5
             },
             {
                 "enemy": {
-                    "instanceID": -6822
+                    "instanceID": -159054
                 },
                 "x": 356.1000061035156,
                 "index": 6
             },
             {
                 "enemy": {
-                    "instanceID": -6840
+                    "instanceID": -159072
                 },
                 "x": 413.79998779296877,
                 "index": 7
             },
             {
                 "enemy": {
-                    "instanceID": -6858
+                    "instanceID": -159090
                 },
                 "x": 426.1000061035156,
                 "index": 8
             },
             {
                 "enemy": {
-                    "instanceID": -6876
+                    "instanceID": -159108
                 },
                 "x": 480.8999938964844,
                 "index": 9
             },
             {
                 "enemy": {
-                    "instanceID": -6894
+                    "instanceID": -159126
                 },
                 "x": 506.3999938964844,
                 "index": 10
             },
             {
                 "enemy": {
-                    "instanceID": -6912
+                    "instanceID": -159144
                 },
                 "x": 630.3200073242188,
                 "index": 11
             },
             {
                 "enemy": {
-                    "instanceID": -6930
+                    "instanceID": -159162
                 },
                 "x": 636.1099853515625,
                 "index": 12
             },
             {
                 "enemy": {
-                    "instanceID": -6948
+                    "instanceID": -159180
                 },
                 "x": 686.8499755859375,
                 "index": 13
             },
             {
                 "enemy": {
-                    "instanceID": -6966
+                    "instanceID": -159198
                 },
                 "x": 700.010009765625,
                 "index": 14
             },
             {
                 "enemy": {
-                    "instanceID": -6984
+                    "instanceID": -159216
                 },
                 "x": 706.0499877929688,
                 "index": 15
             },
             {
                 "enemy": {
-                    "instanceID": -7002
+                    "instanceID": -159234
                 },
                 "x": 709.739990234375,
                 "index": 16
             },
             {
                 "enemy": {
-                    "instanceID": -7020
+                    "instanceID": -159252
                 },
                 "x": 719.8099975585938,
                 "index": 17
             },
             {
                 "enemy": {
-                    "instanceID": -7038
+                    "instanceID": -159270
                 },
                 "x": 728.27001953125,
                 "index": 18
             },
             {
                 "enemy": {
-                    "instanceID": -7056
+                    "instanceID": -159288
                 },
                 "x": 743.1400146484375,
                 "index": 19
             },
             {
                 "enemy": {
-                    "instanceID": -7074
+                    "instanceID": -159306
                 },
                 "x": 759.8499755859375,
                 "index": 20
             },
             {
                 "enemy": {
-                    "instanceID": -7092
+                    "instanceID": -159324
                 },
                 "x": 771.8900146484375,
                 "index": 21
             },
             {
                 "enemy": {
-                    "instanceID": -7110
+                    "instanceID": -159342
                 },
                 "x": 792.8400268554688,
                 "index": 22
             },
             {
                 "enemy": {
-                    "instanceID": -7128
+                    "instanceID": -159360
                 },
                 "x": 805.4299926757813,
                 "index": 23
             },
             {
                 "enemy": {
-                    "instanceID": -7146
+                    "instanceID": -159378
                 },
                 "x": 785.196533203125,
                 "index": 24
             },
             {
                 "enemy": {
-                    "instanceID": -7164
+                    "instanceID": -159396
                 },
                 "x": 818.2999877929688,
                 "index": 25
-            },
-            {
-                "enemy": {
-                    "instanceID": -7182
-                },
-                "x": 911.9434814453125,
-                "index": 26
-            },
-            {
-                "enemy": {
-                    "instanceID": -7200
-                },
-                "x": 1001.3978881835938,
-                "index": 27
-            },
-            {
-                "enemy": {
-                    "instanceID": -7218
-                },
-                "x": 1092.6090087890625,
-                "index": 28
-            },
-            {
-                "enemy": {
-                    "instanceID": -7236
-                },
-                "x": 1185.8170166015625,
-                "index": 29
-            },
-            {
-                "enemy": {
-                    "instanceID": -7254
-                },
-                "x": 1274.552978515625,
-                "index": 30
             }
         ],
         "camsize": 10.0,
         "isGameStart": false,
         "enemyPoint": [
             {
-                "instanceID": -6726
+                "instanceID": -158958
             },
             {
-                "instanceID": -6744
+                "instanceID": -158976
             },
             {
-                "instanceID": -6762
+                "instanceID": -158994
             },
             {
-                "instanceID": -6780
+                "instanceID": -159012
             },
             {
-                "instanceID": -6798
+                "instanceID": -159030
             },
             {
-                "instanceID": -6816
+                "instanceID": -159048
             },
             {
-                "instanceID": -6834
+                "instanceID": -159066
             },
             {
-                "instanceID": -6852
+                "instanceID": -159084
             },
             {
-                "instanceID": -6870
+                "instanceID": -159102
             },
             {
-                "instanceID": -6888
+                "instanceID": -159120
             },
             {
-                "instanceID": -6906
+                "instanceID": -159138
             },
             {
-                "instanceID": -6924
+                "instanceID": -159156
             },
             {
-                "instanceID": -6942
+                "instanceID": -159174
             },
             {
-                "instanceID": -6960
+                "instanceID": -159192
             },
             {
-                "instanceID": -6978
+                "instanceID": -159210
             },
             {
-                "instanceID": -6996
+                "instanceID": -159228
             },
             {
-                "instanceID": -7014
+                "instanceID": -159246
             },
             {
-                "instanceID": -7032
+                "instanceID": -159264
             },
             {
-                "instanceID": -7050
+                "instanceID": -159282
             },
             {
-                "instanceID": -7068
+                "instanceID": -159300
             },
             {
-                "instanceID": -7086
+                "instanceID": -159318
             },
             {
-                "instanceID": -7104
+                "instanceID": -159336
             },
             {
-                "instanceID": -7122
+                "instanceID": -159354
             },
             {
-                "instanceID": -7140
+                "instanceID": -159372
             },
             {
-                "instanceID": -7158
+                "instanceID": -159390
             },
             {
-                "instanceID": -7176
-            },
-            {
-                "instanceID": -7194
-            },
-            {
-                "instanceID": -7212
-            },
-            {
-                "instanceID": -7230
-            },
-            {
-                "instanceID": -7248
-            },
-            {
-                "instanceID": -7266
+                "instanceID": -159408
             }
         ]
     },
