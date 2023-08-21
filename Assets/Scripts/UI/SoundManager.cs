@@ -73,7 +73,8 @@ public class SoundManager : MonoBehaviour
         main_jump,
         main_landing,
         main_parry_hammer,
-        main_parry,
+        main_parry1,
+        main_parry2,
         // 전투 - 11개
         A1_attack,
         A2_attack,
