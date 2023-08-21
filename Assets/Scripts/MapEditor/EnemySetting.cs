@@ -28,6 +28,8 @@ public class EnemySetting : MonoBehaviour
     [SerializeField] public float backPower;
     [SerializeField] public float backSpeed;
 
+    [SerializeField] public List<Sprite> Effect; 
+
     int cnt;
 
     float bloodAngleMax;
@@ -353,6 +355,8 @@ public class EnemySetting : MonoBehaviour
         cameraManager.CameraAction("ZoomOutAction");
     }
 
+    float xPos2;
+
     public void EnemyPosition()
     {
         List<MoveDot> moveDots = DataManager.data.saveData.mapData[DataManager.data.saveData.gameData.stage].moveDots;
@@ -361,6 +365,8 @@ public class EnemySetting : MonoBehaviour
         int dotPosition1 = 0;
         int dotPosition2 = 0;
         speed = DefaultSpeed;
+        xPos2 = transform.GetChild(0).position.x;
+        enemyAction += IsAttack;
 
         foreach (MoveDot dot in moveDots)
         {
@@ -462,6 +468,15 @@ public class EnemySetting : MonoBehaviour
         {
             EnemyMoveStart();
             enemyAction -= IsPlayerCome;
+        }
+    }
+
+    void IsAttack()
+    {
+        if(DataManager.data.saveData.gameData.player.transform.position.x >= xPos2 - 1)
+        {
+            enemyAnimator.SetTrigger("IsAttack");
+            enemyAction -= IsAttack;
         }
     }
 }

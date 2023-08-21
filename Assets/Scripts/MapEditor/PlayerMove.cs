@@ -29,6 +29,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] public bool BackOrFront;
 
     Coroutine walkSoundC;
+    Coroutine walkEffectC;
 
     void Start()
     {
@@ -61,6 +62,7 @@ public class PlayerMove : MonoBehaviour
             {
                 checkRun = true;
                 walkSoundC = StartCoroutine(WalkSound());
+                walkEffectC = StartCoroutine(WalkEffect());
             }
         }
         else
@@ -70,6 +72,10 @@ public class PlayerMove : MonoBehaviour
                 if (walkSoundC != null)
                 {
                     StopCoroutine(walkSoundC);
+                }
+                if(walkEffectC != null)
+                {
+                    StopCoroutine(walkEffectC);
                 }
             }
             checkRun = false;
@@ -84,6 +90,13 @@ public class PlayerMove : MonoBehaviour
 
     int walkNumber;
     int walkCnt = 0;
+
+    public IEnumerator WalkEffect()
+    {
+        StartCoroutine(playerActionS.ShowEffect(35, 40, new Vector3(-0.2f, -0.2f, 0)));
+        yield return new WaitForSeconds(0.42f);
+        walkEffectC = StartCoroutine(WalkEffect());
+    }
 
     public IEnumerator WalkSound()
     {

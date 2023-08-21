@@ -1,22 +1,22 @@
 fileFormatVersion: 2
-guid: 56c5bd0484b8a7d4d809a4fe68d9b987
+guid: f893b8e41a8b3684e8fd5750bd2b2894
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7820546953347788155
-    second: Enhance2_Attack-Sheet_0
+      213: -2548887958512375604
+    second: Enhance2_Attack-Sheet 1_0
   - first:
-      213: 6204134813477055301
-    second: Enhance2_Attack-Sheet_1
+      213: 7687743261640798811
+    second: Enhance2_Attack-Sheet 1_1
   - first:
-      213: 4282561103421595221
-    second: Enhance2_Attack-Sheet_2
+      213: 4859013409541778420
+    second: Enhance2_Attack-Sheet 1_2
   - first:
-      213: -6934712821470310536
-    second: Enhance2_Attack-Sheet_3
+      213: -6118657491166683237
+    second: Enhance2_Attack-Sheet 1_3
   - first:
-      213: -4396940635674823516
-    second: Enhance2_Attack-Sheet_4
+      213: 1165570627547740456
+    second: Enhance2_Attack-Sheet 1_4
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -119,7 +119,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Enhance2_Attack-Sheet_0
+      name: Enhance2_Attack-Sheet 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -133,14 +133,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7dee8fd40a288c60800000000000000
-      internalID: 7820546953347788155
+      spriteID: cc8699408e780acd0800000000000000
+      internalID: -2548887958512375604
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enhance2_Attack-Sheet_1
+      name: Enhance2_Attack-Sheet 1_1
       rect:
         serializedVersion: 2
         x: 47
@@ -154,14 +154,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54b2fefedb3891650800000000000000
-      internalID: 6204134813477055301
+      spriteID: b52b08ad3c950ba60800000000000000
+      internalID: 7687743261640798811
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enhance2_Attack-Sheet_2
+      name: Enhance2_Attack-Sheet 1_2
       rect:
         serializedVersion: 2
         x: 94
@@ -175,14 +175,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55e595232a6be6b30800000000000000
-      internalID: 4282561103421595221
+      spriteID: 4fbe89aa3feae6340800000000000000
+      internalID: 4859013409541778420
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enhance2_Attack-Sheet_3
+      name: Enhance2_Attack-Sheet 1_3
       rect:
         serializedVersion: 2
         x: 141
@@ -196,14 +196,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87f4ae83e63f2cf90800000000000000
-      internalID: -6934712821470310536
+      spriteID: b9f1ab80e69261ba0800000000000000
+      internalID: -6118657491166683237
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enhance2_Attack-Sheet_4
+      name: Enhance2_Attack-Sheet 1_4
       rect:
         serializedVersion: 2
         x: 188
@@ -217,8 +217,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a43f10b9cdeaf2c0800000000000000
-      internalID: -4396940635674823516
+      spriteID: 829bc9f6f40fc2010800000000000000
+      internalID: 1165570627547740456
       vertices: []
       indices: 
       edges: []

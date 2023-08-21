@@ -64,6 +64,11 @@ public class PlayerAction : MonoBehaviour
         }
     }
 
+    public void ShowEffect2(int start, int end, Vector3 pos)
+    {
+        StartCoroutine(ShowEffect(start, end, pos));
+    }
+
     public IEnumerator ShowEffect(int start, int end, Vector3 pos)
     {
         for (int i = start; i < end + 1; i++)
@@ -208,7 +213,7 @@ public class PlayerAction : MonoBehaviour
         {
             StopCoroutine(aniC);
         }
-        effectC = StartCoroutine(ShowEffect(16, 22, new Vector3(0, 1, 0)));
+        effectC = StartCoroutine(ShowEffect(16, 22, new Vector3(0, 0, 0)));
         aniC = StartCoroutine(CallAni("DragAttack", attackMotionTime));
         isLongClick = false;
         isAttack = true;

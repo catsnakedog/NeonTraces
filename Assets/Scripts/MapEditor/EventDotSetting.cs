@@ -68,6 +68,7 @@ public class EventDotSetting : MonoBehaviour
         SoundManager.sound.Play("main_jump");
         playerMove.playerAction = null;
         playerAnimaiton.SetAnimation("Jump");
+        playerAction.ShowEffect2(23, 26, new Vector3(-0.2f, -0.2f, 0));
         time = 0;
         eventAction += BezierSetting;
         yield return new WaitForSeconds(eventTypeInfo.type0.time);
