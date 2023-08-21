@@ -134,7 +134,7 @@ MonoBehaviour:
   endDot: 0
   power: 0
   DefaultSpeed: 15
-  DefaultPower: 0
+  DefaultPower: 6
   className: 
   pattern: 0200000002000000
   xPoint: 0
