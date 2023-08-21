@@ -115,6 +115,14 @@ public class PlayerAction : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Z))
+        {
+            Attack();
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            Defence();
+        }
         playerAction?.Invoke();
     }
 
@@ -163,6 +171,7 @@ public class PlayerAction : MonoBehaviour
             aniC = StartCoroutine(CallAni("AttackLeft", attackMotionTime));
             nextA = StartCoroutine(NextAttack(2f));
         }
+        SoundManager.sound.Play("main_attack" + UnityEngine.Random.Range(1, 3).ToString());
         effectC = StartCoroutine(ShowEffect(0, 5, new Vector3(1.5f, 0, 0)));
         actionA = StartCoroutine(afterImage.AfterImageSetting(Data.saveData.gameData.player));
         isAttack = true;

@@ -65,30 +65,27 @@ public class SoundManager : MonoBehaviour
         Talk,
 
         // 전투/메인 - 12개
-        Main_attack1,
-        Main_attack2,
-        Main_attack3,
-        Main_drag, //0820 삭제?
-        Main_footstep,
-        Main_hit,
-        Main_jump,
-        Main_landing,
-        Main_parry_hammer1,
-        Main_parry_hammer2,
-        Main_parry_hammer3,
-        Main_parry,
+        main_attack1,
+        main_attack2,
+        main_drag, //0820 삭제?
+        main_footstep,
+        main_hit,
+        main_jump,
+        main_landing,
+        main_parry_hammer,
+        main_parry,
         // 전투 - 11개
         A1_attack,
+        A2_attack,
+        B1_attack,
+        B2_attack,
         B2_shield,
-        C1_attack1,
-        C1_attack2,
-        C1_move,
         C1_ready,
+        C1_move,
+        C1_attack,
         C2_attack,
         C2_bolt,
         C2_case,
-        Main_parry1,
-        Main_parry3,
 
         MaxCount //삭제 금지
     }
