@@ -133,6 +133,7 @@ public class EnemySetting : MonoBehaviour
     {
         if (playerAction.isDefence)
         {
+            SoundManager.sound.Play("Main_parry_A2");
             playerAction.aniC = StartCoroutine(playerAction.CallAni("Perry", 0.49f));
             EnemyRebound(); // enemy가 밀려난다
             PatternClear();
@@ -147,6 +148,7 @@ public class EnemySetting : MonoBehaviour
     {
         if (playerAction.isAttack)
         {
+            SoundManager.sound.Play("main_hit");
             BloodSetting();
             PatternClear();
         }
@@ -160,6 +162,7 @@ public class EnemySetting : MonoBehaviour
     {
         if (playerAction.isAttack)
         {
+            SoundManager.sound.Play("main_hit");
             BloodSetting();
             EnemyRebound(); // enemy가 밀려난다
             PatternClear();

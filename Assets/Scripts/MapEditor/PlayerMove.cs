@@ -28,6 +28,8 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] private bool isCountUp;
     [SerializeField] public bool BackOrFront;
 
+    Coroutine walkSoundC;
+
     void Start()
     {
     }
@@ -45,9 +47,84 @@ public class PlayerMove : MonoBehaviour
         playerAction?.Invoke();
     }
 
+    [SerializeField] bool checkRun;
+
+    void Update()
+    {
+        if (playerAnimation.crruentAni == "Run")
+        {
+            if (checkRun)
+            {
+
+            }
+            else
+            {
+                checkRun = true;
+                walkSoundC = StartCoroutine(WalkSound());
+            }
+        }
+        else
+        {
+            if(checkRun != false)
+            {
+                if (walkSoundC != null)
+                {
+                    StopCoroutine(walkSoundC);
+                }
+            }
+            checkRun = false;
+        }
+    }
+
     public void GameOver()
     {
+        StopCoroutine(walkSoundC);
         playerAction = null;
+    }
+
+    int walkNumber;
+    int walkCnt = 0;
+
+    public IEnumerator WalkSound()
+    {
+        int random = 0;
+        string soundName = "A";
+        float time = 0;
+
+        do
+        {
+            random = UnityEngine.Random.Range(0, 3);
+
+            if (random == walkNumber)
+            {
+                walkCnt++;
+            }
+            else
+            {
+                walkCnt = 0;
+            }
+        }
+        while (walkCnt >= 2);
+
+        switch (random)
+        {
+            case 0:
+                soundName = "A";
+                time = 0.366f;
+                break;
+            case 1:
+                soundName = "B";
+                time = 0.366f;
+                break;
+            case 2:
+                soundName = "C";
+                time = 0.313f;
+                break;
+        }
+
+        SoundManager.sound.Play(soundName);
+        yield return new WaitForSeconds(time);
+        walkSoundC = StartCoroutine(WalkSound());
     }
 
     void MoveBySpeed() // 플레이어를 endPoint로 이동시킴
