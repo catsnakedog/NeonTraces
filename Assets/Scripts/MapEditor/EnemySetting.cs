@@ -120,6 +120,7 @@ public class EnemySetting : MonoBehaviour
     {
         if(playerAction.isDefence)
         {
+            playerAction.aniC = StartCoroutine(playerAction.CallAni("Perry", 0.49f));
             PatternClear();
         }
         else
@@ -132,7 +133,7 @@ public class EnemySetting : MonoBehaviour
     {
         if (playerAction.isDefence)
         {
-            PlayerRebound(); // player가 밀려난다
+            playerAction.aniC = StartCoroutine(playerAction.CallAni("Perry", 0.49f));
             PatternClear();
         }
         else

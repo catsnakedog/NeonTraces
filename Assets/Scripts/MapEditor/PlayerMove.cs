@@ -8,7 +8,7 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     DataManager Data;
-    MapMake mapMake; // Å×½ºÆ®¸¦ À§ÇØ ÀÓ½Ã·Î Ãß°¡ ³ªÁß¿¡ Áö¿ï°Í
+    MapMake mapMake; // í…ŒìŠ¤íŠ¸ë¥¼ ìœ„í•´ ì„ì‹œë¡œ ì¶”ê°€ ë‚˜ì¤‘ì— ì§€ìš¸ê²ƒ
     PlayerAnimaiton playerAnimation;
     PlayerAction playerActionS;
 
@@ -45,12 +45,17 @@ public class PlayerMove : MonoBehaviour
         playerAction?.Invoke();
     }
 
-    void MoveBySpeed() // ÇÃ·¹ÀÌ¾î¸¦ endPoint·Î ÀÌµ¿½ÃÅ´
+    public void GameOver()
+    {
+        playerAction = null;
+    }
+
+    void MoveBySpeed() // í”Œë ˆì´ì–´ë¥¼ endPointë¡œ ì´ë™ì‹œí‚´
     {
         player.transform.position = Vector3.MoveTowards(player.transform.position, endPoint, Time.deltaTime * speed);
     }
 
-    void IsEndPoint() // endPoint¿¡ µµ´ŞÇÏ¿´´Â°¡¸¦ ÆÇº°
+    void IsEndPoint() // endPointì— ë„ë‹¬í•˜ì˜€ëŠ”ê°€ë¥¼ íŒë³„
     {
         if (player.transform.position == endPoint)
         {
@@ -64,7 +69,7 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    public void MoveStart() // ±âº»ÀûÀÎ ¿òÁ÷ÀÓ, moveDots¸¦ µû¶ó¼­ ÀÌµ¿ÇÑ´Ù, crreuntMoveDot¸¸ Á¤»óÀûÀ¸·Î ÀÔ·ÂµÅÀÖ´Ù¸é µµÁß¿¡ Ãë¼ÒÇß´Ù°¡ ´Ù½Ã ½ÃÀÛÇØµµ »ó°ü¾ø´Ù
+    public void MoveStart() // ê¸°ë³¸ì ì¸ ì›€ì§ì„, moveDotsë¥¼ ë”°ë¼ì„œ ì´ë™í•œë‹¤, crreuntMoveDotë§Œ ì •ìƒì ìœ¼ë¡œ ì…ë ¥ë¼ìˆë‹¤ë©´ ë„ì¤‘ì— ì·¨ì†Œí–ˆë‹¤ê°€ ë‹¤ì‹œ ì‹œì‘í•´ë„ ìƒê´€ì—†ë‹¤
     {
         if(crruentMoveDot == 0) SoundManager.sound.Play("BGM_0" + (Data.saveData.gameData.stage + 1).ToString());
         moveDotSize = Data.saveData.mapData[stage].moveDots.Count;
@@ -77,7 +82,15 @@ public class PlayerMove : MonoBehaviour
         {
             if(!playerActionS.isDelay)
             {
-                playerAnimation.SetAnimation("Run");
+                if(playerAnimation.crruentAni == "Jump")
+                {
+                    playerActionS.aniC = StartCoroutine(playerActionS.CallAni("Landing", 0.5f));
+                }
+                else
+                {
+                    playerAnimation.SetAnimation("Run");
+
+                }
             }
             startPoint = Data.saveData.mapData[stage].moveDots[crruentMoveDot].v3;
             endPoint = Data.saveData.mapData[stage].moveDots[crruentMoveDot + 1].v3;
@@ -93,14 +106,14 @@ public class PlayerMove : MonoBehaviour
             MoveAToB("MoveStart", true);
         }
     }
-    public void MoveAToB(string className, bool isCountUp) // AºÎÅÍ B±îÁö ÀÌµ¿ÇÏ´Â ÇÔ¼ö, classNameÀ¸·Î ÀÌµ¿ÀÌ ³¡³ª°í ½ÇÇà½ÃÅ³ ÇÔ¼ö¸¦ ÁöÁ¤ÇÒ ¼ö ÀÖ´Ù
+    public void MoveAToB(string className, bool isCountUp) // Aë¶€í„° Bê¹Œì§€ ì´ë™í•˜ëŠ” í•¨ìˆ˜, classNameìœ¼ë¡œ ì´ë™ì´ ëë‚˜ê³  ì‹¤í–‰ì‹œí‚¬ í•¨ìˆ˜ë¥¼ ì§€ì •í•  ìˆ˜ ìˆë‹¤
     {
         playerAction += MoveBySpeed;
         this.isCountUp = isCountUp;
         this.className = className;
         playerAction += IsEndPoint;
     }
-    public void PlayerMoveBackOrFront(float power, bool BackOrFront) // ÇÇ°İ½Ã or °ø°İ½Ã ¾Õ µÚ·Î ¿òÁ÷ÀÌ´Â ÇÔ¼ö, BackOrFront : true = µÚ·Î, false = ¾ÕÀ¸·Î
+    public void PlayerMoveBackOrFront(float power, bool BackOrFront) // í”¼ê²©ì‹œ or ê³µê²©ì‹œ ì• ë’¤ë¡œ ì›€ì§ì´ëŠ” í•¨ìˆ˜, BackOrFront : true = ë’¤ë¡œ, false = ì•ìœ¼ë¡œ
     {
         Vector3 vDist = startPoint - endPoint;
         Vector3 vDir = vDist.normalized;
@@ -119,7 +132,7 @@ public class PlayerMove : MonoBehaviour
             b = (player.transform.position - endPoint).magnitude;
         }
         playerAction = null;
-        if (a < b) // startPoint¸¦ ÃÊ°úÇÏ´Â °æ¿ì
+        if (a < b) // startPointë¥¼ ì´ˆê³¼í•˜ëŠ” ê²½ìš°
         {
             if (crruentMoveDot == moveDotSize-1)
             {
@@ -173,7 +186,7 @@ public class PlayerMove : MonoBehaviour
             MoveAToB("MoveStart", false);
         }
     }
-    public void GameReSet() // ¼¼ÆÃÀ» ÃÊ±âÈ­ÇÑ´Ù
+    public void GameReSet() // ì„¸íŒ…ì„ ì´ˆê¸°í™”í•œë‹¤
     {
         foreach (GameObject a in Data.saveData.gameData.enemyPoint)
         {
@@ -189,7 +202,7 @@ public class PlayerMove : MonoBehaviour
         playerAction = null;
     }
 
-    public void GameStart() // °ÔÀÓ ½ÃÀÛ
+    public void GameStart() // ê²Œì„ ì‹œì‘
     {
         stage = Data.saveData.gameData.stage;
 
@@ -203,10 +216,11 @@ public class PlayerMove : MonoBehaviour
         playerActionS.ActionReset();
         playerAction = null;
         playerAnimation.SetAnimation("Run");
+        DataManager.data.saveData.gameData.player.transform.GetChild(0).gameObject.SetActive(true);
         MoveStart();
     }
 
-    public void Rebound() // ¾îÅÃ½Ã ¹Ğ¸² ÆÇÁ¤ Å×½ºÆ®
+    public void Rebound() // ì–´íƒì‹œ ë°€ë¦¼ íŒì • í…ŒìŠ¤íŠ¸
     {
         startPoint = Data.saveData.mapData[stage].moveDots[crruentMoveDot].v3;
         if (crruentMoveDot == moveDotSize-1)
@@ -220,7 +234,7 @@ public class PlayerMove : MonoBehaviour
         PlayerMoveBackOrFront(power, BackOrFront);
     }
 
-    public void BezierMove(Vector3 v1, Vector3 v2, Vector3 v3, Vector3 v4, float time) // °î¼± ÀÌµ¿
+    public void BezierMove(Vector3 v1, Vector3 v2, Vector3 v3, Vector3 v4, float time) // ê³¡ì„  ì´ë™
     {
         Vector3 A = Vector3.Lerp(v1, v2, time);
         Vector3 B = Vector3.Lerp(v2, v3, time);
