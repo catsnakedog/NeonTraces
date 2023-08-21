@@ -1042,10 +1042,18 @@
                 {
                     "v3": {
                         "x": 640.0,
-                        "y": 120.0,
+                        "y": 130.0,
                         "z": 0.0
                     },
-                    "speed": 0.0
+                    "speed": 25.0
+                },
+                {
+                    "v3": {
+                        "x": 1750.0,
+                        "y": 130.0,
+                        "z": 0.0
+                    },
+                    "speed": 25.0
                 }
             ],
             "enemys": [],
@@ -1105,6 +1113,64 @@
                         },
                         "type9": {
                             "stopTime": 2.0
+                        }
+                    }
+                },
+                {
+                    "v3": {
+                        "x": 642.3599853515625,
+                        "y": 130.0,
+                        "z": 0.0
+                    },
+                    "type": 9,
+                    "eventTypeInfo": {
+                        "type0": {
+                            "pointDot1": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "pointDot2": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "nextMoveDot": 0,
+                            "time": 0.0,
+                            "isStop": false,
+                            "stopTime": 0.0
+                        },
+                        "type1": {
+                            "upSpeed": 0,
+                            "changeTime": 0.0
+                        },
+                        "type2": {
+                            "cutSceneNumber": 0
+                        },
+                        "type3": {
+                            "speed": 0,
+                            "index": 0,
+                            "startDot": 0,
+                            "endDot": 0
+                        },
+                        "type4": {
+                            "soundName": ""
+                        },
+                        "type5": {
+                            "cameraActionName": ""
+                        },
+                        "type6": {
+                            "power": 0,
+                            "speed": 0
+                        },
+                        "type7": {
+                            "timeScale": 0.0
+                        },
+                        "type8": {
+                            "animationName": ""
+                        },
+                        "type9": {
+                            "stopTime": 3.8399999141693117
                         }
                     }
                 }
@@ -2550,16 +2616,16 @@
             false
         ],
         "player": {
-            "instanceID": 20498
+            "instanceID": 35466
         },
         "blood": {
-            "instanceID": 20628
+            "instanceID": 20648
         },
         "bloodBoom": {
-            "instanceID": 20630
+            "instanceID": 20650
         },
         "map": {
-            "instanceID": 20442
+            "instanceID": 35410
         },
         "enemyInfo": [],
         "camsize": 10.0,
