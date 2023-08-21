@@ -134,6 +134,7 @@ public class EnemySetting : MonoBehaviour
         if (playerAction.isDefence)
         {
             playerAction.aniC = StartCoroutine(playerAction.CallAni("Perry", 0.49f));
+            EnemyRebound(); // enemy가 밀려난다
             PatternClear();
         }
         else
@@ -177,6 +178,7 @@ public class EnemySetting : MonoBehaviour
         playerAction.isAction = false;
         playerAction.isDefence = false;
         playerAction.isAttack = false;
+        enemyAction = null;
         playerAction.StopCoroutine(playerAction.actionC); // player의 상태 + 쿨타임 초기화
         //playerAction.animaiton.SetAnimation("Run");
         if (playerAction.actionA != null)
@@ -189,6 +191,7 @@ public class EnemySetting : MonoBehaviour
         }
         else
         {
+            EnemyMoveStart();
             isActive = true;
             cnt++; // 패턴이 아직 남았으면 다음 패턴 실행
         }

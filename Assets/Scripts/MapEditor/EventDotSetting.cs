@@ -65,6 +65,7 @@ public class EventDotSetting : MonoBehaviour
 
     IEnumerator Event0() // 플레이어 이동 (jump, down)
     {
+        SoundManager.sound.Play("main_jump");
         playerMove.playerAction = null;
         playerAnimaiton.SetAnimation("Jump");
         time = 0;
@@ -74,6 +75,7 @@ public class EventDotSetting : MonoBehaviour
         playerMove.crruentMoveDot = eventTypeInfo.type0.nextMoveDot;
         if(eventTypeInfo.type0.isStop)
         {
+            SoundManager.sound.Play("main_landing");
             playerAnimaiton.SetAnimation("Landing");
             yield return new WaitForSeconds(0.5f);
             playerAnimaiton.SetAnimation("Idle");
