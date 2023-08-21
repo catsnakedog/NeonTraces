@@ -77,7 +77,7 @@ public class EventDotSetting : MonoBehaviour
             playerAnimaiton.SetAnimation("Landing");
             yield return new WaitForSeconds(0.5f);
             playerAnimaiton.SetAnimation("Idle");
-            yield return new WaitForSeconds(eventTypeInfo.type0.stopTime);
+            yield return new WaitForSeconds(eventTypeInfo.type0.stopTime - 0.5f);
         }
         playerMove.MoveStart();
         gameObject.SetActive(false);
