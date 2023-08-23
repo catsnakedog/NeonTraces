@@ -8,7 +8,7 @@ public class PlayerAnimaiton : MonoBehaviour
     DataManager Data;
     Animator playerAni;
 
-    string crruentAni = "";
+    [SerializeField] public string crruentAni = "";
 
     void Start()
     {
@@ -40,6 +40,42 @@ public class PlayerAnimaiton : MonoBehaviour
         {
             crruentAni = "Run";
             playerAni.SetTrigger("Run");
+        }
+    }
+
+    void Perry()
+    {
+        if (crruentAni != "Perry")
+        {
+            crruentAni = "Perry";
+            playerAni.SetTrigger("Perry");
+        }
+    }
+
+    void Down()
+    {
+        if (crruentAni != "Down")
+        {
+            crruentAni = "Down";
+            playerAni.SetTrigger("Down");
+        }
+    }
+
+    void Jump()
+    {
+        if (crruentAni != "Jump")
+        {
+            crruentAni = "Jump";
+            playerAni.SetTrigger("Jump");
+        }
+    }
+
+    void Landing()
+    {
+        if (crruentAni != "Landing")
+        {
+            crruentAni = "Landing";
+            playerAni.SetTrigger("Landing");
         }
     }
 

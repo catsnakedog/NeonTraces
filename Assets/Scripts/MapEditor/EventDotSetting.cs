@@ -9,6 +9,7 @@ public class EventDotSetting : MonoBehaviour
     DataManager Data;
     PlayerMove playerMove;
     PlayerAction playerAction;
+    PlayerAnimaiton playerAnimaiton;
     CutSceneManager cutSceneManager;
     CameraManager cameraManager;
     CameraFix cameraFix;
@@ -24,16 +25,16 @@ public class EventDotSetting : MonoBehaviour
 
     public float ShakePower;
     /*
-     * 1 jump down ÀÌµ¿
-     * 2 ¼Óµµ Á¡ÁøÀû Áõ°¡, °¨¼Ò
-     * 3 ÄÆ¾À
-     * 4 ÀûÀÌµ¿
-     * 5 ¼Ò¸® / ¹Ì±¸Çö
-     * 6 Ä«¸Ş¶ó ¾×¼Ç / ¹Ì±¸Çö
-     * 7 ´ë½¬
-     * 8 ½Ã°£
-     * 9 ÇÃ·¹ÀÌ¾î Á¤Áö
-     * 10 ¿¡´Ï¸ŞÀÌ¼Ç º¯°æ / ¹Ì±¸Çö
+     * 1 jump down ì´ë™
+     * 2 ì†ë„ ì ì§„ì  ì¦ê°€, ê°ì†Œ
+     * 3 ì»·ì”¬
+     * 4 ì ì´ë™
+     * 5 ì†Œë¦¬ / ë¯¸êµ¬í˜„
+     * 6 ì¹´ë©”ë¼ ì•¡ì…˜ / ë¯¸êµ¬í˜„
+     * 7 ëŒ€ì‰¬
+     * 8 ì‹œê°„
+     * 9 í”Œë ˆì´ì–´ ì •ì§€
+     * 10 ì—ë‹ˆë©”ì´ì…˜ ë³€ê²½ / ë¯¸êµ¬í˜„
      */
 
     
@@ -45,6 +46,7 @@ public class EventDotSetting : MonoBehaviour
         playerAction = GameObject.Find("InGameManager").GetComponent<PlayerAction>();
         cutSceneManager = GameObject.Find("InGameManager").GetComponent<CutSceneManager>();
         cameraManager = GameObject.Find("CameraManager").GetComponent<CameraManager>();
+        playerAnimaiton = GameObject.Find("InGameManager").GetComponent<PlayerAnimaiton>();
     }
 
     void Update()
@@ -61,25 +63,36 @@ public class EventDotSetting : MonoBehaviour
         }
     }
 
-    IEnumerator Event0() // ÇÃ·¹ÀÌ¾î ÀÌµ¿ (jump, down)
+    IEnumerator Event0() // í”Œë ˆì´ì–´ ì´ë™ (jump, down)
     {
+        SoundManager.sound.Play("main_jump");
         playerMove.playerAction = null;
+        playerAnimaiton.SetAnimation("Jump");
+        playerAction.ShowEffect2(23, 26, new Vector3(-0.2f, -0.2f, 0));
         time = 0;
         eventAction += BezierSetting;
         yield return new WaitForSeconds(eventTypeInfo.type0.time);
         eventAction -= BezierSetting;
         playerMove.crruentMoveDot = eventTypeInfo.type0.nextMoveDot;
+        if(eventTypeInfo.type0.isStop)
+        {
+            SoundManager.sound.Play("main_landing");
+            playerAnimaiton.SetAnimation("Landing");
+            yield return new WaitForSeconds(0.5f);
+            playerAnimaiton.SetAnimation("Idle");
+            yield return new WaitForSeconds(eventTypeInfo.type0.stopTime - 0.5f);
+        }
         playerMove.MoveStart();
         gameObject.SetActive(false);
     }
-    IEnumerator Event1() // ¼Óµµ Á¡ÁøÀû Áõ°¡
+    IEnumerator Event1() // ì†ë„ ì ì§„ì  ì¦ê°€
     {
         eventAction += UpSpeed;
         yield return new WaitForSeconds(eventTypeInfo.type1.changeTime);
         eventAction -= UpSpeed;
         gameObject.SetActive(false);
     }
-    IEnumerator Event2() // ÄÆ¾À
+    IEnumerator Event2() // ì»·ì”¬
     {
         playerMove.playerAction = null;
         cutSceneManager.Invoke("CutScene"+eventTypeInfo.type2.cutSceneNumber, 0f);
@@ -87,7 +100,7 @@ public class EventDotSetting : MonoBehaviour
         playerMove.MoveStart();
         gameObject.SetActive(false);
     }
-    IEnumerator Event3() // startDot ÀûÀÌ ¿òÁ÷ÀÌ´Â ¹æÇâ ¹İ´ëÂÊ °¡Àå °¡±î¿î Á¡, endDot ÀûÀÌ ¾îµğ±îÁö ¿òÁ÷ÀÌ´Â°¡(moveDot±âÁØ)
+    IEnumerator Event3() // startDot ì ì´ ì›€ì§ì´ëŠ” ë°©í–¥ ë°˜ëŒ€ìª½ ê°€ì¥ ê°€ê¹Œìš´ ì , endDot ì ì´ ì–´ë””ê¹Œì§€ ì›€ì§ì´ëŠ”ê°€(moveDotê¸°ì¤€)
     {
         EnemySetting enemy;
         enemy = Data.saveData.gameData.enemyInfo[eventTypeInfo.type3.index].enemy.GetComponent<EnemySetting>();
@@ -99,18 +112,18 @@ public class EventDotSetting : MonoBehaviour
         yield return new WaitForSeconds(0f);
         gameObject.SetActive(false);
     }
-    IEnumerator Event4() // »ç¿îµå(¹Ì±¸Çö)
+    IEnumerator Event4() // ì‚¬ìš´ë“œ(ë¯¸êµ¬í˜„)
     {
         yield return new WaitForSeconds(0f);
         gameObject.SetActive(false);
     }
-    IEnumerator Event5() // Ä«¸Ş¶ó ¾×¼Ç(¹Ì±¸Çö)
+    IEnumerator Event5() // ì¹´ë©”ë¼ ì•¡ì…˜(ë¯¸êµ¬í˜„)
     {
         yield return new WaitForSeconds(0f);
         cameraManager.CameraAction(eventTypeInfo.type5.cameraActionName);
         gameObject.SetActive(false);
     }
-    IEnumerator Event6() // ´ë½¬
+    IEnumerator Event6() // ëŒ€ì‰¬
     {
         playerMove.playerActionSpeed = eventTypeInfo.type6.speed;
         playerMove.power = eventTypeInfo.type6.power;
@@ -119,18 +132,18 @@ public class EventDotSetting : MonoBehaviour
         yield return new WaitForSeconds(0f);
         gameObject.SetActive(false);
     }
-    IEnumerator Event7() // ½Ã°£ Á¶Àı
+    IEnumerator Event7() // ì‹œê°„ ì¡°ì ˆ
     {
         Time.timeScale = eventTypeInfo.type7.timeScale;
         yield return new WaitForSeconds(0f);
         gameObject.SetActive(false);
     }
-    IEnumerator Event8() // ¿¡´Ï¸ŞÀÌ¼Ç º¯°æ (¹Ì±¸Çö)
+    IEnumerator Event8() // ì—ë‹ˆë©”ì´ì…˜ ë³€ê²½ (ë¯¸êµ¬í˜„)
     {
         yield return new WaitForSeconds(0f);
         gameObject.SetActive(false);
     }
-    IEnumerator Event9() // stopTImeµ¿¾È ÇÃ·¹ÀÌ¾î¸¦ ¸ØÃá´Ù(TimeScale != 0)
+    IEnumerator Event9() // stopTImeë™ì•ˆ í”Œë ˆì´ì–´ë¥¼ ë©ˆì¶˜ë‹¤(TimeScale != 0)
     {
         playerMove.playerAction = null;
         yield return new WaitForSeconds(eventTypeInfo.type9.stopTime);
@@ -145,12 +158,12 @@ public class EventDotSetting : MonoBehaviour
         ShakePower = eventTypeInfo.type10.shakeP;
         gameObject.SetActive(false);
     }
-    void UpSpeed() // Event1 °ü·Ã ÇÔ¼ö, speed¸¦ Á¡ÁøÀûÀ¸·Î Áõ°¡½ÃÅ´
+    void UpSpeed() // Event1 ê´€ë ¨ í•¨ìˆ˜, speedë¥¼ ì ì§„ì ìœ¼ë¡œ ì¦ê°€ì‹œí‚´
     {
         playerMove.speed += (eventTypeInfo.type1.upSpeed * Time.deltaTime) / eventTypeInfo.type1.changeTime;
     }
 
-    void BezierSetting() // Event0 °ü·Ã ÇÔ¼ö, Á¡ÇÁ, ´Ù¿îÀ» °î¼±À¸·Î ±¸ÇöÇÔ
+    void BezierSetting() // Event0 ê´€ë ¨ í•¨ìˆ˜, ì í”„, ë‹¤ìš´ì„ ê³¡ì„ ìœ¼ë¡œ êµ¬í˜„í•¨
     {
         time += Time.deltaTime / eventTypeInfo.type0.time;
         playerMove.BezierMove(gameObject.transform.position, eventTypeInfo.type0.pointDot1, eventTypeInfo.type0.pointDot2, Data.saveData.mapData[Data.saveData.gameData.stage].moveDots[eventTypeInfo.type0.nextMoveDot].v3, time);

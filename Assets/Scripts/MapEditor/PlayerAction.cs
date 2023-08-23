@@ -15,6 +15,7 @@ public class PlayerAction : MonoBehaviour
     [SerializeField] public bool isDelay; // 딜레이 확인용 변수
     [SerializeField] public bool isLongClick;
     [SerializeField] public bool isNextAttack;
+    [SerializeField] public bool isGameOver;
     [SerializeField] private float attackDelay; // 헛공격시 딜레이
     [SerializeField] private float attackMotionTime; // 어택 에니메이션 실행시간
     [SerializeField] private float defenceMotionTime; // 방어 에니메이션 실행시간
@@ -32,12 +33,15 @@ public class PlayerAction : MonoBehaviour
     Coroutine effectC;
 
     AfterImage afterImage;
+    PlayerMove playerMove;
 
     Action playerAction;
     public PlayerAnimaiton animaiton;
 
     void Start()
     {
+        playerMove = GetComponent<PlayerMove>();
+
         isAttack = false;
         isDefence = false;
         isAction = false;
@@ -58,6 +62,11 @@ public class PlayerAction : MonoBehaviour
             effects.Add(temp);
             temp.SetActive(false);
         }
+    }
+
+    public void ShowEffect2(int start, int end, Vector3 pos)
+    {
+        StartCoroutine(ShowEffect(start, end, pos));
     }
 
     public IEnumerator ShowEffect(int start, int end, Vector3 pos)
@@ -111,15 +120,25 @@ public class PlayerAction : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Z))
+        {
+            Attack();
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            Defence();
+        }
         playerAction?.Invoke();
     }
 
     public void Attack() // 플레이어 공격
     {
+        if (animaiton.crruentAni == "Jump") return;
         if (!isDelay) actionC = StartCoroutine("AttackAction");
     }
     public void Defence() // 플레이어 방어
     {
+        if (animaiton.crruentAni == "Jump") return;
         if (!isDelay) actionC = StartCoroutine("DefenceAction");
     }
     public void LongAttack()
@@ -129,6 +148,11 @@ public class PlayerAction : MonoBehaviour
 
     public void Death() // 플레이어가 죽을시 실행
     {
+        if (aniC != null)
+        {
+            StopCoroutine(aniC);
+        }
+        aniC = StartCoroutine(CallAni("Down", 0.74f));
         GameOver();
     }
 
@@ -152,6 +176,7 @@ public class PlayerAction : MonoBehaviour
             aniC = StartCoroutine(CallAni("AttackLeft", attackMotionTime));
             nextA = StartCoroutine(NextAttack(2f));
         }
+        SoundManager.sound.Play("main_attack" + UnityEngine.Random.Range(1, 3).ToString());
         effectC = StartCoroutine(ShowEffect(0, 5, new Vector3(1.5f, 0, 0)));
         actionA = StartCoroutine(afterImage.AfterImageSetting(Data.saveData.gameData.player));
         isAttack = true;
@@ -170,6 +195,7 @@ public class PlayerAction : MonoBehaviour
         {
             StopCoroutine(aniC);
         }
+        SoundManager.sound.Play("main_parry" + UnityEngine.Random.Range(1, 3).ToString());
         effectC = StartCoroutine(ShowEffect(12, 15, new Vector3(1.5f, 0, 0)));
         aniC = StartCoroutine(CallAni("Defence", defenceMotionTime));
         isDefence = true;
@@ -187,7 +213,7 @@ public class PlayerAction : MonoBehaviour
         {
             StopCoroutine(aniC);
         }
-        effectC = StartCoroutine(ShowEffect(16, 22, new Vector3(0, 1, 0)));
+        effectC = StartCoroutine(ShowEffect(16, 22, new Vector3(0, 0, 0)));
         aniC = StartCoroutine(CallAni("DragAttack", attackMotionTime));
         isLongClick = false;
         isAttack = true;
@@ -245,6 +271,7 @@ public class PlayerAction : MonoBehaviour
 
     void GameOver() // 게임오버시 실행되는 함수, 관련된 내용은 여기 안에다가 작업하면 된다
     {
+        if (isGameOver) return;
         if (actionC != null)
         {
             StopCoroutine(actionC);
@@ -253,8 +280,11 @@ public class PlayerAction : MonoBehaviour
         {
             StopCoroutine(actionA);
         }
+        DataManager.data.saveData.gameData.player.transform.GetChild(0).gameObject.SetActive(false);
+        isGameOver = true;
         playerAction = null;
-        Time.timeScale = 0f;
+        playerMove.GameOver();
+        //Time.timeScale = 0f;
         Debug.Log("게임오버");
     }
 
@@ -271,11 +301,14 @@ public class PlayerAction : MonoBehaviour
         playerAction = null;
     }
 
-    IEnumerator CallAni(string Name, float time)
+    public IEnumerator CallAni(string Name, float time)
     {
         animaiton.SetAnimation(Name);
         yield return new WaitForSeconds(time);
-        animaiton.SetAnimation("Run");
+        if(Name != "Down")
+        {
+            animaiton.SetAnimation("Run");
+        }
     }
 
     IEnumerator NextAttack(float time)

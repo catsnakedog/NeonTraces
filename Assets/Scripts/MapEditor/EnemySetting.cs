@@ -28,6 +28,8 @@ public class EnemySetting : MonoBehaviour
     [SerializeField] public float backPower;
     [SerializeField] public float backSpeed;
 
+    [SerializeField] public List<Sprite> Effect; 
+
     int cnt;
 
     float bloodAngleMax;
@@ -120,6 +122,7 @@ public class EnemySetting : MonoBehaviour
     {
         if(playerAction.isDefence)
         {
+            playerAction.aniC = StartCoroutine(playerAction.CallAni("Perry", 0.49f));
             PatternClear();
         }
         else
@@ -132,7 +135,9 @@ public class EnemySetting : MonoBehaviour
     {
         if (playerAction.isDefence)
         {
-            PlayerRebound(); // player가 밀려난다
+            SoundManager.sound.Play("Main_parry_A2");
+            playerAction.aniC = StartCoroutine(playerAction.CallAni("Perry", 0.49f));
+            EnemyRebound(); // enemy가 밀려난다
             PatternClear();
         }
         else
@@ -145,6 +150,7 @@ public class EnemySetting : MonoBehaviour
     {
         if (playerAction.isAttack)
         {
+            SoundManager.sound.Play("main_hit");
             BloodSetting();
             PatternClear();
         }
@@ -158,6 +164,7 @@ public class EnemySetting : MonoBehaviour
     {
         if (playerAction.isAttack)
         {
+            SoundManager.sound.Play("main_hit");
             BloodSetting();
             EnemyRebound(); // enemy가 밀려난다
             PatternClear();
@@ -176,6 +183,7 @@ public class EnemySetting : MonoBehaviour
         playerAction.isAction = false;
         playerAction.isDefence = false;
         playerAction.isAttack = false;
+        enemyAction = null;
         playerAction.StopCoroutine(playerAction.actionC); // player의 상태 + 쿨타임 초기화
         //playerAction.animaiton.SetAnimation("Run");
         if (playerAction.actionA != null)
@@ -188,6 +196,7 @@ public class EnemySetting : MonoBehaviour
         }
         else
         {
+            EnemyMoveStart();
             isActive = true;
             cnt++; // 패턴이 아직 남았으면 다음 패턴 실행
         }
@@ -346,6 +355,8 @@ public class EnemySetting : MonoBehaviour
         cameraManager.CameraAction("ZoomOutAction");
     }
 
+    float xPos2;
+
     public void EnemyPosition()
     {
         List<MoveDot> moveDots = DataManager.data.saveData.mapData[DataManager.data.saveData.gameData.stage].moveDots;
@@ -354,6 +365,8 @@ public class EnemySetting : MonoBehaviour
         int dotPosition1 = 0;
         int dotPosition2 = 0;
         speed = DefaultSpeed;
+        xPos2 = transform.GetChild(0).position.x;
+        enemyAction += IsAttack;
 
         foreach (MoveDot dot in moveDots)
         {
@@ -455,6 +468,15 @@ public class EnemySetting : MonoBehaviour
         {
             EnemyMoveStart();
             enemyAction -= IsPlayerCome;
+        }
+    }
+
+    void IsAttack()
+    {
+        if(DataManager.data.saveData.gameData.player.transform.position.x >= xPos2 - 1)
+        {
+            enemyAnimator.SetTrigger("IsAttack");
+            enemyAction -= IsAttack;
         }
     }
 }

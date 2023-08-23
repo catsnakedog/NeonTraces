@@ -32,7 +32,7 @@ public class CanvasFadeEffect : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (LogoRT.localPosition == targetRT.localPosition) //·Î°í Á¦ÀÚ¸® ½Ã
+        if (LogoRT.localPosition == targetRT.localPosition) //ë¡œê³  ì œìë¦¬ ì‹œ
         {
             FadeoutSkip();
         }

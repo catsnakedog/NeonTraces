@@ -26,22 +26,23 @@ public class SoundManager : MonoBehaviour
     float BGMVolume = 0.5f;
     float SFXVolume = 0.5f;
 
-    public GameObject optionCanvas; //¹öÆ°¿¡¼­ »ç¿ë
+    public GameObject optionCanvas; //ë²„íŠ¼ì—ì„œ ì‚¬ìš©
 
-    // 6¿ù22ÀÏ ¼öÁ¤
+    // 8ì›”19ì¼ ìˆ˜ì •
     enum BGM
     {
         BGM_01,
         BGM_02,
+        BGM_03,
         BGM_04,
         Test_BGM,
-        MaxCount //»èÁ¦ ±İÁö
+        MaxCount //ì‚­ì œ ê¸ˆì§€
     }
 
     enum SFX
     {
         Test_ClickSFX,
-        // UI - 6°³
+        // UI - 6ê°œ
         Door_exit,
         Door_play,
         Execute,
@@ -49,47 +50,48 @@ public class SoundManager : MonoBehaviour
         Select,
         Setting,
 
-        // ÄÆ¾À/µå·Ğ - 5°³
+        // ì»·ì”¬/ë“œë¡  - 5ê°œ
         Drone_applaud,
         Drone_explode,
         Drone_joke,
         Drone_joke2,
         Drone_scan,
-        // ÄÆ¾À/Â÷·® - 4°³
+        // ì»·ì”¬/ì°¨ëŸ‰ - 4ê°œ
         Car_break,
         Car_break_crash,
         Car_crash,
         Car_passby,
-        // ÄÆ¾À - 1°³
+        // ì»·ì”¬ - 1ê°œ
         Talk,
 
-        // ÀüÅõ/¸ŞÀÎ - 12°³
-        Main_attack1,
-        Main_attack2,
-        Main_attack3,
-        Main_drag,
-        Main_footstep,
-        Main_hit,
-        Main_jump,
-        Main_landing,
-        Main_parry,
-        Main_parry_hammer1,
-        Main_parry_hammer2,
-        Main_parry_hammer3,
-        // ÀüÅõ - 11°³
+        // ì „íˆ¬/ë©”ì¸ - 12ê°œ
+        main_attack1,
+        main_attack2,
+        main_drag, //0820 ì‚­ì œ?
+        main_footstep,
+        main_hit,
+        main_jump,
+        main_landing,
+        Main_parry_A2,
+        main_parry1,
+        main_parry2,
+        // ì „íˆ¬ - 11ê°œ
         A1_attack,
+        A2_attack,
+        B1_attack,
+        B2_attack,
         B2_shield,
-        C1_attack1,
-        C1_attack2,
-        C1_move,
         C1_ready,
+        C1_move,
+        C1_attack,
         C2_attack,
         C2_bolt,
         C2_case,
-        Main_parry1,
-        Main_parry3,
+        A,
+        B,
+        C,
 
-        MaxCount //»èÁ¦ ±İÁö
+        MaxCount //ì‚­ì œ ê¸ˆì§€
     }
     #region Singleton
     void Awake()
@@ -110,20 +112,20 @@ public class SoundManager : MonoBehaviour
 
     void Start()
     {
-        SoundPooling(); // »ç¿îµå ÆÄÀÏµéÀ» Ç®¸µ ÇØ¿Â´Ù
-        SetAudioSource(); // ¿Àµğ¿À ¼Ò½º ¼¼ÆÃ
-        //Play("Test_BGM"); // ½ÃÀÛ ºê±İ
+        SoundPooling(); // ì‚¬ìš´ë“œ íŒŒì¼ë“¤ì„ í’€ë§ í•´ì˜¨ë‹¤
+        SetAudioSource(); // ì˜¤ë””ì˜¤ ì†ŒìŠ¤ ì„¸íŒ…
+        //Play("Test_BGM"); // ì‹œì‘ ë¸Œê¸ˆ
     }
 
 
     void OptionSetting()
     {
-        GameObject optionCanvas = Resources.Load<GameObject>("Sound/OptionCanvas"); // ¿É¼Ç ÇÁ¸®Æé ºÒ·¯¿À±â
+        GameObject optionCanvas = Resources.Load<GameObject>("Sound/OptionCanvas"); // ì˜µì…˜ í”„ë¦¬í© ë¶ˆëŸ¬ì˜¤ê¸°
         this.optionCanvas = Instantiate(optionCanvas);
-        optionCanvas.GetComponent<Canvas>().worldCamera = GameObject.Find("MainCamera").GetComponent<Camera>(); // ¿É¼Ç ÄË¹ö½º¿¡ Ä«¸Ş¶ó ¿¬°á
-        BGMSlider = this.optionCanvas.transform.GetChild(1).GetChild(0).GetComponent<Slider>(); //BGMSlider À§Ä¡ 
-        SFXSlider = this.optionCanvas.transform.GetChild(1).GetChild(1).GetComponent<Slider>(); //SFXSlider À§Ä¡
-        // Á¦ÀÌ½¼¿¡¼­ ÀúÀåµÈ BGM, SFX º§·ù ÀĞ¾î¿À±â ÄÚµå Ãß°¡ ÇÊ¿ä
+        optionCanvas.GetComponent<Canvas>().worldCamera = GameObject.Find("MainCamera").GetComponent<Camera>(); // ì˜µì…˜ ì¼„ë²„ìŠ¤ì— ì¹´ë©”ë¼ ì—°ê²°
+        BGMSlider = this.optionCanvas.transform.GetChild(1).GetChild(0).GetComponent<Slider>(); //BGMSlider ìœ„ì¹˜ 
+        SFXSlider = this.optionCanvas.transform.GetChild(1).GetChild(1).GetComponent<Slider>(); //SFXSlider ìœ„ì¹˜
+        // ì œì´ìŠ¨ì—ì„œ ì €ì¥ëœ BGM, SFX ë²¨ë¥˜ ì½ì–´ì˜¤ê¸° ì½”ë“œ ì¶”ê°€ í•„ìš”
         BGMSlider.value = BGMVolume; //= Data.saveData.ui.bgm;
         SFXSlider.value = SFXVolume; //= Data.saveData.ui.sfx;
         BGMSlider.onValueChanged.AddListener(ChangeBGMValue);
@@ -138,17 +140,17 @@ public class SoundManager : MonoBehaviour
 
     void ChangeBGMValue(float value)
     {
-        BGMVolume = value; //slider À§Ä¡ °ª
+        BGMVolume = value; //slider ìœ„ì¹˜ ê°’
         BGMSource.volume = BGMVolume;
     }
 
     void ChangeSFXValue(float value)
     {
-        SFXVolume = value; //slider À§Ä¡ °ª
+        SFXVolume = value; //slider ìœ„ì¹˜ ê°’
         SFXSource.volume = SFXVolume;
     }
 
-    void SoundPooling() // enum¿¡¼­ »ç¿îµå ÀÌ¸§À» ÀĞ¾î¿Í¼­ ÇØ´çÇÏ´Â »ç¿îµå ÆÄÀÏÀ» ·Îµå ½ÃÅ²´Ù
+    void SoundPooling() // enumì—ì„œ ì‚¬ìš´ë“œ ì´ë¦„ì„ ì½ì–´ì™€ì„œ í•´ë‹¹í•˜ëŠ” ì‚¬ìš´ë“œ íŒŒì¼ì„ ë¡œë“œ ì‹œí‚¨ë‹¤
     {
         string[] BGMNames = System.Enum.GetNames(typeof(BGM));
         string[] SFXNames = System.Enum.GetNames(typeof(SFX));
@@ -164,7 +166,7 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    void SetAudioSource() // ¿Àµğ¿À¼Ò½º¸¦ ÇÒ´çÇÑ´Ù
+    void SetAudioSource() // ì˜¤ë””ì˜¤ì†ŒìŠ¤ë¥¼ í• ë‹¹í•œë‹¤
     {
         AudioSource[] temp;
         temp = gameObject.GetComponents<AudioSource>();
@@ -175,7 +177,7 @@ public class SoundManager : MonoBehaviour
         SFXSource.volume = SFXVolume;
     }
 
-    public void Play(string soundName, float pitch = 1.0f) // Àü´Ş¹ŞÀº soundNameÀ» Ã£¾Æ¼­ ½ÇÇà½ÃÅ²´Ù
+    public void Play(string soundName, float pitch = 1.0f) // ì „ë‹¬ë°›ì€ soundNameì„ ì°¾ì•„ì„œ ì‹¤í–‰ì‹œí‚¨ë‹¤
     {
         if (BGMNames.Contains(soundName))
         {
@@ -196,10 +198,10 @@ public class SoundManager : MonoBehaviour
         {
             BGMSource.clip = null;
             SFXSource.clip = null;
-            Debug.Log("ÇØ´ç »ç¿îµå´Â Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù");
+            Debug.Log("í•´ë‹¹ ì‚¬ìš´ë“œëŠ” ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤");
         }
     }
-    public void Stop(string soundName) // Àü´Ş¹ŞÀº soundNameÀ» Ã£¾Æ¼­ Á¤Áö½ÃÅ²´Ù.
+    public void Stop(string soundName) // ì „ë‹¬ë°›ì€ soundNameì„ ì°¾ì•„ì„œ ì •ì§€ì‹œí‚¨ë‹¤.
     {
         if (BGMNames.Contains(soundName))
         {
@@ -212,8 +214,12 @@ public class SoundManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("ÇØ´ç »ç¿îµå´Â Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù");
+            Debug.Log("í•´ë‹¹ ì‚¬ìš´ë“œëŠ” ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤");
         }
     }
-
+    public void Stop()
+    {
+        BGMSource.Stop();
+        SFXSource.Stop();
+    }
 }

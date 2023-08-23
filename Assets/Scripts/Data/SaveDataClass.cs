@@ -82,12 +82,16 @@ public class EventType0
     public Vector3 pointDot2;
     public int nextMoveDot;
     public float time;
-    public EventType0(Vector3 pointDot1, Vector3 pointDot2,int nextMoveDot, float time)
+    public bool isStop;
+    public float stopTime;
+    public EventType0(Vector3 pointDot1, Vector3 pointDot2,int nextMoveDot, float time, bool isStop, float stopTime)
     {
         this.pointDot1 = pointDot1;
         this.pointDot2 = pointDot2;
         this.nextMoveDot = nextMoveDot;
         this.time = time;
+        this.isStop = isStop;
+        this.stopTime = stopTime;
     }
 }
 [System.Serializable]

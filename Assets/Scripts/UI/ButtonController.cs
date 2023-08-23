@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class ButtonController : MonoBehaviour
@@ -8,11 +9,11 @@ public class ButtonController : MonoBehaviour
     GameObject OptionCanvas;
     public GameObject startMenu;
     public GameObject stageMenu;
-    public string SceneToLoadGame; //ÀÎ°ÔÀÓ ¾À
-    public string SceneToLoadCutScene; //ÄÆ ¾À
+    public string SceneToLoadGame; //ì¸ê²Œì„ ì”¬
+    public string[] SceneToLoadCutScene; //ì»· ì”¬
     
-    SoundManager soundmanager; //Å×½ºÆ®
-    CanvasFadeEffect CanvasEffect; //·Îµù ½ºÅµ
+    SoundManager soundmanager; //í…ŒìŠ¤íŠ¸
+    CanvasFadeEffect CanvasEffect; //ë¡œë”© ìŠ¤í‚µ
 
     public GameObject loading;
     private CanvasGroup canvasGroup;
@@ -33,44 +34,63 @@ public class ButtonController : MonoBehaviour
         Data = DataManager.data; //static data
 
         OptionCanvas = soundmanager.optionCanvas;
-        OptionCanvas.SetActive(false); //°ÔÀÓ ½ÃÀÛ½Ã ¸Ş´º ÆĞ³Î ºñÈ°¼ºÈ­
+        OptionCanvas.SetActive(false); //ê²Œì„ ì‹œì‘ì‹œ ë©”ë‰´ íŒ¨ë„ ë¹„í™œì„±í™”
     }
 
     #region SettingButton
-    public void SettingOpen()
+    public void ClickSettingBtn()
     {
-        soundmanager.Play("Setting");
-        Invoke("SettingIn", 0.5f);
+        tmp = GameObject.Find("SettingButton");
+
+        if (tmp.transform.GetChild(0).gameObject.activeSelf && tmp.GetComponent<ButtonEvent>().bButtonClicked) //ë‘ë²ˆì§¸ í´ë¦­ì´ë©´
+        {
+            soundmanager.Play("Setting");
+            //tmp.transform.localScale = new Vector2(1f, 1f);
+            Invoke("SettingIn", 0.5f);
+        }
+        else //ì²«ë²ˆì§¸ í´ë¦­ì´ë©´ í™•ëŒ€
+        {
+            soundmanager.Play("Select");
+            //tmp.transform.localScale = new Vector2(1.2f, 1.2f);
+
+            tmp.GetComponent<ButtonEvent>().bButtonClicked = true;//
+        }
     }
-    public void SettingIn() //¼¼ÆÃ ¸Ş´º ¿­±â
+    public void SettingIn() //ì„¸íŒ… ë©”ë‰´ ì—´ê¸°
     {
        OptionCanvas.SetActive(true);
     }
     #endregion
 
     #region ExitButton
-    public void ClickExitBtn() //°ÔÀÓ Á¾·á
+    public void ClickExitBtn() //ê²Œì„ ì¢…ë£Œ
     {
-        if (GameObject.Find("ExitButton").transform.localScale.x == 1.2f) //µÎ¹øÂ° Å¬¸¯ÀÌ¸é
+        tmp = GameObject.Find("ExitButton");
+        if (tmp.transform.GetChild(0).gameObject.activeSelf && tmp.GetComponent<ButtonEvent>().bButtonClicked) //ë‘ë²ˆì§¸ í´ë¦­ì´ë©´
         {
+            tmp.GetComponent<Animator>().SetBool("ButtonClickSecond", true);
             soundmanager.Play("Door_exit");
-            GameObject.Find("ExitButton").transform.localScale = new Vector2(1f, 1f);
+            //tmp.transform.localScale = new Vector2(1f, 1f);
+            tmp.GetComponent<ButtonEvent>().SelectBoxBlink(true);
+
             Invoke("GameExit", 0.7f);
         }
-        else //Ã¹¹øÂ° Å¬¸¯ÀÌ¸é È®´ë, ¼±ÅÃµÈ È¿°ú
+        else //ì²«ë²ˆì§¸ í´ë¦­ì´ë©´ í™•ëŒ€, ì„ íƒëœ íš¨ê³¼
         {
             soundmanager.Play("Select");
-            GameObject.Find("ExitButton").transform.localScale = new Vector2(1.2f, 1.2f);
-            //+¼±ÅÃµÈ È¿°ú
+            //tmp.transform.localScale = new Vector2(1.2f, 1.2f);
+           
+            tmp.GetComponent<ButtonEvent>().bButtonClicked = true;//
         }
     }
     public void GameExit()
     {
-#if UNITY_EDITOR //À¯´ÏÆ¼ ¿¡µğÅÍ
+        tmp.GetComponent<Animator>().SetBool("ButtonClickSecond", false);
+#if UNITY_EDITOR //ìœ ë‹ˆí‹° ì—ë””í„°
         UnityEditor.EditorApplication.isPlaying = false;
-#elif UNITY_WEBPLAYER //À¥
+#elif UNITY_WEBPLAYER //ì›¹
          Application.OpenURL("http://google.com");
-#else // pc ¹× ¸ğ¹ÙÀÏ ¾Û
+#else // pc ë° ëª¨ë°”ì¼ ì•±
         Application.Quit();
 #endif
     }
@@ -79,40 +99,51 @@ public class ButtonController : MonoBehaviour
     #region StartButton
     public void ClickStartBtn()
     {
-        if (GameObject.Find("StartButton").transform.localScale.x == 1.2f) //µÎ¹øÂ° Å¬¸¯ÀÌ¸é
+        tmp = GameObject.Find("StartButton");
+        Debug.Log("Two");
+        if (tmp.transform.GetChild(0).gameObject.activeSelf && tmp.GetComponent<ButtonEvent>().bButtonClicked) //ë‘ë²ˆì§¸ í´ë¦­ì´ë©´
         {
+            tmp.GetComponent<Animator>().SetBool("ButtonClickSecond", true);
             soundmanager.Play("Door_play");
-            GameObject.Find("StartButton").transform.localScale = new Vector2(1f, 1f);
+            //tmp.transform.localScale = new Vector2(1f, 1f);
+            tmp.GetComponent<ButtonEvent>().SelectBoxBlink(true);
+
             Invoke("StageMenu", 0.8f);
         }
-        else //Ã¹¹øÂ° Å¬¸¯ÀÌ¸é È®´ë, ¼±ÅÃµÈ È¿°ú
+        else //ì²«ë²ˆì§¸ í´ë¦­ì´ë©´ í™•ëŒ€
         {
             soundmanager.Play("Select");
-            GameObject.Find("StartButton").transform.localScale = new Vector2(1.2f, 1.2f);
-            //+¼±ÅÃµÈ È¿°ú
+            //tmp.transform.localScale = new Vector2(1.2f, 1.2f);
+            tmp.GetComponent<ButtonEvent>().bButtonClicked = true;
         }
     }
-    public void StageMenu() //StartCanvas¿¡¼­ StageCanvas·Î
+    public void StageMenu() //StartCanvasì—ì„œ StageCanvasë¡œ
     {
+        
         Debug.Log("StageMenu");
         startMenu.SetActive(false);
         stageMenu.SetActive(true);
+        tmp.GetComponent<Animator>().SetBool("ButtonClickSecond", false);
     }
     #endregion
+
     #region BackButton
     public void ClickBackBtn()
     {
-        if (GameObject.Find("BackButton").transform.localScale.x == 1.2f) //µÎ¹øÂ° Å¬¸¯ÀÌ¸é
+        tmp = GameObject.Find("BackButton");
+        if (tmp.transform.GetChild(0).gameObject.activeSelf && tmp.GetComponent<ButtonEvent>().bButtonClicked) //ë‘ë²ˆì§¸ í´ë¦­ì´ë©´
         {
             soundmanager.Play("Execute");
-            GameObject.Find("BackButton").transform.localScale = new Vector2(1f, 1f);
+            //GameObject.Find("BackButton").transform.localScale = new Vector2(1f, 1f);
+            tmp.GetComponent<ButtonEvent>().SelectBoxBlink(true);
+
             Invoke("BackToStartMenu", 1f);
         }
-        else //Ã¹¹øÂ° Å¬¸¯ÀÌ¸é È®´ë, ¼±ÅÃµÈ È¿°ú
+        else //ì²«ë²ˆì§¸ í´ë¦­ì´ë©´ í™•ëŒ€
         {
             soundmanager.Play("Select");
-            GameObject.Find("BackButton").transform.localScale = new Vector2(1.2f, 1.2f);
-            //+¼±ÅÃµÈ È¿°ú
+            //GameObject.Find("BackButton").transform.localScale = new Vector2(1.2f, 1.2f);
+            tmp.GetComponent<ButtonEvent>().bButtonClicked = true;//
         }
     }
     public void BackToStartMenu()
@@ -123,32 +154,38 @@ public class ButtonController : MonoBehaviour
     #endregion
 
     #region StageButton
-    public void ClickStageBtn() //ÀÎ°ÔÀÓÀ¸·Î
+    public void ClickStageBtn() //ì¸ê²Œì„ìœ¼ë¡œ
     {
         int num = Data.saveData.gameData.stage;
-        string btn = "Stage" + (num+1).ToString();
-        
-        if (GameObject.Find(btn).transform.localScale.x == 1.2f) //µÎ¹øÂ° Å¬¸¯ÀÌ¸é
+        string btn = "Stage" + num.ToString(); // ìŠ¤í…Œì´ì§€ ì„ íƒ ë²„íŠ¼ ì´ë¦„
+
+        tmp = GameObject.Find(btn);
+        if (tmp.transform.GetChild(0).gameObject.activeSelf && tmp.GetComponent<ButtonEvent>().bButtonClicked) //ë‘ë²ˆì§¸ í´ë¦­ì´ë©´
         {
             soundmanager.Play("Execute");
-            GameObject.Find(btn).transform.localScale = new Vector2(1f, 1f);
+            //GameObject.Find(btn).transform.localScale = new Vector2(1f, 1f);
+            tmp.GetComponent<ButtonEvent>().SelectBoxBlink(true);
+
             Invoke("LoadGame", 1f);
         }
-        else //Ã¹¹øÂ° Å¬¸¯ÀÌ¸é È®´ë, ¼±ÅÃµÈ È¿°ú
+        else //ì²«ë²ˆì§¸ í´ë¦­ì´ë©´ í™•ëŒ€, ì„ íƒëœ íš¨ê³¼
         {
             soundmanager.Play("Select");
-            GameObject.Find(btn).transform.localScale = new Vector2(1.2f, 1.2f);
-            //+¼±ÅÃµÈ È¿°ú
+            //GameObject.Find(btn).transform.localScale = new Vector2(1.2f, 1.2f);
+            //+ì„ íƒëœ íš¨ê³¼
+            tmp.GetComponent<ButtonEvent>().bButtonClicked = true;//
         }
     }
-    public void LoadGame()
+    public void LoadGame() //ì¸ê²Œì„ìœ¼ë¡œ ì´ë™, BGM ì¢…ë£Œ
     {
+        soundmanager.Stop();
         SceneManager.LoadScene(SceneToLoadGame);
     }
 
-    public void LoadCutScene() //ÄÆ¾ÀÀ¸·Î
+    public void LoadCutScene(int num) //ì»·ì”¬ìœ¼ë¡œ ì´ë™, BGM ì¢…ë£Œ
     {
-        SceneManager.LoadScene(SceneToLoadCutScene);
+        soundmanager.Stop();
+        SceneManager.LoadScene(SceneToLoadCutScene[num]);
     }
     #endregion
     public void canvasSkip()
