@@ -44,9 +44,10 @@ public class ButtonController : MonoBehaviour
 
         if (tmp.transform.GetChild(0).gameObject.activeSelf && tmp.GetComponent<ButtonEvent>().bButtonClicked) //두번째 클릭이면
         {
+            tmp.GetComponent<Animator>().SetBool("ButtonClickSecond", true);
             soundmanager.Play("Setting");
             //tmp.transform.localScale = new Vector2(1f, 1f);
-            Invoke("SettingIn", 0.5f);
+            Invoke("SettingIn", 0.6f);
         }
         else //첫번째 클릭이면 확대
         {
@@ -58,7 +59,8 @@ public class ButtonController : MonoBehaviour
     }
     public void SettingIn() //세팅 메뉴 열기
     {
-       OptionCanvas.SetActive(true);
+        tmp.GetComponent<Animator>().SetBool("ButtonClickSecond", false);
+        OptionCanvas.SetActive(true);
     }
     #endregion
 
@@ -73,7 +75,7 @@ public class ButtonController : MonoBehaviour
             //tmp.transform.localScale = new Vector2(1f, 1f);
             tmp.GetComponent<ButtonEvent>().SelectBoxBlink(true);
 
-            Invoke("GameExit", 0.7f);
+            Invoke("GameExit", 0.758f);
         }
         else //첫번째 클릭이면 확대, 선택된 효과
         {
@@ -108,7 +110,7 @@ public class ButtonController : MonoBehaviour
             //tmp.transform.localScale = new Vector2(1f, 1f);
             tmp.GetComponent<ButtonEvent>().SelectBoxBlink(true);
 
-            Invoke("StageMenu", 0.8f);
+            Invoke("StageMenu", 0.77f);
         }
         else //첫번째 클릭이면 확대
         {
