@@ -605,9 +605,9 @@ RectTransform:
   m_Father: {fileID: 198165316}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1202.5, y: -400}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 735, y: 625}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &195251147
@@ -700,7 +700,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bButtonClicked: 0
-  loopType: 0
 --- !u!114 &195251149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1314,7 +1313,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1653756768}
         m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: LoadCutScene
+        m_MethodName: ClickCutSceneBtn
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1375,7 +1374,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bButtonClicked: 0
-  loopType: 0
 --- !u!114 &327572379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2138,7 +2136,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bButtonClicked: 0
-  loopType: 0
 --- !u!95 &436837644
 Animator:
   serializedVersion: 5
@@ -2461,7 +2458,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bButtonClicked: 0
-  loopType: 0
 --- !u!1 &502527009
 GameObject:
   m_ObjectHideFlags: 0
@@ -2501,9 +2497,9 @@ RectTransform:
   m_Father: {fileID: 198165316}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 2037.5, y: -400}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 735, y: 625}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &502527011
@@ -2596,7 +2592,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bButtonClicked: 0
-  loopType: 0
 --- !u!114 &502527013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2854,7 +2849,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bButtonClicked: 0
-  loopType: 0
 --- !u!114 &535460509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3348,7 +3342,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1653756768}
         m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: LoadCutScene
+        m_MethodName: ClickCutSceneBtn
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3409,7 +3403,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bButtonClicked: 0
-  loopType: 0
 --- !u!114 &735840422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4445,9 +4438,9 @@ RectTransform:
   m_Father: {fileID: 198165316}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 2872.5, y: -400}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 735, y: 625}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1185638981
@@ -4540,7 +4533,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bButtonClicked: 0
-  loopType: 0
 --- !u!114 &1185638983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5094,9 +5086,9 @@ RectTransform:
   m_Father: {fileID: 198165316}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 367.5, y: -400}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 735, y: 625}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1499876004
@@ -5297,7 +5289,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bButtonClicked: 0
-  loopType: 0
 --- !u!1 &1503522129
 GameObject:
   m_ObjectHideFlags: 0
@@ -5385,7 +5376,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1653756768}
         m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: LoadCutScene
+        m_MethodName: ClickCutSceneBtn
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5446,7 +5437,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bButtonClicked: 0
-  loopType: 0
 --- !u!114 &1503522135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5921,7 +5911,7 @@ MonoBehaviour:
   SceneToLoadGame: InGameScene
   SceneToLoadCutScene:
   - CutScene
-  - 
+  - CutScene01
   - CutScene02
   - 
   loading: {fileID: 1107499328}
@@ -6142,7 +6132,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1653756768}
         m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
-        m_MethodName: LoadCutScene
+        m_MethodName: ClickCutSceneBtn
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6203,7 +6193,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bButtonClicked: 0
-  loopType: 0
 --- !u!114 &1758072154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6588,7 +6577,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bButtonClicked: 0
-  loopType: 0
 --- !u!95 &1954671815
 Animator:
   serializedVersion: 5

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using DG.Tweening;
+
 
 public class ButtonEvent : MonoBehaviour
 {
@@ -10,6 +10,7 @@ public class ButtonEvent : MonoBehaviour
     //selctBox는 반드시 버튼의 첫번째 Child
 
     public bool bButtonClicked = false; //각 버튼별 클릭여부
+    bool pointerEnter = false; // 버튼 위에 포인터 올라가있는지 여부
 
     private void OnEnable()
     {
@@ -28,12 +29,24 @@ public class ButtonEvent : MonoBehaviour
 
     public void PointerEnter()
     {
+        pointerEnter = true;
         Debug.Log("enter");
+        ButtonEvent[] be = GetComponentsInChildren<ButtonEvent>(); //해당 컴포넌트 가지고있는 child 배열 (자신 포함)
+
+        if (be.Length > 1) // 자신 제외 더 있다면
+            for (int i = 1; i < be.Length; i++)
+            {
+                if (be[i].GetComponent<ButtonEvent>().pointerEnter) // 자식 오브젝트에 포인터 들어가있으면
+                    return;
+            }
+        //자식이 아닌 자신에게 포인터 들어가있으면    
         gameObject.transform.GetChild(0).gameObject.SetActive(true); //selectBox 표시
+
         //transform.GetChild(0).localScale = new Vector2(1.2f, 1.2f); // 모바일 빌드 후 확인 필요
     }
     public void PointerExit()
     {
+        pointerEnter = false;
         //transform.localScale = new Vector2(1f, 1f);
         if (!bButtonClicked) //클릭된것이 아니라면
         {
@@ -57,7 +70,6 @@ public class ButtonEvent : MonoBehaviour
         transform.GetChild(0).gameObject.SetActive(false);
     }
 
-    public LoopType loopType;
     public void SelectBoxBlink(bool onOff)
     {
         //5번 깜빡임

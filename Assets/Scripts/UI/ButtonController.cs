@@ -183,9 +183,32 @@ public class ButtonController : MonoBehaviour
         soundmanager.Stop();
         SceneManager.LoadScene(SceneToLoadGame);
     }
+    #endregion
 
-    public void LoadCutScene(int num) //컷씬으로 이동, BGM 종료
+    #region CutSceneButton
+    public void ClickCutSceneBtn(int num) // 컷씬으로
     {
+        tmp = GameObject.Find("cutScenePlayer");
+        if (tmp.transform.GetChild(0).gameObject.activeSelf && tmp.GetComponent<ButtonEvent>().bButtonClicked) //두번째 클릭이면
+        {
+            soundmanager.Play("Execute"); // 소리 확인 필요
+
+            //GameObject.Find(btn).transform.localScale = new Vector2(1f, 1f);
+            tmp.GetComponent<ButtonEvent>().SelectBoxBlink(true);
+
+            StartCoroutine("LoadCutScene", num);
+        }
+        else //첫번째 클릭이면 확대, 선택된 효과
+        {
+            soundmanager.Play("Select");
+            //GameObject.Find(btn).transform.localScale = new Vector2(1.2f, 1.2f);
+            //+선택된 효과
+            tmp.GetComponent<ButtonEvent>().bButtonClicked = true;//
+        }
+    }
+    IEnumerator LoadCutScene(int num) //컷씬으로 이동, BGM 종료
+    {
+        yield return new WaitForSeconds(1.0f);
         soundmanager.Stop();
         SceneManager.LoadScene(SceneToLoadCutScene[num]);
     }

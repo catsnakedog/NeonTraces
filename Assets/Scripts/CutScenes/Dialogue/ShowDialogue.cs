@@ -11,7 +11,7 @@ public class ShowDialogue : MonoBehaviour
     public PlayableDirector playableDirector;
     [Tooltip("0번은 주인공, 1번은 드론, 2번은 스피커, 3번은 AI\nText오브젝트")]
     public Text[] text;
-    
+
     int talkDatasIndex = 0;
     int count = 0; // 배열 인덱스 숫자
     TalkData[] talkDatas;
@@ -20,6 +20,9 @@ public class ShowDialogue : MonoBehaviour
     private float typingSpeed;
     private string textString;
     private bool CoroutineEnd = true;
+
+
+    GameObject tempObject;
 
     private void Awake()
     {
@@ -42,8 +45,19 @@ public class ShowDialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (Input.GetMouseButtonDown(0) && !CoroutineEnd)
+        {
+            //StopCoroutine(StartTyping());
+            StopCoroutine(Typing());
+            CoroutineEnd = true;
+            text[index].text = null;
+            text[index].text = textString;
+            return;
+        }
         if (Input.GetMouseButtonDown(0) && CoroutineEnd) // 특정 시간 되면 일시정지 후 대화 시작
         {
+
             Debug.Log("클릭");
             InitDialogue(); //인덱스 초기화 및 유효성 검사
 
@@ -111,11 +125,10 @@ public class ShowDialogue : MonoBehaviour
                 index = 3;
                 break;
         }
-
         Debug.Log(name);
         Debug.Log(name + " count: " + count);
         Debug.Log(name + " talkDatasIndex: " + talkDatasIndex);
-
+        
 
         text[index].transform.parent.parent.gameObject.SetActive(true);
         //text[index].text = talkDatas[talkDatasIndex].contexts[count].Replace("\\n", "\n");
@@ -124,8 +137,9 @@ public class ShowDialogue : MonoBehaviour
         textString = talkDatas[talkDatasIndex].contexts[count].Replace("\\n", "\n");
         
 
-        StartCoroutine(StartTyping());
-        
+        //StartCoroutine(StartTyping());
+        StartCoroutine(Typing());
+
         count++;
     }
 
@@ -155,11 +169,12 @@ public class ShowDialogue : MonoBehaviour
             text[index].fontStyle = FontStyle.Italic;
         //타이핑
 
-        for (int i = 0; i < textString.Length; i++)
+        for (int i = 0; i < textString.Length && !CoroutineEnd; i++)
         {
             text[index].text += textString[i];
             //속도
             yield return new WaitForSeconds(typingSpeed);
+
         }
         CoroutineEnd = true;
         //int i = 0;
