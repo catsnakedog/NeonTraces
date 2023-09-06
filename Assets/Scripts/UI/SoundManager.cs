@@ -28,68 +28,87 @@ public class SoundManager : MonoBehaviour
 
     public GameObject optionCanvas; //버튼에서 사용
 
-    // 8월19일 수정
-    enum BGM
+    
+    enum BGM // Update 0904
     {
         BGM_01,
         BGM_02,
         BGM_03,
         BGM_04,
+        mainscreen,
         Test_BGM,
+
         MaxCount //삭제 금지
     }
 
+    // 8월19일 업데이트
     enum SFX
     {
         Test_ClickSFX,
-        // UI - 6개
+        // UI - 6개 @Update 0904
         Door_exit,
         Door_play,
         Execute,
-        NeonLogo,
+        Neon,
         Select,
         Setting,
 
-        // 컷씬/드론 - 5개
+        //환경음 - 1개 (mainscreen은 BGM) @Update 0904
+        mainscreen_screen_flashing,
+
+        // 컷씬/드론 - 6개 @Update 0904
         Drone_applaud,
+        Drone_error,
         Drone_explode,
         Drone_joke,
         Drone_joke2,
         Drone_scan,
-        // 컷씬/차량 - 4개
+
+        // 컷씬/차량 - 4개 @Update 0904
         Car_break,
         Car_break_crash,
         Car_crash,
         Car_passby,
-        // 컷씬 - 1개
+        // 컷씬 - 1개 @Update 0904
         Talk,
 
-        // 전투/메인 - 12개
+        // 전투/메인 - 12개 @Update 0904
+        A,
+        ABCBAC_2_ACB,
+        B,
+        Block,
+        C,
         main_attack1,
         main_attack2,
-        main_drag, //0820 삭제?
-        main_footstep,
         main_hit,
         main_jump,
         main_landing,
-        Main_parry_A2,
         main_parry1,
         main_parry2,
-        // 전투 - 11개
+        main_parry_A2,
+        main_parry_B2,
+        Rmaindrag_new,
+        Rmaindrag_original,
+
+        //??? @Update 0823
+        maindrag_nospace,
+        maindrag_space,
+
+        // 전투 - 11개 @Update 0904
         A1_attack,
         A2_attack,
         B1_attack,
         B2_attack,
         B2_shield,
-        C1_ready,
-        C1_move,
         C1_attack,
+        C1_move,
+        C1_ready,
         C2_attack,
         C2_bolt,
         C2_case,
-        A,
-        B,
-        C,
+        Drag_new,
+        Drag_new_loop,
+
 
         MaxCount //삭제 금지
     }

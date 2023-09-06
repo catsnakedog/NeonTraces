@@ -8,22 +8,39 @@ public class StartMenuSetting : MonoBehaviour
     private CanvasGroup canvasGroup;
     bool once = true;
 
+    float time = 0.0f;
+
     void Start()
     {
         soundmanager = SoundManager.sound;
 
         canvasGroup = GameObject.Find("LoadingCanvas").GetComponent<CanvasGroup>();
-        gameObject.SetActive(true);  //°ÔÀÓ ½ÃÀÛ½Ã ½ÃÀÛ ¸Ş´º È°¼ºÈ­
-        GameObject.Find("StageCanvas").SetActive(false); //°ÔÀÓ ½ÃÀÛ½Ã ½ºÅ×ÀÌÁö ¸Ş´º ºñÈ°¼ºÈ­
+        gameObject.SetActive(true);  //ê²Œì„ ì‹œì‘ì‹œ ì‹œì‘ ë©”ë‰´ í™œì„±í™”
+        GameObject.Find("StageCanvas").SetActive(false); //ê²Œì„ ì‹œì‘ì‹œ ìŠ¤í…Œì´ì§€ ë©”ë‰´ ë¹„í™œì„±í™”
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (canvasGroup.alpha < 0.4f && once)
+        if (canvasGroup.alpha < 0.4f) // ë¡œê³  êº¼ì§€ë©´
         {
-            soundmanager.Play("Test_BGM");
-            once = false;
+            if (once) // ë©”ì¸ í™˜ê²½ìŒ ì‹œì‘
+            {
+                soundmanager.Play("mainscreen");
+                once = false;
+            }
+
+            //10ì´ˆì— í•œë²ˆì”© í•´ë‹¹ SFX ì¬ìƒ
+            if (time > 10.0f)
+            {
+                time = 0.0f;
+                soundmanager.Play("mainscreen_screen_flashing");
+            }
+            else
+            {
+                time += Time.deltaTime;
+            }
         }
+
     }
 }

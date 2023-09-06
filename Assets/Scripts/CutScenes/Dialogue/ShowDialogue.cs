@@ -55,7 +55,7 @@ public class ShowDialogue : MonoBehaviour
             text[index].text = textString;
             return;
         }
-        if (Input.GetMouseButtonDown(0) && CoroutineEnd) // 특정 시간 되면 일시정지 후 대화 시작
+        if (Input.GetMouseButtonDown(0) && CoroutineEnd && AnimationInDialouge.AnimEnd) // 특정 시간 되면 일시정지 후 대화 시작
         {
 
             Debug.Log("클릭");
@@ -101,7 +101,8 @@ public class ShowDialogue : MonoBehaviour
             count = 0;
             for (int i = 0; i < text.Length; i++)
             {
-                text[i].transform.parent.parent.gameObject.SetActive(false);
+                if(text[i] != null)
+                    text[i].transform.parent.parent.gameObject.SetActive(false);
             }
         }
 
@@ -135,7 +136,7 @@ public class ShowDialogue : MonoBehaviour
 
         typingSpeed = float.Parse(talkDatas[talkDatasIndex].speed);
         textString = talkDatas[talkDatasIndex].contexts[count].Replace("\\n", "\n");
-        
+        textString = textString.Replace("`", ",");
 
         //StartCoroutine(StartTyping());
         StartCoroutine(Typing());
