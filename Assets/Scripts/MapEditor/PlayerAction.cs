@@ -195,7 +195,7 @@ public class PlayerAction : MonoBehaviour
         {
             StopCoroutine(aniC);
         }
-        SoundManager.sound.Play("main_parry" + UnityEngine.Random.Range(1, 3).ToString());
+        SoundManager.sound.Play("Block");
         effectC = StartCoroutine(ShowEffect(12, 15, new Vector3(1.5f, 0, 0)));
         aniC = StartCoroutine(CallAni("Defence", defenceMotionTime));
         isDefence = true;

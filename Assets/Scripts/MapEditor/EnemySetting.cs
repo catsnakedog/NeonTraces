@@ -10,6 +10,7 @@ public class EnemySetting : MonoBehaviour
     [SerializeField] public bool isActive = true;
     [SerializeField] public bool isCountUp;
     [SerializeField] public bool isBlood;
+    [SerializeField] public bool isBack;
     [SerializeField] public int type;
     [SerializeField] public int index;
     [SerializeField] public int startDot;
@@ -68,6 +69,7 @@ public class EnemySetting : MonoBehaviour
         bloodAngleMax = 30;
         bloodAngleMin = -30;
         cnt = 0;
+        isBack = false;
         defaultV3 = gameObject.transform.position;
     }
 
@@ -78,6 +80,8 @@ public class EnemySetting : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision) // player와 충돌시 판정
     {
+        if (isBack)
+            return;
         if(isActive)
         {
             if (collision.name == "Life") // 플레이어 본체와 충돌시 사망
@@ -304,6 +308,10 @@ public class EnemySetting : MonoBehaviour
             {
                 Invoke(className, 0f);
             }
+            if(isBack)
+            {
+                isBack = false;
+            }
             Data.saveData.gameData.enemyInfo[index].x = gameObject.transform.position.x;
         }
     }
@@ -319,6 +327,7 @@ public class EnemySetting : MonoBehaviour
 
     void EnemyRebound() // enemy에게 반동을 줌
     {
+        isBack = true;
         power = backPower;
         speed = backSpeed;
         startDot = playerMove.crruentMoveDot;
