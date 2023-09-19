@@ -3,11 +3,21 @@ using UnityEngine;
 
 public class DialogueParse : MonoBehaviour
 {
+    public static DialogueParse DP;
     private void Awake()
     {
+        if (DP == null)
+        {
+            DP = this;
+            SetTalkDictionary();
+            SetDebugTalkData(); //인스펙터 창에서 대화데이터 보이도록하기
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
 
-        SetTalkDictionary();
-        SetDebugTalkData(); //인스펙터 창에서 대화데이터 보이도록하기
     }
 
 

@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Dot
   - Drone
+  - Light
+  - EventSys
+  - Main
   layers:
   - Default
   - TransparentFX
