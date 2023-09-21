@@ -1,22 +1,21 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class ButtonController : MonoBehaviour
 {
     GameObject OptionCanvas;
     public GameObject startMenu;
+    public GameObject creditPanel;
     public GameObject stageMenu;
     public string SceneToLoadGame; //인게임 씬
     public string[] SceneToLoadCutScene; //컷 씬
+    
     
     public SoundManager soundmanager; //테스트
     CanvasFadeEffect CanvasEffect; //로딩 스킵
 
     public GameObject loading;
-    private CanvasGroup canvasGroup;
 
     DataManager Data;
 
@@ -25,7 +24,6 @@ public class ButtonController : MonoBehaviour
     private void Awake()
     {
         CanvasEffect = FindObjectOfType<CanvasFadeEffect>();
-        canvasGroup = loading.GetComponent<CanvasGroup>();
     }
 
     void Start()
@@ -35,6 +33,17 @@ public class ButtonController : MonoBehaviour
 
         OptionCanvas = soundmanager.optionCanvas;
         OptionCanvas.SetActive(false); //게임 시작시 메뉴 패널 비활성화
+        creditPanel.SetActive(false); //게임 시작시 크레딧 패널 비활성화
+    }
+
+    public void OpenCredit()
+    {
+        creditPanel.SetActive(true);
+    }
+
+    public void CloseCredit()
+    {
+        creditPanel.SetActive(false);
     }
 
     #region SettingButton

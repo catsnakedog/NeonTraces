@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,8 +20,6 @@ public class ButtonEvent : MonoBehaviour
     private void OnDisable()
     {
         bButtonClicked = false;
-        //transform.localScale = new Vector2(1f, 1f);
-        //transform.GetChild(0).localScale = new Vector2(1f, 1f);
         transform.GetChild(0).gameObject.SetActive(false);
     }
 
@@ -41,43 +37,30 @@ public class ButtonEvent : MonoBehaviour
             }
         //자식이 아닌 자신에게 포인터 들어가있으면    
         gameObject.transform.GetChild(0).gameObject.SetActive(true); //selectBox 표시
-
-        //transform.GetChild(0).localScale = new Vector2(1.2f, 1.2f); // 모바일 빌드 후 확인 필요
     }
     public void PointerExit()
     {
         pointerEnter = false;
-        //transform.localScale = new Vector2(1f, 1f);
         if (!bButtonClicked) //클릭된것이 아니라면
         {
             Debug.Log("exit");
-            //transform.GetChild(0).localScale = new Vector2(1f, 1f); //selectBox 크기
             transform.GetChild(0).gameObject.SetActive(false);
         }
     }
     public void PointerSelect()
     {
         Debug.Log("select");
-        //transform.GetChild(0).localScale = new Vector2(1.2f, 1.2f);
         //버튼 클릭 체크는 controller에서
     }
     public void PointerDeselect()
     {
         Debug.Log("DEselect");
         bButtonClicked = false;
-        //transform.localScale = new Vector2(1f, 1f);
-        //transform.GetChild(0).localScale = new Vector2(1f, 1f);
         transform.GetChild(0).gameObject.SetActive(false);
     }
 
     public void SelectBoxBlink(bool onOff)
     {
-        //5번 깜빡임
-        //for (int i = 0; i < 5; i++)
-        //{
-        //    transform.GetChild(0).GetComponent<Image>().DOFade(0.0f, time / 5);
-        //}
-        //transform.GetChild(0).GetComponent<Image>().color = Color.white;
         transform.GetChild(0).GetComponent<FadeEffect>().enabled = onOff;
     }
 }
