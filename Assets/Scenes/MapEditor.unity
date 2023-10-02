@@ -1506,8 +1506,8 @@ MonoBehaviour:
   mapBGs:
   - {fileID: 7793046088606883056, guid: 6be99fcb5e8cb1c4aba336749dbc74ac, type: 3}
   - {fileID: 444175643439269280, guid: 0a9d9dfa0dd54194c9bc7b204e8d0bee, type: 3}
-  - {fileID: 6712658111376015217, guid: 7dc4cc9d88661e3428e7e6040a5801c8, type: 3}
-  - {fileID: 6712658111376015217, guid: 7dc4cc9d88661e3428e7e6040a5801c8, type: 3}
+  - {fileID: 5794155579455688484, guid: dc9d427f96079e64193d589c655deb1f, type: 3}
+  - {fileID: 5794155579455688484, guid: dc9d427f96079e64193d589c655deb1f, type: 3}
   lrs: []
   lrCount: 0
   bezierCount: 0
