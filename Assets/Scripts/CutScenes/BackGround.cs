@@ -16,6 +16,6 @@ public class BackGround : MonoBehaviour
     void Update()
     {
         newPos = Mathf.Repeat(Time.time * speed, posValue);
-        transform.position = startPos + Vector2.right * newPos;
+        transform.position = startPos + Vector2.left * newPos;
     }
 }
