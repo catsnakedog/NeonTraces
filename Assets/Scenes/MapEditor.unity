@@ -581,14 +581,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f560998e8261003499a2698fc5889c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camsize: 5
+  camsize: 10
   mainCamera: {fileID: 0}
   mainCameraC: {fileID: 0}
   target: {fileID: 0}
   camSpeed: 0
   isShake: 0
   xCorrection: 14
-  yCorrection: 5
+  yCorrection: 0
 --- !u!114 &371371804
 MonoBehaviour:
   m_ObjectHideFlags: 0
