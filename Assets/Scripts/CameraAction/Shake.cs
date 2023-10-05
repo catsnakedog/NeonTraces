@@ -21,25 +21,6 @@ public class Shake : MonoBehaviour
         originRot = shakeCamera.localRotation;
     }
 
-    public IEnumerator Shakecamera(float duration = 1.11f, float magnitudePos = 0.03f, float magnitudeRot = 0.1f)
-    {
-        float passTime = 0.0f;
-        while (passTime < duration)
-        {
-            Vector3 shakePos = Random.insideUnitSphere;
-            shakeCamera.localPosition = shakePos * magnitudePos;
-            if (shakeRotate)
-            {
-                Vector3 shakeRot = new Vector3(0, 0, -10+Mathf.PerlinNoise(Time.time * magnitudeRot, 0.0f));
-                shakeCamera.localRotation = Quaternion.Euler(shakeRot);
-            }
 
-            passTime += Time.deltaTime;
-            yield return null;
-        }
-
-        shakeCamera.localPosition = originPos;
-        shakeCamera.localRotation = originRot;
-    }
 }
 // https://www.youtube.com/watch?v=99bgQ5WG6ok 참고자료,사용법

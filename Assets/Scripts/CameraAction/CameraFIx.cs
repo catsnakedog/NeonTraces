@@ -45,6 +45,8 @@ public class CameraFix : MonoBehaviour
         {
             framecount = 30;
             isShake = false;
+            secondframe = false;
+            ShakePower = 1f;
         }
 
         if (framecount > 0)
