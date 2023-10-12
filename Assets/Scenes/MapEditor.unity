@@ -588,7 +588,7 @@ MonoBehaviour:
   camSpeed: 0
   isShake: 0
   xCorrection: 14
-  yCorrection: 0
+  yCorrection: 5
 --- !u!114 &371371804
 MonoBehaviour:
   m_ObjectHideFlags: 0
