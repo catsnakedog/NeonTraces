@@ -127,6 +127,8 @@ MonoBehaviour:
   isActive: 1
   isCountUp: 0
   isBlood: 0
+  isBack: 0
+  isAttackAni: 1
   type: 0
   index: 0
   startDot: 0
@@ -142,6 +144,7 @@ MonoBehaviour:
   defaultV3: {x: 0, y: 0, z: 0}
   backPower: 0
   backSpeed: 0
+  Effect: []
 --- !u!95 &-2534482108470668156
 Animator:
   serializedVersion: 5

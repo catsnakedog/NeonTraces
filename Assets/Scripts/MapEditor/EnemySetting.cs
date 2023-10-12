@@ -11,6 +11,7 @@ public class EnemySetting : MonoBehaviour
     [SerializeField] public bool isCountUp;
     [SerializeField] public bool isBlood;
     [SerializeField] public bool isBack;
+    [SerializeField] public bool isAttackAni;
     [SerializeField] public int type;
     [SerializeField] public int index;
     [SerializeField] public int startDot;
@@ -224,11 +225,13 @@ public class EnemySetting : MonoBehaviour
             if (startDot == endDot)
             {
                 enemyAnimator.SetBool("IsRun", false);
+                if (isAttackAni) enemyAction += IsAttack;
                 Debug.Log("적이동 완료");
             }
             else if (startDot > endDot)
             {
                 enemyAnimator.SetBool("IsRun", true);
+                if (isAttackAni) enemyAction += IsAttack;
                 currentDot = startDot - 1;
                 endPoint = Data.saveData.mapData[Data.saveData.gameData.stage].moveDots[currentDot].v3;
                 MoveAtoB("EnemyMoveStart", false, false);
@@ -236,6 +239,7 @@ public class EnemySetting : MonoBehaviour
             else
             {
                 enemyAnimator.SetBool("IsRun", true);
+                if (isAttackAni) enemyAction += IsAttack;
                 currentDot = startDot + 1;
                 endPoint = Data.saveData.mapData[Data.saveData.gameData.stage].moveDots[currentDot].v3;
                 MoveAtoB("EnemyMoveStart", true, false);
@@ -364,7 +368,8 @@ public class EnemySetting : MonoBehaviour
         cameraManager.CameraAction("ZoomOutAction");
     }
 
-    float xPos2;
+    float attackAniPos;
+    float attackAniTime;
 
     public void EnemyPosition()
     {
@@ -374,7 +379,6 @@ public class EnemySetting : MonoBehaviour
         int dotPosition1 = 0;
         int dotPosition2 = 0;
         speed = DefaultSpeed;
-        xPos2 = transform.GetChild(0).position.x;
         enemyAction += IsAttack;
 
         foreach (MoveDot dot in moveDots)
@@ -468,7 +472,7 @@ public class EnemySetting : MonoBehaviour
 
         }
 
-        
+        attackAniPos = (xPoint + speed * attackAniTime);
     }
 
     void IsPlayerCome()
@@ -482,7 +486,7 @@ public class EnemySetting : MonoBehaviour
 
     void IsAttack()
     {
-        if(DataManager.data.saveData.gameData.player.transform.position.x >= xPos2 - 1)
+        if(DataManager.data.saveData.gameData.player.transform.position.x >= attackAniPos)
         {
             enemyAnimator.SetTrigger("IsAttack");
             enemyAction -= IsAttack;
