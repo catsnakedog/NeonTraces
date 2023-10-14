@@ -581,7 +581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f560998e8261003499a2698fc5889c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camsize: 5
+  camsize: 10
   mainCamera: {fileID: 0}
   mainCameraC: {fileID: 0}
   target: {fileID: 0}
@@ -1506,7 +1506,7 @@ MonoBehaviour:
   mapBGs:
   - {fileID: 7793046088606883056, guid: 6be99fcb5e8cb1c4aba336749dbc74ac, type: 3}
   - {fileID: 444175643439269280, guid: 0a9d9dfa0dd54194c9bc7b204e8d0bee, type: 3}
-  - {fileID: 5545700237754903631, guid: 8885b8c01dc218347b00566e3e66026c, type: 3}
+  - {fileID: 4286513164043518157, guid: 458f9ac8726cf2d4ba3c1dff209c49bb, type: 3}
   - {fileID: 5545700237754903631, guid: 8885b8c01dc218347b00566e3e66026c, type: 3}
   lrs: []
   lrCount: 0
