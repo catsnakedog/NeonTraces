@@ -139,7 +139,7 @@ public class SoundManager : MonoBehaviour
 
     void OptionSetting()
     {
-        GameObject optionCanvas = Resources.Load<GameObject>("Sound/OptionCanvas"); // 옵션 프리펩 불러오기
+        GameObject optionCanvas = Resources.Load<GameObject>("Sound/MainSetting"); // 옵션 프리펩 불러오기
         this.optionCanvas = Instantiate(optionCanvas);
         optionCanvas.GetComponent<Canvas>().worldCamera = GameObject.Find("MainCamera").GetComponent<Camera>(); // 옵션 켄버스에 카메라 연결
         BGMSlider = this.optionCanvas.transform.GetChild(1).GetChild(0).GetComponent<Slider>(); //BGMSlider 위치 
