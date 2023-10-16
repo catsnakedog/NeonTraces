@@ -368,8 +368,8 @@ public class EnemySetting : MonoBehaviour
         cameraManager.CameraAction("ZoomOutAction");
     }
 
-    float attackAniPos;
-    float attackAniTime;
+    [SerializeField] float attackAniPos;
+    [SerializeField] float attackAniTime;
 
     public void EnemyPosition()
     {
@@ -472,7 +472,7 @@ public class EnemySetting : MonoBehaviour
 
         }
 
-        attackAniPos = (xPoint + speed * attackAniTime);
+        attackAniPos = transform.GetChild(0).position.x + speed * attackAniTime;
     }
 
     void IsPlayerCome()
@@ -486,7 +486,7 @@ public class EnemySetting : MonoBehaviour
 
     void IsAttack()
     {
-        if(DataManager.data.saveData.gameData.player.transform.position.x >= attackAniPos)
+        if(transform.position.x <= attackAniPos)
         {
             enemyAnimator.SetTrigger("IsAttack");
             enemyAction -= IsAttack;

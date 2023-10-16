@@ -145,6 +145,8 @@ MonoBehaviour:
   backPower: 0
   backSpeed: 0
   Effect: []
+  attackAniPos: 0
+  attackAniTime: 0.6
 --- !u!95 &-2534482108470668156
 Animator:
   serializedVersion: 5
