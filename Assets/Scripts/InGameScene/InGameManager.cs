@@ -18,14 +18,15 @@ public class InGameManager : MonoBehaviour
         optimizeEnemy = gameObject.GetComponent<OptimizeEnemy>();
         Data = DataManager.data;
         stage = Data.saveData.gameData.stage;
+        Data.saveData.gameData.isInGame = true;
         Invoke("SettingGame", 1f);
     }
 
-    void SettingGame() // °ÔÀÓ ½ÃÀÛ ÇÔ¼ö, ¸Ê»ı¼º ÇÃ·¹ÀÌ¾î ¿òÁ÷ÀÓ µîµîÀ» ÇÑ´Ù / ¾Æ¸¶µµ ¸Ê»ı¼º°ú ¿òÁ÷ÀÓÀº ºÒ¸®ÇØ¼­ ½ÇÇàÇÒ°Å°°´Ù (¼öÁ¤ ÇÊ¿ä)
+    void SettingGame() // ê²Œì„ ì‹œì‘ í•¨ìˆ˜, ë§µìƒì„± í”Œë ˆì´ì–´ ì›€ì§ì„ ë“±ë“±ì„ í•œë‹¤ / ì•„ë§ˆë„ ë§µìƒì„±ê³¼ ì›€ì§ì„ì€ ë¶ˆë¦¬í•´ì„œ ì‹¤í–‰í• ê±°ê°™ë‹¤ (ìˆ˜ì • í•„ìš”)
     {
         mapMake.isMapEditor = false;
         mapMake.MapSetting();
         optimizeEnemy.OptimizeStart();
-        playerMove.Invoke("MoveStart", 1f);
+        playerMove.Invoke("GameStart", 1f);
     }
 }

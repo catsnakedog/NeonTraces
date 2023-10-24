@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -300,6 +301,35 @@ public class PlayerMove : MonoBehaviour
         playerAnimation.SetAnimation("Run");
         DataManager.data.saveData.gameData.player.transform.GetChild(0).gameObject.SetActive(true);
         MoveStart();
+    }
+
+    public void InGameStart()
+    {
+        stage = Data.saveData.gameData.stage;
+
+        foreach (GameObject a in Data.saveData.gameData.enemyPoint)
+        {
+            a.SetActive(false);
+        }
+        player.transform.position = Data.saveData.mapData[stage].moveDots[0].v3 - new Vector3(10, 0, 0);
+        crruentMoveDot = 0;
+        Time.timeScale = 1;
+        playerActionS.ActionReset();
+        playerAction = null;
+        playerAnimation.SetAnimation("Run");
+        DataManager.data.saveData.gameData.player.transform.GetChild(0).gameObject.SetActive(true);
+        MoveStart();
+    }
+
+    IEnumerator LeftInMove()
+    {
+
+        yield return new WaitForSeconds(0);
+    }
+
+    public void InGameEnd()
+    {
+
     }
 
     public void Rebound() // 어택시 밀림 판정 테스트

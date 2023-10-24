@@ -284,6 +284,7 @@ public class GameData
     public float camsize;
     public bool isGameStart;
     public List<GameObject> enemyPoint;
+    public bool isInGame;
 
     public GameData()
     {
@@ -292,14 +293,16 @@ public class GameData
         this.camsize = 0;
         this.isGameStart = false;
         enemyPoint = new List<GameObject>();
+        this.isInGame = false;
     }
-    public GameData(int stage, List<bool> stageClearInfo, float camsize, bool isGameStart, List<GameObject> enemyPoint)
+    public GameData(int stage, List<bool> stageClearInfo, float camsize, bool isGameStart, List<GameObject> enemyPoint, bool isInGame)
     {
         this.stage = stage;
         this.stageClearInfo = stageClearInfo;
         this.camsize = camsize;
         this.isGameStart = isGameStart;
         this.enemyPoint = enemyPoint;
+        this.isInGame= isInGame; 
     }
 }
 

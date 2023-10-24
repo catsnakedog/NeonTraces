@@ -81,7 +81,7 @@ public class MapMake : MonoBehaviour
         this.bezierDots = bezierDots;
     }
 
-    public void MapSetting() // ¸Ê¼¼ÆÃ
+    public void MapSetting() // ë§µì„¸íŒ…
     {
         if(isMapClear)
         {
@@ -104,11 +104,11 @@ public class MapMake : MonoBehaviour
         }
         else
         {
-            Debug.Log("½Ç¼ö·Î µÎ¹ø Å¬¸¯ÇÑ ´ç½Å.. ÀÌ¹ø¸¸ »ì·Áµå¸®´Â°Ì´Ï´Ù..");
+            Debug.Log("ì‹¤ìˆ˜ë¡œ ë‘ë²ˆ í´ë¦­í•œ ë‹¹ì‹ .. ì´ë²ˆë§Œ ì‚´ë ¤ë“œë¦¬ëŠ”ê²ë‹ˆë‹¤..");
         }
     }
 
-    public void MapDelete() // ¸Ê»èÁ¦ (¸Ê ¿¡µğÅÍ ¿ë)
+    public void MapDelete() // ë§µì‚­ì œ (ë§µ ì—ë””í„° ìš©)
     {
         if(isMapMake)
         {
@@ -119,12 +119,12 @@ public class MapMake : MonoBehaviour
         }
         else
         {
-            Debug.Log("½Ç¼ö·Î µÎ¹ø Å¬¸¯ÇÑ ´ç½Å.. ÀÌ¹ø¸¸ »ì·Áµå¸®´Â°Ì´Ï´Ù..");
+            Debug.Log("ì‹¤ìˆ˜ë¡œ ë‘ë²ˆ í´ë¦­í•œ ë‹¹ì‹ .. ì´ë²ˆë§Œ ì‚´ë ¤ë“œë¦¬ëŠ”ê²ë‹ˆë‹¤..");
         }
     }
 
 
-    void DestroyAll() // ¸Ê¿ä¼Ò ÀüºÎ ÆÄ±« (¸Ê ¿¡µğÅÍ ¿ë)
+    void DestroyAll() // ë§µìš”ì†Œ ì „ë¶€ íŒŒê´´ (ë§µ ì—ë””í„° ìš©)
     {
         Transform[] allChildren = gameObject.GetComponentsInChildren<Transform>();
         foreach (Transform child in allChildren)
@@ -149,9 +149,9 @@ public class MapMake : MonoBehaviour
         isMapClear = true;
     }
 
-    // ¸Ê ¼¼ÆÃ °ü·Ã ÇÔ¼öµé / ¸Ê µ¥ÀÌÅÍ¸¦ ÀĞ¾î¿Í¼­ ¿ÀºêÁ§Æ®¸¦ ¹èÄ¡ÇÑ´Ù
+    // ë§µ ì„¸íŒ… ê´€ë ¨ í•¨ìˆ˜ë“¤ / ë§µ ë°ì´í„°ë¥¼ ì½ì–´ì™€ì„œ ì˜¤ë¸Œì íŠ¸ë¥¼ ë°°ì¹˜í•œë‹¤
     #region MapSetting
-    void MoveDotSetting(int stage) // ½Ã°¢ÀûÀ¸·Î ¾î´À À§Ä¡·Î ¿òÁ÷ÀÌ´ÂÁö È®ÀÎÇÏ±â À§ÇØ Á¡µéÀ» ¼¼ÆÃÇØÁØ´Ù (¸Ê ¿¡µğÅÍ ¿ë)
+    void MoveDotSetting(int stage) // ì‹œê°ì ìœ¼ë¡œ ì–´ëŠ ìœ„ì¹˜ë¡œ ì›€ì§ì´ëŠ”ì§€ í™•ì¸í•˜ê¸° ìœ„í•´ ì ë“¤ì„ ì„¸íŒ…í•´ì¤€ë‹¤ (ë§µ ì—ë””í„° ìš©)
     {
         lrs[0].SetPosition(0, Data.saveData.mapData[stage].moveDots[0].v3);
         lrs[0].positionCount = Data.saveData.mapData[stage].moveDots.Count;
@@ -166,7 +166,7 @@ public class MapMake : MonoBehaviour
         }
     }
 
-    public void EnemySetting(int stage) // ÀûµéÀ» ¼¼ÆÃÇØÁØ´Ù
+    public void EnemySetting(int stage) // ì ë“¤ì„ ì„¸íŒ…í•´ì¤€ë‹¤
     {
         Data.saveData.gameData.enemyPoint.Clear();
         Data.saveData.gameData.enemyInfo.Clear();
@@ -184,7 +184,7 @@ public class MapMake : MonoBehaviour
         }
     }
 
-    public void EventDotSetting(int stage) // ÀÌº¥Æ®Æ÷ÀÎÆ®¸¦ ¼¼ÆÃÇØÁØ´Ù
+    public void EventDotSetting(int stage) // ì´ë²¤íŠ¸í¬ì¸íŠ¸ë¥¼ ì„¸íŒ…í•´ì¤€ë‹¤
     {
         for (int i = 0; i < Data.saveData.mapData[stage].eventDots.Count; i++)
         {
@@ -203,7 +203,7 @@ public class MapMake : MonoBehaviour
         }
     }
 
-    void LineRendererSetting(int lrNumber) // ½Ã°¢ÀûÀ¸·Î ¾î´À À§Ä¡·Î ¿òÁ÷ÀÌ´ÂÁö È®ÀÎÇÏ±â À§ÇØ Á¡µé »çÀÌ¸¦ Á÷¼±À¸·Î ÀÌ¾îÁØ´Ù (¸Ê ¿¡µğÅÍ ¿ë)
+    void LineRendererSetting(int lrNumber) // ì‹œê°ì ìœ¼ë¡œ ì–´ëŠ ìœ„ì¹˜ë¡œ ì›€ì§ì´ëŠ”ì§€ í™•ì¸í•˜ê¸° ìœ„í•´ ì ë“¤ ì‚¬ì´ë¥¼ ì§ì„ ìœ¼ë¡œ ì´ì–´ì¤€ë‹¤ (ë§µ ì—ë””í„° ìš©)
     {
         GameObject lineRenderer = new GameObject("LineRenderer"+lrNumber);
         lineRenderer.transform.SetParent(gameObject.transform, true);
@@ -217,7 +217,7 @@ public class MapMake : MonoBehaviour
         lrs[lrNumber].endWidth = 0.1f;
     }
 
-    public void lrBezierSetting(Vector3 v1, Vector3 v2, Vector3 v3, Vector3 v4) // °î¼± ÀÌµ¿ °æ·Î¸¦ Ç¥ÇöÇÔ (¸Ê ¿¡µğÅÍ ¿ë)
+    public void lrBezierSetting(Vector3 v1, Vector3 v2, Vector3 v3, Vector3 v4) // ê³¡ì„  ì´ë™ ê²½ë¡œë¥¼ í‘œí˜„í•¨ (ë§µ ì—ë””í„° ìš©)
     {
         bezierDotList.Add(Instantiate(bezierDot, v2, Quaternion.identity));
         bezierDotList.Add(Instantiate(bezierDot, v3, Quaternion.identity));
@@ -244,12 +244,12 @@ public class MapMake : MonoBehaviour
         }
     }
     #endregion
-    public void SetStage() // ½ºÅ×ÀÌÁö¸¦ ÀÔ·Â¹Ş¾Æ º¯°æ½ÃÅ´ (¸Ê ¿¡µğÅÍ ¿ë)
+    public void SetStage() // ìŠ¤í…Œì´ì§€ë¥¼ ì…ë ¥ë°›ì•„ ë³€ê²½ì‹œí‚´ (ë§µ ì—ë””í„° ìš©)
     {
         Data.saveData.gameData.stage = int.Parse(stageInput.text);
     }
 
-    public void SaveObject() // ¿ÀºêÁ§Æ®µéÀ» ÀĞ¾î¿Í¼­ ÀüºÎ ÀúÀåÇÑ´Ù (¸Ê ¿¡µğÅÍ ¿ë)
+    public void SaveObject() // ì˜¤ë¸Œì íŠ¸ë“¤ì„ ì½ì–´ì™€ì„œ ì „ë¶€ ì €ì¥í•œë‹¤ (ë§µ ì—ë””í„° ìš©)
     {
         Data.saveData.mapData[stage].moveDots.Clear();
         for(int i=0; i< moveDots.transform.childCount; i++)

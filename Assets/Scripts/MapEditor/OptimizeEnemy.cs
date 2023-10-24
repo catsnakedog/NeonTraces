@@ -22,18 +22,18 @@ public class OptimizeEnemy : MonoBehaviour
         optimizeAction?.Invoke();
     }
 
-    public void OptimizeStart() // Àû ÃÖÀûÈ­ ½ÃÀÛ
+    public void OptimizeStart() // ì  ìµœì í™” ì‹œì‘
     {
         player = Data.saveData.gameData.player;
         camera = GameObject.Find("MainCamera");
         optimizeAction += SetActiveEnemy;
     }
 
-    void SetActiveEnemy() // xÃà ±âÁØÀ¸·Î È­¸é * 1.1¾È¿¡ µé¾î¿Â ¿ÀºêÁ§Æ®¸¦ È°¼ºÈ­ ½ÃÅ²´Ù
+    void SetActiveEnemy() // xì¶• ê¸°ì¤€ìœ¼ë¡œ í™”ë©´ * 3ì•ˆì— ë“¤ì–´ì˜¨ ì˜¤ë¸Œì íŠ¸ë¥¼ í™œì„±í™” ì‹œí‚¨ë‹¤
     {
         for (int i = 0; i < Data.saveData.gameData.enemyInfo.Count; i++)
         {
-            if ((Data.saveData.gameData.enemyInfo[i].x > (camera.transform.position.x - Data.saveData.gameData.camsize*2.2f)) && (Data.saveData.gameData.enemyInfo[i].x < (camera.transform.position.x + Data.saveData.gameData.camsize * 2.2f)))
+            if ((Data.saveData.gameData.enemyInfo[i].x > (camera.transform.position.x - Data.saveData.gameData.camsize*5f)) && (Data.saveData.gameData.enemyInfo[i].x < (camera.transform.position.x + Data.saveData.gameData.camsize * 5f)))
             {
                 Data.saveData.gameData.enemyInfo[i].enemy.SetActive(true);
             }
@@ -44,7 +44,7 @@ public class OptimizeEnemy : MonoBehaviour
         }
     }
 
-    public void StopOptimize() // ÃÖÀûÈ­ ÁßÁö
+    public void StopOptimize() // ìµœì í™” ì¤‘ì§€
     {
         optimizeAction -= SetActiveEnemy;
     }
