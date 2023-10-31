@@ -10,28 +10,38 @@ public class InGameManager : MonoBehaviour
     DataManager Data;
     PlayerMove playerMove;
     OptimizeEnemy optimizeEnemy;
+    GameObject player;
     [SerializeField] Image fadeInOutPanel;
     int stage;
     // Start is called before the first frame update
     void Start()
     {
+        fadeInOutPanel.gameObject.SetActive(true);
         mapMake = GameObject.Find("MapMaker").GetComponent<MapMake>();
         playerMove = gameObject.GetComponent<PlayerMove>();
         optimizeEnemy = gameObject.GetComponent<OptimizeEnemy>();
+        player = GameObject.Find("Player");
         Data = DataManager.data;
         stage = Data.saveData.gameData.stage;
         Data.saveData.gameData.isInGame = true;
-        Invoke("SettingGame", 1f);
+        StartCoroutine(SettingGame());
     }
 
-    void SettingGame() // 게임 시작 함수, 맵생성 플레이어 움직임 등등을 한다 / 아마도 맵생성과 움직임은 불리해서 실행할거같다 (수정 필요)
+    IEnumerator SettingGame() // 게임 시작 함수, 맵생성 플레이어 움직임 등등을 한다 / 아마도 맵생성과 움직임은 불리해서 실행할거같다 (수정 필요)
     {
+        yield return new WaitForFixedUpdate();
         Data.saveData.gameData.isCameraFollow = false;
         mapMake.isMapEditor = false;
         mapMake.MapSetting();
         optimizeEnemy.OptimizeStart();
+        GameObject.Find("MainCamera").transform.position = Data.saveData.mapData[stage].moveDots[0].v3 + new Vector3(14, 5, -10);
+        player.transform.position = Data.saveData.mapData[stage].moveDots[0].v3 + new Vector3(-10, 0, 0);
+        yield return new WaitForSeconds(0.5f);
         StartCoroutine(FadeIn());
-        playerMove.Invoke("GameStart", 1f);
+        yield return new WaitForSeconds(1);
+        StartCoroutine(playerMove.LeftInMove());
+        yield return new WaitForSeconds(2);
+        playerMove.GameStart();
     }
 
     IEnumerator FadeIn()
@@ -41,21 +51,22 @@ public class InGameManager : MonoBehaviour
         for(int i = 0; i < 60; i++)
         {
             fadeInOutPanel.color = new Color(0, 0, 0, a);
-            yield return new WaitForSeconds(1/60f);
-            a -= 1 / 60f;
-            Debug.Log("a");
+            yield return new WaitForSeconds(1/40f);
+            a -= 1 / 60f;;
         }
         fadeInOutPanel.color = new Color(0, 0, 0, 0);
+        fadeInOutPanel.gameObject.SetActive(false);
     }
 
     IEnumerator FadeOut()
     {
+        fadeInOutPanel.gameObject.SetActive(true);
         float a = 0;
         fadeInOutPanel.color = new Color(0, 0, 0, 0);
         for (int i = 0; i < 60; i++)
         {
             fadeInOutPanel.color = new Color(0, 0, 0, a);
-            yield return new WaitForSeconds(1/60f);
+            yield return new WaitForSeconds(1/40f);
             a += 1 / 60f;
         }
         fadeInOutPanel.color = new Color(0, 0, 0, 1);

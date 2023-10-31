@@ -302,7 +302,7 @@ public class PlayerMove : MonoBehaviour
         playerAction = null;
         playerAnimation.SetAnimation("Run");
         DataManager.data.saveData.gameData.player.transform.GetChild(0).gameObject.SetActive(true);
-        //MoveStart();
+        MoveStart();
     }
 
     public void InGameStart()
@@ -313,7 +313,7 @@ public class PlayerMove : MonoBehaviour
         {
             a.SetActive(false);
         }
-        player.transform.position = Data.saveData.mapData[stage].moveDots[0].v3 - new Vector3(10, 0, 0);
+        player.transform.position = Data.saveData.mapData[stage].moveDots[0].v3 + new Vector3(-10, 0, 0);
         crruentMoveDot = 0;
         Time.timeScale = 1;
         playerActionS.ActionReset();
@@ -323,10 +323,32 @@ public class PlayerMove : MonoBehaviour
         MoveStart();
     }
 
-    IEnumerator LeftInMove()
+    public IEnumerator LeftInMove()
     {
+        playerAnimation.SetAnimation("Run");
+        Data.saveData.gameData.isCameraFollow = false;
+        player.transform.position = Data.saveData.mapData[stage].moveDots[0].v3 + new Vector3(-10, 0, 0);
+        for(int i = 0; i < 120; i++)
+        {
+            player.transform.position += new Vector3(10 / 120f, 0, 0);
+            yield return new WaitForSeconds(1 / 60f);
+        }
+        player.transform.position = Data.saveData.mapData[stage].moveDots[0].v3;
+        Data.saveData.gameData.isCameraFollow = true;
+    }
 
-        yield return new WaitForSeconds(0);
+    public IEnumerator RightOutMove()
+    {
+        playerAnimation.SetAnimation("Run");
+        Data.saveData.gameData.isCameraFollow = false;
+        player.transform.position = Data.saveData.mapData[stage].moveDots[Data.saveData.mapData[stage].moveDots.Count - 1].v3;
+        for (int i = 0; i < 120; i++)
+        {
+            player.transform.position += new Vector3(10 / 120f, 0, 0);
+            yield return new WaitForSeconds(1 / 60f);
+        }
+        player.transform.position = Data.saveData.mapData[stage].moveDots[0].v3;
+        Data.saveData.gameData.isCameraFollow = true;
     }
 
     public void InGameEnd()
