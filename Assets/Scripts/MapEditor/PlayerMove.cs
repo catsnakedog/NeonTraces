@@ -173,10 +173,11 @@ public class PlayerMove : MonoBehaviour
             Data.saveData.gameData.isCameraFollow = true;
         if (crruentMoveDot == 0) SoundManager.sound.Play("BGM_0" + (Data.saveData.gameData.stage + 1).ToString());
         moveDotSize = Data.saveData.mapData[stage].moveDots.Count;
-        if (crruentMoveDot == moveDotSize-1)
+        if (crruentMoveDot == moveDotSize-1) // 이동 끝~
         {
             playerAnimation.SetAnimation("Idle");
             Debug.Log("MoveEnd");
+            InGameEnd();
         }
         else
         {
@@ -349,18 +350,27 @@ public class PlayerMove : MonoBehaviour
         playerAnimation.SetAnimation("Run");
         Data.saveData.gameData.isCameraFollow = false;
         player.transform.position = Data.saveData.mapData[stage].moveDots[Data.saveData.mapData[stage].moveDots.Count - 1].v3;
-        for (int i = 0; i < 120; i++)
+        for (int i = 0; i < 240; i++)
         {
-            player.transform.position += new Vector3(10 / 120f, 0, 0);
+            player.transform.position += new Vector3(40 / 240f, 0, 0);
             yield return new WaitForSeconds(1 / 60f);
         }
-        player.transform.position = Data.saveData.mapData[stage].moveDots[0].v3;
-        Data.saveData.gameData.isCameraFollow = true;
+        player.transform.position = Data.saveData.mapData[stage].moveDots[Data.saveData.mapData[stage].moveDots.Count - 1].v3 + new Vector3(40, 0, 0);
     }
 
     public void InGameEnd()
     {
-
+        StopCoroutine(walkSoundC);
+        playerAction = null;
+        if (Data.saveData.gameData.isInGame)
+        {
+            Data.saveData.gameData.stageClearList.Add(Data.saveData.gameData.stage);
+            GameObject.Find("Canvas").transform.GetChild(0).gameObject.SetActive(false);
+            player.transform.GetChild(0).gameObject.SetActive(false);
+            SoundManager.sound.BGMLoopSet(false);
+            StartCoroutine(RightOutMove());
+            transform.GetComponent<InGameManager>().Invoke("GameEnd", 4.5f);
+        }
     }
 
     public void Rebound() // 어택시 밀림 판정 테스트

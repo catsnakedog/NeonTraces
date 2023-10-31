@@ -57,6 +57,19 @@ public class InGameManager : MonoBehaviour
         SceneManager.LoadScene("InGameScene");
     }
 
+    public void GameEnd()
+    {
+        StartCoroutine(GameEndEffect());
+    }
+
+    IEnumerator GameEndEffect()
+    {
+        yield return StartCoroutine(FadeOut());
+        yield return new WaitForSeconds(0.5f);
+        SoundManager.sound.BGMLoopSet(true);
+        SceneManager.LoadScene("UI");
+    }
+
     IEnumerator FadeIn()
     {
         float a = 1;

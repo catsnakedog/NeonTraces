@@ -242,4 +242,9 @@ public class SoundManager : MonoBehaviour
         BGMSource.Stop();
         SFXSource.Stop();
     }
+
+    public void BGMLoopSet(bool value)
+    {
+        BGMSource.loop = value;
+    }
 }
