@@ -33,6 +33,8 @@ public class CameraFix : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (!Data.saveData.gameData.isCameraFollow)
+            //return;
         camsize = Data.saveData.gameData.camsize;
         mainCameraC.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, camsize, camSpeed);
         if (BGManager.BGObject != null)
@@ -75,5 +77,5 @@ public class CameraFix : MonoBehaviour
         }
     }
 }
-// Àü¿ªº¯¼ö camsize ÀÌ¿ëÇØ¼­ ¸Å ¾÷µ¥ÀÌÆ® ¸¶´Ù ÇØ´ç »çÀÌÁî·Î º¯°æ
-// ´õ ºü¸¥ È®´ë, Ãà¼Ò ÀÌÆåÆ® ¿øÇÒ ½Ã camspeedµµ ÇÔ²² Á¶Á¤
+// ì „ì—­ë³€ìˆ˜ camsize ì´ìš©í•´ì„œ ë§¤ ì—…ë°ì´íŠ¸ ë§ˆë‹¤ í•´ë‹¹ ì‚¬ì´ì¦ˆë¡œ ë³€ê²½
+// ë” ë¹ ë¥¸ í™•ëŒ€, ì¶•ì†Œ ì´í™íŠ¸ ì›í•  ì‹œ camspeedë„ í•¨ê»˜ ì¡°ì •
