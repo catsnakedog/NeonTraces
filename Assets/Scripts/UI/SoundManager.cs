@@ -37,6 +37,7 @@ public class SoundManager : MonoBehaviour
         BGM_04,
         mainscreen,
         Test_BGM,
+        BG,
 
         MaxCount //삭제 금지
     }

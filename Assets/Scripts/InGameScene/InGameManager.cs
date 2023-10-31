@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class InGameManager : MonoBehaviour
@@ -37,11 +38,23 @@ public class InGameManager : MonoBehaviour
         GameObject.Find("MainCamera").transform.position = Data.saveData.mapData[stage].moveDots[0].v3 + new Vector3(14, 5, -10);
         player.transform.position = Data.saveData.mapData[stage].moveDots[0].v3 + new Vector3(-10, 0, 0);
         yield return new WaitForSeconds(0.5f);
-        StartCoroutine(FadeIn());
-        yield return new WaitForSeconds(1);
-        StartCoroutine(playerMove.LeftInMove());
-        yield return new WaitForSeconds(2);
+        yield return StartCoroutine(FadeIn());
+        yield return StartCoroutine(playerMove.LeftInMove());
         playerMove.GameStart();
+    }
+
+    public void GameOver()
+    {
+        StartCoroutine(GameOverEffect());
+    }
+
+    IEnumerator GameOverEffect()
+    {
+        SoundManager.sound.Stop("BG");
+        yield return new WaitForSeconds(1f);
+        yield return StartCoroutine(FadeOut());
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene("InGameScene");
     }
 
     IEnumerator FadeIn()
@@ -58,7 +71,7 @@ public class InGameManager : MonoBehaviour
         fadeInOutPanel.gameObject.SetActive(false);
     }
 
-    IEnumerator FadeOut()
+   IEnumerator FadeOut()
     {
         fadeInOutPanel.gameObject.SetActive(true);
         float a = 0;

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class PlayerMove : MonoBehaviour
@@ -87,6 +88,12 @@ public class PlayerMove : MonoBehaviour
     {
         StopCoroutine(walkSoundC);
         playerAction = null;
+        if(Data.saveData.gameData.isInGame)
+        {
+            GameObject.Find("Canvas").transform.GetChild(0).gameObject.SetActive(false);
+            player.transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetComponent<InGameManager>().GameOver();
+        }
     }
 
     int walkNumber;
