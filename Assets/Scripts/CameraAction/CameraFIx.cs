@@ -34,7 +34,7 @@ public class CameraFix : MonoBehaviour
     void FixedUpdate()
     {
         if (!Data.saveData.gameData.isCameraFollow)
-            //return;
+            return;
         camsize = Data.saveData.gameData.camsize;
         mainCameraC.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, camsize, camSpeed);
         if (BGManager.BGObject != null)

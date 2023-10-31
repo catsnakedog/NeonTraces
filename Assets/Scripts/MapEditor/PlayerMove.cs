@@ -162,7 +162,9 @@ public class PlayerMove : MonoBehaviour
 
     public void MoveStart() // 기본적인 움직임, moveDots를 따라서 이동한다, crreuntMoveDot만 정상적으로 입력돼있다면 도중에 취소했다가 다시 시작해도 상관없다
     {
-        if(crruentMoveDot == 0) SoundManager.sound.Play("BGM_0" + (Data.saveData.gameData.stage + 1).ToString());
+        if (!Data.saveData.gameData.isCameraFollow)
+            Data.saveData.gameData.isCameraFollow = true;
+        if (crruentMoveDot == 0) SoundManager.sound.Play("BGM_0" + (Data.saveData.gameData.stage + 1).ToString());
         moveDotSize = Data.saveData.mapData[stage].moveDots.Count;
         if (crruentMoveDot == moveDotSize-1)
         {
@@ -300,7 +302,7 @@ public class PlayerMove : MonoBehaviour
         playerAction = null;
         playerAnimation.SetAnimation("Run");
         DataManager.data.saveData.gameData.player.transform.GetChild(0).gameObject.SetActive(true);
-        MoveStart();
+        //MoveStart();
     }
 
     public void InGameStart()
