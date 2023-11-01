@@ -92,7 +92,7 @@ public class InGameManager : MonoBehaviour
         for (int i = 0; i < 60; i++)
         {
             fadeInOutPanel.color = new Color(0, 0, 0, a);
-            yield return new WaitForSeconds(1/40f);
+            yield return new WaitForSeconds(1/60f);
             a += 1 / 60f;
         }
         fadeInOutPanel.color = new Color(0, 0, 0, 1);
