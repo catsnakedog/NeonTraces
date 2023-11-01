@@ -247,4 +247,10 @@ public class SoundManager : MonoBehaviour
     {
         BGMSource.loop = value;
     }
+
+    public void BGMPause(bool value)
+    {
+        if (value) BGMSource.Pause();
+        else BGMSource.Play();
+    }
 }
