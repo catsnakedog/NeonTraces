@@ -21,6 +21,7 @@ public class ButtonController : MonoBehaviour
 
     GameObject tmp;
 
+
     private void Awake()
     {
         CanvasEffect = FindObjectOfType<CanvasFadeEffect>();
@@ -34,6 +35,7 @@ public class ButtonController : MonoBehaviour
         OptionCanvas = soundmanager.optionCanvas;
         OptionCanvas.SetActive(false); //게임 시작시 메뉴 패널 비활성화
         creditPanel.SetActive(false); //게임 시작시 크레딧 패널 비활성화
+        
     }
 
     public void OpenCredit()
@@ -168,32 +170,37 @@ public class ButtonController : MonoBehaviour
     #endregion
 
     #region StageButton
-    public void ClickStageBtn() //인게임버튼 클릭 시
+    public void ClickStageBtn(int num) //인게임버튼 클릭 시
     {
-        int num = Data.saveData.gameData.stage;
         string btn = "Stage" + num.ToString(); // 스테이지 선택 버튼 이름
-
         tmp = GameObject.Find(btn);
+
         if (tmp.transform.GetChild(0).gameObject.activeSelf && tmp.GetComponent<ButtonEvent>().bButtonClicked) //두번째 클릭이면 클릭효과+애니메이션+실행
         {
             Debug.Log("InGameButton Clicked");
 
             tmp.GetComponent<ButtonEvent>().SelectBoxBlink(true);
-            
+
             soundmanager.Play("Execute");
             Invoke("LoadGame", 1f); //소리 길이만큼 대기 후 실행
         }
         else //첫번째 클릭이면 선택 표시
         {
             soundmanager.Play("Select");
+
+            print(btn + "'s stage Number is " + num);
+            print(tmp.transform.GetChild(0).gameObject.activeSelf);
+
             tmp.GetComponent<ButtonEvent>().bButtonClicked = true;
+            print(tmp.GetComponent<ButtonEvent>().bButtonClicked);
         }
+
     }
     public void LoadGame() //인게임으로 이동, BGM 종료
     {
         tmp.GetComponent<ButtonEvent>().bButtonClicked = false;
         soundmanager.Stop();
-        SceneManager.LoadScene(SceneToLoadGame);
+        SceneManager.LoadScene(SceneToLoadGame); //인게임 index 설정은 어떻게? 수정필요
     }
     #endregion
 

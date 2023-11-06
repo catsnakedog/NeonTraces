@@ -9,42 +9,36 @@ public class StageSelect : MonoBehaviour
     DataManager Data;
 
     Button stageButton;
-    public int stageNum; //½ºÅ×ÀÌÁö ¹øÈ£ 0¹øºÎÅÍ
+    Button NextStageButton;
+    public int stageNumber; //ìŠ¤í…Œì´ì§€ ë²ˆí˜¸ 0ë²ˆë¶€í„°
     public GameObject cutSceneButton;
-    
-    // Start is called before the first frame update
+    public bool isClear;
+
     void Start()
     {
         Data = DataManager.data; //static data
         stageButton = this.transform.GetComponent<Button>();
-        //cutScene = transform.FindChild("cutSceneButton");
+        NextStageButton = this.transform.parent.GetChild(stageNumber + 2).GetComponent<Button>();
+        //print(stageButton +"'s next stage is "+ NextStageButton);
 
-        Data.saveData.gameData.stage = stageNum; //DataManger¿¡ ½ºÅ×ÀÌÁö ¹øÈ£ ÀúÀå
+        isClear = Data.saveData.gameData.stageClearInfo[stageNumber];
 
-        if (Data.saveData.gameData.stageClearInfo == null) //°ÔÀÓ Ã³À½ ½ÃÀÛ ½Ã
+    }
+    private void FixedUpdate()
+    {
+        if (isClear == true) //í•´ë‹¹ ìŠ¤í…Œì´ì§€ í´ë¦¬ì–´ ì™„ë£Œ ì‹œ
         {
-            Data.saveData.gameData.stageClearInfo.Add(false);
+            cutSceneButton.SetActive(true); //ì»·ì”¬ ë²„íŠ¼ í™œì„±í™”
+
+            if (NextStageButton.ToString() != "end" /* && ì»·ì”¬ ì‹œì²­ ì™„ë£Œì‹œ?*/) //ë§ˆì§€ë§‰ ìŠ¤í…Œì´ì§€ ì•„ë‹ˆë¼ë©´
+            {
+                NextStageButton.interactable = true; //ë‹¤ìŒ ìŠ¤í…Œì´ì§€ í´ë¦­ í™œì„±í™”
+            }
         }
-        else
+        else //ìŠ¤í…Œì´ì§€ í´ë¦¬ì–´ X
         {
-            if (Data.saveData.gameData.stageClearInfo[Data.saveData.gameData.stage] == true) //Å¬¸®¾î ¿Ï·á ½Ã
-            {
-                stageButton.interactable = true; //½ºÅ×ÀÌÁö È°¼ºÈ­
-                cutSceneButton.SetActive(true); //ÄÆ¾À ¹öÆ° È°¼ºÈ­
-            }
-            else //½ºÅ×ÀÌÁö Å¬¸®¾î X
-            {
-                if (Data.saveData.gameData.stage == 0) //Ã¹¹øÂ° ½ºÅ×ÀÌÁö´Â Ç×»ó È°¼ºÈ­
-                {
-                    stageButton.interactable = true;
-                }
-                else //³ª¸ÓÁö´Â Å¬¸¯ ºÒ°¡
-                {
-                    stageButton.interactable = false;
-                }
-                cutSceneButton.SetActive(false); //ÄÆ¾À ¹öÆ° ºñÈ°¼ºÈ­
-            }
+            NextStageButton.interactable = false; //ë‹¤ìŒ ìŠ¤í…Œì´ì§€ í´ë¦­ ë¹„í™œì„±í™”
+            cutSceneButton.SetActive(false); //ì»·ì”¬ ë²„íŠ¼ ë¹„í™œì„±í™”
         }
     }
-
 }
