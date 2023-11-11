@@ -101,7 +101,7 @@ public class PlayerMove : MonoBehaviour
 
     public IEnumerator WalkEffect()
     {
-        StartCoroutine(playerActionS.ShowEffect(35, 40, new Vector3(-0.2f, -0.2f, 0)));
+        StartCoroutine(playerActionS.ShowEffect(35, 40, new Vector3(-0.65f, 0.5f, 0)));
         yield return new WaitForSeconds(0.42f);
         walkEffectC = StartCoroutine(WalkEffect());
     }

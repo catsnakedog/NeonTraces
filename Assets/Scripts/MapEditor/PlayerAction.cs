@@ -18,6 +18,7 @@ public class PlayerAction : MonoBehaviour
     [SerializeField] public bool isGameOver;
     [SerializeField] private float attackDelay; // 헛공격시 딜레이
     [SerializeField] private float attackMotionTime; // 어택 에니메이션 실행시간
+    [SerializeField] private float LongAttackMotionTime; // 롱어택 에니메이션 실행시간
     [SerializeField] private float defenceMotionTime; // 방어 에니메이션 실행시간
     [SerializeField] private float longClickTime;
     [SerializeField] private float timeCount;
@@ -60,6 +61,8 @@ public class PlayerAction : MonoBehaviour
             temp.GetComponent<SpriteRenderer>().sprite = sprite;
             temp.transform.SetParent(GameObject.Find("Player").transform.GetChild(3), false);
             effects.Add(temp);
+            temp.GetComponent<SpriteRenderer>().sortingLayerName = "PlayerEnemy";
+            temp.GetComponent<SpriteRenderer>().sortingOrder = 5;
             temp.SetActive(false);
         }
     }
@@ -177,7 +180,7 @@ public class PlayerAction : MonoBehaviour
             nextA = StartCoroutine(NextAttack(2f));
         }
         SoundManager.sound.Play("main_attack" + UnityEngine.Random.Range(1, 3).ToString());
-        effectC = StartCoroutine(ShowEffect(0, 5, new Vector3(1.5f, 0, 0)));
+        effectC = StartCoroutine(ShowEffect(0, 5, new Vector3(2.2f, 0.4f, 0)));
         actionA = StartCoroutine(afterImage.AfterImageSetting(Data.saveData.gameData.player));
         isAttack = true;
         isAction = true;
@@ -196,7 +199,7 @@ public class PlayerAction : MonoBehaviour
             StopCoroutine(aniC);
         }
         SoundManager.sound.Play("Block");
-        effectC = StartCoroutine(ShowEffect(12, 15, new Vector3(1.5f, 0, 0)));
+        effectC = StartCoroutine(ShowEffect(12, 15, new Vector3(2f, 0, 0)));
         aniC = StartCoroutine(CallAni("Defence", defenceMotionTime));
         isDefence = true;
         isAction = true;
@@ -213,11 +216,11 @@ public class PlayerAction : MonoBehaviour
         {
             StopCoroutine(aniC);
         }
-        effectC = StartCoroutine(ShowEffect(16, 22, new Vector3(0, 0, 0)));
-        aniC = StartCoroutine(CallAni("DragAttack", attackMotionTime));
+        effectC = StartCoroutine(ShowEffect(16, 22, new Vector3(1.55f, 1.3f, 0)));
+        aniC = StartCoroutine(CallAni("DragAttack", LongAttackMotionTime));
         isLongClick = false;
         isAttack = true;
-        yield return new WaitForSeconds(attackMotionTime);
+        yield return new WaitForSeconds(LongAttackMotionTime);
         isAction = false;
         isAttack = false;
         yield return new WaitForSeconds(attackDelay);

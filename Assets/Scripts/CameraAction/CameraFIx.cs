@@ -16,7 +16,7 @@ public class CameraFix : MonoBehaviour
     public bool isShake = false;
     private bool secondframe = false;
     private int framecount = 0;
-    public static float ShakePower = 1f;
+    public static float ShakePower = 0.7f;
 
     public float xCorrection;
     public float yCorrection;
