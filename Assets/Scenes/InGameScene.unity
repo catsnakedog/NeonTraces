@@ -254,6 +254,7 @@ MonoBehaviour:
   isGameOver: 0
   attackDelay: 0.1
   attackMotionTime: 0.62
+  LongAttackMotionTime: 0.87
   defenceMotionTime: 0.63
   longClickTime: 0.5
   timeCount: 0
@@ -1021,7 +1022,6 @@ MonoBehaviour:
       enemyPoint: []
       isInGame: 0
       isCameraFollow: 0
-      stageClearList: 
     ui:
       bgm: -40
       sfx: -40
@@ -1508,7 +1508,7 @@ MonoBehaviour:
   isMapEditor: 0
   mapBGs:
   - {fileID: 7793046088606883056, guid: 6be99fcb5e8cb1c4aba336749dbc74ac, type: 3}
-  - {fileID: 4907246673664243385, guid: 10c836460e830b24db149a4f35525aab, type: 3}
+  - {fileID: 2648932352224179247, guid: 9d3d26ed6ae09ba4f97d6da4d99ce123, type: 3}
   - {fileID: 1763227548786395853, guid: 79db893724348a643bb3400d694b2616, type: 3}
   - {fileID: 4912260418113612736, guid: 4ca34f7d0cbb14547b715c287fb236c7, type: 3}
   lrs: []

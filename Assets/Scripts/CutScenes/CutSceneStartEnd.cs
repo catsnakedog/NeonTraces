@@ -42,6 +42,13 @@ public class CutSceneStartEnd : MonoBehaviour
             MainObject[i].SetActive(true);
         }
         SceneManager.UnloadSceneAsync(gameObject.scene);
+        /*
+        if (DataManager.data.saveData.gameData.isFirstCutScene[DataManager.data.saveData.gameData.stage])
+        {
+            SceneManager.LoadScene("InGameScene");
+            DataManager.data.saveData.gameData.isFirstCutScene[DataManager.data.saveData.gameData.stage] = true;
+        }
+        */
         soundmanager.Play("mainscreen");
     }
 

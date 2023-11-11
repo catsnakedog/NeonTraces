@@ -22,7 +22,6 @@ public class StageSelect : MonoBehaviour
         //print(stageButton +"'s next stage is "+ NextStageButton);
 
         isClear = Data.saveData.gameData.stageClearInfo[stageNumber];
-
     }
     private void FixedUpdate()
     {

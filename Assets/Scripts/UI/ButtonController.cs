@@ -183,6 +183,7 @@ public class ButtonController : MonoBehaviour
 
             soundmanager.Play("Execute");
             Invoke("LoadGame", 1f); //소리 길이만큼 대기 후 실행
+            Data.saveData.gameData.stage = num;
         }
         else //첫번째 클릭이면 선택 표시
         {
@@ -196,11 +197,12 @@ public class ButtonController : MonoBehaviour
         }
 
     }
+
     public void LoadGame() //인게임으로 이동, BGM 종료
     {
         tmp.GetComponent<ButtonEvent>().bButtonClicked = false;
         soundmanager.Stop();
-        SceneManager.LoadScene(SceneToLoadGame); //인게임 index 설정은 어떻게? 수정필요
+        SceneManager.LoadScene(SceneToLoadGame); //인게임 index 설정은 어떻게? 수정필요 // 1112 수정 완료
     }
     #endregion
 
@@ -212,6 +214,7 @@ public class ButtonController : MonoBehaviour
         tmp = GameObject.Find(btn);
         if (tmp.transform.GetChild(0).gameObject.activeSelf && tmp.GetComponent<ButtonEvent>().bButtonClicked) //두번째 클릭이면 클릭효과+애니메이션+실행
         {
+            Data.saveData.gameData.stage = num;
             Debug.Log("CutSceneButton Clicked");
 
             tmp.GetComponent<ButtonEvent>().SelectBoxBlink(true);

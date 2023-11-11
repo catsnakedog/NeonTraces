@@ -5428,11 +5428,11 @@
     "gameData": {
         "stage": 2,
         "stageClearInfo": [
-            false,
-            false,
-            false,
-            false,
-            false
+            true,
+            true,
+            true,
+            true,
+            true
         ],
         "player": {
             "instanceID": 20664

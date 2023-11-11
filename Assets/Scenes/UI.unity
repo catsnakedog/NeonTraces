@@ -5545,7 +5545,6 @@ MonoBehaviour:
       enemyPoint: []
       isInGame: 0
       isCameraFollow: 0
-      stageClearList: 
     ui:
       bgm: 0.5
       sfx: 0.5

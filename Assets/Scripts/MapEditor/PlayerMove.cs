@@ -333,6 +333,7 @@ public class PlayerMove : MonoBehaviour
 
     public IEnumerator LeftInMove()
     {
+        GameObject.Find("Canvas").transform.GetChild(0).gameObject.SetActive(false);
         playerAnimation.SetAnimation("Run");
         Data.saveData.gameData.isCameraFollow = false;
         player.transform.position = Data.saveData.mapData[stage].moveDots[0].v3 + new Vector3(-10, 0, 0);
@@ -343,6 +344,7 @@ public class PlayerMove : MonoBehaviour
         }
         player.transform.position = Data.saveData.mapData[stage].moveDots[0].v3;
         Data.saveData.gameData.isCameraFollow = true;
+        GameObject.Find("Canvas").transform.GetChild(0).gameObject.SetActive(true);
     }
 
     public IEnumerator RightOutMove()
@@ -364,7 +366,7 @@ public class PlayerMove : MonoBehaviour
         playerAction = null;
         if (Data.saveData.gameData.isInGame)
         {
-            Data.saveData.gameData.stageClearList.Add(Data.saveData.gameData.stage);
+            Data.saveData.gameData.stageClearInfo[Data.saveData.gameData.stage] = true;
             GameObject.Find("Canvas").transform.GetChild(0).gameObject.SetActive(false);
             player.transform.GetChild(0).gameObject.SetActive(false);
             SoundManager.sound.BGMLoopSet(false);
