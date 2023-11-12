@@ -41,6 +41,14 @@ public class ShowDialogue : MonoBehaviour
         if (talkDatas != null) DebugDialogue(talkDatas); // 대사가 null이 아니면 대사 출력
         //Debug.Log(Text.transform.parent.parent.name);
     }
+    public void ReceiveSignal_Play()
+    {
+        Debug.Log("대화 시작");
+
+        talkDatas = transform.GetComponent<Dialogue>().GetObjectDialogue();
+        if (talkDatas != null) DebugDialogue(talkDatas); // 대사가 null이 아니면 대사 출력
+        //Debug.Log(Text.transform.parent.parent.name);
+    }
 
     // Update is called once per frame
     void Update()
