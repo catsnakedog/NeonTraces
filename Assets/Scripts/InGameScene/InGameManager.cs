@@ -59,6 +59,7 @@ public class InGameManager : MonoBehaviour
 
     public void GameEnd()
     {
+        DataManager.data.Save();
         StartCoroutine(GameEndEffect());
     }
 
@@ -66,8 +67,15 @@ public class InGameManager : MonoBehaviour
     {
         yield return StartCoroutine(FadeOut());
         yield return new WaitForSeconds(0.5f);
+        if (DataManager.data.saveData.gameData.isFirstCutScene[stage])
+        {
+            SceneManager.LoadScene("CutScene0" + stage);
+        }
+        else
+        {
+            SceneManager.LoadScene("UI");
+        }
         SoundManager.sound.BGMLoopSet(true);
-        SceneManager.LoadScene("UI");
     }
 
     IEnumerator FadeIn()

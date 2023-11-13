@@ -35,21 +35,23 @@ public class CutSceneStartEnd : MonoBehaviour
         SceneManager.SetActiveScene(gameObject.scene);
     }
 
-    public void endScene() // 컷씬 종료 시
+    public void endScene() // 컷씬 종료 시 // InGame -> 컷씬 , UI -> 컷씬 분리가 필요해서 따로 제작함
     {
-        for (int i = 0; i < MainObject.Length; i++) // UI씬의 Light와 EventSystem 활성화
+        if(DataManager.data.saveData.gameData.crruentScene == "UI") // UI에서 호출한 경우
         {
-            MainObject[i].SetActive(true);
+            for (int i = 0; i < MainObject.Length; i++) // UI씬의 Light와 EventSystem 활성화
+            {
+                MainObject[i].SetActive(true);
+            }
+            SceneManager.UnloadSceneAsync(gameObject.scene);
+            soundmanager.Play("mainscreen");
         }
-        SceneManager.UnloadSceneAsync(gameObject.scene);
-        /*
-        if (DataManager.data.saveData.gameData.isFirstCutScene[DataManager.data.saveData.gameData.stage])
+        else if(DataManager.data.saveData.gameData.crruentScene == "InGame")
         {
-            SceneManager.LoadScene("InGameScene");
-            DataManager.data.saveData.gameData.isFirstCutScene[DataManager.data.saveData.gameData.stage] = true;
+            DataManager.data.saveData.gameData.isFirstCutScene[DataManager.data.saveData.gameData.stage] = false;
+            DataManager.data.Save();
+            SceneManager.LoadScene("UI");
         }
-        */
-        soundmanager.Play("mainscreen");
     }
 
 

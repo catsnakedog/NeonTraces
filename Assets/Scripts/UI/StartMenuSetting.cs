@@ -13,7 +13,7 @@ public class StartMenuSetting : MonoBehaviour
     void Start()
     {
         soundmanager = SoundManager.sound;
-
+        DataManager.data.saveData.gameData.crruentScene = "UI";
         canvasGroup = GameObject.Find("LoadingCanvas").GetComponent<CanvasGroup>();
         gameObject.SetActive(true);  //게임 시작시 시작 메뉴 활성화
         GameObject.Find("StageCanvas").SetActive(false); //게임 시작시 스테이지 메뉴 비활성화

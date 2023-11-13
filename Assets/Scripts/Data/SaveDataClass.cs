@@ -287,6 +287,7 @@ public class GameData
     public bool isInGame;
     public bool isCameraFollow;
     public List<bool> isFirstCutScene;
+    public string crruentScene;
 
     public GameData()
     {
@@ -297,9 +298,10 @@ public class GameData
         enemyPoint = new List<GameObject>();
         this.isInGame = false;
         this.isCameraFollow = false;
-        this.isFirstCutScene = new List<bool> { false, false, false, false };
+        this.isFirstCutScene = new List<bool> { true, true, true, true };
+        this.crruentScene = "";
     }
-    public GameData(int stage, List<bool> stageClearInfo, float camsize, bool isGameStart, List<GameObject> enemyPoint, bool isInGame, bool isCameraFollow, List<bool> isFirstCutScene)
+    public GameData(int stage, List<bool> stageClearInfo, float camsize, bool isGameStart, List<GameObject> enemyPoint, bool isInGame, bool isCameraFollow, List<bool> isFirstCutScene, string crruentScene)
     {
         this.stage = stage;
         this.stageClearInfo = stageClearInfo;
@@ -309,6 +311,7 @@ public class GameData
         this.isInGame= isInGame; 
         this.isCameraFollow = isCameraFollow;
         this.isFirstCutScene = isFirstCutScene;
+        this.crruentScene= crruentScene;
     }
 }
 

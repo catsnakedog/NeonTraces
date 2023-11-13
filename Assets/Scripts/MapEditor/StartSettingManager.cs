@@ -37,5 +37,7 @@ public class StartSettingManager : MonoBehaviour
         playerAnimaiton.AniSet();
         playerAction.StartSetting();
         bgManager.StartSetting();
+
+        Data.saveData.gameData.crruentScene = "InGame";
     }
 }
