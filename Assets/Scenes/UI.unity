@@ -744,7 +744,7 @@ GameObject:
   - component: {fileID: 175440331}
   m_Layer: 5
   m_Name: StageCanvas
-  m_TagString: Untagged
+  m_TagString: Main
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5545,6 +5545,7 @@ MonoBehaviour:
       enemyPoint: []
       isInGame: 0
       isCameraFollow: 0
+      isFirstCutScene: 00000000
     ui:
       bgm: 0.5
       sfx: 0.5
@@ -9208,7 +9209,7 @@ MonoBehaviour:
   stageMenu: {fileID: 175440330}
   SceneToLoadGame: InGameScene
   SceneToLoadCutScene:
-  - CutScene
+  - CutScene00_New
   - CutScene01
   - CutScene02
   - CutScene03
