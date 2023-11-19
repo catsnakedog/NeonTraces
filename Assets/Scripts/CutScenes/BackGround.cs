@@ -40,7 +40,6 @@ public class BackGround : MonoBehaviour
             if (once && (startPos.x + Vector2.left.x * posValue + 0.1 > transform.position.x)) //목표 위치 + 오차 > 실제 위치
                 background.enabled = false;
         }
-        print(ScenePlayTime);
         
         
     }

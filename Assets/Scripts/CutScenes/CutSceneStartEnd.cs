@@ -16,13 +16,13 @@ public class CutSceneStartEnd : MonoBehaviour
     {
         soundmanager = SoundManager.sound;
         _listener = GameObject.FindObjectOfType(typeof(AudioListener)) as AudioListener;
-        MainObject = GameObject.FindGameObjectsWithTag("Main"); // UI씬의 Light와 EventSystem
+        MainObject = GameObject.FindGameObjectsWithTag("Main"); // UI씬의 Light와 EventSystem, StageCanvas
 
 
         Debug.Log(_listener);
         Debug.Log(MainObject);
 
-        for (int i = 0; i < MainObject.Length; i++) // UI씬의 Light와 EventSystem 비활성화
+        for (int i = 0; i < MainObject.Length; i++) // UI씬의 Light와 EventSystem, StageCanvas 비활성화
         {
             MainObject[i].SetActive(false);
         }
@@ -39,7 +39,7 @@ public class CutSceneStartEnd : MonoBehaviour
     {
         if(DataManager.data.saveData.gameData.crruentScene == "UI") // UI에서 호출한 경우
         {
-            for (int i = 0; i < MainObject.Length; i++) // UI씬의 Light와 EventSystem 활성화
+            for (int i = 0; i < MainObject.Length; i++) // UI씬의 Light와 EventSystem, StageCanvas 활성화
             {
                 MainObject[i].SetActive(true);
             }
