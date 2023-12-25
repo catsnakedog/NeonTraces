@@ -2962,7 +2962,7 @@
                         "y": 130.0,
                         "z": 0.0
                     },
-                    "type": 1
+                    "type": 0
                 },
                 {
                     "v3": {
@@ -2988,7 +2988,7 @@
                         "y": 130.0,
                         "z": 0.0
                     },
-                    "type": 1
+                    "type": 0
                 },
                 {
                     "v3": {
@@ -3040,7 +3040,7 @@
                         "y": 130.0,
                         "z": 0.0
                     },
-                    "type": 1
+                    "type": 0
                 },
                 {
                     "v3": {
@@ -3070,42 +3070,16 @@
                 },
                 {
                     "v3": {
-                        "x": 770.4400024414063,
+                        "x": 772.0,
                         "y": 130.0,
                         "z": 0.0
                     },
                     "moveV3": {
-                        "x": 770.4400024414063,
+                        "x": 772.0,
                         "y": 130.0,
                         "z": 0.0
                     },
-                    "type": 1
-                },
-                {
-                    "v3": {
-                        "x": 850.3400268554688,
-                        "y": 130.0,
-                        "z": 0.0
-                    },
-                    "moveV3": {
-                        "x": 850.3400268554688,
-                        "y": 130.0,
-                        "z": 0.0
-                    },
-                    "type": 1
-                },
-                {
-                    "v3": {
-                        "x": 877.0,
-                        "y": 130.0,
-                        "z": 0.0
-                    },
-                    "moveV3": {
-                        "x": 877.0,
-                        "y": 130.0,
-                        "z": 0.0
-                    },
-                    "type": 1
+                    "type": 3
                 },
                 {
                     "v3": {
@@ -3122,6 +3096,19 @@
                 },
                 {
                     "v3": {
+                        "x": 850.3400268554688,
+                        "y": 130.0,
+                        "z": 0.0
+                    },
+                    "moveV3": {
+                        "x": 850.3400268554688,
+                        "y": 130.0,
+                        "z": 0.0
+                    },
+                    "type": 0
+                },
+                {
+                    "v3": {
                         "x": 860.3400268554688,
                         "y": 130.0,
                         "z": 0.0
@@ -3132,6 +3119,19 @@
                         "z": 0.0
                     },
                     "type": 1
+                },
+                {
+                    "v3": {
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.0
+                    },
+                    "moveV3": {
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.0
+                    },
+                    "type": 0
                 },
                 {
                     "v3": {
@@ -3148,16 +3148,29 @@
                 },
                 {
                     "v3": {
-                        "x": 881.0,
+                        "x": 877.0,
                         "y": 130.0,
                         "z": 0.0
                     },
                     "moveV3": {
-                        "x": 881.0,
+                        "x": 877.0,
                         "y": 130.0,
                         "z": 0.0
                     },
-                    "type": 1
+                    "type": 0
+                },
+                {
+                    "v3": {
+                        "x": 882.7999877929688,
+                        "y": 130.0,
+                        "z": 0.0
+                    },
+                    "moveV3": {
+                        "x": 882.7999877929688,
+                        "y": 130.0,
+                        "z": 0.0
+                    },
+                    "type": 2
                 },
                 {
                     "v3": {
@@ -3170,7 +3183,7 @@
                         "y": 130.0,
                         "z": 0.0
                     },
-                    "type": 1
+                    "type": 3
                 },
                 {
                     "v3": {
@@ -3196,7 +3209,7 @@
                         "y": 130.0,
                         "z": 0.0
                     },
-                    "type": 1
+                    "type": 0
                 },
                 {
                     "v3": {
@@ -3222,7 +3235,7 @@
                         "y": 130.0,
                         "z": 0.0
                     },
-                    "type": 1
+                    "type": 3
                 },
                 {
                     "v3": {
@@ -3252,19 +3265,6 @@
                 },
                 {
                     "v3": {
-                        "x": 1073.429931640625,
-                        "y": 130.0,
-                        "z": 0.0
-                    },
-                    "moveV3": {
-                        "x": 1073.429931640625,
-                        "y": 130.0,
-                        "z": 0.0
-                    },
-                    "type": 1
-                },
-                {
-                    "v3": {
                         "x": 1081.179931640625,
                         "y": 130.0,
                         "z": 0.0
@@ -3274,7 +3274,7 @@
                         "y": 130.0,
                         "z": 0.0
                     },
-                    "type": 1
+                    "type": 0
                 },
                 {
                     "v3": {
@@ -3287,7 +3287,7 @@
                         "y": 130.0,
                         "z": 0.0
                     },
-                    "type": 1
+                    "type": 0
                 },
                 {
                     "v3": {
@@ -3313,7 +3313,7 @@
                         "y": 130.0,
                         "z": 0.0
                     },
-                    "type": 1
+                    "type": 2
                 },
                 {
                     "v3": {
@@ -3323,19 +3323,6 @@
                     },
                     "moveV3": {
                         "x": 1197.179931640625,
-                        "y": 130.0,
-                        "z": 0.0
-                    },
-                    "type": 1
-                },
-                {
-                    "v3": {
-                        "x": 1210.929931640625,
-                        "y": 130.0,
-                        "z": 0.0
-                    },
-                    "moveV3": {
-                        "x": 1210.929931640625,
                         "y": 130.0,
                         "z": 0.0
                     },
@@ -3365,7 +3352,7 @@
                         "y": 130.0,
                         "z": 0.0
                     },
-                    "type": 1
+                    "type": 0
                 },
                 {
                     "v3": {
@@ -3417,7 +3404,7 @@
                         "y": 130.0,
                         "z": 0.0
                     },
-                    "type": 1
+                    "type": 0
                 },
                 {
                     "v3": {
@@ -5930,1097 +5917,1087 @@
         "enemyInfo": [
             {
                 "enemy": {
-                    "instanceID": -113380
+                    "instanceID": -176314
                 },
                 "x": 94.31999969482422,
                 "index": 0
             },
             {
                 "enemy": {
-                    "instanceID": -113398
+                    "instanceID": -176332
                 },
                 "x": 110.45320892333985,
                 "index": 1
             },
             {
                 "enemy": {
-                    "instanceID": -113416
+                    "instanceID": -176350
                 },
                 "x": 117.01000213623047,
                 "index": 2
             },
             {
                 "enemy": {
-                    "instanceID": -113434
+                    "instanceID": -176368
                 },
                 "x": 121.01000213623047,
                 "index": 3
             },
             {
                 "enemy": {
-                    "instanceID": -113452
+                    "instanceID": -176386
                 },
                 "x": 131.92999267578126,
                 "index": 4
             },
             {
                 "enemy": {
-                    "instanceID": -113470
+                    "instanceID": -176404
                 },
                 "x": 149.63999938964845,
                 "index": 5
             },
             {
                 "enemy": {
-                    "instanceID": -113488
+                    "instanceID": -176422
                 },
                 "x": 156.38999938964845,
                 "index": 6
             },
             {
                 "enemy": {
-                    "instanceID": -113506
+                    "instanceID": -176440
                 },
                 "x": 166.94000244140626,
                 "index": 7
             },
             {
                 "enemy": {
-                    "instanceID": -113524
+                    "instanceID": -176458
                 },
                 "x": 178.81752014160157,
                 "index": 8
             },
             {
                 "enemy": {
-                    "instanceID": -113542
+                    "instanceID": -176476
                 },
                 "x": 183.82000732421876,
                 "index": 9
             },
             {
                 "enemy": {
-                    "instanceID": -113560
+                    "instanceID": -176494
                 },
                 "x": 188.8300018310547,
                 "index": 10
             },
             {
                 "enemy": {
-                    "instanceID": -113578
+                    "instanceID": -176512
                 },
                 "x": 195.33999633789063,
                 "index": 11
             },
             {
                 "enemy": {
-                    "instanceID": -113596
+                    "instanceID": -176530
                 },
                 "x": 211.1608428955078,
                 "index": 12
             },
             {
                 "enemy": {
-                    "instanceID": -113614
+                    "instanceID": -176548
                 },
                 "x": 216.066650390625,
                 "index": 13
             },
             {
                 "enemy": {
-                    "instanceID": -113632
+                    "instanceID": -176566
                 },
                 "x": 219.54000854492188,
                 "index": 14
             },
             {
                 "enemy": {
-                    "instanceID": -113650
+                    "instanceID": -176584
                 },
                 "x": 222.60000610351563,
                 "index": 15
             },
             {
                 "enemy": {
-                    "instanceID": -113668
+                    "instanceID": -176602
                 },
                 "x": 238.63999938964845,
                 "index": 16
             },
             {
                 "enemy": {
-                    "instanceID": -113686
+                    "instanceID": -176620
                 },
                 "x": 242.36000061035157,
                 "index": 17
             },
             {
                 "enemy": {
-                    "instanceID": -113704
+                    "instanceID": -176638
                 },
                 "x": 253.1999969482422,
                 "index": 18
             },
             {
                 "enemy": {
-                    "instanceID": -113722
+                    "instanceID": -176656
                 },
                 "x": 269.0,
                 "index": 19
             },
             {
                 "enemy": {
-                    "instanceID": -113740
+                    "instanceID": -176674
                 },
                 "x": 273.6469421386719,
                 "index": 20
             },
             {
                 "enemy": {
-                    "instanceID": -113758
+                    "instanceID": -176692
                 },
                 "x": 280.0,
                 "index": 21
             },
             {
                 "enemy": {
-                    "instanceID": -113776
+                    "instanceID": -176710
                 },
                 "x": 301.82000732421877,
                 "index": 22
             },
             {
                 "enemy": {
-                    "instanceID": -113794
+                    "instanceID": -176728
                 },
                 "x": 306.1199951171875,
                 "index": 23
             },
             {
                 "enemy": {
-                    "instanceID": -113812
+                    "instanceID": -176746
                 },
                 "x": 312.7300109863281,
                 "index": 24
             },
             {
                 "enemy": {
-                    "instanceID": -113830
+                    "instanceID": -176764
                 },
                 "x": 324.6300048828125,
                 "index": 25
             },
             {
                 "enemy": {
-                    "instanceID": -113848
+                    "instanceID": -176782
                 },
                 "x": 332.1400146484375,
                 "index": 26
             },
             {
                 "enemy": {
-                    "instanceID": -113866
+                    "instanceID": -176800
                 },
                 "x": 335.6000061035156,
                 "index": 27
             },
             {
                 "enemy": {
-                    "instanceID": -113884
+                    "instanceID": -176818
                 },
                 "x": 340.6800231933594,
                 "index": 28
             },
             {
                 "enemy": {
-                    "instanceID": -113902
+                    "instanceID": -176836
                 },
                 "x": 355.20001220703127,
                 "index": 29
             },
             {
                 "enemy": {
-                    "instanceID": -113920
+                    "instanceID": -176854
                 },
                 "x": 360.70001220703127,
                 "index": 30
             },
             {
                 "enemy": {
-                    "instanceID": -113938
+                    "instanceID": -176872
                 },
                 "x": 369.2799987792969,
                 "index": 31
             },
             {
                 "enemy": {
-                    "instanceID": -113956
+                    "instanceID": -176890
                 },
                 "x": 383.70001220703127,
                 "index": 32
             },
             {
                 "enemy": {
-                    "instanceID": -113974
+                    "instanceID": -176908
                 },
                 "x": 388.70001220703127,
                 "index": 33
             },
             {
                 "enemy": {
-                    "instanceID": -113992
+                    "instanceID": -176926
                 },
                 "x": 397.95001220703127,
                 "index": 34
             },
             {
                 "enemy": {
-                    "instanceID": -114010
+                    "instanceID": -176944
                 },
                 "x": 415.5199890136719,
                 "index": 35
             },
             {
                 "enemy": {
-                    "instanceID": -114028
+                    "instanceID": -176962
                 },
                 "x": 420.1400146484375,
                 "index": 36
             },
             {
                 "enemy": {
-                    "instanceID": -114046
+                    "instanceID": -176980
                 },
                 "x": 425.510009765625,
                 "index": 37
             },
             {
                 "enemy": {
-                    "instanceID": -114064
+                    "instanceID": -176998
                 },
                 "x": 441.0899963378906,
                 "index": 38
             },
             {
                 "enemy": {
-                    "instanceID": -114082
+                    "instanceID": -177016
                 },
                 "x": 450.45001220703127,
                 "index": 39
             },
             {
                 "enemy": {
-                    "instanceID": -114100
+                    "instanceID": -177034
                 },
                 "x": 453.75,
                 "index": 40
             },
             {
                 "enemy": {
-                    "instanceID": -114118
+                    "instanceID": -177052
                 },
                 "x": 457.6600036621094,
                 "index": 41
             },
             {
                 "enemy": {
-                    "instanceID": -114136
+                    "instanceID": -177070
                 },
                 "x": 466.95001220703127,
                 "index": 42
             },
             {
                 "enemy": {
-                    "instanceID": -114154
+                    "instanceID": -177088
                 },
                 "x": 472.989990234375,
                 "index": 43
             },
             {
                 "enemy": {
-                    "instanceID": -114172
+                    "instanceID": -177106
                 },
                 "x": 480.70001220703127,
                 "index": 44
             },
             {
                 "enemy": {
-                    "instanceID": -114190
+                    "instanceID": -177124
                 },
                 "x": 498.29998779296877,
                 "index": 45
             },
             {
                 "enemy": {
-                    "instanceID": -114208
+                    "instanceID": -177142
                 },
                 "x": 505.54998779296877,
                 "index": 46
             },
             {
                 "enemy": {
-                    "instanceID": -114226
+                    "instanceID": -177160
                 },
                 "x": 511.0,
                 "index": 47
             },
             {
                 "enemy": {
-                    "instanceID": -114244
+                    "instanceID": -177178
                 },
                 "x": 530.5499877929688,
                 "index": 48
             },
             {
                 "enemy": {
-                    "instanceID": -114262
+                    "instanceID": -177196
                 },
                 "x": 533.969970703125,
                 "index": 49
             },
             {
                 "enemy": {
-                    "instanceID": -114280
+                    "instanceID": -177214
                 },
                 "x": 537.4000244140625,
                 "index": 50
             },
             {
                 "enemy": {
-                    "instanceID": -114298
+                    "instanceID": -177232
                 },
                 "x": 542.6400146484375,
                 "index": 51
             },
             {
                 "enemy": {
-                    "instanceID": -114316
+                    "instanceID": -177250
                 },
                 "x": 558.2999877929688,
                 "index": 52
             },
             {
                 "enemy": {
-                    "instanceID": -114334
+                    "instanceID": -177268
                 },
                 "x": 565.969970703125,
                 "index": 53
             },
             {
                 "enemy": {
-                    "instanceID": -114352
+                    "instanceID": -177286
                 },
                 "x": 569.0499877929688,
                 "index": 54
             },
             {
                 "enemy": {
-                    "instanceID": -114370
+                    "instanceID": -177304
                 },
                 "x": 572.1699829101563,
                 "index": 55
             },
             {
                 "enemy": {
-                    "instanceID": -114388
+                    "instanceID": -177322
                 },
                 "x": 575.0499877929688,
                 "index": 56
             },
             {
                 "enemy": {
-                    "instanceID": -114406
+                    "instanceID": -177340
                 },
                 "x": 577.7999877929688,
                 "index": 57
             },
             {
                 "enemy": {
-                    "instanceID": -114424
+                    "instanceID": -177358
                 },
                 "x": 582.2999877929688,
                 "index": 58
             },
             {
                 "enemy": {
-                    "instanceID": -114442
+                    "instanceID": -177376
                 },
                 "x": 689.9000244140625,
                 "index": 59
             },
             {
                 "enemy": {
-                    "instanceID": -114460
+                    "instanceID": -177394
                 },
                 "x": 702.4000244140625,
                 "index": 60
             },
             {
                 "enemy": {
-                    "instanceID": -114478
+                    "instanceID": -177412
                 },
                 "x": 712.4000244140625,
                 "index": 61
             },
             {
                 "enemy": {
-                    "instanceID": -114496
+                    "instanceID": -177430
                 },
                 "x": 722.8099975585938,
                 "index": 62
             },
             {
                 "enemy": {
-                    "instanceID": -114514
+                    "instanceID": -177448
                 },
                 "x": 729.0599975585938,
                 "index": 63
             },
             {
                 "enemy": {
-                    "instanceID": -114532
+                    "instanceID": -177466
                 },
                 "x": 733.0599975585938,
                 "index": 64
             },
             {
                 "enemy": {
-                    "instanceID": -114550
+                    "instanceID": -177484
                 },
                 "x": 739.780029296875,
                 "index": 65
             },
             {
                 "enemy": {
-                    "instanceID": -114568
+                    "instanceID": -177502
                 },
                 "x": 749.780029296875,
                 "index": 66
             },
             {
                 "enemy": {
-                    "instanceID": -114586
+                    "instanceID": -177520
                 },
                 "x": 760.1900024414063,
                 "index": 67
             },
             {
                 "enemy": {
-                    "instanceID": -114604
+                    "instanceID": -177538
                 },
                 "x": 766.4400024414063,
                 "index": 68
             },
             {
                 "enemy": {
-                    "instanceID": -114622
+                    "instanceID": -177556
                 },
-                "x": 770.4400024414063,
+                "x": 772.0,
                 "index": 69
             },
             {
                 "enemy": {
-                    "instanceID": -114640
+                    "instanceID": -177574
                 },
-                "x": 850.3400268554688,
+                "x": 837.8400268554688,
                 "index": 70
             },
             {
                 "enemy": {
-                    "instanceID": -114658
+                    "instanceID": -177592
                 },
-                "x": 877.0,
+                "x": 850.3400268554688,
                 "index": 71
             },
             {
                 "enemy": {
-                    "instanceID": -114676
+                    "instanceID": -177610
                 },
-                "x": 837.8400268554688,
+                "x": 860.3400268554688,
                 "index": 72
             },
             {
                 "enemy": {
-                    "instanceID": -114694
+                    "instanceID": -177628
                 },
-                "x": 860.3400268554688,
+                "x": 0.0,
                 "index": 73
             },
             {
                 "enemy": {
-                    "instanceID": -114712
+                    "instanceID": -177646
                 },
                 "x": 870.75,
                 "index": 74
             },
             {
                 "enemy": {
-                    "instanceID": -114730
+                    "instanceID": -177664
                 },
-                "x": 881.0,
+                "x": 877.0,
                 "index": 75
             },
             {
                 "enemy": {
-                    "instanceID": -114748
+                    "instanceID": -177682
                 },
-                "x": 933.069091796875,
+                "x": 882.7999877929688,
                 "index": 76
             },
             {
                 "enemy": {
-                    "instanceID": -114766
+                    "instanceID": -177700
                 },
-                "x": 982.1409912109375,
+                "x": 933.069091796875,
                 "index": 77
             },
             {
                 "enemy": {
-                    "instanceID": -114784
+                    "instanceID": -177718
                 },
-                "x": 1027.429931640625,
+                "x": 982.1409912109375,
                 "index": 78
             },
             {
                 "enemy": {
-                    "instanceID": -114802
+                    "instanceID": -177736
                 },
-                "x": 1036.929931640625,
+                "x": 1027.429931640625,
                 "index": 79
             },
             {
                 "enemy": {
-                    "instanceID": -114820
+                    "instanceID": -177754
                 },
-                "x": 1050.929931640625,
+                "x": 1036.929931640625,
                 "index": 80
             },
             {
                 "enemy": {
-                    "instanceID": -114838
+                    "instanceID": -177772
                 },
-                "x": 1060.179931640625,
+                "x": 1050.929931640625,
                 "index": 81
             },
             {
                 "enemy": {
-                    "instanceID": -114856
+                    "instanceID": -177790
                 },
-                "x": 1069.179931640625,
+                "x": 1060.179931640625,
                 "index": 82
             },
             {
                 "enemy": {
-                    "instanceID": -114874
+                    "instanceID": -177808
                 },
-                "x": 1073.429931640625,
+                "x": 1069.179931640625,
                 "index": 83
             },
             {
                 "enemy": {
-                    "instanceID": -114892
+                    "instanceID": -177826
                 },
                 "x": 1081.179931640625,
                 "index": 84
             },
             {
                 "enemy": {
-                    "instanceID": -114910
+                    "instanceID": -177844
                 },
                 "x": 1126.75,
                 "index": 85
             },
             {
                 "enemy": {
-                    "instanceID": -114928
+                    "instanceID": -177862
                 },
                 "x": 1174.929931640625,
                 "index": 86
             },
             {
                 "enemy": {
-                    "instanceID": -114946
+                    "instanceID": -177880
                 },
                 "x": 1185.679931640625,
                 "index": 87
             },
             {
                 "enemy": {
-                    "instanceID": -114964
+                    "instanceID": -177898
                 },
                 "x": 1197.179931640625,
                 "index": 88
             },
             {
                 "enemy": {
-                    "instanceID": -114982
+                    "instanceID": -177916
                 },
-                "x": 1210.929931640625,
+                "x": 1225.699951171875,
                 "index": 89
             },
             {
                 "enemy": {
-                    "instanceID": -115000
+                    "instanceID": -177934
                 },
-                "x": 1225.699951171875,
+                "x": 1267.1500244140625,
                 "index": 90
             },
             {
                 "enemy": {
-                    "instanceID": -115018
+                    "instanceID": -177952
                 },
-                "x": 1267.1500244140625,
+                "x": 1314.9000244140625,
                 "index": 91
             },
             {
                 "enemy": {
-                    "instanceID": -115036
+                    "instanceID": -177970
                 },
-                "x": 1314.9000244140625,
+                "x": 1359.9000244140625,
                 "index": 92
             },
             {
                 "enemy": {
-                    "instanceID": -115054
+                    "instanceID": -177988
                 },
-                "x": 1359.9000244140625,
+                "x": 1375.6500244140625,
                 "index": 93
             },
             {
                 "enemy": {
-                    "instanceID": -115072
+                    "instanceID": -178006
                 },
-                "x": 1375.6500244140625,
+                "x": 1385.4000244140625,
                 "index": 94
             },
             {
                 "enemy": {
-                    "instanceID": -115090
+                    "instanceID": -178024
                 },
-                "x": 1385.4000244140625,
+                "x": 1396.9000244140625,
                 "index": 95
             },
             {
                 "enemy": {
-                    "instanceID": -115108
+                    "instanceID": -178042
                 },
-                "x": 1396.9000244140625,
+                "x": 1403.9000244140625,
                 "index": 96
             },
             {
                 "enemy": {
-                    "instanceID": -115126
+                    "instanceID": -178060
                 },
-                "x": 1403.9000244140625,
+                "x": 1410.1500244140625,
                 "index": 97
             },
             {
                 "enemy": {
-                    "instanceID": -115144
+                    "instanceID": -178078
                 },
-                "x": 1410.1500244140625,
+                "x": 1419.4000244140625,
                 "index": 98
             },
             {
                 "enemy": {
-                    "instanceID": -115162
+                    "instanceID": -178096
                 },
-                "x": 1419.4000244140625,
+                "x": 1462.7254638671875,
                 "index": 99
             },
             {
                 "enemy": {
-                    "instanceID": -115180
+                    "instanceID": -178114
                 },
-                "x": 1462.7254638671875,
+                "x": 1510.96923828125,
                 "index": 100
             },
             {
                 "enemy": {
-                    "instanceID": -115198
+                    "instanceID": -178132
                 },
-                "x": 1510.96923828125,
+                "x": 1557.6517333984375,
                 "index": 101
             },
             {
                 "enemy": {
-                    "instanceID": -115216
+                    "instanceID": -178150
                 },
-                "x": 1557.6517333984375,
+                "x": 1605.800048828125,
                 "index": 102
             },
             {
                 "enemy": {
-                    "instanceID": -115234
+                    "instanceID": -178168
                 },
-                "x": 1605.800048828125,
+                "x": 1617.550048828125,
                 "index": 103
             },
             {
                 "enemy": {
-                    "instanceID": -115252
+                    "instanceID": -178186
                 },
-                "x": 1617.550048828125,
+                "x": 1629.300048828125,
                 "index": 104
             },
             {
                 "enemy": {
-                    "instanceID": -115270
+                    "instanceID": -178204
                 },
-                "x": 1629.300048828125,
+                "x": 1642.050048828125,
                 "index": 105
             },
             {
                 "enemy": {
-                    "instanceID": -115288
+                    "instanceID": -178222
                 },
-                "x": 1642.050048828125,
+                "x": 1648.800048828125,
                 "index": 106
             },
             {
                 "enemy": {
-                    "instanceID": -115306
-                },
-                "x": 1648.800048828125,
-                "index": 107
-            },
-            {
-                "enemy": {
-                    "instanceID": -115324
+                    "instanceID": -178240
                 },
                 "x": 1654.800048828125,
-                "index": 108
+                "index": 107
             }
         ],
         "camsize": 10.0,
         "isGameStart": false,
         "enemyPoint": [
             {
-                "instanceID": -113392
+                "instanceID": -176326
             },
             {
-                "instanceID": -113410
+                "instanceID": -176344
             },
             {
-                "instanceID": -113428
+                "instanceID": -176362
             },
             {
-                "instanceID": -113446
+                "instanceID": -176380
             },
             {
-                "instanceID": -113464
+                "instanceID": -176398
             },
             {
-                "instanceID": -113482
+                "instanceID": -176416
             },
             {
-                "instanceID": -113500
+                "instanceID": -176434
             },
             {
-                "instanceID": -113518
+                "instanceID": -176452
             },
             {
-                "instanceID": -113536
+                "instanceID": -176470
             },
             {
-                "instanceID": -113554
+                "instanceID": -176488
             },
             {
-                "instanceID": -113572
+                "instanceID": -176506
             },
             {
-                "instanceID": -113590
+                "instanceID": -176524
             },
             {
-                "instanceID": -113608
+                "instanceID": -176542
             },
             {
-                "instanceID": -113626
+                "instanceID": -176560
             },
             {
-                "instanceID": -113644
+                "instanceID": -176578
             },
             {
-                "instanceID": -113662
+                "instanceID": -176596
             },
             {
-                "instanceID": -113680
+                "instanceID": -176614
             },
             {
-                "instanceID": -113698
+                "instanceID": -176632
             },
             {
-                "instanceID": -113716
+                "instanceID": -176650
             },
             {
-                "instanceID": -113734
+                "instanceID": -176668
             },
             {
-                "instanceID": -113752
+                "instanceID": -176686
             },
             {
-                "instanceID": -113770
+                "instanceID": -176704
             },
             {
-                "instanceID": -113788
+                "instanceID": -176722
             },
             {
-                "instanceID": -113806
+                "instanceID": -176740
             },
             {
-                "instanceID": -113824
+                "instanceID": -176758
             },
             {
-                "instanceID": -113842
+                "instanceID": -176776
             },
             {
-                "instanceID": -113860
+                "instanceID": -176794
             },
             {
-                "instanceID": -113878
+                "instanceID": -176812
             },
             {
-                "instanceID": -113896
+                "instanceID": -176830
             },
             {
-                "instanceID": -113914
+                "instanceID": -176848
             },
             {
-                "instanceID": -113932
+                "instanceID": -176866
             },
             {
-                "instanceID": -113950
+                "instanceID": -176884
             },
             {
-                "instanceID": -113968
+                "instanceID": -176902
             },
             {
-                "instanceID": -113986
+                "instanceID": -176920
             },
             {
-                "instanceID": -114004
+                "instanceID": -176938
             },
             {
-                "instanceID": -114022
+                "instanceID": -176956
             },
             {
-                "instanceID": -114040
+                "instanceID": -176974
             },
             {
-                "instanceID": -114058
+                "instanceID": -176992
             },
             {
-                "instanceID": -114076
+                "instanceID": -177010
             },
             {
-                "instanceID": -114094
+                "instanceID": -177028
             },
             {
-                "instanceID": -114112
+                "instanceID": -177046
             },
             {
-                "instanceID": -114130
+                "instanceID": -177064
             },
             {
-                "instanceID": -114148
+                "instanceID": -177082
             },
             {
-                "instanceID": -114166
+                "instanceID": -177100
             },
             {
-                "instanceID": -114184
+                "instanceID": -177118
             },
             {
-                "instanceID": -114202
+                "instanceID": -177136
             },
             {
-                "instanceID": -114220
+                "instanceID": -177154
             },
             {
-                "instanceID": -114238
+                "instanceID": -177172
             },
             {
-                "instanceID": -114256
+                "instanceID": -177190
             },
             {
-                "instanceID": -114274
+                "instanceID": -177208
             },
             {
-                "instanceID": -114292
+                "instanceID": -177226
             },
             {
-                "instanceID": -114310
+                "instanceID": -177244
             },
             {
-                "instanceID": -114328
+                "instanceID": -177262
             },
             {
-                "instanceID": -114346
+                "instanceID": -177280
             },
             {
-                "instanceID": -114364
+                "instanceID": -177298
             },
             {
-                "instanceID": -114382
+                "instanceID": -177316
             },
             {
-                "instanceID": -114400
+                "instanceID": -177334
             },
             {
-                "instanceID": -114418
+                "instanceID": -177352
             },
             {
-                "instanceID": -114436
+                "instanceID": -177370
             },
             {
-                "instanceID": -114454
+                "instanceID": -177388
             },
             {
-                "instanceID": -114472
+                "instanceID": -177406
             },
             {
-                "instanceID": -114490
+                "instanceID": -177424
             },
             {
-                "instanceID": -114508
+                "instanceID": -177442
             },
             {
-                "instanceID": -114526
+                "instanceID": -177460
             },
             {
-                "instanceID": -114544
+                "instanceID": -177478
             },
             {
-                "instanceID": -114562
+                "instanceID": -177496
             },
             {
-                "instanceID": -114580
+                "instanceID": -177514
             },
             {
-                "instanceID": -114598
+                "instanceID": -177532
             },
             {
-                "instanceID": -114616
+                "instanceID": -177550
             },
             {
-                "instanceID": -114634
+                "instanceID": -177568
             },
             {
-                "instanceID": -114652
+                "instanceID": -177586
             },
             {
-                "instanceID": -114670
+                "instanceID": -177604
             },
             {
-                "instanceID": -114688
+                "instanceID": -177622
             },
             {
-                "instanceID": -114706
+                "instanceID": -177640
             },
             {
-                "instanceID": -114724
+                "instanceID": -177658
             },
             {
-                "instanceID": -114742
+                "instanceID": -177676
             },
             {
-                "instanceID": -114760
+                "instanceID": -177694
             },
             {
-                "instanceID": -114778
+                "instanceID": -177712
             },
             {
-                "instanceID": -114796
+                "instanceID": -177730
             },
             {
-                "instanceID": -114814
+                "instanceID": -177748
             },
             {
-                "instanceID": -114832
+                "instanceID": -177766
             },
             {
-                "instanceID": -114850
+                "instanceID": -177784
             },
             {
-                "instanceID": -114868
+                "instanceID": -177802
             },
             {
-                "instanceID": -114886
+                "instanceID": -177820
             },
             {
-                "instanceID": -114904
+                "instanceID": -177838
             },
             {
-                "instanceID": -114922
+                "instanceID": -177856
             },
             {
-                "instanceID": -114940
+                "instanceID": -177874
             },
             {
-                "instanceID": -114958
+                "instanceID": -177892
             },
             {
-                "instanceID": -114976
+                "instanceID": -177910
             },
             {
-                "instanceID": -114994
+                "instanceID": -177928
             },
             {
-                "instanceID": -115012
+                "instanceID": -177946
             },
             {
-                "instanceID": -115030
+                "instanceID": -177964
             },
             {
-                "instanceID": -115048
+                "instanceID": -177982
             },
             {
-                "instanceID": -115066
+                "instanceID": -178000
             },
             {
-                "instanceID": -115084
+                "instanceID": -178018
             },
             {
-                "instanceID": -115102
+                "instanceID": -178036
             },
             {
-                "instanceID": -115120
+                "instanceID": -178054
             },
             {
-                "instanceID": -115138
+                "instanceID": -178072
             },
             {
-                "instanceID": -115156
+                "instanceID": -178090
             },
             {
-                "instanceID": -115174
+                "instanceID": -178108
             },
             {
-                "instanceID": -115192
+                "instanceID": -178126
             },
             {
-                "instanceID": -115210
+                "instanceID": -178144
             },
             {
-                "instanceID": -115228
+                "instanceID": -178162
             },
             {
-                "instanceID": -115246
+                "instanceID": -178180
             },
             {
-                "instanceID": -115264
+                "instanceID": -178198
             },
             {
-                "instanceID": -115282
+                "instanceID": -178216
             },
             {
-                "instanceID": -115300
+                "instanceID": -178234
             },
             {
-                "instanceID": -115318
-            },
-            {
-                "instanceID": -115336
+                "instanceID": -178252
             }
         ],
         "isInGame": true,
