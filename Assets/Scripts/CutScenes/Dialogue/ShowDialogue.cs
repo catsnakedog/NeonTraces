@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Playables;
+using System;
 
 public class ShowDialogue : MonoBehaviour
 {
@@ -97,33 +98,40 @@ public class ShowDialogue : MonoBehaviour
             Debug.Log("클릭");
             InitDialogue(); //인덱스 초기화 및 유효성 검사
 
-            if (talkDatasIndex >= talkDatas.Length) // 대화가 끝났다면
+            try
             {
-                gameObject.SetActive(false); // 대화창이 나오는 Canvas 비활성화
-                playableDirector.Resume(); //해당 대화가 종료되면 타임라인 재시작
-            }
+                if (talkDatasIndex >= talkDatas.Length) // 대화가 끝났다면
+                {
+                    gameObject.SetActive(false); // 대화창이 나오는 Canvas 비활성화
+                    playableDirector.Resume(); //해당 대화가 종료되면 타임라인 재시작
+                }
 
-            //대화 중이라면 대사 띄우기
-            else if (talkDatas[talkDatasIndex].name == "주인공") //주인공의 대사라면
-            {
-                Talk("주인공");
-            }
-            else if (talkDatas[talkDatasIndex].name == "드론") //드론의 대사라면
-            {
-                Talk("드론");
-            }
-            else if (talkDatas[talkDatasIndex].name == "스피커") //스피커의 대사라면
-            {
-                Talk("스피커");
-            }
-            else if (talkDatas[talkDatasIndex].name == "AI") //스피커의 대사라면
-            {
-                Talk("AI");
-            }
+                //대화 중이라면 대사 띄우기
+                else if (talkDatas[talkDatasIndex].name == "주인공") //주인공의 대사라면
+                {
+                    Talk("주인공");
+                }
+                else if (talkDatas[talkDatasIndex].name == "드론") //드론의 대사라면
+                {
+                    Talk("드론");
+                }
+                else if (talkDatas[talkDatasIndex].name == "스피커") //스피커의 대사라면
+                {
+                    Talk("스피커");
+                }
+                else if (talkDatas[talkDatasIndex].name == "AI") //스피커의 대사라면
+                {
+                    Talk("AI");
+                }
 
-            else //모두 아니라면
+                else //모두 아니라면
+                {
+                    return;
+                }
+            }
+            catch (NullReferenceException)
             {
-                return;
+                Debug.Log("일단 버그 예외 처리");
             }
         }
 
@@ -131,17 +139,23 @@ public class ShowDialogue : MonoBehaviour
 
     void InitDialogue() //인덱스 초기화 및 유효성 검사
     {
-        if (talkDatasIndex < talkDatas.Length && count >= talkDatas[talkDatasIndex].contexts.Length) // 대화 중이며 && 다른 캐릭터의 대사로 넘어간 것이라면
+        try
         {
-            talkDatasIndex++;
-            count = 0;
-            for (int i = 0; i < text.Length; i++)
+            if (talkDatasIndex < talkDatas.Length && count >= talkDatas[talkDatasIndex].contexts.Length) // 대화 중이며 && 다른 캐릭터의 대사로 넘어간 것이라면
             {
-                if(text[i] != null)
-                    text[i].transform.parent.parent.gameObject.SetActive(false);
+                talkDatasIndex++;
+                count = 0;
+                for (int i = 0; i < text.Length; i++)
+                {
+                    if (text[i] != null)
+                        text[i].transform.parent.parent.gameObject.SetActive(false);
+                }
             }
         }
-
+        catch (NullReferenceException)
+        {
+            Debug.Log("일단 버그 예외처리");
+        }
     }
 
     void Talk(string name)

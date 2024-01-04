@@ -333,6 +333,7 @@ public class PlayerMove : MonoBehaviour
 
     public IEnumerator LeftInMove()
     {
+        stage = Data.saveData.gameData.stage;
         GameObject.Find("Canvas").transform.GetChild(0).gameObject.SetActive(false);
         playerAnimation.SetAnimation("Run");
         Data.saveData.gameData.isCameraFollow = false;

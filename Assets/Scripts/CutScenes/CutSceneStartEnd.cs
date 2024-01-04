@@ -35,7 +35,7 @@ public class CutSceneStartEnd : MonoBehaviour
         SceneManager.SetActiveScene(gameObject.scene);
     }
 
-    public void endScene() // 컷씬 종료 시 // InGame -> 컷씬 , UI -> 컷씬 분리가 필요해서 따로 제작함
+    public void endScene() // 컷씬 종료 시 // InGame -> 컷씬 , UI -> 컷씬 분리가 필요해서 따로 제작함 // 최초 컷씬 재생을 위해 추가 분리
     {
         if(DataManager.data.saveData.gameData.crruentScene == "UI") // UI에서 호출한 경우
         {

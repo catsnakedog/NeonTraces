@@ -295,7 +295,7 @@ public class GameData
         this.stageClearInfo = new List<bool>();
         this.camsize = 0;
         this.isGameStart = false;
-        enemyPoint = new List<GameObject>();
+        this.enemyPoint = new List<GameObject>();
         this.isInGame = false;
         this.isCameraFollow = false;
         this.isFirstCutScene = new List<bool> { true, true, true, true };

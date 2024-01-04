@@ -28,13 +28,14 @@ public class InGameManager : MonoBehaviour
         StartCoroutine(SettingGame());
     }
 
-    IEnumerator SettingGame() // 게임 시작 함수, 맵생성 플레이어 움직임 등등을 한다 / 아마도 맵생성과 움직임은 불리해서 실행할거같다 (수정 필요)
+    IEnumerator SettingGame() // 게임 시작 함수, 맵생성 플레이어 움직임 등등을 한다 / 아마도 맵생성과 움직임은 분리해서 실행할거같다 (수정 필요)
     {
         yield return new WaitForFixedUpdate();
         Data.saveData.gameData.isCameraFollow = false;
         mapMake.isMapEditor = false;
         mapMake.MapSetting();
         optimizeEnemy.OptimizeStart();
+        Debug.Log(Data.saveData.mapData[stage].moveDots[0].v3);
         GameObject.Find("MainCamera").transform.position = Data.saveData.mapData[stage].moveDots[0].v3 + new Vector3(14, 5, -10);
         player.transform.position = Data.saveData.mapData[stage].moveDots[0].v3 + new Vector3(-10, 0, 0);
         yield return new WaitForSeconds(0.5f);

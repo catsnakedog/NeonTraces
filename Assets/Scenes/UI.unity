@@ -5545,7 +5545,9 @@ MonoBehaviour:
       enemyPoint: []
       isInGame: 0
       isCameraFollow: 0
+      isFirstGame: 1
       isFirstCutScene: 00000000
+      crruentScene: 
     ui:
       bgm: 0.5
       sfx: 0.5
@@ -9209,7 +9211,7 @@ MonoBehaviour:
   stageMenu: {fileID: 175440330}
   SceneToLoadGame: InGameScene
   SceneToLoadCutScene:
-  - CutScene00_New
+  - CutScene00
   - CutScene01
   - CutScene02
   - CutScene03
