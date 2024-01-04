@@ -31,6 +31,7 @@ public class PlayerAction : MonoBehaviour
     public Coroutine actionA;
     public Coroutine aniC;
     public Coroutine nextA;
+    Coroutine dragSound;
     Coroutine effectC;
 
     AfterImage afterImage;
@@ -179,7 +180,7 @@ public class PlayerAction : MonoBehaviour
             aniC = StartCoroutine(CallAni("AttackLeft", attackMotionTime));
             nextA = StartCoroutine(NextAttack(2f));
         }
-        SoundManager.sound.Play("main_attack" + UnityEngine.Random.Range(1, 3).ToString());
+        SoundManager.sound.Play("Rmain_attack" + UnityEngine.Random.Range(1, 3).ToString());
         effectC = StartCoroutine(ShowEffect(0, 5, new Vector3(2.2f, 0.4f, 0)));
         actionA = StartCoroutine(afterImage.AfterImageSetting(Data.saveData.gameData.player));
         isAttack = true;
@@ -198,7 +199,6 @@ public class PlayerAction : MonoBehaviour
         {
             StopCoroutine(aniC);
         }
-        SoundManager.sound.Play("Block");
         effectC = StartCoroutine(ShowEffect(12, 15, new Vector3(2f, 0, 0)));
         aniC = StartCoroutine(CallAni("Defence", defenceMotionTime));
         isDefence = true;
@@ -216,8 +216,14 @@ public class PlayerAction : MonoBehaviour
         {
             StopCoroutine(aniC);
         }
+        if (dragSound != null)
+        {
+            StopCoroutine(dragSound);
+        }
         effectC = StartCoroutine(ShowEffect(16, 22, new Vector3(1.55f, 1.3f, 0)));
         aniC = StartCoroutine(CallAni("DragAttack", LongAttackMotionTime));
+        SoundManager.sound.Stop("Rmaindrag_new");
+        SoundManager.sound.Play("Rmain_attack" + UnityEngine.Random.Range(1, 3).ToString());
         isLongClick = false;
         isAttack = true;
         yield return new WaitForSeconds(LongAttackMotionTime);
@@ -226,6 +232,15 @@ public class PlayerAction : MonoBehaviour
         yield return new WaitForSeconds(attackDelay);
         isDelay = false;
         StopCoroutine(actionA);
+    }
+
+    IEnumerator LongAttackSound()
+    {
+        while(true)
+        {
+            SoundManager.sound.Play("Rmaindrag_new");
+            yield return new WaitForSeconds(3.187f);
+        }
     }
 
     public void ButtonDown()
@@ -269,6 +284,7 @@ public class PlayerAction : MonoBehaviour
             isLongClick = true;
             actionA = StartCoroutine(afterImage.AfterImageSetting(Data.saveData.gameData.player));
             animaiton.SetAnimation("Drag");
+            dragSound = StartCoroutine(LongAttackSound());
         }
     }
 
@@ -283,6 +299,7 @@ public class PlayerAction : MonoBehaviour
         {
             StopCoroutine(actionA);
         }
+        aniC = StartCoroutine(CallAni("Down", 0.74f));
         DataManager.data.saveData.gameData.player.transform.GetChild(0).gameObject.SetActive(false);
         isGameOver = true;
         playerAction = null;
@@ -300,6 +317,10 @@ public class PlayerAction : MonoBehaviour
         if (actionA != null)
         {
             StopCoroutine(actionA);
+        }
+        if (dragSound != null)
+        {
+            StopCoroutine(dragSound);
         }
         playerAction = null;
     }

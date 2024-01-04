@@ -125,8 +125,9 @@ public class EnemySetting : MonoBehaviour
 
     void Attack() // enemy가 공격 상태일때
     {
-        if(playerAction.isDefence)
+        if (playerAction.isDefence)
         {
+            SoundManager.sound.Play("Rmain_parry" + UnityEngine.Random.Range(1, 3).ToString());
             playerAction.aniC = StartCoroutine(playerAction.CallAni("Perry", 0.49f));
             PatternClear();
         }
@@ -140,8 +141,12 @@ public class EnemySetting : MonoBehaviour
     {
         if (playerAction.isDefence)
         {
+            SoundManager.sound.Play("Rmain_parry_A2");
             //SoundManager.sound.Play("Main_parry_A2");
             playerAction.aniC = StartCoroutine(playerAction.CallAni("Perry", 0.49f));
+            enemyAnimator.SetTrigger("IsBackstep");
+            Invoke("StrongAttackSound", 0.58f);
+            enemyAnimator.SetBool("IsRun", false);
             EnemyRebound(); // enemy가 밀려난다
             PatternClear();
         }
@@ -150,17 +155,23 @@ public class EnemySetting : MonoBehaviour
             playerAction.Death();
         }
     }
+    
+    void StrongAttackSound()
+    {
+        SoundManager.sound.Play("A2_attack");
+    }
 
     void Defence() // enemy가 방어 상태일때
     {
         if (playerAction.isAttack)
         {
-            SoundManager.sound.Play("main_hit");
+            SoundManager.sound.Play("Rmain_hit");
             BloodSetting();
             PatternClear();
         }
         else
         {
+            SoundManager.sound.Play("B1_attack");
             playerAction.Death();
         }
     }
@@ -169,13 +180,16 @@ public class EnemySetting : MonoBehaviour
     {
         if (playerAction.isAttack)
         {
-            SoundManager.sound.Play("main_hit");
+            SoundManager.sound.Play("B2_shield");
+            enemyAnimator.SetTrigger("IsShield");
+            SoundManager.sound.Play("Rmain_hit");
             BloodSetting();
             EnemyRebound(); // enemy가 밀려난다
             PatternClear();
         }
         else
         {
+            SoundManager.sound.Play("B2_attack");
             playerAction.Death();
         }
     }
@@ -488,6 +502,10 @@ public class EnemySetting : MonoBehaviour
     {
         if(transform.position.x <= attackAniPos)
         {
+            if(type == 0)
+                SoundManager.sound.Play("A1_attack");
+            else if(type == 2)
+                SoundManager.sound.Play("A2_attack");
             enemyAnimator.SetTrigger("IsAttack");
             enemyAction -= IsAttack;
         }

@@ -43,6 +43,15 @@ public class PlayerAnimaiton : MonoBehaviour
         }
     }
 
+    void Walk()
+    {
+        if (crruentAni != "Walk")
+        {
+            crruentAni = "Walk";
+            playerAni.SetTrigger("Walk");
+        }
+    }
+
     void Perry()
     {
         if (crruentAni != "Perry")

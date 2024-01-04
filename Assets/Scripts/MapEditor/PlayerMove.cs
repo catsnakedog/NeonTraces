@@ -54,7 +54,7 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        if (playerAnimation.crruentAni == "Run")
+        if (playerAnimation.crruentAni == "Run" || playerAnimation.crruentAni == "Walk")
         {
             if (checkRun)
             {
@@ -148,6 +148,18 @@ public class PlayerMove : MonoBehaviour
         walkSoundC = StartCoroutine(WalkSound());
     }
 
+    void RunOrWalk()
+    {
+        if (speed <= 7f)
+        {
+            playerAnimation.SetAnimation("Walk");
+        }
+        else
+        {
+            playerAnimation.SetAnimation("Run");
+        }
+    }
+
     void MoveBySpeed() // 플레이어를 endPoint로 이동시킴
     {
         player.transform.position = Vector3.MoveTowards(player.transform.position, endPoint, Time.deltaTime * speed);
@@ -183,7 +195,7 @@ public class PlayerMove : MonoBehaviour
         {
             if(!playerActionS.isDelay)
             {
-                playerAnimation.SetAnimation("Run");
+                RunOrWalk();
             }
             startPoint = Data.saveData.mapData[stage].moveDots[crruentMoveDot].v3;
             endPoint = Data.saveData.mapData[stage].moveDots[crruentMoveDot + 1].v3;
@@ -298,8 +310,7 @@ public class PlayerMove : MonoBehaviour
     public void GameStart() // 게임 시작
     {
         stage = Data.saveData.gameData.stage;
-
-        foreach(GameObject a in Data.saveData.gameData.enemyPoint)
+        foreach (GameObject a in Data.saveData.gameData.enemyPoint)
         {
             a.SetActive(false);
         }
@@ -308,7 +319,8 @@ public class PlayerMove : MonoBehaviour
         Time.timeScale = 1;
         playerActionS.ActionReset();
         playerAction = null;
-        playerAnimation.SetAnimation("Run");
+        speed = Data.saveData.mapData[stage].moveDots[crruentMoveDot].speed;
+        RunOrWalk();
         DataManager.data.saveData.gameData.player.transform.GetChild(0).gameObject.SetActive(true);
         MoveStart();
     }
@@ -326,7 +338,7 @@ public class PlayerMove : MonoBehaviour
         Time.timeScale = 1;
         playerActionS.ActionReset();
         playerAction = null;
-        playerAnimation.SetAnimation("Run");
+        RunOrWalk();
         DataManager.data.saveData.gameData.player.transform.GetChild(0).gameObject.SetActive(true);
         MoveStart();
     }
@@ -335,7 +347,7 @@ public class PlayerMove : MonoBehaviour
     {
         stage = Data.saveData.gameData.stage;
         GameObject.Find("Canvas").transform.GetChild(0).gameObject.SetActive(false);
-        playerAnimation.SetAnimation("Run");
+        RunOrWalk();
         Data.saveData.gameData.isCameraFollow = false;
         player.transform.position = Data.saveData.mapData[stage].moveDots[0].v3 + new Vector3(-10, 0, 0);
         for(int i = 0; i < 120; i++)
@@ -350,7 +362,7 @@ public class PlayerMove : MonoBehaviour
 
     public IEnumerator RightOutMove()
     {
-        playerAnimation.SetAnimation("Run");
+        RunOrWalk();
         Data.saveData.gameData.isCameraFollow = false;
         player.transform.position = Data.saveData.mapData[stage].moveDots[Data.saveData.mapData[stage].moveDots.Count - 1].v3;
         for (int i = 0; i < 240; i++)

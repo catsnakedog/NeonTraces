@@ -83,11 +83,10 @@ public class InGameManager : MonoBehaviour
     {
         float a = 1;
         fadeInOutPanel.color = new Color(0, 0, 0, 1);
-        for(int i = 0; i < 60; i++)
+        while (fadeInOutPanel.color.a > 0)
         {
-            fadeInOutPanel.color = new Color(0, 0, 0, a);
-            yield return new WaitForSeconds(1/40f);
-            a -= 1 / 60f;;
+            fadeInOutPanel.color -= new Color(0, 0, 0, Time.deltaTime * 1);
+            yield return null;
         }
         fadeInOutPanel.color = new Color(0, 0, 0, 0);
         fadeInOutPanel.gameObject.SetActive(false);
@@ -98,11 +97,10 @@ public class InGameManager : MonoBehaviour
         fadeInOutPanel.gameObject.SetActive(true);
         float a = 0;
         fadeInOutPanel.color = new Color(0, 0, 0, 0);
-        for (int i = 0; i < 60; i++)
+        while (fadeInOutPanel.color.a < 1)
         {
-            fadeInOutPanel.color = new Color(0, 0, 0, a);
-            yield return new WaitForSeconds(1/60f);
-            a += 1 / 60f;
+            fadeInOutPanel.color += new Color(0, 0, 0, Time.deltaTime * 1);
+            yield return null;
         }
         fadeInOutPanel.color = new Color(0, 0, 0, 1);
     }

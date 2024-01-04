@@ -79,15 +79,15 @@ public class SoundManager : MonoBehaviour
         B,
         Block,
         C,
-        main_attack1,
-        main_attack2,
-        main_hit,
-        main_jump,
-        main_landing,
-        main_parry1,
-        main_parry2,
-        main_parry_A2,
-        main_parry_B2,
+        Rmain_attack1,
+        Rmain_attack2,
+        Rmain_hit,
+        Rmain_jump,
+        Rmain_landing,
+        Rmain_parry1,
+        Rmain_parry2,
+        Rmain_parry_A2,
+        Rmain_parry_B2,
         Rmaindrag_new,
         Rmaindrag_original,
 
@@ -239,6 +239,7 @@ public class SoundManager : MonoBehaviour
     }
     public void Stop()
     {
+        Debug.Log("a");
         BGMSource.Stop();
         SFXSource.Stop();
     }
