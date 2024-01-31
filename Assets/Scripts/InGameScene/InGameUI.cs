@@ -24,7 +24,7 @@ public class InGameUI : MonoBehaviour
 
     public void Setting()
     {
-
+        SoundManager.sound.OpenOption(); //게임 시작시 메뉴 패널 비활성화
     }
 
     public void GoMain()

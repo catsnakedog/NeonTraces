@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class ButtonController : MonoBehaviour
 {
-    GameObject OptionCanvas;
     public GameObject startMenu;
     public GameObject creditPanel;
     public GameObject stageMenu;
@@ -33,19 +32,20 @@ public class ButtonController : MonoBehaviour
         soundmanager = SoundManager.sound;
         Data = DataManager.data; //static data
 
-        OptionCanvas = soundmanager.optionCanvas;
-        OptionCanvas.SetActive(false); //게임 시작시 메뉴 패널 비활성화
+        soundmanager.CloseOption(); //게임 시작시 메뉴 패널 비활성화
         creditPanel.SetActive(false); //게임 시작시 크레딧 패널 비활성화
         
     }
 
     public void OpenCredit()
     {
+        soundmanager.Play("Select");
         creditPanel.SetActive(true);
     }
 
     public void CloseCredit()
     {
+        soundmanager.Play("Select");
         creditPanel.SetActive(false);
     }
 
@@ -73,7 +73,7 @@ public class ButtonController : MonoBehaviour
     public void OpenSetting() //세팅 메뉴 열기
     {
         tmp.GetComponent<Animator>().SetBool("ButtonClickSecond", false);
-        OptionCanvas.SetActive(true);
+        soundmanager.OpenOption();
     }
     #endregion
 
@@ -183,8 +183,16 @@ public class ButtonController : MonoBehaviour
             tmp.GetComponent<ButtonEvent>().SelectBoxBlink(true);
 
             soundmanager.Play("Execute");
-            Invoke("LoadGame", 1f); //소리 길이만큼 대기 후 실행
+
             Data.saveData.gameData.stage = num;
+
+            if(num == 0 && Data.saveData.gameData.isFirstGame) // 게임을 처음 시작한 경우
+            {
+                Data.saveData.gameData.isFirstGame = false;
+                StartCoroutine("LoadCutScene", 0);
+            }
+            else
+                Invoke("LoadGame", 1f); //소리 길이만큼 대기 후 실행
         }
         else //첫번째 클릭이면 선택 표시
         {
@@ -221,7 +229,7 @@ public class ButtonController : MonoBehaviour
             tmp.GetComponent<ButtonEvent>().SelectBoxBlink(true);
 
             soundmanager.Play("Execute"); // 소리 확인 필요**************************
-            StartCoroutine("LoadCutScene", num);
+            StartCoroutine("LoadCutScene", num + 1);
         }
         else //첫번째 클릭이면 선택 표시
         {

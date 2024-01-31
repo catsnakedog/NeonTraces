@@ -128,7 +128,7 @@ public class EnemySetting : MonoBehaviour
         if (playerAction.isDefence)
         {
             SoundManager.sound.Play("Rmain_parry" + UnityEngine.Random.Range(1, 3).ToString());
-            playerAction.aniC = StartCoroutine(playerAction.CallAni("Perry", 0.49f));
+            playerAction.CallAniC("Perry", 0.49f);
             PatternClear();
         }
         else
@@ -143,7 +143,7 @@ public class EnemySetting : MonoBehaviour
         {
             SoundManager.sound.Play("Rmain_parry_A2");
             //SoundManager.sound.Play("Main_parry_A2");
-            playerAction.aniC = StartCoroutine(playerAction.CallAni("Perry", 0.49f));
+            playerAction.CallAniC("Perry", 0.49f);
             enemyAnimator.SetTrigger("IsBackstep");
             Invoke("StrongAttackSound", 0.58f);
             enemyAnimator.SetBool("IsRun", false);
@@ -203,12 +203,12 @@ public class EnemySetting : MonoBehaviour
         playerAction.isDefence = false;
         playerAction.isAttack = false;
         enemyAction = null;
-        playerAction.StopCoroutine(playerAction.actionC); // player의 상태 + 쿨타임 초기화
+        // player의 상태 + 쿨타임 초기화
+        if (playerAction.actionC != null)
+            playerAction.StopActionC();
         //playerAction.animaiton.SetAnimation("Run");
         if (playerAction.actionA != null)
-        {
-            playerAction.StopCoroutine(playerAction.actionA);
-        }
+            playerAction.StopActionA();
         if (cnt == pattern.Count - 1) 
         {
             Death(); // 패턴이 끝났으면 사망

@@ -288,6 +288,7 @@ public class GameData
     public bool isCameraFollow;
     public List<bool> isFirstCutScene;
     public string crruentScene;
+    public bool isFirstGame;
 
     public GameData()
     {
@@ -300,8 +301,9 @@ public class GameData
         this.isCameraFollow = false;
         this.isFirstCutScene = new List<bool> { true, true, true, true };
         this.crruentScene = "";
+        this.isFirstGame = true;
     }
-    public GameData(int stage, List<bool> stageClearInfo, float camsize, bool isGameStart, List<GameObject> enemyPoint, bool isInGame, bool isCameraFollow, List<bool> isFirstCutScene, string crruentScene)
+    public GameData(int stage, List<bool> stageClearInfo, float camsize, bool isGameStart, List<GameObject> enemyPoint, bool isInGame, bool isCameraFollow, List<bool> isFirstCutScene, string crruentScene, bool isFirstGame)
     {
         this.stage = stage;
         this.stageClearInfo = stageClearInfo;
@@ -312,6 +314,7 @@ public class GameData
         this.isCameraFollow = isCameraFollow;
         this.isFirstCutScene = isFirstCutScene;
         this.crruentScene= crruentScene;
+        this.isFirstGame= isFirstGame;
     }
 }
 
@@ -320,15 +323,19 @@ public class Ui
 {
     public float bgm;
     public float sfx;
+    public float delay;
+
     public Ui()
     {
         this.bgm = 0.5f; //-40
         this.sfx = 0.5f;
+        this.delay = 0f;
     }
-    public Ui(float bgm, float sfx)
+    public Ui(float bgm, float sfx, float delay)
     {
         this.bgm = bgm;
         this.sfx = sfx;
+        this.delay = delay;
     }
 }
 

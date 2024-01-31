@@ -200,6 +200,8 @@ public class MapMake : MonoBehaviour
                     lrBezierSetting(Data.saveData.mapData[stage].eventDots[i].v3, Data.saveData.mapData[stage].eventDots[i].eventTypeInfo.type0.pointDot1, Data.saveData.mapData[stage].eventDots[i].eventTypeInfo.type0.pointDot2, Data.saveData.mapData[Data.saveData.gameData.stage].moveDots[Data.saveData.mapData[stage].eventDots[i].eventTypeInfo.type0.nextMoveDot].v3);
                 }
             }
+            if (!isMapEditor)
+                eventDotList[i].GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0f);
         }
     }
 

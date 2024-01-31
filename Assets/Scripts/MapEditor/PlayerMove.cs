@@ -25,6 +25,7 @@ public class PlayerMove : MonoBehaviour
 
     [SerializeField] private Vector3 startPoint;
     [SerializeField] private Vector3 endPoint;
+    [SerializeField] private Vector3 bgmPoint;
 
     [SerializeField] private string className;
     [SerializeField] private bool isCountUp;
@@ -82,6 +83,32 @@ public class PlayerMove : MonoBehaviour
             }
             checkRun = false;
         }
+    }
+
+    void PlayBGM()
+    {
+        float delay = Data.saveData.ui.delay;
+        if (delay == 0.0f)
+        {
+            SoundManager.sound.BGMTimeSet(0);
+            BGM();
+        }
+        else if (delay < 0.0f)
+        {
+            delay = -delay;
+            BGM();
+            SoundManager.sound.BGMTimeSet(delay);
+        }
+        else
+        {
+            SoundManager.sound.BGMTimeSet(0);
+            Invoke("BGM", delay);
+        }
+    }
+
+    void BGM()
+    {
+        SoundManager.sound.Play("BGM_0" + (Data.saveData.gameData.stage + 1).ToString());
     }
 
     public void GameOver()
@@ -183,7 +210,6 @@ public class PlayerMove : MonoBehaviour
     {
         if (!Data.saveData.gameData.isCameraFollow)
             Data.saveData.gameData.isCameraFollow = true;
-        if (crruentMoveDot == 0) SoundManager.sound.Play("BGM_0" + (Data.saveData.gameData.stage + 1).ToString());
         moveDotSize = Data.saveData.mapData[stage].moveDots.Count;
         if (crruentMoveDot == moveDotSize-1) // 이동 끝~
         {
@@ -193,7 +219,8 @@ public class PlayerMove : MonoBehaviour
         }
         else
         {
-            if(!playerActionS.isDelay)
+            speed = Data.saveData.mapData[stage].moveDots[crruentMoveDot].speed;
+            if (!playerActionS.isDelay)
             {
                 RunOrWalk();
             }
@@ -207,7 +234,6 @@ public class PlayerMove : MonoBehaviour
             {
                 player.transform.localScale = new Vector3(1f, 1f, 1f);
             }
-            speed = Data.saveData.mapData[stage].moveDots[crruentMoveDot].speed;
             MoveAToB("MoveStart", true);
         }
     }
@@ -302,6 +328,7 @@ public class PlayerMove : MonoBehaviour
         player.transform.position = Data.saveData.mapData[stage].moveDots[0].v3;
         playerAnimation.SetAnimation("Idle");
         crruentMoveDot = 0;
+        playerAnimation.crruentAni = "None";
         Time.timeScale = 1;
         playerActionS.ActionReset();
         playerAction = null;
@@ -322,24 +349,11 @@ public class PlayerMove : MonoBehaviour
         speed = Data.saveData.mapData[stage].moveDots[crruentMoveDot].speed;
         RunOrWalk();
         DataManager.data.saveData.gameData.player.transform.GetChild(0).gameObject.SetActive(true);
-        MoveStart();
-    }
 
-    public void InGameStart()
-    {
-        stage = Data.saveData.gameData.stage;
-
-        foreach (GameObject a in Data.saveData.gameData.enemyPoint)
-        {
-            a.SetActive(false);
-        }
-        player.transform.position = Data.saveData.mapData[stage].moveDots[0].v3 + new Vector3(-10, 0, 0);
-        crruentMoveDot = 0;
-        Time.timeScale = 1;
-        playerActionS.ActionReset();
-        playerAction = null;
-        RunOrWalk();
-        DataManager.data.saveData.gameData.player.transform.GetChild(0).gameObject.SetActive(true);
+        if (!Data.saveData.gameData.isInGame)
+            BGM();
+        else
+            PlayBGM();
         MoveStart();
     }
 
@@ -350,10 +364,13 @@ public class PlayerMove : MonoBehaviour
         RunOrWalk();
         Data.saveData.gameData.isCameraFollow = false;
         player.transform.position = Data.saveData.mapData[stage].moveDots[0].v3 + new Vector3(-10, 0, 0);
-        for(int i = 0; i < 120; i++)
+        float moveAmount = 0;
+        while (moveAmount < 10f)
         {
-            player.transform.position += new Vector3(10 / 120f, 0, 0);
-            yield return new WaitForSeconds(1 / 60f);
+            float move = Time.deltaTime * 5;
+            player.transform.position += new Vector3(move, 0, 0);
+            moveAmount += move;
+            yield return null;
         }
         player.transform.position = Data.saveData.mapData[stage].moveDots[0].v3;
         Data.saveData.gameData.isCameraFollow = true;
@@ -365,10 +382,13 @@ public class PlayerMove : MonoBehaviour
         RunOrWalk();
         Data.saveData.gameData.isCameraFollow = false;
         player.transform.position = Data.saveData.mapData[stage].moveDots[Data.saveData.mapData[stage].moveDots.Count - 1].v3;
-        for (int i = 0; i < 240; i++)
+        float moveAmount = 0;
+        while (moveAmount < 40f)
         {
-            player.transform.position += new Vector3(40 / 240f, 0, 0);
-            yield return new WaitForSeconds(1 / 60f);
+            float move = Time.deltaTime * 10;
+            player.transform.position += new Vector3(move, 0, 0);
+            moveAmount += move;
+            yield return null;
         }
         player.transform.position = Data.saveData.mapData[stage].moveDots[Data.saveData.mapData[stage].moveDots.Count - 1].v3 + new Vector3(40, 0, 0);
     }
@@ -412,5 +432,10 @@ public class PlayerMove : MonoBehaviour
         Vector3 F = Vector3.Lerp(D, E, time);
 
         player.transform.position = F;
+    }
+
+    public void EditorSetting()
+    {
+        DataManager.data.saveData.gameData.isInGame = false;
     }
 }

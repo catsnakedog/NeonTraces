@@ -35,7 +35,6 @@ public class InGameManager : MonoBehaviour
         mapMake.isMapEditor = false;
         mapMake.MapSetting();
         optimizeEnemy.OptimizeStart();
-        Debug.Log(Data.saveData.mapData[stage].moveDots[0].v3);
         GameObject.Find("MainCamera").transform.position = Data.saveData.mapData[stage].moveDots[0].v3 + new Vector3(14, 5, -10);
         player.transform.position = Data.saveData.mapData[stage].moveDots[0].v3 + new Vector3(-10, 0, 0);
         yield return new WaitForSeconds(0.5f);
@@ -70,7 +69,7 @@ public class InGameManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         if (DataManager.data.saveData.gameData.isFirstCutScene[stage])
         {
-            SceneManager.LoadScene("CutScene0" + stage);
+            SceneManager.LoadScene("CutScene0" + (stage + 1).ToString());
         }
         else
         {
@@ -81,7 +80,6 @@ public class InGameManager : MonoBehaviour
 
     IEnumerator FadeIn()
     {
-        float a = 1;
         fadeInOutPanel.color = new Color(0, 0, 0, 1);
         while (fadeInOutPanel.color.a > 0)
         {
@@ -95,7 +93,6 @@ public class InGameManager : MonoBehaviour
    IEnumerator FadeOut()
     {
         fadeInOutPanel.gameObject.SetActive(true);
-        float a = 0;
         fadeInOutPanel.color = new Color(0, 0, 0, 0);
         while (fadeInOutPanel.color.a < 1)
         {

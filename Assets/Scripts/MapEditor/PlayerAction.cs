@@ -310,7 +310,7 @@ public class PlayerAction : MonoBehaviour
 
     public void PlayerActionReset()
     {
-        if(actionC != null)
+        if (actionC != null)
         {
             StopCoroutine(actionC);
         }
@@ -325,11 +325,43 @@ public class PlayerAction : MonoBehaviour
         playerAction = null;
     }
 
+    public void StopAniC()
+    {
+        StopCoroutine(aniC);
+    }
+
+    public void StopActionC()
+    {
+        StopCoroutine(actionC);
+    }
+
+    public void StopActionA()
+    {
+        StopCoroutine(actionA);
+    }
+
+    public void CallAniC(string Name, float time)
+    {
+        aniC = StartCoroutine(CallAni(Name, time));
+    }
+
     public IEnumerator CallAni(string Name, float time)
     {
         animaiton.SetAnimation(Name);
         yield return new WaitForSeconds(time);
         if(Name != "Down")
+        {
+            RunOrWalk();
+        }
+    }
+
+    void RunOrWalk()
+    {
+        if (playerMove.speed <= 7f)
+        {
+            animaiton.SetAnimation("Walk");
+        }
+        else
         {
             animaiton.SetAnimation("Run");
         }

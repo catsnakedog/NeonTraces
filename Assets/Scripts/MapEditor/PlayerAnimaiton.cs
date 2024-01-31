@@ -22,6 +22,8 @@ public class PlayerAnimaiton : MonoBehaviour
 
     public void SetAnimation(string AniName)
     {
+        if (crruentAni == "Down")
+            return;
         Invoke(AniName, 0f);
     }
 

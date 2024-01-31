@@ -338,9 +338,11 @@ MonoBehaviour:
       isCameraFollow: 0
       isFirstCutScene: 01010101
       crruentScene: 
+      isFirstGame: 1
     ui:
       bgm: -40
       sfx: -40
+      delay: 0
 --- !u!4 &97096595
 Transform:
   m_ObjectHideFlags: 0
@@ -353,7 +355,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &220151854
 GameObject:
@@ -571,7 +573,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &371371803
 MonoBehaviour:
@@ -1530,7 +1532,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1072979330
 GameObject:
@@ -1927,7 +1929,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1323966419
 GameObject:
@@ -1965,7 +1967,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1323966421
 MonoBehaviour:
@@ -1988,6 +1990,7 @@ MonoBehaviour:
   player: {fileID: 1448722884}
   startPoint: {x: 0, y: 0, z: 0}
   endPoint: {x: 0, y: 0, z: 0}
+  bgmPoint: {x: 0, y: 0, z: 0}
   className: 
   isCountUp: 0
   BackOrFront: 0
@@ -2216,6 +2219,7 @@ GameObject:
   - component: {fileID: 1373593684}
   - component: {fileID: 1373593687}
   - component: {fileID: 1373593688}
+  - component: {fileID: 1373593689}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -2286,7 +2290,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1373593687
 MonoBehaviour:
@@ -2417,6 +2421,75 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1373593689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373593683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c1aec19d463f5046858955d8bbb429f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &1373912316
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 44140591088594311, guid: e9ba0ddaca7902c40b56d9d99f61a194, type: 3}
+      propertyPath: m_Name
+      value: BgCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 44140591088594315, guid: e9ba0ddaca7902c40b56d9d99f61a194, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 44140591088594315, guid: e9ba0ddaca7902c40b56d9d99f61a194, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 44140591088594315, guid: e9ba0ddaca7902c40b56d9d99f61a194, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 44140591088594315, guid: e9ba0ddaca7902c40b56d9d99f61a194, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 44140591088594315, guid: e9ba0ddaca7902c40b56d9d99f61a194, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 44140591088594315, guid: e9ba0ddaca7902c40b56d9d99f61a194, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 44140591088594315, guid: e9ba0ddaca7902c40b56d9d99f61a194, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 44140591088594315, guid: e9ba0ddaca7902c40b56d9d99f61a194, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 44140591088594315, guid: e9ba0ddaca7902c40b56d9d99f61a194, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 44140591088594315, guid: e9ba0ddaca7902c40b56d9d99f61a194, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 44140591088594315, guid: e9ba0ddaca7902c40b56d9d99f61a194, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e9ba0ddaca7902c40b56d9d99f61a194, type: 3}
 --- !u!1 &1382135442
 GameObject:
   m_ObjectHideFlags: 0
@@ -2666,7 +2739,7 @@ Transform:
   - {fileID: 1391298030}
   - {fileID: 316396797}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1448722887
 Rigidbody2D:
@@ -2737,7 +2810,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1540818059
 GameObject:
@@ -2785,7 +2858,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1540818062
 AudioSource:
@@ -3521,6 +3594,18 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1323966421}
         m_TargetAssemblyTypeName: PlayerMove, Assembly-CSharp
+        m_MethodName: EditorSetting
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1323966421}
+        m_TargetAssemblyTypeName: PlayerMove, Assembly-CSharp
         m_MethodName: GameStart
         m_Mode: 1
         m_Arguments:
@@ -3633,7 +3718,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1739165523
 GameObject:
@@ -3886,7 +3971,7 @@ RectTransform:
   - {fileID: 1739165524}
   - {fileID: 813608359}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

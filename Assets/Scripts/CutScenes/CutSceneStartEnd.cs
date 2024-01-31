@@ -37,7 +37,12 @@ public class CutSceneStartEnd : MonoBehaviour
 
     public void endScene() // 컷씬 종료 시 // InGame -> 컷씬 , UI -> 컷씬 분리가 필요해서 따로 제작함 // 최초 컷씬 재생을 위해 추가 분리
     {
-        if(DataManager.data.saveData.gameData.crruentScene == "UI") // UI에서 호출한 경우
+        if(gameObject.scene.name == "CutScene00") // 게임 첫 시작 연출일 때
+        {
+            DataManager.data.Save();
+            SceneManager.LoadScene("InGameScene");
+        }
+        else if(DataManager.data.saveData.gameData.crruentScene == "UI") // UI에서 호출한 경우
         {
             for (int i = 0; i < MainObject.Length; i++) // UI씬의 Light와 EventSystem, StageCanvas 활성화
             {
@@ -89,7 +94,5 @@ public class CutSceneStartEnd : MonoBehaviour
             if (cam == null) cam = GameObject.FindObjectOfType(typeof(Camera)) as Camera;
             if (cam != null) _listener = cam.gameObject.AddComponent<AudioListener>();
         }
-
-
     }
 }

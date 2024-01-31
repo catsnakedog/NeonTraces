@@ -19,12 +19,12 @@ public class SoundManager : MonoBehaviour
 
     AudioSource BGMSource;
     AudioSource SFXSource;
+    Button DelayPlus;
+    Button DelayMinus;
+    Text DelayText;
 
     public Slider BGMSlider;
     public Slider SFXSlider;
-
-    float BGMVolume = 0.5f;
-    float SFXVolume = 0.5f;
 
     public GameObject optionCanvas; //버튼에서 사용
 
@@ -134,25 +134,41 @@ public class SoundManager : MonoBehaviour
     {
         SoundPooling(); // 사운드 파일들을 풀링 해온다
         SetAudioSource(); // 오디오 소스 세팅
-        //Play("Test_BGM"); // 시작 브금
     }
 
+    public void OpenOption()
+    {
+        optionCanvas.GetComponent<Canvas>().worldCamera = GameObject.Find("MainCamera").GetComponent<Camera>(); // 옵션 켄버스에 카메라 연결
+        optionCanvas.GetComponent<Canvas>().sortingLayerName = "UI";
+        optionCanvas.GetComponent<Canvas>().sortingOrder = 100;
+        optionCanvas.SetActive(true);
+    }
+
+    public void CloseOption()
+    {
+        optionCanvas.GetComponent<Canvas>().worldCamera = null;
+        optionCanvas.SetActive(false);
+    }
 
     void OptionSetting()
     {
         GameObject optionCanvas = Resources.Load<GameObject>("Sound/MainSetting"); // 옵션 프리펩 불러오기
         this.optionCanvas = Instantiate(optionCanvas);
         optionCanvas.GetComponent<Canvas>().worldCamera = GameObject.Find("MainCamera").GetComponent<Camera>(); // 옵션 켄버스에 카메라 연결
-        BGMSlider = this.optionCanvas.transform.GetChild(1).GetChild(0).GetComponent<Slider>(); //BGMSlider 위치 
+        DelayMinus = this.optionCanvas.transform.GetChild(1).GetChild(6).GetComponent<Button>(); //Delay_Btn_Left 위치
+        DelayPlus = this.optionCanvas.transform.GetChild(1).GetChild(7).GetComponent<Button>(); //Delay_Btn_Right 위치
+        DelayText = this.optionCanvas.transform.GetChild(1).GetChild(8).GetComponent<Text>(); //DelayValue_Text 위치
+        BGMSlider = this.optionCanvas.transform.GetChild(1).GetChild(0).GetComponent<Slider>(); //BGMSlider 위치
         SFXSlider = this.optionCanvas.transform.GetChild(1).GetChild(1).GetComponent<Slider>(); //SFXSlider 위치
-        // 제이슨에서 저장된 BGM, SFX 벨류 읽어오기 코드 추가 필요
-        BGMSlider.value = BGMVolume; //= Data.saveData.ui.bgm;
-        SFXSlider.value = SFXVolume; //= Data.saveData.ui.sfx;
         BGMSlider.onValueChanged.AddListener(ChangeBGMValue);
         SFXSlider.onValueChanged.AddListener(ChangeSFXValue);
+        DelayMinus.onClick.AddListener(MinusDelayValue);
+        DelayPlus.onClick.AddListener(PlusDelayValue);
+
         this.optionCanvas.transform.SetParent(gameObject.transform);
         //onClick()
-        this.optionCanvas.transform.GetChild(1).GetChild(2).GetComponent<Button>().onClick.AddListener(delegate { this.optionCanvas.SetActive(false); });
+        this.optionCanvas.transform.GetChild(1).GetChild(2).GetComponent<Button>().onClick.AddListener(delegate { CloseOption(); DataManager.data.Save(); Play("Select"); });
+
 
 
         this.optionCanvas.SetActive(false);//
@@ -160,14 +176,48 @@ public class SoundManager : MonoBehaviour
 
     void ChangeBGMValue(float value)
     {
-        BGMVolume = value; //slider 위치 값
-        BGMSource.volume = BGMVolume;
+        DataManager.data.saveData.ui.bgm = value; //slider 위치 값
+        BGMSource.volume = DataManager.data.saveData.ui.bgm;
     }
 
     void ChangeSFXValue(float value)
     {
-        SFXVolume = value; //slider 위치 값
-        SFXSource.volume = SFXVolume;
+        DataManager.data.saveData.ui.sfx = value; //slider 위치 값
+        SFXSource.volume = DataManager.data.saveData.ui.sfx;
+    }
+
+    void PlusDelayValue()
+    {
+        Play("Select");
+        DataManager.data.saveData.ui.delay += 0.1f;
+        DataManager.data.saveData.ui.delay = (float)Math.Round(DataManager.data.saveData.ui.delay, 1);
+        DelayText.text = DataManager.data.saveData.ui.delay.ToString();
+        if(DataManager.data.saveData.gameData.crruentScene == "InGame")
+        {
+            float time = BGMSource.time += 0.1f;
+            if (time >= BGMSource.clip.length)
+            {
+                time = BGMSource.clip.length;
+            }
+            BGMTimeSet(time);
+        }
+    }
+
+    void MinusDelayValue()
+    {
+        Play("Select");
+        DataManager.data.saveData.ui.delay -= 0.1f;
+        DataManager.data.saveData.ui.delay = (float)Math.Round(DataManager.data.saveData.ui.delay, 1);
+        DelayText.text = DataManager.data.saveData.ui.delay.ToString();
+        if (DataManager.data.saveData.gameData.crruentScene == "InGame")
+        {
+            float time = BGMSource.time -= 0.1f;
+            if(time <= 0)
+            {
+                time = 0;
+            }
+            BGMTimeSet(time);
+        }
     }
 
     void SoundPooling() // enum에서 사운드 이름을 읽어와서 해당하는 사운드 파일을 로드 시킨다
@@ -193,8 +243,11 @@ public class SoundManager : MonoBehaviour
         BGMSource = temp[0];
         SFXSource = temp[1];
         BGMSource.loop = true;
-        BGMSource.volume = BGMVolume;
-        SFXSource.volume = SFXVolume;
+        BGMSource.volume = DataManager.data.saveData.ui.bgm;
+        SFXSource.volume = DataManager.data.saveData.ui.sfx;
+        BGMSlider.value = DataManager.data.saveData.ui.bgm;
+        SFXSlider.value = DataManager.data.saveData.ui.sfx;
+        DelayText.text = DataManager.data.saveData.ui.delay.ToString();
     }
 
     public void Play(string soundName, float pitch = 1.0f) // 전달받은 soundName을 찾아서 실행시킨다
@@ -239,9 +292,14 @@ public class SoundManager : MonoBehaviour
     }
     public void Stop()
     {
-        Debug.Log("a");
         BGMSource.Stop();
         SFXSource.Stop();
+    }
+
+    public void BGMTimeSet(float value)
+    {
+        BGMSource.time = value;
+        Debug.Log(BGMSource.time);
     }
 
     public void BGMLoopSet(bool value)
