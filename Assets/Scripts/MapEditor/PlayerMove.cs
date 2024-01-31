@@ -128,8 +128,14 @@ public class PlayerMove : MonoBehaviour
 
     public IEnumerator WalkEffect()
     {
-        StartCoroutine(playerActionS.ShowEffect(35, 40, new Vector3(-0.65f, 0.5f, 0)));
-        yield return new WaitForSeconds(0.42f);
+        if (speed > 7f)
+            StartCoroutine(playerActionS.ShowEffect(35, 40, new Vector3(-0.65f, 0.5f, 0)));
+        else
+            StartCoroutine(playerActionS.ShowEffect(35, 40, new Vector3(-0.38f, 0.65f, 0)));
+        if (speed > 7f)
+            yield return new WaitForSeconds(0.42f);
+        else
+            yield return new WaitForSeconds(0.57f);
         walkEffectC = StartCoroutine(WalkEffect());
     }
 
@@ -172,6 +178,8 @@ public class PlayerMove : MonoBehaviour
 
         SoundManager.sound.Play(soundName);
         yield return new WaitForSeconds(time);
+        if (speed <= 7f)
+            yield return new WaitForSeconds(0.12f);
         walkSoundC = StartCoroutine(WalkSound());
     }
 

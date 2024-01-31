@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System.Text;
+using UnityEngine.Playables;
 
 public class JsonManager
 {
-    public void SaveJson(SaveDataClass saveData) // µ¥ÀÌÅÍ¸¦ ÀúÀåÇÏ´Â ÇÔ¼ö
+    public List<TextAsset> MapData;
+
+    public void SaveJson(SaveDataClass saveData) // ë°ì´í„°ë¥¼ ì €ì¥í•˜ëŠ” í•¨ìˆ˜
     {
         string jsonText; 
         string savePath = Application.dataPath + "/Data/GameData.json";
@@ -50,5 +53,17 @@ public class JsonManager
         }
 
         return gameData;
+    }
+
+    public List<MapInfo> LoadMapData()
+    {
+        List<MapInfo> mapInfo = new List<MapInfo>();
+
+        foreach(TextAsset info in MapData)
+        {
+            mapInfo.Add(JsonUtility.FromJson<MapInfo>(info.ToString()));
+        }
+
+        return mapInfo;
     }
 }

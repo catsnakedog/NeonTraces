@@ -343,6 +343,11 @@ MonoBehaviour:
       bgm: -40
       sfx: -40
       delay: 0
+  mapData:
+  - {fileID: 4900000, guid: bcc40af01cc395a438ee997ec24f6f16, type: 3}
+  - {fileID: 4900000, guid: 8929e7023724dd545b77c646d3845659, type: 3}
+  - {fileID: 4900000, guid: b79d4dffd17a05c41983338c48ea795b, type: 3}
+  - {fileID: 4900000, guid: de5811a07ce8a914d9b8a936f42a6403, type: 3}
 --- !u!4 &97096595
 Transform:
   m_ObjectHideFlags: 0

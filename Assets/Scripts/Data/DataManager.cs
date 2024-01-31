@@ -6,13 +6,14 @@ using UnityEngine;
 
 public class DataManager : MonoBehaviour
 {
-    JsonManager jsonManager; // json¿¡¼­ °ªÀ» ÀĞ¾î¿À°Å³ª ÀúÀåÇÏ´Â JsonManager
-    public SaveDataClass saveData; // µ¥ÀÌÅÍ¸¦ ÀúÀåÇÏ´Â Çü½ÄÀÎ SaveDataClass
+    JsonManager jsonManager; // jsonì—ì„œ ê°’ì„ ì½ì–´ì˜¤ê±°ë‚˜ ì €ì¥í•˜ëŠ” JsonManager
+    public SaveDataClass saveData; // ë°ì´í„°ë¥¼ ì €ì¥í•˜ëŠ” í˜•ì‹ì¸ SaveDataClass
     public static DataManager data;
+    public List<TextAsset> mapData;
 
     void Awake()
     {
-        if (data == null) // DataManagerÀÇ À¯ÀÏ¼º º¸Àå
+        if (data == null) // DataManagerì˜ ìœ ì¼ì„± ë³´ì¥
         {
             data = this;
             DontDestroyOnLoad(gameObject);
@@ -25,13 +26,15 @@ public class DataManager : MonoBehaviour
         saveData = new SaveDataClass();
 
         Load();
+        jsonManager.MapData = mapData;
+        saveData.mapData = jsonManager.LoadMapData();
     }
-    public void Save() // saveData¿¡ ±â·ÏµÈ µ¥ÀÌÅÍµéÀ» json¿¡ ÀúÀåÇÑ´Ù
+    public void Save() // saveDataì— ê¸°ë¡ëœ ë°ì´í„°ë“¤ì„ jsonì— ì €ì¥í•œë‹¤
     {
         jsonManager.SaveJson(saveData);
     }
 
-    public void Load() // json¿¡ ±â·ÏµÅÀÖ´Â µ¥ÀÌÅÍµéÀ» saveData¿¡ º¼·¯¿Â´Ù
+    public void Load() // jsonì— ê¸°ë¡ë¼ìˆëŠ” ë°ì´í„°ë“¤ì„ saveDataì— ë³¼ëŸ¬ì˜¨ë‹¤
     {
         saveData = jsonManager.LoadSaveData();
     }
