@@ -293,10 +293,11 @@ public class GameData
     public GameData()
     {
         this.stage = 0;
-        this.stageClearInfo = new List<bool>();
+        this.stageClearInfo = new List<bool> { false, false, false, false };
         this.camsize = 0;
         this.isGameStart = false;
         this.enemyPoint = new List<GameObject>();
+        this.enemyInfo = new List<EnemyInfo>();
         this.isInGame = false;
         this.isCameraFollow = false;
         this.isFirstCutScene = new List<bool> { true, true, true, true };

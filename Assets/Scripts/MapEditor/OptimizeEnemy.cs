@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.U2D.Common;
 using UnityEngine;
 
 public class OptimizeEnemy : MonoBehaviour

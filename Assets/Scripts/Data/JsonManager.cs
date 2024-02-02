@@ -20,6 +20,11 @@ public class JsonManager
 #if UNITY_ANDROID
         savePath = Application.persistentDataPath + "/Data/GameData.json";
 #endif
+        if (!Directory.Exists(savePath))
+        {
+            Directory.CreateDirectory(Application.persistentDataPath + "/Data");
+        }
+
         jsonText = JsonUtility.ToJson(saveData, true);
         FileStream fileStream = new FileStream(savePath, FileMode.Create);
         byte[] bytes = Encoding.UTF8.GetBytes(jsonText);
