@@ -156,6 +156,7 @@ MonoBehaviour:
   delayTime: 7
   speed: 5
   posValue: 70
+  Drone: {fileID: 0}
 --- !u!4 &29567880
 Transform:
   m_ObjectHideFlags: 0
@@ -1311,6 +1312,7 @@ MonoBehaviour:
   delayTime: 7
   speed: 5
   posValue: 53
+  Drone: {fileID: 0}
 --- !u!114 &514903952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2309,6 +2311,7 @@ MonoBehaviour:
   delayTime: 0
   speed: 5
   posValue: 155.85
+  Drone: {fileID: 0}
 --- !u!1 &773740144
 GameObject:
   m_ObjectHideFlags: 0
@@ -2664,6 +2667,8 @@ PlayableDirector:
     value: {fileID: 1993262387}
   - key: {fileID: -2947532071935146638, guid: 1dd2b7336166ef84da3f58593afbd8a1, type: 2}
     value: {fileID: 86281343}
+  - key: {fileID: 9102459637637595056, guid: 1dd2b7336166ef84da3f58593afbd8a1, type: 2}
+    value: {fileID: 1993262392}
   m_ExposedReferences:
     m_References:
     - 88cdb25dc98e35847b24328bd6243886: {fileID: 1644566971}
@@ -3544,6 +3549,7 @@ MonoBehaviour:
   delayTime: 0
   speed: 5
   posValue: 98.7
+  Drone: {fileID: 0}
 --- !u!1 &1173477735
 GameObject:
   m_ObjectHideFlags: 0
@@ -3593,6 +3599,7 @@ MonoBehaviour:
   delayTime: 0
   speed: 4.5
   posValue: 155.85
+  Drone: {fileID: 0}
 --- !u!1 &1293156998
 GameObject:
   m_ObjectHideFlags: 0
@@ -4992,6 +4999,7 @@ GameObject:
   - component: {fileID: 1993262388}
   - component: {fileID: 1993262387}
   - component: {fileID: 1993262391}
+  - component: {fileID: 1993262392}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5123,6 +5131,37 @@ MonoBehaviour:
   delayTime: 7
   speed: 5
   posValue: 53
+  Drone: {fileID: 514903947}
+--- !u!114 &1993262392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993262386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 2cdd198f76f90a24a9f955dbfb04fb89, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1993262391}
+          m_TargetAssemblyTypeName: BackGround, Assembly-CSharp
+          m_MethodName: LeftOutMove
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &2011843542
 GameObject:
   m_ObjectHideFlags: 0

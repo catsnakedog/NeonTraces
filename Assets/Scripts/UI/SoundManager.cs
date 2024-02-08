@@ -35,6 +35,7 @@ public class SoundManager : MonoBehaviour
         BGM_02,
         BGM_03,
         BGM_04,
+        BGM_05,
         mainscreen,
         Test_BGM,
         BG,
