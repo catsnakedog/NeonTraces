@@ -113,7 +113,8 @@ public class MapMake : MonoBehaviour
         {
             bgManager.actionM = null;
             Destroy(map.transform.GetChild(3).gameObject);
-            Destroy(bgManager.BGObject);
+            Destroy(bgManager.BGObject[0]);
+            Destroy(bgManager.BGObject[1]);
             DestroyAll();
         }
         else

@@ -77,7 +77,7 @@ public class InGameManager : MonoBehaviour
         SoundManager.sound.BGMLoopSet(true);
     }
 
-    IEnumerator FadeIn()
+    public IEnumerator FadeIn()
     {
         fadeInOutPanel.color = new Color(0, 0, 0, 1);
         while (fadeInOutPanel.color.a > 0)
@@ -89,7 +89,7 @@ public class InGameManager : MonoBehaviour
         fadeInOutPanel.gameObject.SetActive(false);
     }
 
-   IEnumerator FadeOut()
+   public IEnumerator FadeOut()
     {
         fadeInOutPanel.gameObject.SetActive(true);
         fadeInOutPanel.color = new Color(0, 0, 0, 0);

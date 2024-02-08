@@ -1,12 +1,60 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CutSceneManager : MonoBehaviour
 {
-    // °¢°¢ÀÇ ÄÆ¾ÀµéÀÇ µ¿ÀÛµéÀ» ÀúÀåÇÑ´Ù
-    public void CutScene0()
+    [SerializeField] Image fadeInOutPanel;
+    [SerializeField] GameObject CutSceneObj;
+
+    [Header("CutScene0")]
+    [SerializeField] GameObject Elevator;
+
+    public void StartCutScene(int num)
     {
-        Debug.Log("CutScene0");
+        StartCoroutine("CutScene" + num);
+    }
+
+    // ê°ê°ì˜ ì»·ì”¬ë“¤ì˜ ë™ì‘ë“¤ì„ ì €ì¥í•œë‹¤
+    IEnumerator CutScene0()
+    {
+        yield return new WaitForSeconds(0.3f);
+        yield return StartCoroutine(FadeOut());
+        Instantiate(Elevator, CutSceneObj.transform);
+        yield return StartCoroutine(FadeIn());
+    }
+
+    IEnumerator CutScene1()
+    {
+        yield return StartCoroutine(FadeOut());
+        foreach (Transform child in CutSceneObj.transform.GetComponentsInChildren<Transform>())
+        if(child.name != CutSceneObj.name)
+                Destroy(child.gameObject);
+        yield return StartCoroutine(FadeIn());
+    }
+
+    public IEnumerator FadeIn()
+    {
+        fadeInOutPanel.color = new Color(0, 0, 0, 1);
+        while (fadeInOutPanel.color.a > 0)
+        {
+            fadeInOutPanel.color -= new Color(0, 0, 0, Time.deltaTime * 1);
+            yield return null;
+        }
+        fadeInOutPanel.color = new Color(0, 0, 0, 0);
+        fadeInOutPanel.gameObject.SetActive(false);
+    }
+
+    public IEnumerator FadeOut()
+    {
+        fadeInOutPanel.gameObject.SetActive(true);
+        fadeInOutPanel.color = new Color(0, 0, 0, 0);
+        while (fadeInOutPanel.color.a < 1)
+        {
+            fadeInOutPanel.color += new Color(0, 0, 0, Time.deltaTime * 1);
+            yield return null;
+        }
+        fadeInOutPanel.color = new Color(0, 0, 0, 1);
     }
 }

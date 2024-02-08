@@ -264,6 +264,7 @@ public class SoundManager : MonoBehaviour
         }
         else if (SFXNames.Contains(soundName))
         {
+            Debug.Log(soundName);
             SFXSource.pitch = pitch;
             SFXSource.PlayOneShot(SFXs[(int)((SFX)Enum.Parse(typeof(SFX), soundName))]);
         }

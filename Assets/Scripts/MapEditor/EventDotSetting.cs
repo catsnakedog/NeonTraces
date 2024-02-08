@@ -94,10 +94,8 @@ public class EventDotSetting : MonoBehaviour
     }
     IEnumerator Event2() // 컷씬
     {
-        playerMove.playerAction = null;
-        cutSceneManager.Invoke("CutScene"+eventTypeInfo.type2.cutSceneNumber, 0f);
-        yield return new WaitForSeconds(3f);
-        playerMove.MoveStart();
+        cutSceneManager.StartCutScene(eventTypeInfo.type2.cutSceneNumber);
+        yield return null;
         gameObject.SetActive(false);
     }
     IEnumerator Event3() // startDot 적이 움직이는 방향 반대쪽 가장 가까운 점, endDot 적이 어디까지 움직이는가(moveDot기준)
@@ -138,14 +136,16 @@ public class EventDotSetting : MonoBehaviour
         yield return new WaitForSeconds(0f);
         gameObject.SetActive(false);
     }
-    IEnumerator Event8() // 에니메이션 변경 (미구현)
+    IEnumerator Event8() // 에니메이션 변경
     {
         yield return new WaitForSeconds(0f);
+        playerAnimaiton.SetAnimation(eventTypeInfo.type8.animationName);
         gameObject.SetActive(false);
     }
     IEnumerator Event9() // stopTIme동안 플레이어를 멈춘다(TimeScale != 0)
     {
         playerMove.playerAction = null;
+        playerAnimaiton.SetAnimation("Idle");
         yield return new WaitForSeconds(eventTypeInfo.type9.stopTime);
         playerMove.MoveStart();
         gameObject.SetActive(false);

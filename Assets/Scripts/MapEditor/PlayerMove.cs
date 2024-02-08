@@ -128,8 +128,6 @@ public class PlayerMove : MonoBehaviour
     {
         if (speed > 7f)
             StartCoroutine(playerActionS.ShowEffect(35, 40, new Vector3(-0.65f, 0.5f, 0)));
-        else
-            StartCoroutine(playerActionS.ShowEffect(35, 40, new Vector3(-0.38f, 0.65f, 0)));
         if (speed > 7f)
             yield return new WaitForSeconds(0.42f);
         else

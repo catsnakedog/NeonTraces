@@ -8,8 +8,8 @@ public class BGManager : MonoBehaviour
     DataManager Data;
 
     GameObject player;
-    GameObject camera;
-    public GameObject BGObject;
+    GameObject _camera;
+    public GameObject[] BGObject = new GameObject[2];
 
     SpriteRenderer spriteRenderer;
 
@@ -25,14 +25,17 @@ public class BGManager : MonoBehaviour
     float Ymax = 0;
     float Ymin = 10000;
 
-    float BGMoveX = 0;
-    float BGMoveY = 0;
+    float[] BGMoveX = new float[2];
+    float[] BGMoveY = new float[2];
 
-    float DefaultX = 0;
-    float DefaultY = 0;
+    float[] DefaultX = new float[2];
+    float[] DefaultY = new float[2];
 
-    public float xCorrection;
-    public float yCorrection;
+    float[] xCorrection = new float[2];
+    float[] yCorrection = new float[2];
+
+    public float[] xPlus = new float[2];
+    public float[] yPlus = new float[2];
 
     [SerializeField] private float pixelPerUnit = 7;
     void Start()
@@ -48,7 +51,7 @@ public class BGManager : MonoBehaviour
     public void StartSetting()
     {
         Data = DataManager.data;
-        camera = GameObject.Find("MainCamera");
+        _camera = GameObject.Find("MainCamera");
         camsize = Data.saveData.gameData.camsize;
     }
 
@@ -76,27 +79,44 @@ public class BGManager : MonoBehaviour
             }
         }
 
-        spriteRenderer = BGs[stage].GetComponent<SpriteRenderer>();
-        BGMoveX = ((spriteRenderer.sprite.rect.size.x + xCorrection) / 7f - (camsize * 4f * pixelPerUnit) / 7f) / (Xmax - Xmin);
-        if((Ymax - Ymin) == 0)
-        {
-            BGMoveY = 0;
-        }
-        else
-        {
-            BGMoveY = ((spriteRenderer.sprite.rect.size.y + yCorrection) / 7f - (camsize * 2f * pixelPerUnit) / 7f) / (Ymax - Ymin);
-        }
+        BGObject = new GameObject[2];
 
-        DefaultX = camera.transform.position.x + ((spriteRenderer.sprite.rect.size.x + xCorrection) / 14f) - ((camsize * 2f * pixelPerUnit) / 7f);
-        DefaultY = camera.transform.position.y + ((spriteRenderer.sprite.rect.size.y + yCorrection) / 14f) - ((camsize * pixelPerUnit) / 7f);
-        BGObject = Instantiate(BGs[stage], new Vector3(DefaultX, DefaultY, 0f), Quaternion.identity);
+        VariableSetting(0);
+        VariableSetting(1);
+        BGObject[0] = Instantiate(BGs[0], new Vector3(DefaultX[0], DefaultY[0], 0f), Quaternion.identity, GameObject.Find("MainCamera").transform);
+        BGObject[1] = Instantiate(BGs[1], new Vector3(0, 0, 0f), Quaternion.identity, GameObject.Find("MainCamera").transform);
+        BGObject[1].transform.position = new Vector3(GameObject.Find("MainCamera").transform.position.x, GameObject.Find("MainCamera").transform.position.y, 0);
 
         actionM += BGMoveSetting;
     }
 
+    void VariableSetting(int num)
+    {
+        spriteRenderer = BGs[num].GetComponent<SpriteRenderer>();
+        BGMoveX[num] = ((spriteRenderer.sprite.rect.size.x + xPlus[num]) / 7f - camsize * 4f) / (Xmax - Xmin);
+        if ((Ymax - Ymin) == 0)
+        {
+            BGMoveY[num] = 0;
+        }
+        else
+        {
+            BGMoveY[num] = ((spriteRenderer.sprite.rect.size.y + yPlus[num]) / 7f - camsize * 2f) / (Ymax - Ymin);
+        }
+
+        xCorrection[num] = ((spriteRenderer.sprite.rect.size.x + xPlus[num]) / 7f - camsize * 4f) / 2;
+        yCorrection[num] = ((spriteRenderer.sprite.rect.size.y + yPlus[num]) / 7f - camsize * 2f) / 2;
+        DefaultX[num] = _camera.transform.position.x + xCorrection[num];
+        DefaultY[num] = _camera.transform.position.y + yCorrection[num];
+    }
+
     void BGMoveSetting()
     {
-        Vector3 cameraV3 = new Vector3(camera.transform.position.x + ((spriteRenderer.sprite.rect.size.x + xCorrection) / 14f) - ((camsize * 2f * pixelPerUnit) / 7f) - ((player.transform.position.x - Xmin) * BGMoveX), camera.transform.position.y + ((spriteRenderer.sprite.rect.size.y + yCorrection) / 14f) - ((camsize * pixelPerUnit) / 7f) - ((player.transform.position.y - Ymin) * BGMoveY), 0f);
-        BGObject.transform.position = cameraV3;
+        BGMove(0);
+    }
+
+    void BGMove(int num)
+    {
+        Vector3 cameraV3 = new Vector3(_camera.transform.position.x + xCorrection[num] - ((player.transform.position.x - Xmin) * BGMoveX[num]), _camera.transform.position.y + yCorrection[num] - ((player.transform.position.y - Ymin) * BGMoveY[num]), 0f);
+        BGObject[num].transform.position = cameraV3;
     }
 }
