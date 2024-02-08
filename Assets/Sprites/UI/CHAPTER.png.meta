@@ -14,6 +14,18 @@ TextureImporter:
   - first:
       213: 5905282646705028600
     second: CHAPTER_3
+  - first:
+      213: 4832446452724607790
+    second: CHAPTER_4
+  - first:
+      213: 5300149945355161607
+    second: CHAPTER_5
+  - first:
+      213: -7747789321585984163
+    second: CHAPTER_6
+  - first:
+      213: -735536221565596192
+    second: CHAPTER_7
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -119,10 +131,10 @@ TextureImporter:
       name: CHAPTER_0
       rect:
         serializedVersion: 2
-        x: 127
-        y: 308
-        width: 735
-        height: 625
+        x: 0
+        y: 620
+        width: 730
+        height: 620
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,10 +152,10 @@ TextureImporter:
       name: CHAPTER_1
       rect:
         serializedVersion: 2
-        x: 1198
-        y: 308
-        width: 735
-        height: 625
+        x: 730
+        y: 620
+        width: 730
+        height: 620
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,10 +173,10 @@ TextureImporter:
       name: CHAPTER_2
       rect:
         serializedVersion: 2
-        x: 2258
-        y: 308
-        width: 735
-        height: 625
+        x: 1460
+        y: 620
+        width: 730
+        height: 620
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,10 +194,10 @@ TextureImporter:
       name: CHAPTER_3
       rect:
         serializedVersion: 2
-        x: 3318
-        y: 308
-        width: 735
-        height: 625
+        x: 2190
+        y: 620
+        width: 730
+        height: 620
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,6 +207,90 @@ TextureImporter:
       bones: []
       spriteID: 8fdb1279747c3f150800000000000000
       internalID: 5905282646705028600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CHAPTER_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 730
+        height: 620
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2b2fb2027c401340800000000000000
+      internalID: 4832446452724607790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CHAPTER_5
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 0
+        width: 730
+        height: 620
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 700533d3b4aed8940800000000000000
+      internalID: 5300149945355161607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CHAPTER_6
+      rect:
+        serializedVersion: 2
+        x: 1460
+        y: 0
+        width: 730
+        height: 620
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5d7d4c59a25a7490800000000000000
+      internalID: -7747789321585984163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CHAPTER_7
+      rect:
+        serializedVersion: 2
+        x: 2190
+        y: 0
+        width: 730
+        height: 620
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ed462a14b9dac5f0800000000000000
+      internalID: -735536221565596192
       vertices: []
       indices: 
       edges: []
