@@ -3624,6 +3624,122 @@
                 },
                 {
                     "v3": {
+                        "x": 640.0,
+                        "y": -30.0,
+                        "z": 0.0
+                    },
+                    "type": 2,
+                    "eventTypeInfo": {
+                        "type0": {
+                            "pointDot1": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "pointDot2": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "nextMoveDot": 0,
+                            "time": 0.0,
+                            "isStop": false,
+                            "stopTime": 0.0
+                        },
+                        "type1": {
+                            "upSpeed": 0,
+                            "changeTime": 0.0
+                        },
+                        "type2": {
+                            "cutSceneNumber": 0
+                        },
+                        "type3": {
+                            "speed": 0,
+                            "index": 0,
+                            "startDot": 0,
+                            "endDot": 0
+                        },
+                        "type4": {
+                            "soundName": ""
+                        },
+                        "type5": {
+                            "cameraActionName": ""
+                        },
+                        "type6": {
+                            "power": 0,
+                            "speed": 0
+                        },
+                        "type7": {
+                            "timeScale": 0.0
+                        },
+                        "type8": {
+                            "animationName": ""
+                        },
+                        "type9": {
+                            "stopTime": 2.0
+                        }
+                    }
+                },
+                {
+                    "v3": {
+                        "x": 640.0,
+                        "y": -27.5,
+                        "z": 0.0
+                    },
+                    "type": 8,
+                    "eventTypeInfo": {
+                        "type0": {
+                            "pointDot1": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "pointDot2": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "nextMoveDot": 0,
+                            "time": 0.0,
+                            "isStop": false,
+                            "stopTime": 0.0
+                        },
+                        "type1": {
+                            "upSpeed": 0,
+                            "changeTime": 0.0
+                        },
+                        "type2": {
+                            "cutSceneNumber": 0
+                        },
+                        "type3": {
+                            "speed": 0,
+                            "index": 0,
+                            "startDot": 0,
+                            "endDot": 0
+                        },
+                        "type4": {
+                            "soundName": ""
+                        },
+                        "type5": {
+                            "cameraActionName": ""
+                        },
+                        "type6": {
+                            "power": 0,
+                            "speed": 0
+                        },
+                        "type7": {
+                            "timeScale": 0.0
+                        },
+                        "type8": {
+                            "animationName": "Idle"
+                        },
+                        "type9": {
+                            "stopTime": 2.0
+                        }
+                    }
+                },
+                {
+                    "v3": {
                         "x": 642.3599853515625,
                         "y": 130.0,
                         "z": 0.0
@@ -3652,6 +3768,64 @@
                         },
                         "type2": {
                             "cutSceneNumber": 0
+                        },
+                        "type3": {
+                            "speed": 0,
+                            "index": 0,
+                            "startDot": 0,
+                            "endDot": 0
+                        },
+                        "type4": {
+                            "soundName": ""
+                        },
+                        "type5": {
+                            "cameraActionName": ""
+                        },
+                        "type6": {
+                            "power": 0,
+                            "speed": 0
+                        },
+                        "type7": {
+                            "timeScale": 0.0
+                        },
+                        "type8": {
+                            "animationName": ""
+                        },
+                        "type9": {
+                            "stopTime": 3.8399999141693117
+                        }
+                    }
+                },
+                {
+                    "v3": {
+                        "x": 642.3579711914063,
+                        "y": 130.0050048828125,
+                        "z": 0.0
+                    },
+                    "type": 2,
+                    "eventTypeInfo": {
+                        "type0": {
+                            "pointDot1": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "pointDot2": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "nextMoveDot": 0,
+                            "time": 0.0,
+                            "isStop": false,
+                            "stopTime": 0.0
+                        },
+                        "type1": {
+                            "upSpeed": 0,
+                            "changeTime": 0.0
+                        },
+                        "type2": {
+                            "cutSceneNumber": 1
                         },
                         "type3": {
                             "speed": 0,
@@ -5878,6 +6052,301 @@
                     }
                 }
             ]
+        },
+        {
+            "moveDots": [
+                {
+                    "v3": {
+                        "x": 11.5,
+                        "y": -30.0,
+                        "z": 0.0
+                    },
+                    "speed": 15.0
+                },
+                {
+                    "v3": {
+                        "x": 255.0,
+                        "y": -30.0,
+                        "z": 0.0
+                    },
+                    "speed": 15.0
+                }
+            ],
+            "enemys": [
+                {
+                    "v3": {
+                        "x": 80.0,
+                        "y": -30.0,
+                        "z": 0.0
+                    },
+                    "moveV3": {
+                        "x": 80.0,
+                        "y": -30.0,
+                        "z": 0.0
+                    },
+                    "type": 1
+                },
+                {
+                    "v3": {
+                        "x": 137.0,
+                        "y": -30.0,
+                        "z": 0.0
+                    },
+                    "moveV3": {
+                        "x": 137.0,
+                        "y": -30.0,
+                        "z": 0.0
+                    },
+                    "type": 0
+                },
+                {
+                    "v3": {
+                        "x": 198.0,
+                        "y": -30.0,
+                        "z": 0.0
+                    },
+                    "moveV3": {
+                        "x": 198.0,
+                        "y": -30.0,
+                        "z": 0.0
+                    },
+                    "type": 2
+                }
+            ],
+            "eventDots": [
+                {
+                    "v3": {
+                        "x": 72.18000030517578,
+                        "y": -30.0,
+                        "z": 0.0
+                    },
+                    "type": 2,
+                    "eventTypeInfo": {
+                        "type0": {
+                            "pointDot1": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "pointDot2": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "nextMoveDot": 0,
+                            "time": 0.0,
+                            "isStop": false,
+                            "stopTime": 0.0
+                        },
+                        "type1": {
+                            "upSpeed": 0,
+                            "changeTime": 0.0
+                        },
+                        "type2": {
+                            "cutSceneNumber": 2
+                        },
+                        "type3": {
+                            "speed": 0,
+                            "index": 0,
+                            "startDot": 0,
+                            "endDot": 0
+                        },
+                        "type4": {
+                            "soundName": ""
+                        },
+                        "type5": {
+                            "cameraActionName": ""
+                        },
+                        "type6": {
+                            "power": 0,
+                            "speed": 0
+                        },
+                        "type7": {
+                            "timeScale": 0.0
+                        },
+                        "type8": {
+                            "animationName": ""
+                        },
+                        "type9": {
+                            "stopTime": 1.0
+                        }
+                    }
+                },
+                {
+                    "v3": {
+                        "x": 129.89999389648438,
+                        "y": -30.0,
+                        "z": 0.0
+                    },
+                    "type": 2,
+                    "eventTypeInfo": {
+                        "type0": {
+                            "pointDot1": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "pointDot2": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "nextMoveDot": 0,
+                            "time": 0.0,
+                            "isStop": false,
+                            "stopTime": 0.0
+                        },
+                        "type1": {
+                            "upSpeed": 0,
+                            "changeTime": 0.0
+                        },
+                        "type2": {
+                            "cutSceneNumber": 3
+                        },
+                        "type3": {
+                            "speed": 0,
+                            "index": 0,
+                            "startDot": 0,
+                            "endDot": 0
+                        },
+                        "type4": {
+                            "soundName": ""
+                        },
+                        "type5": {
+                            "cameraActionName": ""
+                        },
+                        "type6": {
+                            "power": 0,
+                            "speed": 0
+                        },
+                        "type7": {
+                            "timeScale": 0.0
+                        },
+                        "type8": {
+                            "animationName": ""
+                        },
+                        "type9": {
+                            "stopTime": 1.0
+                        }
+                    }
+                },
+                {
+                    "v3": {
+                        "x": 189.99000549316407,
+                        "y": -30.0,
+                        "z": 0.0
+                    },
+                    "type": 2,
+                    "eventTypeInfo": {
+                        "type0": {
+                            "pointDot1": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "pointDot2": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "nextMoveDot": 0,
+                            "time": 0.0,
+                            "isStop": false,
+                            "stopTime": 0.0
+                        },
+                        "type1": {
+                            "upSpeed": 0,
+                            "changeTime": 0.0
+                        },
+                        "type2": {
+                            "cutSceneNumber": 4
+                        },
+                        "type3": {
+                            "speed": 0,
+                            "index": 0,
+                            "startDot": 0,
+                            "endDot": 0
+                        },
+                        "type4": {
+                            "soundName": ""
+                        },
+                        "type5": {
+                            "cameraActionName": ""
+                        },
+                        "type6": {
+                            "power": 0,
+                            "speed": 0
+                        },
+                        "type7": {
+                            "timeScale": 0.0
+                        },
+                        "type8": {
+                            "animationName": ""
+                        },
+                        "type9": {
+                            "stopTime": 1.0
+                        }
+                    }
+                },
+                {
+                    "v3": {
+                        "x": 205.0,
+                        "y": -30.0,
+                        "z": 0.0
+                    },
+                    "type": 2,
+                    "eventTypeInfo": {
+                        "type0": {
+                            "pointDot1": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "pointDot2": {
+                                "x": 0.0,
+                                "y": 0.0,
+                                "z": 0.0
+                            },
+                            "nextMoveDot": 0,
+                            "time": 0.0,
+                            "isStop": false,
+                            "stopTime": 0.0
+                        },
+                        "type1": {
+                            "upSpeed": 0,
+                            "changeTime": 0.0
+                        },
+                        "type2": {
+                            "cutSceneNumber": 5
+                        },
+                        "type3": {
+                            "speed": 0,
+                            "index": 0,
+                            "startDot": 0,
+                            "endDot": 0
+                        },
+                        "type4": {
+                            "soundName": ""
+                        },
+                        "type5": {
+                            "cameraActionName": ""
+                        },
+                        "type6": {
+                            "power": 0,
+                            "speed": 0
+                        },
+                        "type7": {
+                            "timeScale": 0.0
+                        },
+                        "type8": {
+                            "animationName": ""
+                        },
+                        "type9": {
+                            "stopTime": 1.0
+                        }
+                    }
+                }
+            ]
         }
     ],
     "gameData": {
@@ -5890,406 +6359,406 @@
             true
         ],
         "player": {
-            "instanceID": 191076
+            "instanceID": 83522
         },
         "blood": {
-            "instanceID": 20568
+            "instanceID": 20808
         },
         "bloodBoom": {
-            "instanceID": 20570
+            "instanceID": 20810
         },
         "map": {
-            "instanceID": 190962
+            "instanceID": 83392
         },
         "enemyInfo": [
             {
                 "enemy": {
-                    "instanceID": -274402
+                    "instanceID": -191496
                 },
                 "x": 193.89999389648438,
                 "index": 0
             },
             {
                 "enemy": {
-                    "instanceID": -274420
+                    "instanceID": -191514
                 },
                 "x": 221.8000030517578,
                 "index": 1
             },
             {
                 "enemy": {
-                    "instanceID": -274438
+                    "instanceID": -191532
                 },
                 "x": 250.60000610351563,
                 "index": 2
             },
             {
                 "enemy": {
-                    "instanceID": -274456
+                    "instanceID": -191550
                 },
                 "x": 279.5,
                 "index": 3
             },
             {
                 "enemy": {
-                    "instanceID": -274474
+                    "instanceID": -191568
                 },
                 "x": 304.6000061035156,
                 "index": 4
             },
             {
                 "enemy": {
-                    "instanceID": -274492
+                    "instanceID": -191586
                 },
                 "x": 351.4000244140625,
                 "index": 5
             },
             {
                 "enemy": {
-                    "instanceID": -274510
+                    "instanceID": -191604
                 },
                 "x": 356.1000061035156,
                 "index": 6
             },
             {
                 "enemy": {
-                    "instanceID": -274528
+                    "instanceID": -191622
                 },
                 "x": 413.79998779296877,
                 "index": 7
             },
             {
                 "enemy": {
-                    "instanceID": -274546
+                    "instanceID": -191640
                 },
                 "x": 426.1000061035156,
                 "index": 8
             },
             {
                 "enemy": {
-                    "instanceID": -274564
+                    "instanceID": -191658
                 },
                 "x": 480.8999938964844,
                 "index": 9
             },
             {
                 "enemy": {
-                    "instanceID": -274582
+                    "instanceID": -191676
                 },
                 "x": 506.3999938964844,
                 "index": 10
             },
             {
                 "enemy": {
-                    "instanceID": -274600
+                    "instanceID": -191694
                 },
                 "x": 630.3200073242188,
                 "index": 11
             },
             {
                 "enemy": {
-                    "instanceID": -274618
+                    "instanceID": -191712
                 },
                 "x": 636.1099853515625,
                 "index": 12
             },
             {
                 "enemy": {
-                    "instanceID": -274636
+                    "instanceID": -191730
                 },
                 "x": 686.8499755859375,
                 "index": 13
             },
             {
                 "enemy": {
-                    "instanceID": -274654
+                    "instanceID": -191748
                 },
                 "x": 700.010009765625,
                 "index": 14
             },
             {
                 "enemy": {
-                    "instanceID": -274672
+                    "instanceID": -191766
                 },
                 "x": 706.0499877929688,
                 "index": 15
             },
             {
                 "enemy": {
-                    "instanceID": -274690
+                    "instanceID": -191784
                 },
                 "x": 709.739990234375,
                 "index": 16
             },
             {
                 "enemy": {
-                    "instanceID": -274708
+                    "instanceID": -191802
                 },
                 "x": 719.8099975585938,
                 "index": 17
             },
             {
                 "enemy": {
-                    "instanceID": -274726
+                    "instanceID": -191820
                 },
                 "x": 728.27001953125,
                 "index": 18
             },
             {
                 "enemy": {
-                    "instanceID": -274744
+                    "instanceID": -191838
                 },
                 "x": 743.1400146484375,
                 "index": 19
             },
             {
                 "enemy": {
-                    "instanceID": -274762
+                    "instanceID": -191856
                 },
                 "x": 759.8499755859375,
                 "index": 20
             },
             {
                 "enemy": {
-                    "instanceID": -274780
+                    "instanceID": -191874
                 },
                 "x": 771.8900146484375,
                 "index": 21
             },
             {
                 "enemy": {
-                    "instanceID": -274798
+                    "instanceID": -191892
                 },
                 "x": 792.8400268554688,
                 "index": 22
             },
             {
                 "enemy": {
-                    "instanceID": -274816
+                    "instanceID": -191910
                 },
                 "x": 805.4299926757813,
                 "index": 23
             },
             {
                 "enemy": {
-                    "instanceID": -274834
+                    "instanceID": -191928
                 },
                 "x": 785.196533203125,
                 "index": 24
             },
             {
                 "enemy": {
-                    "instanceID": -274852
+                    "instanceID": -191946
                 },
                 "x": 818.2999877929688,
                 "index": 25
             },
             {
                 "enemy": {
-                    "instanceID": -274870
+                    "instanceID": -191964
                 },
                 "x": 862.0612182617188,
                 "index": 26
             },
             {
                 "enemy": {
-                    "instanceID": -274888
+                    "instanceID": -191982
                 },
                 "x": 884.0755004882813,
                 "index": 27
             },
             {
                 "enemy": {
-                    "instanceID": -274906
+                    "instanceID": -192000
                 },
                 "x": 893.6599731445313,
                 "index": 28
             },
             {
                 "enemy": {
-                    "instanceID": -274924
+                    "instanceID": -192018
                 },
                 "x": 900.9600219726563,
                 "index": 29
             },
             {
                 "enemy": {
-                    "instanceID": -274942
+                    "instanceID": -192036
                 },
                 "x": 906.1400146484375,
                 "index": 30
             },
             {
                 "enemy": {
-                    "instanceID": -274960
+                    "instanceID": -192054
                 },
                 "x": 926.3400268554688,
                 "index": 31
             },
             {
                 "enemy": {
-                    "instanceID": -274978
+                    "instanceID": -192072
                 },
                 "x": 958.5,
                 "index": 32
             },
             {
                 "enemy": {
-                    "instanceID": -274996
+                    "instanceID": -192090
                 },
                 "x": 1001.7000122070313,
                 "index": 33
             },
             {
                 "enemy": {
-                    "instanceID": -275014
+                    "instanceID": -192108
                 },
                 "x": 1016.469970703125,
                 "index": 34
             },
             {
                 "enemy": {
-                    "instanceID": -275032
+                    "instanceID": -192126
                 },
                 "x": 1050.6650390625,
                 "index": 35
             },
             {
                 "enemy": {
-                    "instanceID": -275050
+                    "instanceID": -192144
                 },
                 "x": 1071.3499755859375,
                 "index": 36
             },
             {
                 "enemy": {
-                    "instanceID": -275068
+                    "instanceID": -192162
                 },
                 "x": 1077.25,
                 "index": 37
             },
             {
                 "enemy": {
-                    "instanceID": -275086
+                    "instanceID": -192180
                 },
                 "x": 1083.699951171875,
                 "index": 38
             },
             {
                 "enemy": {
-                    "instanceID": -275104
+                    "instanceID": -192198
                 },
                 "x": 1092.2679443359375,
                 "index": 39
             },
             {
                 "enemy": {
-                    "instanceID": -275122
+                    "instanceID": -192216
                 },
                 "x": 1111.4000244140625,
                 "index": 40
             },
             {
                 "enemy": {
-                    "instanceID": -275140
+                    "instanceID": -192234
                 },
                 "x": 1138.56298828125,
                 "index": 41
             },
             {
                 "enemy": {
-                    "instanceID": -275158
+                    "instanceID": -192252
                 },
                 "x": 1164.093017578125,
                 "index": 42
             },
             {
                 "enemy": {
-                    "instanceID": -275176
+                    "instanceID": -192270
                 },
                 "x": 1180.0150146484375,
                 "index": 43
             },
             {
                 "enemy": {
-                    "instanceID": -275194
+                    "instanceID": -192288
                 },
                 "x": 1190.0,
                 "index": 44
             },
             {
                 "enemy": {
-                    "instanceID": -275212
+                    "instanceID": -192306
                 },
                 "x": 1204.7139892578125,
                 "index": 45
             },
             {
                 "enemy": {
-                    "instanceID": -275230
+                    "instanceID": -192324
                 },
                 "x": 1234.9000244140625,
                 "index": 46
             },
             {
                 "enemy": {
-                    "instanceID": -275248
+                    "instanceID": -192342
                 },
                 "x": 1256.656982421875,
                 "index": 47
             },
             {
                 "enemy": {
-                    "instanceID": -275266
+                    "instanceID": -192360
                 },
                 "x": 1262.7969970703125,
                 "index": 48
             },
             {
                 "enemy": {
-                    "instanceID": -275284
+                    "instanceID": -192378
                 },
                 "x": 1268.737060546875,
                 "index": 49
             },
             {
                 "enemy": {
-                    "instanceID": -275302
+                    "instanceID": -192396
                 },
                 "x": 1276.79296875,
                 "index": 50
             },
             {
                 "enemy": {
-                    "instanceID": -275320
+                    "instanceID": -192414
                 },
                 "x": 1292.428955078125,
                 "index": 51
             },
             {
                 "enemy": {
-                    "instanceID": -275338
+                    "instanceID": -192432
                 },
                 "x": 1321.4000244140625,
                 "index": 52
             },
             {
                 "enemy": {
-                    "instanceID": -275356
+                    "instanceID": -192450
                 },
                 "x": 1364.3499755859375,
                 "index": 53
             },
             {
                 "enemy": {
-                    "instanceID": -275374
+                    "instanceID": -192468
                 },
                 "x": 1514.0689697265625,
                 "index": 54
             },
             {
                 "enemy": {
-                    "instanceID": -275392
+                    "instanceID": -192486
                 },
                 "x": 1541.4599609375,
                 "index": 55
@@ -6299,188 +6768,188 @@
         "isGameStart": false,
         "enemyPoint": [
             {
-                "instanceID": -274414
+                "instanceID": -191508
             },
             {
-                "instanceID": -274432
+                "instanceID": -191526
             },
             {
-                "instanceID": -274450
+                "instanceID": -191544
             },
             {
-                "instanceID": -274468
+                "instanceID": -191562
             },
             {
-                "instanceID": -274486
+                "instanceID": -191580
             },
             {
-                "instanceID": -274504
+                "instanceID": -191598
             },
             {
-                "instanceID": -274522
+                "instanceID": -191616
             },
             {
-                "instanceID": -274540
+                "instanceID": -191634
             },
             {
-                "instanceID": -274558
+                "instanceID": -191652
             },
             {
-                "instanceID": -274576
+                "instanceID": -191670
             },
             {
-                "instanceID": -274594
+                "instanceID": -191688
             },
             {
-                "instanceID": -274612
+                "instanceID": -191706
             },
             {
-                "instanceID": -274630
+                "instanceID": -191724
             },
             {
-                "instanceID": -274648
+                "instanceID": -191742
             },
             {
-                "instanceID": -274666
+                "instanceID": -191760
             },
             {
-                "instanceID": -274684
+                "instanceID": -191778
             },
             {
-                "instanceID": -274702
+                "instanceID": -191796
             },
             {
-                "instanceID": -274720
+                "instanceID": -191814
             },
             {
-                "instanceID": -274738
+                "instanceID": -191832
             },
             {
-                "instanceID": -274756
+                "instanceID": -191850
             },
             {
-                "instanceID": -274774
+                "instanceID": -191868
             },
             {
-                "instanceID": -274792
+                "instanceID": -191886
             },
             {
-                "instanceID": -274810
+                "instanceID": -191904
             },
             {
-                "instanceID": -274828
+                "instanceID": -191922
             },
             {
-                "instanceID": -274846
+                "instanceID": -191940
             },
             {
-                "instanceID": -274864
+                "instanceID": -191958
             },
             {
-                "instanceID": -274882
+                "instanceID": -191976
             },
             {
-                "instanceID": -274900
+                "instanceID": -191994
             },
             {
-                "instanceID": -274918
+                "instanceID": -192012
             },
             {
-                "instanceID": -274936
+                "instanceID": -192030
             },
             {
-                "instanceID": -274954
+                "instanceID": -192048
             },
             {
-                "instanceID": -274972
+                "instanceID": -192066
             },
             {
-                "instanceID": -274990
+                "instanceID": -192084
             },
             {
-                "instanceID": -275008
+                "instanceID": -192102
             },
             {
-                "instanceID": -275026
+                "instanceID": -192120
             },
             {
-                "instanceID": -275044
+                "instanceID": -192138
             },
             {
-                "instanceID": -275062
+                "instanceID": -192156
             },
             {
-                "instanceID": -275080
+                "instanceID": -192174
             },
             {
-                "instanceID": -275098
+                "instanceID": -192192
             },
             {
-                "instanceID": -275116
+                "instanceID": -192210
             },
             {
-                "instanceID": -275134
+                "instanceID": -192228
             },
             {
-                "instanceID": -275152
+                "instanceID": -192246
             },
             {
-                "instanceID": -275170
+                "instanceID": -192264
             },
             {
-                "instanceID": -275188
+                "instanceID": -192282
             },
             {
-                "instanceID": -275206
+                "instanceID": -192300
             },
             {
-                "instanceID": -275224
+                "instanceID": -192318
             },
             {
-                "instanceID": -275242
+                "instanceID": -192336
             },
             {
-                "instanceID": -275260
+                "instanceID": -192354
             },
             {
-                "instanceID": -275278
+                "instanceID": -192372
             },
             {
-                "instanceID": -275296
+                "instanceID": -192390
             },
             {
-                "instanceID": -275314
+                "instanceID": -192408
             },
             {
-                "instanceID": -275332
+                "instanceID": -192426
             },
             {
-                "instanceID": -275350
+                "instanceID": -192444
             },
             {
-                "instanceID": -275368
+                "instanceID": -192462
             },
             {
-                "instanceID": -275386
+                "instanceID": -192480
             },
             {
-                "instanceID": -275404
+                "instanceID": -192498
             }
         ],
         "isInGame": true,
-        "isCameraFollow": true,
+        "isCameraFollow": false,
         "isFirstCutScene": [
             false,
             true,
             true,
             true
         ],
-        "crruentScene": "InGame",
+        "crruentScene": "UI",
         "isFirstGame": false
     },
     "ui": {
         "bgm": 0.0,
-        "sfx": 1.0,
+        "sfx": 0.6788028478622437,
         "delay": 0.0
     }
 }
