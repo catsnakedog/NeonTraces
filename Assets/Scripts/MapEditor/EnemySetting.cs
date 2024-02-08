@@ -87,6 +87,10 @@ public class EnemySetting : MonoBehaviour
         {
             if (collision.name == "Life") // 플레이어 본체와 충돌시 사망
             {
+                if (type == 1)
+                    SoundManager.sound.Play("B1_attack");
+                else if (type == 3)
+                    SoundManager.sound.Play("B2_attack");
                 playerAction.Death();
             }
             if (collision.name == "Action") // 공격, 방어 범위와 충돌시 판정에 들어감
@@ -144,9 +148,12 @@ public class EnemySetting : MonoBehaviour
             SoundManager.sound.Play("Rmain_parry_A2");
             //SoundManager.sound.Play("Main_parry_A2");
             playerAction.CallAniC("Perry", 0.49f);
-            enemyAnimator.SetTrigger("IsBackstep");
-            Invoke("StrongAttackSound", 0.58f);
-            enemyAnimator.SetBool("IsRun", false);
+            if(cnt == 0)
+            {
+                enemyAnimator.SetTrigger("IsBackstep");
+                Invoke("StrongAttackSound", 0.58f);
+                enemyAnimator.SetBool("IsRun", false);
+            }
             EnemyRebound(); // enemy가 밀려난다
             PatternClear();
         }
@@ -180,8 +187,11 @@ public class EnemySetting : MonoBehaviour
     {
         if (playerAction.isAttack)
         {
-            SoundManager.sound.Play("B2_shield");
-            enemyAnimator.SetTrigger("IsShield");
+            if(cnt == 0)
+            {
+                SoundManager.sound.Play("B2_shield");
+                enemyAnimator.SetTrigger("IsShield");
+            }
             SoundManager.sound.Play("Rmain_hit");
             BloodSetting();
             EnemyRebound(); // enemy가 밀려난다
@@ -486,7 +496,7 @@ public class EnemySetting : MonoBehaviour
 
         }
 
-        attackAniPos = transform.GetChild(0).position.x + speed * attackAniTime;
+        attackAniPos = transform.GetChild(0).position.x - speed * attackAniTime;
     }
 
     void IsPlayerCome()
@@ -500,7 +510,7 @@ public class EnemySetting : MonoBehaviour
 
     void IsAttack()
     {
-        if(transform.position.x <= attackAniPos)
+        if(DataManager.data.saveData.gameData.player.transform.position.x >= attackAniPos)
         {
             if(type == 0)
                 SoundManager.sound.Play("A1_attack");

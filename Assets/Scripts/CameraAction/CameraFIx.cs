@@ -37,11 +37,6 @@ public class CameraFix : MonoBehaviour
             return;
         camsize = Data.saveData.gameData.camsize;
         mainCameraC.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, camsize, camSpeed);
-        if (BGManager.BGObject != null)
-        {
-            BGManager.BGObject.transform.localScale = new Vector3(Data.saveData.gameData.camsize / 10f,
-                Data.saveData.gameData.camsize / 10f, 1);
-        }
 
         if (isShake == true)
         {
