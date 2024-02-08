@@ -348,6 +348,7 @@ MonoBehaviour:
   - {fileID: 4900000, guid: 8929e7023724dd545b77c646d3845659, type: 3}
   - {fileID: 4900000, guid: b79d4dffd17a05c41983338c48ea795b, type: 3}
   - {fileID: 4900000, guid: de5811a07ce8a914d9b8a936f42a6403, type: 3}
+  - {fileID: 4900000, guid: ff6e48165dd48eb43b9619df86adedbf, type: 3}
 --- !u!4 &97096595
 Transform:
   m_ObjectHideFlags: 0
@@ -1594,6 +1595,7 @@ MonoBehaviour:
   - {fileID: 2648932352224179247, guid: 9d3d26ed6ae09ba4f97d6da4d99ce123, type: 3}
   - {fileID: 1763227548786395853, guid: 79db893724348a643bb3400d694b2616, type: 3}
   - {fileID: 6634122933197629664, guid: 58045b9ecd175a74dba4e93626a17d9b, type: 3}
+  - {fileID: 7793046088606883056, guid: e0604b5d3d2af5942af9b522d8fdb23b, type: 3}
   lrs: []
   lrCount: 0
   bezierCount: 0
@@ -2171,6 +2173,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeInOutPanel: {fileID: 318931398}
   CutSceneObj: {fileID: 1717090894}
+  TutoObj:
+  - {fileID: 4004392411460989701, guid: 16ba268241f12f44bbca2d28fd2cd121, type: 3}
+  - {fileID: 4004392411460989701, guid: 0f36ea33a287b26489bb85e70dd4c45c, type: 3}
+  - {fileID: 4004392411460989701, guid: 18a21611e1e40f34e91f29c3ea1ae5d2, type: 3}
+  - {fileID: 4004392411460989701, guid: 60d59e1f297062d44b9a022927da12ae, type: 3}
   Elevator: {fileID: 4529309915444496247, guid: 2356ba02f8a642c429a3cf64e5333b6d, type: 3}
 --- !u!114 &1323966425
 MonoBehaviour:

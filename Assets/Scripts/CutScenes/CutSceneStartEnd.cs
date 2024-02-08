@@ -40,7 +40,7 @@ public class CutSceneStartEnd : MonoBehaviour
     {
         if(gameObject.scene.name == "CutScene00") // 게임 첫 시작 연출일 때
         {
-            DataManager.data.Save();
+            DataManager.data.saveData.gameData.stage = 4;
             SceneManager.LoadScene("InGameScene");
         }
         else if(DataManager.data.saveData.gameData.crruentScene == "UI") // UI에서 호출한 경우

@@ -510,7 +510,7 @@ public class EnemySetting : MonoBehaviour
 
     void IsAttack()
     {
-        if(DataManager.data.saveData.gameData.player.transform.position.x >= attackAniPos)
+        if(DataManager.data.saveData.gameData.player.transform.position.x >= attackAniPos - 0.05f)
         {
             if(type == 0)
                 SoundManager.sound.Play("A1_attack");

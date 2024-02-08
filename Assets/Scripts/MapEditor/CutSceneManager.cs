@@ -7,6 +7,7 @@ public class CutSceneManager : MonoBehaviour
 {
     [SerializeField] Image fadeInOutPanel;
     [SerializeField] GameObject CutSceneObj;
+    [SerializeField] GameObject[] TutoObj;
 
     [Header("CutScene0")]
     [SerializeField] GameObject Elevator;
@@ -32,6 +33,31 @@ public class CutSceneManager : MonoBehaviour
         if(child.name != CutSceneObj.name)
                 Destroy(child.gameObject);
         yield return StartCoroutine(FadeIn());
+    }
+
+    IEnumerator CutScene2()
+    {
+        Time.timeScale = 0f;
+        yield return null;
+        Instantiate(TutoObj[0]);
+    }
+    IEnumerator CutScene3()
+    {
+        Time.timeScale = 0f;
+        yield return null;
+        Instantiate(TutoObj[1]);
+    }
+    IEnumerator CutScene4()
+    {
+        Time.timeScale = 0f;
+        yield return null;
+        Instantiate(TutoObj[2]);
+    }
+    IEnumerator CutScene5()
+    {
+        Time.timeScale = 0f;
+        yield return null;
+        Instantiate(TutoObj[3]);
     }
 
     public IEnumerator FadeIn()

@@ -187,10 +187,7 @@ public class ButtonController : MonoBehaviour
             Data.saveData.gameData.stage = num;
 
             if(num == 0 && Data.saveData.gameData.isFirstGame) // 게임을 처음 시작한 경우
-            {
-                Data.saveData.gameData.isFirstGame = false;
                 StartCoroutine("LoadCutScene", 0);
-            }
             else
                 Invoke("LoadGame", 1f); //소리 길이만큼 대기 후 실행
         }
