@@ -169,7 +169,7 @@ public class SoundManager : MonoBehaviour
         this.optionCanvas.transform.SetParent(gameObject.transform);
         //onClick()
         this.optionCanvas.transform.GetChild(1).GetChild(2).GetComponent<Button>().onClick.AddListener(delegate { CloseOption(); DataManager.data.Save(); Play("Select"); });
-
+        this.optionCanvas.transform.GetChild(0).GetComponent<Button>().onClick.AddListener(delegate { CloseOption(); DataManager.data.Save(); Play("Select"); });
 
 
         this.optionCanvas.SetActive(false);//
