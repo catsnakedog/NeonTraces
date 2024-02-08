@@ -226,6 +226,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeInOutPanel: {fileID: 1148484325}
   CutSceneObj: {fileID: 72180831}
+  TutoObj:
+  - {fileID: 4004392411460989701, guid: 16ba268241f12f44bbca2d28fd2cd121, type: 3}
+  - {fileID: 4004392411460989701, guid: 0f36ea33a287b26489bb85e70dd4c45c, type: 3}
+  - {fileID: 4004392411460989701, guid: 18a21611e1e40f34e91f29c3ea1ae5d2, type: 3}
+  - {fileID: 4004392411460989701, guid: 60d59e1f297062d44b9a022927da12ae, type: 3}
   Elevator: {fileID: 4529309915444496247, guid: 2356ba02f8a642c429a3cf64e5333b6d, type: 3}
 --- !u!114 &41527244
 MonoBehaviour:
@@ -774,7 +779,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1005, y: 465.00003}
+  m_AnchoredPosition: {x: 955, y: 410}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &200869541

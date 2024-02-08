@@ -67,7 +67,14 @@ public class InGameManager : MonoBehaviour
     {
         yield return StartCoroutine(FadeOut());
         yield return new WaitForSeconds(0.5f);
-        if (DataManager.data.saveData.gameData.isFirstCutScene[stage])
+        if(DataManager.data.saveData.gameData.stage == 4)
+        {
+            DataManager.data.saveData.gameData.isFirstGame = false;
+            DataManager.data.saveData.gameData.stage = 0;
+            DataManager.data.Save();
+            SceneManager.LoadScene("InGameScene");
+        }
+        else if (DataManager.data.saveData.gameData.isFirstCutScene[stage])
         {
             SceneManager.LoadScene("CutScene0" + (stage + 1).ToString());
         }

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class BackGround : MonoBehaviour
@@ -13,6 +14,7 @@ public class BackGround : MonoBehaviour
     [SerializeField] private float delayTime = 0f;
     [SerializeField] [Range(1f, 20f)] private float speed = 3f;
     [SerializeField] private float posValue;
+    [SerializeField] GameObject Drone;
     private Vector2 startPos;
     private float newPos;
     void Start()
@@ -42,5 +44,22 @@ public class BackGround : MonoBehaviour
         }
         
         
+    }
+
+    public void LeftOutMove()
+    {
+        StartCoroutine(RightOutMove());
+    }
+    public IEnumerator RightOutMove()
+    {
+        float moveAmount = 0;
+        while (moveAmount < 40f)
+        {
+            float move = Time.deltaTime * 13;
+            gameObject.transform.position += new Vector3(move, 0, 0);
+            Drone.transform.position += new Vector3(move, 0, 0);
+            moveAmount += move;
+            yield return null;
+        }
     }
 }
