@@ -34,6 +34,7 @@ public class InGameManager : MonoBehaviour
         mapMake.isMapEditor = false;
         mapMake.MapSetting();
         optimizeEnemy.OptimizeStart();
+        SoundManager.sound.Stop("BG");
         GameObject.Find("MainCamera").transform.position = Data.saveData.mapData[stage].moveDots[0].v3 + new Vector3(14, 5, -10);
         player.transform.position = Data.saveData.mapData[stage].moveDots[0].v3 + new Vector3(-10, 0, 0);
         yield return new WaitForSeconds(0.5f);

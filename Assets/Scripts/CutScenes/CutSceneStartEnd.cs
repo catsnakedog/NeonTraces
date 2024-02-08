@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -55,7 +56,13 @@ public class CutSceneStartEnd : MonoBehaviour
         {
             DataManager.data.saveData.gameData.isFirstCutScene[DataManager.data.saveData.gameData.stage] = false;
             DataManager.data.Save();
-            SceneManager.LoadScene("UI");
+            if (DataManager.data.saveData.gameData.stage == 3)
+                SceneManager.LoadScene("UI");
+            else
+            {
+                DataManager.data.saveData.gameData.stage++;
+                SceneManager.LoadScene("InGameScene");
+            }
         }
     }
 
