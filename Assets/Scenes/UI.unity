@@ -2742,6 +2742,7 @@ MonoBehaviour:
   stageNumber: 3
   cutSceneButton: {fileID: 1004490365}
   isClear: 0
+  Open: {fileID: -8407726514817362093, guid: bcc6413c323b71a459cd9178f1cc2d5e, type: 3}
 --- !u!114 &508188715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2767,7 +2768,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -2818,7 +2819,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5905282646705028600, guid: f9807d0728ca9d543bce3d00cb2961f1, type: 3}
+  m_Sprite: {fileID: 6996988570635618637, guid: bd71501c5e787ee4d869e6e7287c4837, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2998,6 +2999,7 @@ MonoBehaviour:
   stageNumber: 1
   cutSceneButton: {fileID: 1140063923}
   isClear: 0
+  Open: {fileID: -435721259152621871, guid: bcc6413c323b71a459cd9178f1cc2d5e, type: 3}
 --- !u!114 &530550812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3023,7 +3025,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -3074,7 +3076,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2819647890520427520, guid: f9807d0728ca9d543bce3d00cb2961f1, type: 3}
+  m_Sprite: {fileID: -7032297639068448187, guid: bd71501c5e787ee4d869e6e7287c4837, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3565,7 +3567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.14901961}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.78431374}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7282,6 +7284,7 @@ MonoBehaviour:
   stageNumber: 0
   cutSceneButton: {fileID: 297312811}
   isClear: 0
+  Open: {fileID: 2301601417667548856, guid: bcc6413c323b71a459cd9178f1cc2d5e, type: 3}
 --- !u!114 &1355012773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7307,7 +7310,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -7358,7 +7361,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2103235186413117581, guid: f9807d0728ca9d543bce3d00cb2961f1, type: 3}
+  m_Sprite: {fileID: 1773985911885375932, guid: bcc6413c323b71a459cd9178f1cc2d5e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9718,6 +9721,7 @@ MonoBehaviour:
   stageNumber: 2
   cutSceneButton: {fileID: 605253759}
   isClear: 0
+  Open: {fileID: -8407726514817362093, guid: bcc6413c323b71a459cd9178f1cc2d5e, type: 3}
 --- !u!114 &2033894179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9743,7 +9747,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -9794,7 +9798,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 8077816884881012311, guid: f9807d0728ca9d543bce3d00cb2961f1, type: 3}
+  m_Sprite: {fileID: -5933453084789169822, guid: bd71501c5e787ee4d869e6e7287c4837, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

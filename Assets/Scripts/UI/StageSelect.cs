@@ -13,6 +13,7 @@ public class StageSelect : MonoBehaviour
     public int stageNumber; //스테이지 번호 0번부터
     public GameObject cutSceneButton;
     public bool isClear;
+    public Sprite Open;
 
     void Start()
     {
@@ -32,12 +33,13 @@ public class StageSelect : MonoBehaviour
             if (NextStageButton.ToString() != "end" /* && 컷씬 시청 완료시?*/) //마지막 스테이지 아니라면
             {
                 NextStageButton.interactable = true; //다음 스테이지 클릭 활성화
+                NextStageButton.GetComponent<Image>().sprite = Open;
             }
         }
         else //스테이지 클리어 X
         {
             NextStageButton.interactable = false; //다음 스테이지 클릭 비활성화
-            cutSceneButton.SetActive(false); //컷씬 버튼 비활성화
+            cutSceneButton.SetActive(false);
         }
     }
 }
