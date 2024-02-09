@@ -26,7 +26,7 @@ public class MapMake : MonoBehaviour
     GameObject enemys;
     GameObject eventDots;
     GameObject bezierDots;
-    [SerializeField] private List<GameObject> mapBGs = new List<GameObject>();
+    [SerializeField] private GameObject mapBG;
     public List<LineRenderer> lrs = new List<LineRenderer>();
     public int lrCount = 0;
     public int bezierCount = 0;
@@ -54,6 +54,7 @@ public class MapMake : MonoBehaviour
         Data.saveData.gameData.bloodBoom = bloodBoom;
         stage = Data.saveData.gameData.stage;
         map = GameObject.Find("Map");
+        mapBG = Resources.Load<GameObject>($"Prefabs/MapBG{stage}");
         bgManager = GameObject.Find("InGameManager").GetComponent<BGManager>();
         Data.saveData.gameData.map = map;
         MapGameObjectMake();
@@ -95,8 +96,8 @@ public class MapMake : MonoBehaviour
             }    
             EnemySetting(stage);
             EventDotSetting(stage);
-            GameObject mapBG = Instantiate(mapBGs[stage], new Vector3(14f, 5f, 0f), Quaternion.identity);
-            mapBG.transform.SetParent(map.transform);
+            GameObject mapBGObj = Instantiate(mapBG, new Vector3(14f, 5f, 0f), Quaternion.identity);
+            mapBGObj.transform.SetParent(map.transform);
             bgManager.BGSetting();
             isMapMake = true;
             isMapClear = false;

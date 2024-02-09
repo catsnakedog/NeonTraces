@@ -51,7 +51,6 @@ public class JsonManager
             stream.Close();
             string jsonData = Encoding.UTF8.GetString(bytes);
             gameData = JsonUtility.FromJson<SaveDataClass>(jsonData);
-            Debug.Log(loadPath);
         }
         else
         {

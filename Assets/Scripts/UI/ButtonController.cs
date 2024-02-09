@@ -29,6 +29,7 @@ public class ButtonController : MonoBehaviour
 
     void Start()
     {
+        Resources.UnloadUnusedAssets();
         soundmanager = SoundManager.sound;
         Data = DataManager.data; //static data
 
