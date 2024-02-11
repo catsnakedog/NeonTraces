@@ -29,6 +29,7 @@ public class InGameManager : MonoBehaviour
 
     IEnumerator SettingGame() // 게임 시작 함수, 맵생성 플레이어 움직임 등등을 한다 / 아마도 맵생성과 움직임은 분리해서 실행할거같다 (수정 필요)
     {
+        Resources.UnloadUnusedAssets();
         yield return new WaitForFixedUpdate();
         Data.saveData.gameData.isCameraFollow = false;
         mapMake.isMapEditor = false;
@@ -59,6 +60,7 @@ public class InGameManager : MonoBehaviour
 
     public void GameEnd()
     {
+        Resources.UnloadUnusedAssets();
         DataManager.data.Save();
         StartCoroutine(GameEndEffect());
     }

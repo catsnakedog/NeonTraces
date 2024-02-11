@@ -3577,7 +3577,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6367328715320651846}
   m_Layer: 0
-  m_Name: MapBG_Tutorial
+  m_Name: MapBG4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
