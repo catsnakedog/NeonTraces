@@ -189,7 +189,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 67486603140524773}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -75.3, y: -15.119499, z: 0}
+  m_LocalPosition: {x: -73.6, y: -15.119499, z: 0}
   m_LocalScale: {x: 1, y: 1.3168, z: 1}
   m_Children: []
   m_Father: {fileID: 6171351951062871618}
@@ -927,7 +927,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 570403752327364717}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -70.4, y: 9.94, z: 0}
+  m_LocalPosition: {x: -70.4, y: 9.709999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 948030331638690947}
@@ -2126,7 +2126,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1451367947762326976}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -118.11, y: -15.119499, z: 0}
+  m_LocalPosition: {x: -116.88, y: -15.119499, z: 0}
   m_LocalScale: {x: 1, y: 1.3168, z: 1}
   m_Children: []
   m_Father: {fileID: 6171351951062871618}
@@ -12408,7 +12408,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7940858052434449809}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -67.54, y: -5.45, z: 0}
+  m_LocalPosition: {x: -67.54, y: -5.68, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 948030331638690947}
@@ -12453,7 +12453,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 86b453f47556def47b75af6ea1b381a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -13751,7 +13751,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8621678168168486674}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -33.7, y: -15.119499, z: 0}
+  m_LocalPosition: {x: -32.999996, y: -15.119499, z: 0}
   m_LocalScale: {x: 1, y: 1.3168, z: 1}
   m_Children: []
   m_Father: {fileID: 6171351951062871618}
