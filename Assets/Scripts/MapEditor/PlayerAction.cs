@@ -138,12 +138,19 @@ public class PlayerAction : MonoBehaviour
     public void Attack() // 플레이어 공격
     {
         if (animaiton.crruentAni == "Jump") return;
-        if (!isDelay) actionC = StartCoroutine("AttackAction");
+        if (!isDelay)
+        {
+            SoundManager.sound.Play("Rmain_attack" + UnityEngine.Random.Range(1, 3).ToString());
+            actionC = StartCoroutine("AttackAction");
+        }
     }
     public void Defence() // 플레이어 방어
     {
         if (animaiton.crruentAni == "Jump") return;
-        if (!isDelay) actionC = StartCoroutine("DefenceAction");
+        if (!isDelay)
+        {
+            actionC = StartCoroutine("DefenceAction");
+        }
     }
     public void LongAttack()
     {
@@ -180,7 +187,6 @@ public class PlayerAction : MonoBehaviour
             aniC = StartCoroutine(CallAni("AttackLeft", attackMotionTime));
             nextA = StartCoroutine(NextAttack(2f));
         }
-        SoundManager.sound.Play("Rmain_attack" + UnityEngine.Random.Range(1, 3).ToString());
         effectC = StartCoroutine(ShowEffect(0, 5, new Vector3(2.2f, 0.4f, 0)));
         actionA = StartCoroutine(afterImage.AfterImageSetting(Data.saveData.gameData.player));
         isAttack = true;
