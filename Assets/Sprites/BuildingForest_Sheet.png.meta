@@ -1,0 +1,1465 @@
+fileFormatVersion: 2
+guid: 58e4ad09e4941cb41b223a03704add4b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8204130274226486419
+    second: BuildingForest_Sheet_0
+  - first:
+      213: 7628153940262589123
+    second: BuildingForest_Sheet_1
+  - first:
+      213: -4802356617230062684
+    second: BuildingForest_Sheet_2
+  - first:
+      213: -5913696770124709005
+    second: BuildingForest_Sheet_3
+  - first:
+      213: -4170550267053464014
+    second: BuildingForest_Sheet_4
+  - first:
+      213: 4209927848722133703
+    second: BuildingForest_Sheet_5
+  - first:
+      213: -2428531882235890214
+    second: BuildingForest_Sheet_6
+  - first:
+      213: 2574427964106732181
+    second: BuildingForest_Sheet_7
+  - first:
+      213: 7017040501067427111
+    second: BuildingForest_Sheet_8
+  - first:
+      213: -2242722103596143388
+    second: BuildingForest_Sheet_9
+  - first:
+      213: 4719436875936973122
+    second: BuildingForest_Sheet_10
+  - first:
+      213: -207215473255840801
+    second: BuildingForest_Sheet_11
+  - first:
+      213: 2998221640368287172
+    second: BuildingForest_Sheet_12
+  - first:
+      213: 388764519243415789
+    second: BuildingForest_Sheet_13
+  - first:
+      213: -1150118866723296952
+    second: BuildingForest_Sheet_14
+  - first:
+      213: -6356849535102480601
+    second: BuildingForest_Sheet_15
+  - first:
+      213: -789014694417602292
+    second: BuildingForest_Sheet_16
+  - first:
+      213: -4787838893212577166
+    second: BuildingForest_Sheet_17
+  - first:
+      213: -6456049648246117999
+    second: BuildingForest_Sheet_18
+  - first:
+      213: 1411544926820260547
+    second: BuildingForest_Sheet_19
+  - first:
+      213: -2953409390100958573
+    second: BuildingForest_Sheet_20
+  - first:
+      213: 3572420645274214789
+    second: BuildingForest_Sheet_21
+  - first:
+      213: 704109270623915398
+    second: BuildingForest_Sheet_22
+  - first:
+      213: 4573087489664208149
+    second: BuildingForest_Sheet_23
+  - first:
+      213: -1709963908150214587
+    second: BuildingForest_Sheet_24
+  - first:
+      213: -7070656767753274330
+    second: BuildingForest_Sheet_25
+  - first:
+      213: -3875668113008699760
+    second: BuildingForest_Sheet_26
+  - first:
+      213: -1798523668566635219
+    second: BuildingForest_Sheet_27
+  - first:
+      213: 8352327615956059533
+    second: BuildingForest_Sheet_28
+  - first:
+      213: 3871375007902180473
+    second: BuildingForest_Sheet_29
+  - first:
+      213: -5965268259179014658
+    second: BuildingForest_Sheet_30
+  - first:
+      213: 5905397475333386370
+    second: BuildingForest_Sheet_31
+  - first:
+      213: 3611064089176816878
+    second: BuildingForest_Sheet_32
+  - first:
+      213: -7340073490250457099
+    second: BuildingForest_Sheet_33
+  - first:
+      213: 4885021646341524175
+    second: BuildingForest_Sheet_34
+  - first:
+      213: -8401845542135414116
+    second: BuildingForest_Sheet_35
+  - first:
+      213: -7126328848001544457
+    second: BuildingForest_Sheet_36
+  - first:
+      213: -4813711770688172754
+    second: BuildingForest_Sheet_37
+  - first:
+      213: 3499311311495332623
+    second: BuildingForest_Sheet_38
+  - first:
+      213: -1270078697977247624
+    second: BuildingForest_Sheet_39
+  - first:
+      213: 5933384672358661972
+    second: BuildingForest_Sheet_40
+  - first:
+      213: -2279081707733019740
+    second: BuildingForest_Sheet_41
+  - first:
+      213: 1107010224055360580
+    second: BuildingForest_Sheet_42
+  - first:
+      213: 4884170038787746684
+    second: BuildingForest_Sheet_43
+  - first:
+      213: 3096477900040078787
+    second: BuildingForest_Sheet_44
+  - first:
+      213: -7146856219283534618
+    second: BuildingForest_Sheet_45
+  - first:
+      213: -7091225030356140040
+    second: BuildingForest_Sheet_46
+  - first:
+      213: -5656636905000759665
+    second: BuildingForest_Sheet_47
+  - first:
+      213: -620855476938672310
+    second: BuildingForest_Sheet_48
+  - first:
+      213: -1716102277896363512
+    second: BuildingForest_Sheet_49
+  - first:
+      213: 7949547263888125994
+    second: BuildingForest_Sheet_50
+  - first:
+      213: 3375319765945411551
+    second: BuildingForest_Sheet_51
+  - first:
+      213: 2765995542625811695
+    second: BuildingForest_Sheet_52
+  - first:
+      213: 8322291884947985398
+    second: BuildingForest_Sheet_53
+  - first:
+      213: -3358815678353155200
+    second: BuildingForest_Sheet_54
+  - first:
+      213: 923136627042860003
+    second: BuildingForest_Sheet_55
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 7
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1470
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39c3c4e540dead170800000000000000
+      internalID: 8204130274226486419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 1470
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c2195dc795acd960800000000000000
+      internalID: 7628153940262589123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 1470
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ab6141c91a9a5db0800000000000000
+      internalID: -4802356617230062684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 1470
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3738753ae145eeda0800000000000000
+      internalID: -5913696770124709005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 1470
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2362e5ee0aa3f16c0800000000000000
+      internalID: -4170550267053464014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 1470
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c27b11c21bac6a30800000000000000
+      internalID: 4209927848722133703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 1470
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad57e99be1f1c4ed0800000000000000
+      internalID: -2428531882235890214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1260
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 592f96ce7943ab320800000000000000
+      internalID: 2574427964106732181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 1260
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72d27a86829816160800000000000000
+      internalID: 7017040501067427111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 1260
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ec2c35112040e0e0800000000000000
+      internalID: -2242722103596143388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 1260
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2414a1285dece7140800000000000000
+      internalID: 4719436875936973122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 1260
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd30f9cff92df1df0800000000000000
+      internalID: -207215473255840801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 1260
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cd6a0852b2db9920800000000000000
+      internalID: 2998221640368287172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 1260
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de087ce354b256500800000000000000
+      internalID: 388764519243415789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1050
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 849ab7bfbf4f900f0800000000000000
+      internalID: -1150118866723296952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 1050
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72f0c91270fe7c7a0800000000000000
+      internalID: -6356849535102480601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 1050
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c09eca8d05bdc05f0800000000000000
+      internalID: -789014694417602292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 1050
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 272d348c4ed2e8db0800000000000000
+      internalID: -4787838893212577166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 1050
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1992100fc018766a0800000000000000
+      internalID: -6456049648246117999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 1050
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ca50abd1a0d69310800000000000000
+      internalID: 1411544926820260547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 1050
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 392bababec16307d0800000000000000
+      internalID: -2953409390100958573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 840
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58167dd36a9c39130800000000000000
+      internalID: 3572420645274214789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 840
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68d099ea6af75c900800000000000000
+      internalID: 704109270623915398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 840
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51dc734b7ded67f30800000000000000
+      internalID: 4573087489664208149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 840
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 540c7f3a2ecf448e0800000000000000
+      internalID: -1709963908150214587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 840
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62cba55b12bffdd90800000000000000
+      internalID: -7070656767753274330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 840
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 096dec8a26cd63ac0800000000000000
+      internalID: -3875668113008699760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 840
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2d04fe904c5a07e0800000000000000
+      internalID: -1798523668566635219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 630
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d850fb4d6bd69e370800000000000000
+      internalID: 8352327615956059533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 630
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 974a55aee03e9b530800000000000000
+      internalID: 3871375007902180473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 630
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef5d8b5af1c173da0800000000000000
+      internalID: -5965268259179014658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 630
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2803cb637bf24f150800000000000000
+      internalID: 5905397475333386370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 630
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eecbd8828a31d1230800000000000000
+      internalID: 3611064089176816878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 630
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ff1c5ccc02d22a90800000000000000
+      internalID: -7340073490250457099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 630
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcac74e2e451bc340800000000000000
+      internalID: 4885021646341524175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 420
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c92c15b8ef5a66b80800000000000000
+      internalID: -8401845542135414116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_36
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 420
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fecf3e6ba13a1d90800000000000000
+      internalID: -7126328848001544457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_37
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 420
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2dc30116a2423db0800000000000000
+      internalID: -4813711770688172754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_38
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 420
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f038f20091d009030800000000000000
+      internalID: 3499311311495332623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_39
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 420
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87886424726cf5ee0800000000000000
+      internalID: -1270078697977247624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_40
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 420
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45f7faf4ced975250800000000000000
+      internalID: 5933384672358661972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_41
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 420
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a39b7c03431f50e0800000000000000
+      internalID: -2279081707733019740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 210
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44c9b8ffee3ec5f00800000000000000
+      internalID: 1107010224055360580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_43
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 210
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7bac88d5ce08c340800000000000000
+      internalID: 4884170038787746684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_44
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 210
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c58cb68e36e8fa20800000000000000
+      internalID: 3096477900040078787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_45
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 210
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ec40dc522441dc90800000000000000
+      internalID: -7146856219283534618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_46
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 210
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ff7343e768e69d90800000000000000
+      internalID: -7091225030356140040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_47
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 210
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8e801e74b69f71b0800000000000000
+      internalID: -5656636905000759665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_48
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 210
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a47f630bb374267f0800000000000000
+      internalID: -620855476938672310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_49
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 802afbf021e2f28e0800000000000000
+      internalID: -1716102277896363512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_50
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 0
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a20fa353e17725e60800000000000000
+      internalID: 7949547263888125994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_51
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 0
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd7e784a17b87de20800000000000000
+      internalID: 3375319765945411551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_52
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 0
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fec76888a4ac26620800000000000000
+      internalID: 2765995542625811695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_53
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 0
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f3d07f3068be7370800000000000000
+      internalID: 8322291884947985398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_54
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 0
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08b5fb1bfe61361d0800000000000000
+      internalID: -3358815678353155200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BuildingForest_Sheet_55
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 0
+        width: 360
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ebba0e0fd3afcc00800000000000000
+      internalID: 923136627042860003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
