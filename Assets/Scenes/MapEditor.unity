@@ -1590,12 +1590,7 @@ MonoBehaviour:
   blood: {fileID: 1735534651280432970, guid: 428e8bfeed6b0d743b93e7a39e635dc8, type: 3}
   bloodBoom: {fileID: 2641618844068464857, guid: 9629206da8c3b60428020dfbc44c85fd, type: 3}
   isMapEditor: 0
-  mapBGs:
-  - {fileID: 7793046088606883056, guid: 6be99fcb5e8cb1c4aba336749dbc74ac, type: 3}
-  - {fileID: 498779770407644449, guid: 4e3253e31c081b44d9ff4c936f0f9259, type: 3}
-  - {fileID: 1763227548786395853, guid: 79db893724348a643bb3400d694b2616, type: 3}
-  - {fileID: 5530536412497794244, guid: 216fc5db12c3ec1438e96e8ba344856b, type: 3}
-  - {fileID: 7793046088606883056, guid: e0604b5d3d2af5942af9b522d8fdb23b, type: 3}
+  mapBG: {fileID: 0}
   lrs: []
   lrCount: 0
   bezierCount: 0
