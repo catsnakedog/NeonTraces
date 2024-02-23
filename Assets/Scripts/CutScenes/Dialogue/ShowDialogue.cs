@@ -41,7 +41,52 @@ public class ShowDialogue : MonoBehaviour
         talkDatas = transform.GetComponent<Dialogue>().GetObjectDialogue();
         if (talkDatas != null) DebugDialogue(talkDatas); // 대사가 null이 아니면 대사 출력
         //Debug.Log(Text.transform.parent.parent.name);
+
+        StartCoroutine(StartCutScene());
     }
+
+    IEnumerator StartCutScene()
+    {
+        yield return new WaitForSecondsRealtime(1f);
+        InitDialogue(); //인덱스 초기화 및 유효성 검사
+
+        try
+        {
+            if (talkDatasIndex >= talkDatas.Length) // 대화가 끝났다면
+            {
+                gameObject.SetActive(false); // 대화창이 나오는 Canvas 비활성화
+                playableDirector.Resume(); //해당 대화가 종료되면 타임라인 재시작
+            }
+
+            //대화 중이라면 대사 띄우기
+            else if (talkDatas[talkDatasIndex].name == "주인공") //주인공의 대사라면
+            {
+                Talk("주인공");
+            }
+            else if (talkDatas[talkDatasIndex].name == "드론") //드론의 대사라면
+            {
+                Talk("드론");
+            }
+            else if (talkDatas[talkDatasIndex].name == "스피커") //스피커의 대사라면
+            {
+                Talk("스피커");
+            }
+            else if (talkDatas[talkDatasIndex].name == "AI") //스피커의 대사라면
+            {
+                Talk("AI");
+            }
+
+            else //모두 아니라면
+            {
+                yield break;
+            }
+        }
+        catch (NullReferenceException)
+        {
+            Debug.Log("일단 버그 예외 처리");
+        }
+    }
+
     public void ReceiveSignal_Play() //클릭 안해도 대화 나오도록
     {
         Debug.Log("대화 시작");
