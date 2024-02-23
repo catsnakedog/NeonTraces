@@ -250,6 +250,7 @@ public class MapMake : MonoBehaviour
     public void SetStage() // 스테이지를 입력받아 변경시킴 (맵 에디터 용)
     {
         Data.saveData.gameData.stage = int.Parse(stageInput.text);
+        mapBG = Resources.Load<GameObject>($"Prefabs/MapBG{Data.saveData.gameData.stage}");
     }
 
     public void SaveObject() // 오브젝트들을 읽어와서 전부 저장한다 (맵 에디터 용)

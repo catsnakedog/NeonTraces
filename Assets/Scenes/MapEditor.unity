@@ -2227,6 +2227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BGObject:
   - {fileID: 0}
+  BG01Object: {fileID: 8005737084661222561, guid: a7148ee079c9eaa4895df0923c5238a8, type: 3}
   BGs:
   - {fileID: 1261606407379327772, guid: 4673ce5138c74ab49a81947fbce0fd10, type: 3}
   - {fileID: 5196599279886631725, guid: f473b14bcb822794fbc74b73224af95a, type: 3}

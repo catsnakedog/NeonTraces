@@ -10,6 +10,7 @@ public class BGManager : MonoBehaviour
     GameObject player;
     GameObject _camera;
     public GameObject[] BGObject = new GameObject[2];
+    public GameObject BG01Object;
 
     SpriteRenderer spriteRenderer;
 
@@ -79,15 +80,34 @@ public class BGManager : MonoBehaviour
             }
         }
 
-        BGObject = new GameObject[2];
+        switch(Data.saveData.gameData.stage)
+        {
+            case 0:
+                BGObject = new GameObject[2];
+                VariableSetting(1);
+                BGObject[0] = Instantiate(BG01Object, new Vector3(0, 0, 0f), Quaternion.identity, GameObject.Find("MainCamera").transform);
+                BGObject[1] = Instantiate(BGs[1], new Vector3(0, 0, 0f), Quaternion.identity, GameObject.Find("MainCamera").transform);
+                BGObject[1].transform.position = new Vector3(GameObject.Find("MainCamera").transform.position.x, GameObject.Find("MainCamera").transform.position.y, 0);
+                BGObject[0].transform.position = new Vector3(GameObject.Find("MainCamera").transform.position.x, GameObject.Find("MainCamera").transform.position.y, 0);
+                break;
+            case 1:
+                goto case 0;
+            case 2:
+                BGObject = new GameObject[2];
 
-        VariableSetting(0);
-        VariableSetting(1);
-        BGObject[0] = Instantiate(BGs[0], new Vector3(DefaultX[0], DefaultY[0], 0f), Quaternion.identity, GameObject.Find("MainCamera").transform);
-        BGObject[1] = Instantiate(BGs[1], new Vector3(0, 0, 0f), Quaternion.identity, GameObject.Find("MainCamera").transform);
-        BGObject[1].transform.position = new Vector3(GameObject.Find("MainCamera").transform.position.x, GameObject.Find("MainCamera").transform.position.y, 0);
+                VariableSetting(0);
+                VariableSetting(1);
+                BGObject[0] = Instantiate(BGs[0], new Vector3(DefaultX[0], DefaultY[0], 0f), Quaternion.identity, GameObject.Find("MainCamera").transform);
+                BGObject[1] = Instantiate(BGs[1], new Vector3(0, 0, 0f), Quaternion.identity, GameObject.Find("MainCamera").transform);
+                BGObject[1].transform.position = new Vector3(GameObject.Find("MainCamera").transform.position.x, GameObject.Find("MainCamera").transform.position.y, 0);
 
-        actionM += BGMoveSetting;
+                actionM += BGMoveSetting;
+                break;
+            case 3:
+                goto case 2;
+            default:
+                goto case 1;
+        }
     }
 
     void VariableSetting(int num)
