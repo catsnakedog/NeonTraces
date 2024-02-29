@@ -59,6 +59,18 @@ public class CutSceneManager : MonoBehaviour
         yield return null;
         Instantiate(TutoObj[3]);
     }
+    IEnumerator CutScene6()
+    {
+        Time.timeScale = 0f;
+        yield return null;
+        Instantiate(TutoObj[4]);
+    }
+    IEnumerator CutScene7()
+    {
+        Time.timeScale = 0f;
+        yield return null;
+        Instantiate(TutoObj[5]);
+    }
 
     public IEnumerator FadeIn()
     {

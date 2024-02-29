@@ -289,22 +289,25 @@ public class GameData
     public List<bool> isFirstCutScene;
     public string crruentScene;
     public bool isFirstGame;
+    public List<int> stageAttemptCount;
 
     public GameData()
     {
         this.stage = 0;
-        this.stageClearInfo = new List<bool> { false, false, false, false };
+        this.stageClearInfo = new List<bool> { false, false, false, false, false };
         this.camsize = 0;
         this.isGameStart = false;
         this.enemyPoint = new List<GameObject>();
         this.enemyInfo = new List<EnemyInfo>();
         this.isInGame = false;
         this.isCameraFollow = false;
-        this.isFirstCutScene = new List<bool> { true, true, true, true };
+        this.isFirstCutScene = new List<bool> { true, true, true, true, true };
         this.crruentScene = "";
         this.isFirstGame = true;
+        this.isCameraFollow = true;
+        this.stageAttemptCount = new List<int> { 0, 0, 0, 0, 0 };
     }
-    public GameData(int stage, List<bool> stageClearInfo, float camsize, bool isGameStart, List<GameObject> enemyPoint, bool isInGame, bool isCameraFollow, List<bool> isFirstCutScene, string crruentScene, bool isFirstGame)
+    public GameData(int stage, List<bool> stageClearInfo, float camsize, bool isGameStart, List<GameObject> enemyPoint, bool isInGame, bool isCameraFollow, List<bool> isFirstCutScene, string crruentScene, bool isFirstGame, List<int> stageAttemptCount)
     {
         this.stage = stage;
         this.stageClearInfo = stageClearInfo;
@@ -316,6 +319,7 @@ public class GameData
         this.isFirstCutScene = isFirstCutScene;
         this.crruentScene= crruentScene;
         this.isFirstGame= isFirstGame;
+        this.stageAttemptCount = stageAttemptCount;
     }
 }
 

@@ -51,6 +51,11 @@ public class Tuto : MonoBehaviour
             case 3:
                 _playerAction.Defence();
                 break;
+            case 4:
+                break;
+            case 5:
+                _playerAction.Attack();
+                break;
         }
 
         Destroy(gameObject);

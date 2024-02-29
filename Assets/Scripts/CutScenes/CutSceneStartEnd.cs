@@ -38,13 +38,16 @@ public class CutSceneStartEnd : MonoBehaviour
 
     public void endScene() // 컷씬 종료 시 // InGame -> 컷씬 , UI -> 컷씬 분리가 필요해서 따로 제작함 // 최초 컷씬 재생을 위해 추가 분리
     {
-        if(gameObject.scene.name == "CutScene00") // 게임 첫 시작 연출일 때
+        if (DataManager.data.saveData.gameData.crruentScene == "UI") // UI에서 호출한 경우
         {
-            DataManager.data.saveData.gameData.stage = 4;
-            SceneManager.LoadScene("InGameScene");
-        }
-        else if(DataManager.data.saveData.gameData.crruentScene == "UI") // UI에서 호출한 경우
-        {
+            if (gameObject.scene.name == "CutScene00" && DataManager.data.saveData.gameData.isFirstGame) // 게임 첫 시작 연출일 때
+            {
+                DataManager.data.saveData.gameData.isFirstCutScene[DataManager.data.saveData.gameData.stage] = false;
+                DataManager.data.Save();
+                DataManager.data.saveData.gameData.stage = 4;
+                SceneManager.LoadScene("InGameScene");
+            }
+
             for (int i = 0; i < MainObject.Length; i++) // UI씬의 Light와 EventSystem, StageCanvas 활성화
             {
                 MainObject[i].SetActive(true);
@@ -54,6 +57,14 @@ public class CutSceneStartEnd : MonoBehaviour
         }
         else if(DataManager.data.saveData.gameData.crruentScene == "InGame")
         {
+            if (gameObject.scene.name == "CutScene00") // 게임 첫 시작 연출일 때
+            {
+                DataManager.data.saveData.gameData.isFirstCutScene[DataManager.data.saveData.gameData.stage] = false;
+                DataManager.data.Save();
+                DataManager.data.saveData.gameData.stage = 4;
+                SceneManager.LoadScene("InGameScene");
+            }
+
             DataManager.data.saveData.gameData.isFirstCutScene[DataManager.data.saveData.gameData.stage] = false;
             DataManager.data.Save();
             if (DataManager.data.saveData.gameData.stage == 3)

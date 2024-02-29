@@ -403,8 +403,7 @@ public class PlayerMove : MonoBehaviour
         playerAction = null;
         if (Data.saveData.gameData.isInGame)
         {
-            if(Data.saveData.gameData.stage != 4)
-                Data.saveData.gameData.stageClearInfo[Data.saveData.gameData.stage] = true;
+            Data.saveData.gameData.stageClearInfo[Data.saveData.gameData.stage] = true;
             GameObject.Find("Canvas").transform.GetChild(0).gameObject.SetActive(false);
             player.transform.GetChild(0).gameObject.SetActive(false);
             SoundManager.sound.BGMLoopSet(false);

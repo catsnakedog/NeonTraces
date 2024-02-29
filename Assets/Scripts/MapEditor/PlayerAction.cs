@@ -251,6 +251,7 @@ public class PlayerAction : MonoBehaviour
 
     public void ButtonDown()
     {
+        if (animaiton.crruentAni == "Jump") return;
         if (!isDelay)
         {
             timeCount = 0;
@@ -261,6 +262,7 @@ public class PlayerAction : MonoBehaviour
     }
     public void ButtonUp()
     {
+        if (animaiton.crruentAni == "Jump") return;
         playerAction = null;
         if (isLongClick)
         {
@@ -304,6 +306,10 @@ public class PlayerAction : MonoBehaviour
         if (actionA != null)
         {
             StopCoroutine(actionA);
+        }
+        if (dragSound != null)
+        {
+            StopCoroutine(dragSound);
         }
         aniC = StartCoroutine(CallAni("Down", 0.74f));
         DataManager.data.saveData.gameData.player.transform.GetChild(0).gameObject.SetActive(false);
@@ -378,10 +384,5 @@ public class PlayerAction : MonoBehaviour
         isNextAttack = true;
         yield return new WaitForSeconds(time);
         isNextAttack = false;
-    }
-
-    void Effect()
-    {
-
     }
 }

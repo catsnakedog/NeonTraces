@@ -339,6 +339,7 @@ MonoBehaviour:
       isFirstCutScene: 01010101
       crruentScene: 
       isFirstGame: 1
+      stageAttemptCount: 0000000000000000000000000000000000000000
     ui:
       bgm: -40
       sfx: -40
@@ -2141,6 +2142,8 @@ MonoBehaviour:
   - {fileID: 4004392411460989701, guid: 0f36ea33a287b26489bb85e70dd4c45c, type: 3}
   - {fileID: 4004392411460989701, guid: 18a21611e1e40f34e91f29c3ea1ae5d2, type: 3}
   - {fileID: 4004392411460989701, guid: 60d59e1f297062d44b9a022927da12ae, type: 3}
+  - {fileID: 701582307756663122, guid: 78d84edf91df9ec429a6bd39416a10ac, type: 3}
+  - {fileID: 8215253820401321058, guid: 55886e0a0e187c24fa34d629a5f096bc, type: 3}
   Elevator: {fileID: 4529309915444496247, guid: 2356ba02f8a642c429a3cf64e5333b6d, type: 3}
 --- !u!114 &1323966425
 MonoBehaviour:

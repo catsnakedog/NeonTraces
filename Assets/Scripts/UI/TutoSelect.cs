@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StageSelect : MonoBehaviour
+public class TutoSelect : MonoBehaviour
 {
-    
+
     DataManager Data;
 
     Button stageButton;
@@ -18,11 +18,10 @@ public class StageSelect : MonoBehaviour
 
     void Start()
     {
-        Debug.Log(Application.persistentDataPath + "/Data/GameData.json");
         Data = DataManager.data; //static data
         stageButton = this.transform.GetComponent<Button>();
+        NextStageButton = this.transform.parent.GetChild(2).GetComponent<Button>();
         isActive = true;
-        NextStageButton = this.transform.parent.GetChild(stageNumber + 3).GetComponent<Button>();
         //print(stageButton +"'s next stage is "+ NextStageButton);
 
         isClear = Data.saveData.gameData.stageClearInfo[stageNumber];
@@ -35,13 +34,9 @@ public class StageSelect : MonoBehaviour
         if (isClear == true) //해당 스테이지 클리어 완료 시
         {
             cutSceneButton.SetActive(true); //컷씬 버튼 활성화
-
-            if (NextStageButton.ToString() != "end" /* && 컷씬 시청 완료시?*/) //마지막 스테이지 아니라면
-            {
-                NextStageButton.interactable = true; //다음 스테이지 클릭 활성화
-                NextStageButton.GetComponent<Image>().sprite = Open;
-                isActive = false;
-            }
+            NextStageButton.interactable = true; //다음 스테이지 클릭 활성화
+            NextStageButton.GetComponent<Image>().sprite = Open;
+            isActive = false;
         }
         else //스테이지 클리어 X
         {

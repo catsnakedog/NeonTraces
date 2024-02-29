@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,9 +10,12 @@ public class InGameManager : MonoBehaviour
     MapMake mapMake;
     DataManager Data;
     PlayerMove playerMove;
+    PlayerAction playerAction;
     OptimizeEnemy optimizeEnemy;
     GameObject player;
     [SerializeField] Image fadeInOutPanel;
+    [SerializeField] GameObject stageAttemptObj;
+
     int stage;
     // Start is called before the first frame update
     void Start()
@@ -19,6 +23,7 @@ public class InGameManager : MonoBehaviour
         fadeInOutPanel.gameObject.SetActive(true);
         mapMake = GameObject.Find("MapMaker").GetComponent<MapMake>();
         playerMove = gameObject.GetComponent<PlayerMove>();
+        playerAction = gameObject.GetComponent<PlayerAction>();
         optimizeEnemy = gameObject.GetComponent<OptimizeEnemy>();
         player = GameObject.Find("Player");
         Data = DataManager.data;
@@ -40,6 +45,7 @@ public class InGameManager : MonoBehaviour
         player.transform.position = Data.saveData.mapData[stage].moveDots[0].v3 + new Vector3(-10, 0, 0);
         yield return new WaitForSeconds(0.5f);
         yield return StartCoroutine(FadeIn());
+        StartCoroutine(ShowStageAttempt());
         yield return StartCoroutine(playerMove.LeftInMove());
         playerMove.GameStart();
     }
@@ -51,6 +57,8 @@ public class InGameManager : MonoBehaviour
 
     IEnumerator GameOverEffect()
     {
+        DataManager.data.saveData.gameData.stageAttemptCount[DataManager.data.saveData.gameData.stage]++;
+        DataManager.data.Save();
         SoundManager.sound.Stop("BG");
         yield return new WaitForSeconds(1f);
         yield return StartCoroutine(FadeOut());
@@ -60,6 +68,7 @@ public class InGameManager : MonoBehaviour
 
     public void GameEnd()
     {
+        playerAction.PlayerActionReset();
         Resources.UnloadUnusedAssets();
         DataManager.data.Save();
         StartCoroutine(GameEndEffect());
@@ -69,7 +78,9 @@ public class InGameManager : MonoBehaviour
     {
         yield return StartCoroutine(FadeOut());
         yield return new WaitForSeconds(0.5f);
-        if(DataManager.data.saveData.gameData.stage == 4)
+        DataManager.data.saveData.gameData.stageAttemptCount[DataManager.data.saveData.gameData.stage] = 0;
+        DataManager.data.Save();
+        if (DataManager.data.saveData.gameData.stage == 4)
         {
             DataManager.data.saveData.gameData.isFirstGame = false;
             DataManager.data.saveData.gameData.stage = 0;
@@ -109,5 +120,42 @@ public class InGameManager : MonoBehaviour
             yield return null;
         }
         fadeInOutPanel.color = new Color(0, 0, 0, 1);
+    }
+
+    public IEnumerator ShowStageAttempt()
+    {
+        stage = Data.saveData.gameData.stage;
+        stageAttemptObj.transform.GetChild(2).GetComponent<Text>().text = $"{Data.saveData.gameData.stageAttemptCount[stage]}회";
+        if(stage == 4)
+            stageAttemptObj.transform.GetChild(3).GetComponent<Text>().text = $"튜토리얼";
+        else
+            stageAttemptObj.transform.GetChild(3).GetComponent<Text>().text = $"스테이지 {stage + 1}";
+        stageAttemptObj.transform.localPosition = new Vector3(-410, 0, 0);
+        float moveAmount = 0;
+        while (moveAmount < 410f)
+        {
+            float move = Time.deltaTime * 650;
+            stageAttemptObj.transform.localPosition += new Vector3(move, 0, 0);
+            moveAmount += move;
+            yield return null;
+        }
+        stageAttemptObj.transform.localPosition = new Vector3(0, 0, 0);
+
+        yield return new WaitForSeconds(3f);
+        StartCoroutine(BlindStageAttempt());
+    }
+
+    public IEnumerator BlindStageAttempt()
+    {
+        stageAttemptObj.transform.localPosition = new Vector3(0, 0, 0);
+        float moveAmount = 0;
+        while (moveAmount < 410f)
+        {
+            float move = Time.deltaTime * 650;
+            stageAttemptObj.transform.localPosition -= new Vector3(move, 0, 0);
+            moveAmount += move;
+            yield return null;
+        }
+        stageAttemptObj.transform.localPosition = new Vector3(-410, 0, 0);
     }
 }

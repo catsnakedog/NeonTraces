@@ -195,12 +195,18 @@ public class SoundManager : MonoBehaviour
         DelayText.text = DataManager.data.saveData.ui.delay.ToString();
         if(DataManager.data.saveData.gameData.crruentScene == "InGame")
         {
-            float time = BGMSource.time += 0.1f;
-            if (time >= BGMSource.clip.length)
+            try
             {
-                time = BGMSource.clip.length;
+                float time = BGMSource.time += 0.1f;
+                if (time >= BGMSource.clip.length)
+                {
+                    time = BGMSource.clip.length;
+                }
+                BGMTimeSet(time);
             }
-            BGMTimeSet(time);
+            catch (Exception e)
+            { 
+            }
         }
     }
 
@@ -300,7 +306,6 @@ public class SoundManager : MonoBehaviour
     public void BGMTimeSet(float value)
     {
         BGMSource.time = value;
-        Debug.Log(BGMSource.time);
     }
 
     public void BGMLoopSet(bool value)

@@ -53,7 +53,7 @@ public class CanvasFadeEffect : MonoBehaviour
         while (accumTime < fadeTime)
         {
             canvasGroup.alpha = Mathf.Lerp(1f, 0f, accumTime / fadeTime);
-            yield return 0;
+            yield return null;
             accumTime += Time.deltaTime ;
         }
         canvasGroup.alpha = 0f;

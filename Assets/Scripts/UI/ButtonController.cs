@@ -21,6 +21,8 @@ public class ButtonController : MonoBehaviour
 
     GameObject tmp;
 
+    private bool _isWrongClick;
+
 
     private void Awake()
     {
@@ -29,13 +31,21 @@ public class ButtonController : MonoBehaviour
 
     void Start()
     {
+        _isWrongClick = true;
+
         Resources.UnloadUnusedAssets();
         soundmanager = SoundManager.sound;
         Data = DataManager.data; //static data
 
         soundmanager.CloseOption(); //게임 시작시 메뉴 패널 비활성화
         creditPanel.SetActive(false); //게임 시작시 크레딧 패널 비활성화
-        
+        StartCoroutine(PreventWrongClick());
+    }
+
+    IEnumerator PreventWrongClick()
+    {
+        yield return new WaitForSecondsRealtime(1f);
+        _isWrongClick = false;
     }
 
     public void OpenCredit()
@@ -187,8 +197,8 @@ public class ButtonController : MonoBehaviour
 
             Data.saveData.gameData.stage = num;
 
-            if(num == 0 && Data.saveData.gameData.isFirstGame) // 게임을 처음 시작한 경우
-                StartCoroutine("LoadCutScene", 0);
+            if(num == 4 && Data.saveData.gameData.isFirstGame) // 게임을 처음 시작한 경우
+                StartCoroutine("LoadCutScene", num);
             else
                 Invoke("LoadGame", 1f); //소리 길이만큼 대기 후 실행
         }
@@ -227,7 +237,7 @@ public class ButtonController : MonoBehaviour
             tmp.GetComponent<ButtonEvent>().SelectBoxBlink(true);
 
             soundmanager.Play("Execute"); // 소리 확인 필요**************************
-            StartCoroutine("LoadCutScene", num + 1);
+            StartCoroutine("LoadCutScene", num);
         }
         else //첫번째 클릭이면 선택 표시
         {
@@ -245,6 +255,8 @@ public class ButtonController : MonoBehaviour
     #endregion
     public void canvasSkip()
     {
+        if (_isWrongClick)
+            return;
         CanvasEffect.FadeoutSkip();
     }
 
