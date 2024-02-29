@@ -387,6 +387,7 @@ public class PlayerMove : MonoBehaviour
         Data.saveData.gameData.isCameraFollow = false;
         player.transform.position = Data.saveData.mapData[stage].moveDots[Data.saveData.mapData[stage].moveDots.Count - 1].v3;
         float moveAmount = 0;
+        RunOrWalk();
         while (moveAmount < 40f)
         {
             float move = Time.deltaTime * 10;
