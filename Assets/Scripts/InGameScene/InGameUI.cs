@@ -7,7 +7,13 @@ public class InGameUI : MonoBehaviour
 {
     public void TimeSetting(bool value)
     {
-        Time.timeScale = value ? 1f : 0f;
+        if (value)
+            if (GameObject.Find("TutoPopUpOn"))
+                Time.timeScale = 0f;
+            else
+                Time.timeScale = 1f;
+        else
+            Time.timeScale = 0f;
         if(value)
             SoundManager.sound.BGMPause(false);
         else
