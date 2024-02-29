@@ -124,6 +124,7 @@ public class InGameManager : MonoBehaviour
 
     public IEnumerator ShowStageAttempt()
     {
+        yield return new WaitForSeconds(0.5f);
         stage = Data.saveData.gameData.stage;
         stageAttemptObj.transform.GetChild(2).GetComponent<Text>().text = $"{Data.saveData.gameData.stageAttemptCount[stage]}회";
         if(stage == 4)
