@@ -15,6 +15,7 @@ public class Tuto : MonoBehaviour
     void Start()
     {
         _mainCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
+        gameObject.GetComponent<Canvas>().renderMode = RenderMode.ScreenSpaceCamera;
         gameObject.GetComponent<Canvas>().worldCamera = _mainCamera;
         gameObject.GetComponent<Canvas>().sortingLayerName = "UI";
         gameObject.GetComponent<Canvas>().sortingOrder = 9;

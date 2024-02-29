@@ -11,6 +11,7 @@ public class GameLogoMove : MonoBehaviour
 
     private RectTransform targetRT;
     private RectTransform RT;
+    bool isActive;
 
     float distance;
     Vector3 scaleVector;
@@ -23,11 +24,14 @@ public class GameLogoMove : MonoBehaviour
 
         distance = Vector3.Distance(RT.localPosition, targetRT.localPosition);
         scaleVector = RT.localScale - targetRT.localScale;
+        isActive = true;
     }
 
     // Update is called once per frame
     public void Update()
     {
+        if (!isActive)
+            return;
         if (GetComponent<Image>().color.a == 1) //로고 켜지면 이동
         {
             MovePath();
