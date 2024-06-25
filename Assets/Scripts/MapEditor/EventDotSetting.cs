@@ -21,9 +21,6 @@ public class EventDotSetting : MonoBehaviour
     Action eventAction;
 
     public int type;
-    public float time = 0;
-
-    public float ShakePower;
     /*
      * 1 jump down 이동
      * 2 속도 점진적 증가, 감소
@@ -36,6 +33,9 @@ public class EventDotSetting : MonoBehaviour
      * 9 플레이어 정지
      * 10 에니메이션 변경 / 미구현
      */
+    public float time = 0;
+
+    public float ShakePower;
 
     
     void Start()
